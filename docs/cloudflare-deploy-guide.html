@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deploy Majestic Trunk to Cloudflare Pages</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --sidebar-bg:     #ffffff;
+    --sidebar-border: #e8e8e8;
+    --sidebar-text:   #777777;
+    --sidebar-active: #111111;
+    --sidebar-hover:  #f5f5f5;
+    --sidebar-w:      240px;
+    --canvas:     #d8d8d8;
+    --bg:         #ffffff;
+    --bg2:        #f9f9f9;
+    --bg3:        #f2f2f2;
+    --border:     #e0e0e0;
+    --border2:    #cccccc;
+    --text:       #111111;
+    --text2:      #444444;
+    --text3:      #888888;
+    --purple:     #6b5fd6;
+    --purple-l:   #8b7ee8;
+    --purple-d:   #4a3fb5;
+    --purple-bg:  #f0eeff;
+    --green:      #0f7a5a;
+    --green-bg:   #edfaf5;
+    --amber:      #92580a;
+    --amber-bg:   #fff8ec;
+    --red:        #c0392b;
+    --red-bg:     #fff0ef;
+    --code-bg:    #0d0f1a;
+    --code-text:  #c8d6f5;
+    --code-border:#2a2d4a;
+    --code-green: #1d9e75;
+    --code-purple:#a89cf7;
+    --code-amber: #ba7517;
+    --code-muted: #5a6a9a;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+    --radius:    8px;
+    --radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  #sidebar {
+    width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+  #sidebar::-webkit-scrollbar { width: 4px; }
+  #sidebar::-webkit-scrollbar-track { background: transparent; }
+  #sidebar::-webkit-scrollbar-thumb { background: #dddddd; border-radius: 2px; }
+  .sidebar-logo {
+    padding: 22px 20px 18px;
+    border-bottom: 1px solid var(--sidebar-border);
+  }
+  .sidebar-logo .logo-title {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sidebar-active);
+    letter-spacing: 0.1em;
+  }
+  .sidebar-logo .logo-sub {
+    font-size: 11px;
+    color: #5a6a9a;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+  .sidebar-nav { padding: 10px 0 20px; flex: 1; }
+  .nav-group-label {
+    padding: 14px 20px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    font-family: var(--font-mono);
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 20px;
+    font-size: 13px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.12s;
+    font-family: var(--font-mono);
+  }
+  .nav-item:hover { color: #333333; background: var(--sidebar-hover); }
+  .nav-item.active {
+    color: var(--sidebar-active);
+    border-left-color: #333333;
+    background: rgba(0,0,0,0.06);
+    font-weight: 600;
+  }
+  .nav-num { color: #cccccc; font-size: 10px; width: 18px; flex-shrink: 0; }
+  .nav-item.active .nav-num { color: #666666; }
+  .sidebar-footer {
+    padding: 14px 20px;
+    border-top: 1px solid var(--sidebar-border);
+    font-size: 11px;
+    color: #bbbbbb;
+    font-family: var(--font-mono);
+    line-height: 1.6;
+  }
+
+  /* MAIN */
+  #main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    min-height: 100vh;
+    padding: 32px 40px;
+    background: var(--canvas);
+  }
+  .page {
+    background: var(--bg);
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    border-radius: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 64px 48px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .accent { color: var(--purple); }
+  .hero-desc {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text2);
+    font-weight: 500;
+  }
+  .badge.purple { background: var(--purple-bg); border-color: #c5bef5; color: var(--purple-d); }
+  .badge.green  { background: var(--green-bg);  border-color: #b0e8d6; color: var(--green); }
+  .badge.amber  { background: var(--amber-bg);  border-color: #f5d9a0; color: var(--amber); }
+
+  /* SECTIONS */
+  .content-wrap { border-bottom: 1px solid var(--border); }
+  .section { padding: 52px 64px; max-width: 860px; }
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .section > h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .section-intro {
+    background: var(--purple-bg);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin: 20px 0 32px;
+    font-size: 14px;
+    color: var(--purple-d);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .section h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+  .section h4 { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 8px; }
+  .section p { color: var(--text2); margin-bottom: 16px; font-size: 15px; line-height: 1.8; }
+  .section ul, .section ol { padding-left: 22px; margin-bottom: 18px; }
+  .section li { color: var(--text2); margin-bottom: 8px; font-size: 15px; line-height: 1.75; }
+  .section li::marker { color: var(--purple); }
+  .section li strong { color: var(--text); }
+
+  /* INLINE CODE */
+  code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: var(--purple-d);
+    font-weight: 500;
+  }
+
+  /* CODE BLOCKS */
+  .code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 18px 0;
+  }
+  .code-header {
+    background: #13152a;
+    border-bottom: 1px solid var(--code-border);
+    padding: 9px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .code-lang {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #5a6a9a;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .code-file { font-family: var(--font-mono); font-size: 11px; color: #7a8ab5; }
+  .code-copy {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #5a6a9a;
+    background: none;
+    border: 1px solid #2a2d4a;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 3px 10px;
+    transition: all 0.12s;
+  }
+  .code-copy:hover { color: #a89cf7; border-color: #534ab7; }
+  .code-block pre {
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--code-green);
+  }
+  .code-block pre::-webkit-scrollbar { height: 4px; }
+  .code-block pre::-webkit-scrollbar-track { background: transparent; }
+  .code-block pre::-webkit-scrollbar-thumb { background: #2a2d4a; border-radius: 2px; }
+  .t-cmd     { color: #e8eeff; }
+  .t-comment { color: #5a6a9a; }
+  .t-keyword { color: #a89cf7; }
+  .t-string  { color: #ba7517; }
+  .t-ok      { color: #1d9e75; }
+  .t-muted   { color: #5a6a9a; }
+  .t-purple  { color: #a89cf7; }
+  .t-warn    { color: #ba7517; }
+  .t-err     { color: #e24b4a; }
+
+  /* TERMINAL */
+  .terminal {
+    background: #1a1b26;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid #2a2b3d;
+  }
+  .terminal-bar {
+    background: #252636;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .t-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .terminal-title { font-family: var(--font-mono); font-size: 12px; color: #5a6a9a; margin-left: 6px; }
+  .terminal-body {
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.85;
+    color: #c8d6f5;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .callout-icon {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .callout.note  { background: var(--purple-bg); border: 1px solid #c5bef5; color: var(--purple-d); }
+  .callout.warn  { background: var(--red-bg);    border: 1px solid #f5b8b5; color: var(--red); }
+  .callout.tip   { background: var(--green-bg);  border: 1px solid #b0e8d6; color: var(--green); }
+  .callout.note .callout-icon { background: var(--purple-bg); color: var(--purple); border: 1px solid #c5bef5; }
+  .callout.warn .callout-icon { background: var(--red-bg);    color: var(--red);    border: 1px solid #f5b8b5; }
+  .callout.tip  .callout-icon { background: var(--green-bg);  color: var(--green);  border: 1px solid #b0e8d6; }
+
+  /* STEPS */
+  .steps { margin: 24px 0; }
+  .step { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .step-num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--purple-bg);
+    border: 1.5px solid #c5bef5;
+    color: var(--purple);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .step-body h4 { margin-top: 0; }
+  .step-body p  { margin-bottom: 0; }
+
+  /* INFO GRID */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+  .info-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .info-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--purple-d); }
+  .info-card p  { font-size: 13px; color: var(--text2); margin: 0; line-height: 1.6; }
+
+  /* DIAGRAM */
+  .diagram-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin: 24px 0;
+  }
+  .diagram-caption {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text3);
+    text-align: center;
+    margin-top: 14px;
+    letter-spacing: 0.1em;
+  }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  .data-table th {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 13px;
+  }
+  .data-table td { border: 1px solid var(--border); padding: 10px 14px; color: var(--text2); }
+  .data-table tr:nth-child(even) td { background: var(--bg2); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-title">MAJESTIC TRUNK</div>
+    <div class="logo-sub">Deploy to Cloudflare Pages</div>
+  </div>
+
+  <div class="sidebar-nav">
+    <div class="nav-group-label">Getting started</div>
+    <a href="#overview" class="nav-item active"><span class="nav-num">01</span>What you'll end up with</a>
+    <a href="#prereqs" class="nav-item"><span class="nav-num">02</span>Before you start</a>
+    <a href="#account" class="nav-item"><span class="nav-num">03</span>Create a Cloudflare account</a>
+
+    <div class="nav-group-label">Choose your path</div>
+    <a href="#paths" class="nav-item"><span class="nav-num">04</span>Two ways to deploy</a>
+
+    <div class="nav-group-label">Path A · GitHub</div>
+    <a href="#github" class="nav-item"><span class="nav-num">05</span>Put the code on GitHub</a>
+    <a href="#connect" class="nav-item"><span class="nav-num">06</span>Connect to Cloudflare</a>
+
+    <div class="nav-group-label">Path B · Upload</div>
+    <a href="#upload" class="nav-item"><span class="nav-num">07</span>Drag-and-drop upload</a>
+
+    <div class="nav-group-label">Going live</div>
+    <a href="#live" class="nav-item"><span class="nav-num">08</span>Your live site &amp; updates</a>
+    <a href="#domain" class="nav-item"><span class="nav-num">09</span>Add your domain</a>
+
+    <div class="nav-group-label">Finishing up</div>
+    <a href="#troubleshooting" class="nav-item"><span class="nav-num">10</span>Troubleshooting</a>
+  </div>
+
+  <div class="sidebar-footer">
+    Static HTML · Cloudflare Pages · Free
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Deployment guide</div>
+    <h1>Put <span class="accent">Majestic Trunk</span><br/>live on the web</h1>
+    <p class="hero-desc">Your site currently only exists on your computer. This guide takes you from zero to a public website on Cloudflare Pages — Cloudflare's free, fast, global hosting — click by click. No prior experience needed.</p>
+    <div class="hero-badges">
+      <span class="badge purple">Cloudflare Pages</span>
+      <span class="badge green">GitHub (optional)</span>
+      <span class="badge amber">Static site</span>
+      <span class="badge">100% free tier</span>
+    </div>
+  </div>
+
+  <!-- 01 OVERVIEW -->
+  <div class="content-wrap">
+    <section class="section" id="overview">
+      <div class="section-eyebrow">Section 01</div>
+      <h2>What you'll end up with</h2>
+      <div class="section-intro">By the end of this guide your website will be live on the internet at a free address like <code>majestic-trunk.pages.dev</code>, and optionally at your own <code>majestictrunk.com</code>.</div>
+
+      <p>Right now, the Majestic Trunk site is a folder of files on your Mac. To put it on the internet, those files need to live on a <strong>web host</strong>. We're using <strong>Cloudflare Pages</strong> — and it's an excellent fit for this particular site.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>What Cloudflare Pages is</h4>
+          <p>A free service that hosts static websites (plain HTML/CSS/JS) and serves them from a fast network of servers all over the world.</p>
+        </div>
+        <div class="info-card">
+          <h4>Why it fits this site</h4>
+          <p>Your site is "static" — just files, no server or database. That's exactly what Pages is built for, so it's fast and basically can't go down.</p>
+        </div>
+        <div class="info-card">
+          <h4>What it costs</h4>
+          <p>Nothing for a site like this. The free plan includes unlimited bandwidth, free HTTPS/SSL, and plenty of builds.</p>
+        </div>
+        <div class="info-card">
+          <h4>What you won't need</h4>
+          <p>No server to manage, no database, no payment setup — bookings already happen on Activitar, off your site.</p>
+        </div>
+      </div>
+
+      <div class="callout note">
+        <span class="callout-icon">NOTE</span>
+        <span>This is why the old WordPress version kept breaking and going down — it needed a running server and database. A static site on Cloudflare has none of those moving parts.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 02 PREREQS -->
+  <div class="content-wrap">
+    <section class="section" id="prereqs">
+      <div class="section-eyebrow">Section 02</div>
+      <h2>Before you start</h2>
+      <div class="section-intro">A quick checklist so nothing trips you up later, plus a 30-second test that the site builds on your machine.</div>
+
+      <p>You'll need just a few things:</p>
+      <ul>
+        <li>The <strong>Majestic Trunk project folder</strong> on your computer (you have this).</li>
+        <li><strong>Node.js</strong> installed — used to build the site. If you've run <code>node build.js</code> before, you already have it.</li>
+        <li>A web browser and an <strong>email address</strong> for the Cloudflare account.</li>
+        <li><em>Optional (Path A):</em> a free <strong>GitHub</strong> account — we'll create one if you choose that path.</li>
+      </ul>
+
+      <h3>Confirm the site builds</h3>
+      <p>Open the <strong>Terminal</strong> app, go to the project folder, and run the build. This regenerates the <code>dist/</code> folder — the finished website that gets published.</p>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">bash</span><button class="code-copy">Copy</button></div>
+        <pre><span class="t-comment"># from inside the project folder</span>
+<span class="t-cmd">node build.js</span></pre>
+      </div>
+
+      <p>You should see this:</p>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-title">bash — expected output</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-muted">$</span> <span class="t-cmd">node build.js</span></div>
+          <div class="t-ok">&#10003; built 22 pages &#8594; dist/</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">IF NODE IS MISSING</span>
+        <span>If you see <code>command not found: node</code>, install Node from <strong>nodejs.org</strong> (download the "LTS" version), then run the command again.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 03 ACCOUNT -->
+  <div class="content-wrap">
+    <section class="section" id="account">
+      <div class="section-eyebrow">Section 03</div>
+      <h2>Create a free Cloudflare account</h2>
+      <div class="section-intro">Two minutes. You only need an email and a password — no credit card for the free plan.</div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Go to the sign-up page</h4>
+            <p>Open <code>dash.cloudflare.com/sign-up</code> in your browser.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Enter your email and a password</h4>
+            <p>Pick a strong password and click <strong>Sign Up</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Verify your email</h4>
+            <p>Cloudflare emails you a confirmation link. Click it to activate the account.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Skip the "add a website" prompts</h4>
+            <p>Cloudflare may ask you to add a domain or pick a paid plan. You can skip all of it — Pages works without adding a domain and gives you a free address.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">TIP</span>
+        <span>If it nudges you to buy or transfer a domain, just close that flow. We'll handle your real domain later (Section 09) and only if you want to.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 04 PATHS -->
+  <div class="content-wrap">
+    <section class="section" id="paths">
+      <div class="section-eyebrow">Section 04</div>
+      <h2>Two ways to deploy</h2>
+      <div class="section-intro">There are two ways to get your files onto Cloudflare Pages. Pick one — then follow that path's sections and skip the other.</div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Method</th><th>Best for</th><th>Updating later</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Path A — GitHub</strong><br/><span style="font-size:12px;color:var(--text3)">Sections 05–06</span></td>
+            <td>Anyone who'll update the site more than once. Cloudflare rebuilds it for you automatically.</td>
+            <td>Edit, <code>git push</code>, done — the live site updates itself.</td>
+          </tr>
+          <tr>
+            <td><strong>Path B — Direct upload</strong><br/><span style="font-size:12px;color:var(--text3)">Section 07</span></td>
+            <td>The absolute quickest start, with no GitHub account.</td>
+            <td>Rebuild on your Mac and re-upload by hand each time.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout note">
+        <span class="callout-icon">RECOMMENDED</span>
+        <span><strong>Path A (GitHub)</strong> is worth the slightly longer setup: after it's done, Cloudflare runs <code>node build.js</code> for you in the cloud, so you never need to build on your own computer again — you just save your changes and push.</span>
+      </div>
+
+      <div class="diagram-wrap">
+        <svg width="100%" viewBox="0 0 720 250" role="img">
+          <title>Path A versus Path B deployment flows</title>
+          <!-- Path A -->
+          <text x="20" y="30" fill="#4a3fb5" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Path A — GitHub (auto)</text>
+          <rect x="20" y="45" width="120" height="42" rx="8" fill="#f0eeff" stroke="#c5bef5"/>
+          <text x="80" y="71" fill="#6b5fd6" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">edit &amp; git push</text>
+          <text x="156" y="71" fill="#888" font-size="16">&#8594;</text>
+          <rect x="180" y="45" width="150" height="42" rx="8" fill="#edfaf5" stroke="#b0e8d6"/>
+          <text x="255" y="64" fill="#0f7a5a" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Cloudflare runs</text>
+          <text x="255" y="79" fill="#0f7a5a" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">node build.js</text>
+          <text x="346" y="71" fill="#888" font-size="16">&#8594;</text>
+          <rect x="370" y="45" width="130" height="42" rx="8" fill="#f9f9f9" stroke="#dddddd"/>
+          <text x="435" y="71" fill="#444" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">live site updates</text>
+          <!-- Path B -->
+          <text x="20" y="150" fill="#92580a" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Path B — Direct upload (manual)</text>
+          <rect x="20" y="165" width="150" height="42" rx="8" fill="#fff8ec" stroke="#f5d9a0"/>
+          <text x="95" y="184" fill="#92580a" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">run on your Mac</text>
+          <text x="95" y="199" fill="#92580a" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">node build.js</text>
+          <text x="186" y="191" fill="#888" font-size="16">&#8594;</text>
+          <rect x="210" y="165" width="150" height="42" rx="8" fill="#f0eeff" stroke="#c5bef5"/>
+          <text x="285" y="191" fill="#6b5fd6" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">drag dist/ folder</text>
+          <text x="376" y="191" fill="#888" font-size="16">&#8594;</text>
+          <rect x="400" y="165" width="130" height="42" rx="8" fill="#f9f9f9" stroke="#dddddd"/>
+          <text x="465" y="191" fill="#444" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">live site</text>
+        </svg>
+        <p class="diagram-caption">Path A updates itself after a push · Path B is rebuilt and re-uploaded by hand</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- 05 GITHUB -->
+  <div class="content-wrap">
+    <section class="section" id="github">
+      <div class="section-eyebrow">Section 05 · Path A</div>
+      <h2>Put the code on GitHub</h2>
+      <div class="section-intro">GitHub stores your project in the cloud. Cloudflare watches it and rebuilds the site whenever you push changes. <em>(Skip this whole section if you chose Path B.)</em></div>
+
+      <h3>Create a free GitHub account &amp; repository</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Sign up</h4>
+            <p>Go to <code>github.com/signup</code> and create a free account (if you don't already have one).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Make a new, empty repository</h4>
+            <p>Click <strong>New repository</strong>. Name it <code>majestic-trunk</code>. Leave it <strong>empty</strong> — do <em>not</em> tick "Add a README" (your project already has one). Click <strong>Create repository</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Send your project up to GitHub</h3>
+      <p>You have two ways to do this — pick whichever feels comfortable.</p>
+
+      <h4>Option 1 — GitHub Desktop (easiest, no terminal)</h4>
+      <p>Download <strong>GitHub Desktop</strong> from <code>desktop.github.com</code>, sign in, choose <strong>Add &#8594; Add Existing Repository</strong>, point it at your project folder, then click <strong>Publish repository</strong>. Done.</p>
+
+      <h4>Option 2 — Terminal</h4>
+      <p>In Terminal, from inside the project folder, connect it to the GitHub repo you just made and push. Replace <code>YOUR-USERNAME</code> with your GitHub username:</p>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">bash</span><button class="code-copy">Copy</button></div>
+        <pre><span class="t-keyword">git</span> remote add origin https://github.com/<span class="t-string">YOUR-USERNAME</span>/majestic-trunk.git
+<span class="t-keyword">git</span> push -u origin main</pre>
+      </div>
+
+      <div class="callout note">
+        <span class="callout-icon">NOTE</span>
+        <span>When the terminal asks you to log in, GitHub no longer accepts your normal password there. The simplest fix is to use <strong>GitHub Desktop</strong> (Option 1) which handles login for you — or create a "Personal Access Token" in GitHub settings and paste it as the password.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">CHECK</span>
+        <span>Refresh your repository page on github.com — you should now see <code>build.js</code>, <code>src/</code>, <code>docs/</code> and the rest. That means it worked.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 06 CONNECT -->
+  <div class="content-wrap">
+    <section class="section" id="connect">
+      <div class="section-eyebrow">Section 06 · Path A</div>
+      <h2>Connect GitHub to Cloudflare Pages</h2>
+      <div class="section-intro">Now we tell Cloudflare to watch your GitHub repo, build it, and publish it. This is the step where the build settings matter — get them right and you're live.</div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Open Pages in the Cloudflare dashboard</h4>
+            <p>In Cloudflare, go to <strong>Workers &amp; Pages</strong> in the left menu, then click <strong>Create</strong> &#8594; the <strong>Pages</strong> tab &#8594; <strong>Connect to Git</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Authorize GitHub &amp; pick the repo</h4>
+            <p>Allow Cloudflare to access GitHub, then select your <code>majestic-trunk</code> repository and click <strong>Begin setup</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Enter the build settings — exactly these</h4>
+            <p>This is the important part. Set:</p>
+          </div>
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Setting</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Framework preset</td><td><code>None</code></td></tr>
+          <tr><td>Build command</td><td><code>node build.js</code></td></tr>
+          <tr><td>Build output directory</td><td><code>dist</code></td></tr>
+          <tr><td>Root directory</td><td>(leave as default / empty)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <span class="callout-icon">IMPORTANT</span>
+        <span>The <strong>Build output directory</strong> must be exactly <code>dist</code>. If it's blank or wrong, your live site will show a blank page or "404 Not Found".</span>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Save and Deploy</h4>
+            <p>Click <strong>Save and Deploy</strong>. Cloudflare downloads your repo, runs <code>node build.js</code> in the cloud, and publishes the <code>dist/</code> folder. The first build takes about a minute.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>You'll see a build log finish with something like:</p>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-title">Cloudflare — build log</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-muted">Cloning repository...</div>
+          <div><span class="t-muted">Running:</span> <span class="t-cmd">node build.js</span></div>
+          <div class="t-ok">&#10003; built 22 pages &#8594; dist/</div>
+          <div class="t-muted">Deploying to Cloudflare's global network...</div>
+          <div class="t-ok">Success! Your site is live.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 07 UPLOAD -->
+  <div class="content-wrap">
+    <section class="section" id="upload">
+      <div class="section-eyebrow">Section 07 · Path B</div>
+      <h2>Direct drag-and-drop upload</h2>
+      <div class="section-intro">No GitHub needed. You build the site on your Mac and hand the finished <code>dist/</code> folder straight to Cloudflare. <em>(Skip this if you did Path A.)</em></div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Build the site locally</h4>
+            <p>In Terminal, from the project folder, run the build so <code>dist/</code> is fresh:</p>
+            <div class="code-block">
+              <div class="code-header"><span class="code-lang">bash</span><button class="code-copy">Copy</button></div>
+              <pre><span class="t-cmd">node build.js</span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Start a Pages project for upload</h4>
+            <p>In Cloudflare: <strong>Workers &amp; Pages</strong> &#8594; <strong>Create</strong> &#8594; <strong>Pages</strong> tab &#8594; <strong>Upload assets</strong>. Give the project a name (e.g. <code>majestic-trunk</code>).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Drag in the dist folder</h4>
+            <p>Drag your project's <code>dist</code> folder onto the upload area, then click <strong>Deploy site</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">IMPORTANT</span>
+        <span>Upload the <code>dist</code> folder — the one the build creates — <strong>not</strong> the whole project and not the <code>src</code> folder. <code>dist</code> is the finished website; <code>index.html</code> must end up at the top level.</span>
+      </div>
+
+      <h3>Faster repeat uploads (optional)</h3>
+      <p>If you're comfortable in the terminal, the <strong>Wrangler</strong> tool can publish in one command instead of dragging each time:</p>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">bash</span><button class="code-copy">Copy</button></div>
+        <pre><span class="t-keyword">npx</span> wrangler pages deploy dist</pre>
+      </div>
+
+      <div class="callout note">
+        <span class="callout-icon">NOTE</span>
+        <span>With Path B, every future change means repeating these steps: rebuild, then upload. If that gets tedious, switch to Path A (GitHub) and Cloudflare will do the building for you.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 08 LIVE -->
+  <div class="content-wrap">
+    <section class="section" id="live">
+      <div class="section-eyebrow">Section 08</div>
+      <h2>Your live site &amp; updating it</h2>
+      <div class="section-intro">However you deployed, Cloudflare now gives you a public web address. Here's where to find it and how to push future changes.</div>
+
+      <h3>Find your URL</h3>
+      <p>On your Pages project's overview page, Cloudflare shows the live address — it looks like:</p>
+      <div class="code-block">
+        <div class="code-header"><span class="code-file">your live site</span></div>
+        <pre><span class="t-string">https://majestic-trunk.pages.dev</span></pre>
+      </div>
+      <p>Click it — your site is now live worldwide, with free HTTPS. Share that link with anyone.</p>
+
+      <h3>Updating the site later</h3>
+
+      <h4>If you used Path A (GitHub)</h4>
+      <p>Edit your content (for example <code>src/data/experiences.json</code>), then save your changes to GitHub. Cloudflare rebuilds and republishes automatically — you don't touch Cloudflare at all.</p>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">bash</span><button class="code-copy">Copy</button></div>
+        <pre><span class="t-keyword">git</span> add -A
+<span class="t-keyword">git</span> commit -m <span class="t-string">"Update experiences"</span>
+<span class="t-keyword">git</span> push</pre>
+      </div>
+
+      <h4>If you used Path B (upload)</h4>
+      <p>Run <code>node build.js</code> again, then re-upload the <code>dist</code> folder (or run the Wrangler command from Section 07).</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">TIP</span>
+        <span>On Path A, every push also creates a temporary "preview" link so you can check changes before they hit the main address. Bookmark your main <code>pages.dev</code> URL for quick access.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 09 DOMAIN -->
+  <div class="content-wrap">
+    <section class="section" id="domain">
+      <div class="section-eyebrow">Section 09 · Optional</div>
+      <h2>Add your domain (majestictrunk.com)</h2>
+      <div class="section-intro">The free <code>pages.dev</code> address works forever. When you're ready, you can point your real domain at the same site. This needs access to wherever the domain is managed.</div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Open Custom domains</h4>
+            <p>In your Pages project, go to the <strong>Custom domains</strong> tab and click <strong>Set up a custom domain</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Enter the domain</h4>
+            <p>Type <code>majestictrunk.com</code> and continue. Cloudflare then tells you exactly what DNS record to add.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Point the domain at Cloudflare</h4>
+            <p>If the domain is already managed in Cloudflare, this is one click. If it's managed elsewhere (e.g. GoDaddy, Namecheap), you'll add the <code>CNAME</code> record Cloudflare shows you at your registrar, or switch the domain's nameservers to Cloudflare.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout note">
+        <span class="callout-icon">NOTE</span>
+        <span>You need login access to wherever <code>majestictrunk.com</code>'s DNS is controlled. If you're not sure where that is, that's the thing to track down before doing this section.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">DNS TAKES TIME</span>
+        <span>After you change DNS, it can take anywhere from a few minutes to a few hours to take effect. HTTPS/SSL is added automatically and free once the domain is verified — no extra setup.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 10 TROUBLESHOOTING -->
+  <div class="content-wrap">
+    <section class="section" id="troubleshooting">
+      <div class="section-eyebrow">Section 10</div>
+      <h2>Troubleshooting</h2>
+      <div class="section-intro">The handful of snags people actually hit, and the one-line fix for each.</div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Symptom</th><th>Cause &amp; fix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Live site is blank or shows "404 Not Found"</td>
+            <td>Build output directory is wrong. It must be exactly <code>dist</code> (Section 06, step 3).</td>
+          </tr>
+          <tr>
+            <td>Build failed in Cloudflare</td>
+            <td>Check the build command is exactly <code>node build.js</code> and the framework preset is <code>None</code>.</td>
+          </tr>
+          <tr>
+            <td>Images are missing on the live site</td>
+            <td>Make sure <code>src/assets/</code> was pushed to GitHub (Path A) or included when you built (Path B). Re-run <code>node build.js</code> and redeploy.</td>
+          </tr>
+          <tr>
+            <td>Terminal won't let me push to GitHub</td>
+            <td>Use GitHub Desktop instead (Section 05, Option 1) — it handles login for you.</td>
+          </tr>
+          <tr>
+            <td>I changed content but the site looks the same</td>
+            <td>Wait for the new deploy to finish in Cloudflare, then hard-refresh your browser (Cmd+Shift+R).</td>
+          </tr>
+          <tr>
+            <td><code>command not found: node</code></td>
+            <td>Install Node.js (LTS) from <code>nodejs.org</code>, then try again.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <span class="callout-icon">TIP</span>
+        <span>Stuck on something not listed here? Cloudflare's build log (in the Pages project under "Deployments") almost always shows the exact line that failed — that's the first place to look.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:48px 64px 64px;background:var(--bg2);border-top:1px solid var(--border)">
+    <div style="max-width:860px">
+      <p style="font-family:var(--font-mono);font-size:13px;color:var(--text2);font-weight:600;margin:0 0 8px">
+        Majestic Trunk — deployment guide complete.
+      </p>
+      <p style="font-family:var(--font-mono);font-size:12px;color:var(--text3);margin:0">
+        Your site is on the internet, for free, and it can't go down the way the old one did. Welcome to static hosting.
+      </p>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- SCRIPT -->
+<script>
+function switchOS(os, btn) {
+  const section = btn.closest('.section') || document;
+  section.querySelectorAll('.os-panel').forEach(p => p.classList.remove('active'));
+  section.querySelectorAll('.os-tab').forEach(b => b.classList.remove('active'));
+  section.querySelector('#os-' + os).classList.add('active');
+  btn.classList.add('active');
+}
+
+document.querySelectorAll('.code-copy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pre = btn.closest('.code-block').querySelector('pre');
+    navigator.clipboard.writeText(pre.innerText).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.color = '#1d9e75';
+      setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+    });
+  });
+});
+
+const SECTION_IDS = ['overview','prereqs','account','paths','github','connect','upload','live','domain','troubleshooting'];
+
+function updateActiveNav() {
+  let current = SECTION_IDS[0];
+  for (const id of SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top <= 140) current = id;
+  }
+  document.querySelectorAll('.nav-item').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+document.querySelectorAll('.nav-item').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').replace('#', '');
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

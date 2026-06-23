@@ -13,7 +13,7 @@ replacements are *permission requests*, not stock purchases.
 ## Global / brand
 | Slot | Need | Aspect / size | Source |
 |---|---|---|---|
-| Logo | Real Majestic Trunk wordmark/mark (replace WhatsApp crop) | SVG + PNG, transparent | 🎨 design |
+| Logo | Real Majestic Trunk wordmark/mark (replace WhatsApp crop) | SVG + PNG, transparent | 🎨 design — **original recovered** at `src/assets/brand/logo-original.png` (302×70, transparent) to redesign from |
 | Favicon | From the new logo mark | 32/180/512 px | 🎨 design |
 | Home hero | Iconic Victoria Falls / rainbow, wide & cinematic | 16:9, ≥2000px wide | 🏢/📷/🧾 |
 | OG share image | Branded falls image w/ logo, for link previews | 1200×630 | 🎨 from hero |
