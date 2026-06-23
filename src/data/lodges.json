@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "old-drift-lodge",
+    "title": "Old Drift Lodge",
+    "summary": "Tented riverside luxury inside Zambezi National Park, with game at your deck.",
+    "image": "lodge-entrance.jpg",
+    "alt": "Entrance to a luxury safari lodge at dusk",
+    "location": "Zambezi National Park",
+    "priceFrom": "$450 / night",
+    "featured": true,
+    "highlights": ["Riverfront luxury tents", "All meals and game activities", "Private viewing deck", "Inside the national park"],
+    "body": [
+      "Set on the banks of the Zambezi inside the national park, Old Drift pairs canvas-and-thatch suites with front-row wildlife. Elephants wander past the deck and the river drifts by below.",
+      "Rates are typically full-board with game drives and river activities included — true bush luxury minutes from the Falls."
+    ]
+  },
+  {
+    "slug": "victoria-falls-safari-lodge",
+    "title": "Victoria Falls Safari Lodge",
+    "summary": "The iconic lodge overlooking a floodlit waterhole alive with game.",
+    "image": "safari-lodge.jpg",
+    "alt": "Safari lodge overlooking a waterhole with elephants",
+    "location": "Victoria Falls",
+    "priceFrom": "$320 / night",
+    "featured": true,
+    "highlights": ["Famous waterhole views", "Award-winning sunset deck", "Minutes from the Falls", "Renowned dining"],
+    "body": [
+      "Perched above a busy waterhole on the edge of town, this landmark lodge is famous for its sunset deck and the daily parade of elephant, buffalo and antelope that come down to drink.",
+      "An easy, comfortable base with the wild always in view."
+    ]
+  },
+  {
+    "slug": "palm-river-hotel",
+    "title": "Palm River Hotel",
+    "summary": "Riverside elegance and a glittering pool, moments from the Falls.",
+    "image": "palm-river.jpg",
+    "alt": "Riverside hotel exterior with pool at dusk",
+    "location": "Victoria Falls",
+    "priceFrom": "$380 / night",
+    "featured": false,
+    "highlights": ["Stylish riverfront rooms", "Two pools and spa", "Fine dining", "Boat cruises from the jetty"],
+    "body": [
+      "A polished riverside retreat on the upper Zambezi, Palm River blends contemporary design with easy access to the river and the Falls.",
+      "Sundowner cruises leave right from the hotel jetty."
+    ]
+  },
+  {
+    "slug": "inkosi-lodge",
+    "title": "Inkosi Lodge",
+    "summary": "Classic comfort and a relaxed pool, with easy access to town.",
+    "image": "pool.jpg",
+    "alt": "Lodge pool and terrace at dusk",
+    "location": "Victoria Falls town",
+    "priceFrom": "$140 / night",
+    "featured": false,
+    "highlights": ["Great value comfort", "Pool and garden", "Walking distance to town", "Friendly, personal service"],
+    "body": [
+      "A comfortable, well-run lodge close to the heart of Victoria Falls town — handy for restaurants, shops and activity pick-ups.",
+      "A smart-value choice for travellers who want to be close to everything."
+    ]
+  },
+  {
+    "slug": "pioneers-lodge",
+    "title": "Pioneers Lodge",
+    "summary": "A tranquil garden retreat for unhurried, restful stays.",
+    "image": "veranda.jpg",
+    "alt": "Open-air lodge veranda with seating",
+    "location": "Victoria Falls",
+    "priceFrom": "$120 / night",
+    "featured": false,
+    "highlights": ["Peaceful garden setting", "Spacious rooms", "Pool and shaded lounges", "Relaxed atmosphere"],
+    "body": [
+      "Tucked into leafy gardens a little away from the bustle, Pioneers is all about calm — wide verandas, birdsong and a pool to slow down beside.",
+      "Ideal for guests who want to unwind between adventures."
+    ]
+  }
+]

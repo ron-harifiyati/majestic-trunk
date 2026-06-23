@@ -1,0 +1,172 @@
+[
+  {
+    "slug": "white-water-rafting",
+    "title": "White-Water Rafting on the Zambezi",
+    "category": "Adrenaline",
+    "summary": "Tackle legendary Grade-5 rapids through the Batoka Gorge, just below the Falls.",
+    "image": "rafting.jpg",
+    "alt": "Rafters paddling through white-water rapids on the Zambezi",
+    "duration": "Full day",
+    "difficulty": "Challenging",
+    "priceFrom": "$165",
+    "featured": true,
+    "highlights": ["World-class Grade-5 rapids", "Expert local river guides", "Riverside lunch included", "Hike into the dramatic Batoka Gorge"],
+    "body": [
+      "Just below Victoria Falls, the Zambezi erupts into one of the finest one-day white-water runs on earth. Between towering basalt walls you'll punch through rapids with names like Stairway to Heaven and Oblivion, with calm pools in between to catch your breath and soak up the gorge.",
+      "Every trip runs with experienced local guides and full safety kit, so first-timers and seasoned paddlers are equally at home. Low-water season brings the biggest, cleanest rapids; high water is a wilder ride."
+    ]
+  },
+  {
+    "slug": "helicopter-flight",
+    "title": "Flight of Angels Helicopter Tour",
+    "category": "Scenic",
+    "summary": "See the full sweep of the Falls and the zig-zagging Batoka Gorge from the air.",
+    "image": "helicopter.webp",
+    "alt": "Helicopter flying over Victoria Falls",
+    "duration": "12–25 min",
+    "difficulty": "Easy",
+    "priceFrom": "$150",
+    "featured": true,
+    "highlights": ["Aerial view of the entire Falls", "Soaring over the Batoka Gorge", "12- or 25-minute options", "Unbeatable photography"],
+    "body": [
+      "David Livingstone called it a sight 'so lovely it must have been gazed upon by angels in their flight'. From a helicopter you finally grasp the scale of it — a mile-wide curtain of water plunging into a chasm, the spray rising hundreds of metres.",
+      "Choose the 12-minute flight over the Falls themselves, or the 25-minute option that adds a loop over the gorge and the Zambezi National Park."
+    ]
+  },
+  {
+    "slug": "sunset-cruise",
+    "title": "Zambezi Sunset Cruise",
+    "category": "Scenic",
+    "summary": "Drift the upper Zambezi, drink in hand, as the African sun melts into the river.",
+    "image": "zambezi-aerial.jpg",
+    "alt": "The Zambezi river winding through islands at golden hour",
+    "duration": "2.5 hours",
+    "difficulty": "Easy",
+    "priceFrom": "$75",
+    "featured": true,
+    "highlights": ["Hippo, elephant and crocodile sightings", "Drinks and snacks on board", "Spectacular river sunsets", "Relaxed, family-friendly pace"],
+    "body": [
+      "Above the Falls the Zambezi is wide, slow and studded with islands — the perfect stage for a sunset. Glide past pods of hippo and elephants coming down to drink while the sky turns gold then deep orange.",
+      "It's the gentlest, most sociable way to end a day in Victoria Falls, and a favourite for couples and families alike."
+    ]
+  },
+  {
+    "slug": "game-drives",
+    "title": "Game Drives in Zambezi National Park",
+    "category": "Wildlife",
+    "summary": "Track elephant, buffalo and big cats with a guide who reads the bush like a book.",
+    "image": "elephant.jpg",
+    "alt": "An elephant reaching into trees at golden hour",
+    "duration": "Half or full day",
+    "difficulty": "Easy",
+    "priceFrom": "$95",
+    "featured": false,
+    "highlights": ["Big game in a malaria-low park", "Open 4x4 with expert guide", "Sunrise and sunset departures", "Minutes from town"],
+    "body": [
+      "On the doorstep of the Falls, Zambezi National Park runs along the river and teems with elephant, buffalo, zebra, giraffe and the predators that follow them. An open 4x4 and a sharp-eyed guide turn a morning drive into a proper safari.",
+      "Sunrise drives catch the bush at its most active; afternoon drives roll into golden hour along the riverfront."
+    ]
+  },
+  {
+    "slug": "bungee-bridge",
+    "title": "Bungee Jump & Bridge Swing",
+    "category": "Adrenaline",
+    "summary": "Free-fall 111 metres off the historic Victoria Falls Bridge into the gorge.",
+    "image": "hero-falls.jpg",
+    "alt": "The Victoria Falls bridge spanning the gorge above the Zambezi",
+    "duration": "Half day",
+    "difficulty": "Extreme",
+    "priceFrom": "$160",
+    "featured": false,
+    "highlights": ["111m bungee off the 1905 bridge", "Gorge swing and zip-line options", "Rainbows and river far below", "Bragging rights for life"],
+    "body": [
+      "The Victoria Falls Bridge has linked Zimbabwe and Zambia since 1905 — and today it's one of the world's great adrenaline platforms. Leap into the Batoka Gorge on the 111-metre bungee, or take the heart-stopping bridge swing.",
+      "Combine it with the zip-line and flying fox for a full morning of gorge-edge thrills."
+    ]
+  },
+  {
+    "slug": "chobe-day-trip",
+    "title": "Chobe Day Trip (Botswana)",
+    "category": "Wildlife",
+    "summary": "Cross into Botswana for a river cruise and game drive in famous elephant country.",
+    "image": "elephants-group.jpg",
+    "alt": "A herd of elephants near water",
+    "duration": "Full day",
+    "difficulty": "Easy",
+    "priceFrom": "$185",
+    "featured": false,
+    "highlights": ["Two countries in one day", "Chobe River boat safari", "Afternoon game drive", "Highest elephant density in Africa"],
+    "body": [
+      "Chobe National Park holds one of the largest elephant populations on the continent, and it's an easy day trip from Victoria Falls. Cruise the Chobe River past drinking elephants and basking crocs, then head out on an afternoon game drive.",
+      "Border transfers, lunch and park fees are handled for you — you just bring a camera."
+    ]
+  },
+  {
+    "slug": "elephant-encounter",
+    "title": "Elephant Encounter & Wildlife Walk",
+    "category": "Wildlife",
+    "summary": "Meet Africa's gentle giants up close on a guided, ethical sanctuary walk.",
+    "image": "elephant-encounter.jpg",
+    "alt": "A visitor gently interacting with an elephant",
+    "duration": "Half day",
+    "difficulty": "Easy",
+    "priceFrom": "$130",
+    "featured": false,
+    "highlights": ["Close, respectful elephant interaction", "Learn about conservation", "Guided wildlife walk", "Great for families"],
+    "body": [
+      "Spend a morning learning about elephant behaviour and conservation alongside the herd, guided by handlers who know each animal by name.",
+      "A gentle, memorable experience that puts the focus on understanding and protecting these remarkable animals."
+    ]
+  },
+  {
+    "slug": "village-tour",
+    "title": "Ko Mpisi Village Cultural Tour",
+    "category": "Culture",
+    "summary": "A warm, community-led visit to a living Zimbabwean village.",
+    "image": "village.jpg",
+    "alt": "Visitors meeting a local resident in a village",
+    "duration": "Half day",
+    "difficulty": "Easy",
+    "priceFrom": "$75",
+    "featured": false,
+    "highlights": ["Community-led and authentic", "Meet local families and artisans", "Supports the village directly", "Traditional food and crafts"],
+    "body": [
+      "Step beyond the tourist trail into Ko Mpisi, where families welcome you into daily life — the school, the homestead, the craft makers. It's honest, unscripted and led by the community itself.",
+      "A share of every visit goes straight back into the village, making this one of the most meaningful half-days you can spend here."
+    ]
+  },
+  {
+    "slug": "guided-falls-tour",
+    "title": "Guided Tour of Victoria Falls",
+    "category": "Scenic",
+    "summary": "Walk the rainforest trail to 'The Smoke That Thunders' with a local guide.",
+    "image": "hero-falls.jpg",
+    "alt": "Victoria Falls with rising spray and a rainbow",
+    "duration": "3 hours",
+    "difficulty": "Easy",
+    "priceFrom": "$60",
+    "featured": false,
+    "highlights": ["Guided rainforest walk", "Every viewpoint of the Falls", "History and geology along the way", "Rainbows in the spray"],
+    "body": [
+      "Mosi-oa-Tunya — 'The Smoke That Thunders' — is best understood with someone who knows its story. Follow the rainforest paths from viewpoint to viewpoint as your guide unpacks the history, geology and wildlife of the Falls.",
+      "Expect to get pleasantly misted in high-water season — a raincoat is your friend."
+    ]
+  },
+  {
+    "slug": "the-boma-dining",
+    "title": "The Boma — Dinner & Drum Show",
+    "category": "Dining",
+    "summary": "A four-course African feast with live drumming, dancing and a warm welcome.",
+    "image": "veranda.jpg",
+    "alt": "An open-air African dining venue",
+    "duration": "Evening",
+    "difficulty": "Easy",
+    "priceFrom": "$55",
+    "featured": false,
+    "highlights": ["Four-course traditional feast", "Interactive drumming session", "Live dancing and storytelling", "A taste of game meats"],
+    "body": [
+      "End the day around the fire at The Boma, where a four-course feast of traditional dishes comes with live drumming, dancing and a face-painting, hand-drumming finale you'll be talking about for years.",
+      "Adventurous eaters can try the famous warthog and other game; everyone leaves full and grinning."
+    ]
+  }
+]

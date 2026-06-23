@@ -1,0 +1,34 @@
+<article>
+  <header class="detail-hero" style="background-image:url('/assets/img/{{image}}')">
+    <div class="wrap">
+      <span class="label">Where to stay</span>
+      <h1>{{title}}</h1>
+      <p>{{summary}}</p>
+    </div>
+  </header>
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><div class="k">Location</div><div class="v">{{location}}</div></div>
+      <div class="fact"><div class="k">From</div><div class="v">{{priceFrom}}</div></div>
+    </div>
+    <div class="detail-body">
+      <div class="prose">
+        {{bodyHtml}}
+        <h2>Highlights</h2>
+        <ul>{{highlightsHtml}}</ul>
+      </div>
+      <aside class="booking-aside">
+        <div class="from">From</div>
+        <div class="amount">{{priceFrom}}</div>
+        <a class="btn" href="{{activitarUrl}}">Check availability</a>
+        <p class="note">Bookings handled securely by our partner Activitar.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head center"><h2>Other lodges</h2></div>
+    <div class="grid grid-3">{{relatedCards}}</div>
+  </div>
+</section>
