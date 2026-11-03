@@ -1,34 +1,10 @@
 <article>
-  <header class="detail-hero" style="background-image:url('/assets/img/{{image}}')">
-    <div class="wrap">
-      <span class="label">Where to stay</span>
-      <h1>{{title}}</h1>
-      <p>{{summary}}</p>
-    </div>
-  </header>
-  <div class="wrap">
-    <div class="facts">
-      <div class="fact"><div class="k">Location</div><div class="v">{{location}}</div></div>
-      <div class="fact"><div class="k">From</div><div class="v">{{priceFrom}}</div></div>
-    </div>
-    <div class="detail-body">
-      <div class="prose">
-        {{bodyHtml}}
-        <h2>Highlights</h2>
-        <ul>{{highlightsHtml}}</ul>
-      </div>
-      <aside class="booking-aside">
-        <div class="from">From</div>
-        <div class="amount">{{priceFrom}}</div>
-        <a class="btn" href="{{activitarUrl}}">Check availability</a>
-        <p class="note">Bookings handled securely by our partner Activitar.</p>
-      </aside>
-    </div>
+  <header class="page-head detail-head"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/stay/">Places to stay</a></nav><span class="label">{{category}}</span><h1>{{title}}</h1><p>{{summary}}</p></div></header>
+  <div class="wrap"><dl class="facts"><div><dt>Setting</dt><dd>{{location}}</dd></div><div><dt>A good fit for</dt><dd>{{bestFor}}</dd></div><div><dt>Rates</dt><dd>Quoted for your dates</dd></div></dl>
+    <div class="detail-body"><div>{{detailMedia}}{{featuresHtml}}<div class="prose"><h2>The setting &amp; the stay</h2>{{bodyHtml}}<h2>At a glance</h2><ul>{{highlightsHtml}}</ul><h2>Choosing your stay</h2><dl class="planning-list">{{planningHtml}}</dl></div>
+      <details class="source-note"><summary>Property information &amp; sources</summary><p>Reviewed {{reviewed}} against the property’s published information. Facilities and inclusions can change; the property confirms availability and booking terms.</p><ul>{{sourcesHtml}}</ul></details>
+      {{contextualLinks}}
+    </div><aside class="booking-aside"><span class="label">Accommodation enquiry</span><h2>Find the right room.</h2><p>Share your dates, number of guests and preferred room arrangement to enquire about a stay.</p><a class="btn" href="{{enquiryUrl}}">Enquire about this property ↗</a><p class="note">Inclusion in this guide does not imply an exclusive partnership or live availability. Request a written quotation showing meals, transfers, activities and any additional charges.</p></aside></div>
   </div>
 </article>
-<section class="section alt">
-  <div class="wrap">
-    <div class="section-head center"><h2>Other lodges</h2></div>
-    <div class="grid grid-3">{{relatedCards}}</div>
-  </div>
-</section>
+<section class="section alt"><div class="wrap"><div class="section-heading"><div><span class="label">Compare the setting</span><h2>Other places to stay</h2></div></div><div class="grid grid-3">{{relatedCards}}</div></div></section>

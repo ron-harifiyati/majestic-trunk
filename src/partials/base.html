@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#233e36">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Majestic Trunk Expeditions">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 {{header}}
-<main>
+<main id="main" tabindex="-1">
 {{content}}
 </main>
 {{footer}}
 <script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/directory.js" defer></script>
 </body>
 </html>

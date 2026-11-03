@@ -1,3 +1,5 @@
+> **Current implementation, 29 October 2026:** this is a historical proposal. The site uses the zero-dependency HTML generator described in README.md, not Astro. The latest design is editorial (forest/ivory, Libre Caslon Display + DM Sans), with 47 pages and source-linked activity, accommodation and dining guides. Remaining launch tasks are tracked in GitHub issues. The older decisions below are retained as background, not implementation instructions.
+
 # Majestic Trunk — Redesign Plan (v2)
 
 Status: **proposal / in discussion**. Decisions still open are marked ❓. Things I'll

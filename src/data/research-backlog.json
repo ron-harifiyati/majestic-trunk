@@ -1,0 +1,29 @@
+{
+  "notPublished": [
+    {
+      "names": [
+        "Zulu Bistro Bar",
+        "Malonga Caf\u00e9",
+        "Victoria Falls Distilling Company",
+        "Vic Falls Boat Club"
+      ],
+      "reason": "Obtain current direct venue details and a usable official source before publishing a full guide. Malonga website certificate was expired during this review."
+    },
+    {
+      "names": [
+        "Comfort Pub and Grill",
+        "Bar Fuzion",
+        "Moringa Bar and Kitchen"
+      ],
+      "reason": "Verify current operation, exact location and first-party contact details."
+    },
+    {
+      "names": [
+        "Makuwa Lounge",
+        "Pearl Lounge",
+        "Khami Lounge"
+      ],
+      "reason": "Airport services, separate from restaurant directory. Verify current terminal, eligibility and access provider before listing."
+    }
+  ]
+}

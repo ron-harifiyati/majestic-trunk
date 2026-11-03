@@ -16,7 +16,7 @@ operator's external **Activitar** platform.
 | **Stack** | Plain HTML/CSS/JS + a small Node generator (`build.js`) |
 | **Dependencies** | None — Node (build) and Python (local serving) only |
 | **Content** | JSON files in `src/data/` |
-| **Output** | 22 static pages in `dist/` |
+| **Output** | 47 static pages in `dist/` |
 | **Booking** | External — Activitar |
 | **Hosting** | Static (e.g. Cloudflare Pages) |
 
@@ -28,6 +28,7 @@ Requires Node 18+ (generator) and Python 3 (local server).
 
 ```bash
 node build.js                                   # generate dist/ from src/
+npm test                                        # filters + generated routes/links/assets
 python3 -m http.server 8090 --directory dist    # serve it → http://localhost:8090
 ```
 
@@ -62,8 +63,10 @@ majestic-trunk/
 ├─ src/                     # ← everything you edit lives here
 │  ├─ data/
 │  │  ├─ site.json          #   brand, Activitar URL, year
-│  │  ├─ experiences.json   #   the ~10 experiences (one object each)
-│  │  └─ lodges.json        #   the ~5 lodges
+│  │  ├─ experiences.json   #   the 16 experiences (one object each)
+│  │  ├─ lodges.json        #   the 13 hotels and lodges
+│  │  ├─ dining.json        #   8 source-checked restaurants and bars
+│  │  └─ media.json         #   photo sources, credits and permission status
 │  ├─ partials/
 │  │  ├─ base.html          #   page shell (<head> + header/footer slots)
 │  │  ├─ header.html        #   the one shared header
@@ -77,7 +80,8 @@ majestic-trunk/
 │  │  ├─ tokens.css         #   design tokens — colors, type, spacing scale
 │  │  └─ site.css           #   component styles
 │  ├─ js/
-│  │  └─ nav.js             #   mobile nav toggle (the only layout JS)
+│  │  ├─ nav.js             #   navigation and enquiry context
+│  │  └─ directory.js       #   category and preference filters
 │  └─ assets/img/           #   images (placeholders, pending rights clearance)
 ├─ dist/                    # generated output (gitignored) — this is what deploys
 ├─ docs/                    # plan, image audit, booking notes
@@ -106,6 +110,35 @@ directory `dist`.
 
 ## Status
 
-Foundation complete — 22 pages, design system, and generator all working. Outstanding:
-rights-cleared photography (images are currently placeholders), final copy, Activitar
-booking wiring, and deployment.
+Editorial redesign complete — 47 pages, including 16 activity guides,
+13 accommodation guides, 8 dining guides, a travel-planning guide and photo credits. Official sources and review dates
+are stored with each listing. Rates are quoted on enquiry rather than displaying
+unverified starting prices. The former Inkosi URL is preserved with the verified
+Nkosi Guest Lodge name.
+
+The visual system uses Libre Caslon Display + DM Sans, a restrained forest/ivory
+palette, square buttons and an editorial layout. Source and generated-page checks
+pass; visual browser verification remains outstanding because computer-use access
+was unavailable in the development session.
+
+Outstanding launch work is tracked in [GitHub issues](https://github.com/ron-harifiyati/majestic-trunk/issues),
+including rights-cleared photography, verified contacts, product-specific Activitar
+links, production privacy content, image optimization and deployment checks.
+
+## Directories and photography
+
+The primary sections are `/experiences/`, `/stay/` and `/eat-drink/`. Listings are
+grouped in static HTML. Category links work as section anchors without JavaScript;
+`directory.js` enhances them with category and preference filters, shareable query
+parameters, result counts, reset and browser back/forward support.
+
+`src/data/research-backlog.json` records suggested venues that still need direct
+verification and are deliberately excluded from public listings. The Boma remains
+a single experience entry linked from Eat & Drink. Airport services belong in the
+travel guide, separate from town restaurants.
+
+The image manifest is `src/data/media.json`. New destination photographs have
+Creative Commons attribution; official venue photographs are local design-preview
+assets pending publication permission. Do not treat source attribution as a licence.
+See `docs/photography-sources.md`. The generator copies only referenced media and
+excludes the older watermarked, stock-preview and wrong-location images.

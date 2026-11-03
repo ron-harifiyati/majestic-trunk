@@ -1,35 +1,13 @@
 <article>
-  <header class="detail-hero" style="background-image:url('/assets/img/{{image}}')">
-    <div class="wrap">
-      <span class="label">{{category}}</span>
-      <h1>{{title}}</h1>
-      <p>{{summary}}</p>
-    </div>
-  </header>
+  <header class="page-head detail-head"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/experiences/">Experiences</a></nav><span class="label">{{category}}</span><h1>{{title}}</h1><p>{{summary}}</p>{{locationNotice}}</div></header>
   <div class="wrap">
-    <div class="facts">
-      <div class="fact"><div class="k">Duration</div><div class="v">{{duration}}</div></div>
-      <div class="fact"><div class="k">Level</div><div class="v">{{difficulty}}</div></div>
-      <div class="fact"><div class="k">From</div><div class="v">{{priceFrom}}</div></div>
-    </div>
-    <div class="detail-body">
-      <div class="prose">
-        {{bodyHtml}}
-        <h2>Highlights</h2>
-        <ul>{{highlightsHtml}}</ul>
-      </div>
-      <aside class="booking-aside">
-        <div class="from">From</div>
-        <div class="amount">{{priceFrom}}</div>
-        <a class="btn" href="{{activitarUrl}}">Book this experience</a>
-        <p class="note">Secure booking handled by our partner Activitar — we never store your payment details.</p>
-      </aside>
-    </div>
+    <dl class="facts"><div><dt>Time to allow</dt><dd>{{duration}}</dd></div><div><dt>Activity level</dt><dd>{{difficulty}}</dd></div><div><dt>A good fit for</dt><dd>{{bestFor}}</dd></div></dl>
+    <div class="detail-body"><div>
+      {{detailMedia}}
+      <div class="prose"><h2>The experience</h2>{{bodyHtml}}<h2>What to look forward to</h2><ul>{{highlightsHtml}}</ul><h2>Before you go</h2><dl class="planning-list">{{planningHtml}}</dl></div>
+      <details class="source-note"><summary>Activity information &amp; sources</summary><p>Reviewed {{reviewed}}. These notes describe the destination and published operator programmes. Confirm the exact operator, inclusions and conditions for your booking.</p><ul>{{sourcesHtml}}</ul></details>
+      {{contextualLinks}}
+    </div><aside class="booking-aside">{{activityActions}}</aside></div>
   </div>
 </article>
-<section class="section alt">
-  <div class="wrap">
-    <div class="section-head center"><h2>More to explore</h2></div>
-    <div class="grid grid-3">{{relatedCards}}</div>
-  </div>
-</section>
+<section class="section alt"><div class="wrap"><div class="section-heading"><div><span class="label">Continue exploring</span><h2>Other ways to spend a day</h2></div></div><div class="grid grid-3">{{relatedCards}}</div></div></section>

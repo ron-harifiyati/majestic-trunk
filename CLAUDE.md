@@ -16,8 +16,11 @@ Bookings are **not** handled here — every "Book Now" hands off to the operator
 **Activitar** platform (`majestictrunkexpeditions.activitar.com`). No backend, no database,
 no payments on this site.
 
-Design direction: **"Sun & Savanna"** — sand/terracotta/olive palette, Fraunces + Inter,
-rounded cards, pill nav. All design values live as tokens in `src/styles/tokens.css`.
+Design direction: **editorial travel** — ivory and forest palette, Libre Caslon Display
++ DM Sans, conventional header, square buttons and restrained borders. All design
+values live as tokens in `src/styles/tokens.css`. Activity, property and dining data include
+practical planning notes, official source URLs and review dates. Do not restore
+unverified starting prices or unsupported business credentials.
 
 ## Build & Serve
 
@@ -75,3 +78,12 @@ design-mockups/          # throwaway design explorations (reference only)
 - The overall plan and open decisions are in `docs/redesign-plan.md`.
 - Git history still contains the original WordPress mirror; a fresh-start reset is planned
   for cutover but has not been done yet.
+
+## Directory expansion
+
+The current build has 47 pages: 16 experiences, 13 stays, 8 dining venues and
+supporting pages. Category definitions and filter preferences are in `build.js`;
+progressive enhancement lives in `src/js/directory.js`. Run `npm test` after changes
+to categories, links, templates or filtering. Photo provenance and responsive sizes
+are recorded in `src/data/media.json`; only referenced images are copied to output.
+Official venue photographs are preview-only until publication rights are confirmed.

@@ -1,172 +1,726 @@
 [
   {
     "slug": "white-water-rafting",
-    "title": "White-Water Rafting on the Zambezi",
+    "title": "White-water rafting",
     "category": "Adrenaline",
-    "summary": "Tackle legendary Grade-5 rapids through the Batoka Gorge, just below the Falls.",
-    "image": "rafting.jpg",
-    "alt": "Rafters paddling through white-water rapids on the Zambezi",
-    "duration": "Full day",
-    "difficulty": "Challenging",
-    "priceFrom": "$165",
+    "summary": "A full day on the Zambezi, running the rapids of the Batoka Gorge below Victoria Falls.",
+    "alt": "Rafters navigating the Zambezi rapids",
+    "duration": "Allow a full day",
+    "difficulty": "Physically demanding",
     "featured": true,
-    "highlights": ["World-class Grade-5 rapids", "Expert local river guides", "Riverside lunch included", "Hike into the dramatic Batoka Gorge"],
+    "highlights": [
+      "Grade 5 white water",
+      "Batoka Gorge scenery",
+      "Guided rafting with safety equipment"
+    ],
     "body": [
-      "Just below Victoria Falls, the Zambezi erupts into one of the finest one-day white-water runs on earth. Between towering basalt walls you'll punch through rapids with names like Stairway to Heaven and Oblivion, with calm pools in between to catch your breath and soak up the gorge.",
-      "Every trip runs with experienced local guides and full safety kit, so first-timers and seasoned paddlers are equally at home. Low-water season brings the biggest, cleanest rapids; high water is a wilder ride."
-    ]
+      "Rafting takes you below the viewpoints and into the Batoka Gorge. The Zambezi’s Grade 5 rapids make this a demanding river trip, with quieter stretches between the white water.",
+      "The route changes with river levels. Shearwater describes different high- and low-water runs; departures can change or stop when conditions are unsuitable. There is a steep walk into and out of the gorge, so the day involves more than paddling."
+    ],
+    "bestFor": "Active travellers",
+    "planning": [
+      {
+        "label": "Fitness",
+        "text": "Discuss the gorge hike and the operator’s current age and participation requirements before booking."
+      },
+      {
+        "label": "Pack",
+        "text": "Secure footwear, swimwear, sun protection and a dry change of clothes. Leave valuables behind."
+      },
+      {
+        "label": "Confirm",
+        "text": "Ask which route is running, what transfers and meals are included, and whether park fees are extra."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · Zambezi rafting",
+        "url": "https://www.shearwatervictoriafalls.com/experience/white-water-rafting"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "adventure",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "rafting-preview"
   },
   {
     "slug": "helicopter-flight",
-    "title": "Flight of Angels Helicopter Tour",
+    "title": "Helicopter flight over the Falls",
     "category": "Scenic",
-    "summary": "See the full sweep of the Falls and the zig-zagging Batoka Gorge from the air.",
-    "image": "helicopter.webp",
-    "alt": "Helicopter flying over Victoria Falls",
-    "duration": "12–25 min",
-    "difficulty": "Easy",
-    "priceFrom": "$150",
+    "summary": "See the waterfall, its islands and the gorge from above on a scenic flight.",
+    "alt": "A helicopter flying above Victoria Falls",
+    "duration": "12–25 min flight options",
+    "difficulty": "Low physical effort",
     "featured": true,
-    "highlights": ["Aerial view of the entire Falls", "Soaring over the Batoka Gorge", "12- or 25-minute options", "Unbeatable photography"],
+    "highlights": [
+      "Aerial perspective of Victoria Falls",
+      "Short and extended flight options",
+      "Views of the river and Batoka Gorge"
+    ],
     "body": [
-      "David Livingstone called it a sight 'so lovely it must have been gazed upon by angels in their flight'. From a helicopter you finally grasp the scale of it — a mile-wide curtain of water plunging into a chasm, the spray rising hundreds of metres.",
-      "Choose the 12-minute flight over the Falls themselves, or the 25-minute option that adds a loop over the gorge and the Zambezi National Park."
-    ]
+      "From the air, the relationship between the upper Zambezi, the waterfall and the narrow gorge becomes much easier to understand. A helicopter flight offers a different perspective from the rainforest viewpoints.",
+      "Shearwater publishes a short Flight of Angels and longer scenic options. Flight time is only part of the outing: allow for collection, check-in and the safety briefing. Routes and departures depend on conditions."
+    ],
+    "bestFor": "Aerial views & photography",
+    "planning": [
+      {
+        "label": "Scheduling",
+        "text": "Leave flexibility in your itinerary in case weather affects the flight."
+      },
+      {
+        "label": "Before booking",
+        "text": "Confirm the actual flight duration, passenger information requirements and seating arrangements."
+      },
+      {
+        "label": "Total cost",
+        "text": "Ask whether transfers, park or government charges and any fuel surcharge are included."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · Helicopter experiences",
+        "url": "https://www.shearwatervictoriafalls.com/experience/helicopter-experience/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "falls-river",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "helicopter-preview"
   },
   {
     "slug": "sunset-cruise",
-    "title": "Zambezi Sunset Cruise",
+    "title": "Zambezi sunset cruise",
     "category": "Scenic",
-    "summary": "Drift the upper Zambezi, drink in hand, as the African sun melts into the river.",
-    "image": "zambezi-aerial.jpg",
-    "alt": "The Zambezi river winding through islands at golden hour",
-    "duration": "2.5 hours",
-    "difficulty": "Easy",
-    "priceFrom": "$75",
+    "summary": "An unhurried evening on the upper river, with island views, birdlife and the sunset.",
+    "alt": "Sunset beside the upper Zambezi",
+    "duration": "About 2 hours on the river",
+    "difficulty": "Low physical effort",
     "featured": true,
-    "highlights": ["Hippo, elephant and crocodile sightings", "Drinks and snacks on board", "Spectacular river sunsets", "Relaxed, family-friendly pace"],
+    "highlights": [
+      "Upper Zambezi island scenery",
+      "Sunset from the river",
+      "A gentle alternative to the adventure activities"
+    ],
     "body": [
-      "Above the Falls the Zambezi is wide, slow and studded with islands — the perfect stage for a sunset. Glide past pods of hippo and elephants coming down to drink while the sky turns gold then deep orange.",
-      "It's the gentlest, most sociable way to end a day in Victoria Falls, and a favourite for couples and families alike."
-    ]
+      "Above the waterfall, the Zambezi broadens around wooded islands. A sunset cruise explores this calmer stretch of river, with opportunities to watch birds and look for hippos or crocodiles from the boat. Wildlife sightings vary.",
+      "Choose the boat as carefully as the departure time. Shared pontoon cruises and smaller vessels offer different atmospheres; menus, drinks and group sizes vary. Shearwater’s sunset offering allows around two hours on the water, with additional time for transfers."
+    ],
+    "bestFor": "Couples & relaxed evenings",
+    "planning": [
+      {
+        "label": "Choose your boat",
+        "text": "Ask about group size, seating, onboard facilities and the food and drinks package."
+      },
+      {
+        "label": "Access",
+        "text": "Confirm jetty steps and boarding assistance if anyone in your group has limited mobility."
+      },
+      {
+        "label": "Timing",
+        "text": "Check collection time and park fees. Bring a light layer for the return journey."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · River cruises",
+        "url": "https://www.shearwatervictoriafalls.com/experience/river-cruise/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "falls-river",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "cruise"
   },
   {
     "slug": "game-drives",
-    "title": "Game Drives in Zambezi National Park",
+    "title": "Zambezi National Park game drive",
     "category": "Wildlife",
-    "summary": "Track elephant, buffalo and big cats with a guide who reads the bush like a book.",
-    "image": "elephant.jpg",
-    "alt": "An elephant reaching into trees at golden hour",
-    "duration": "Half or full day",
-    "difficulty": "Easy",
-    "priceFrom": "$95",
+    "summary": "Explore the woodland and river country near Victoria Falls in a guided safari vehicle.",
+    "alt": "Elephants gathered beside the water",
+    "duration": "Morning or afternoon",
+    "difficulty": "Vehicle-based safari",
     "featured": false,
-    "highlights": ["Big game in a malaria-low park", "Open 4x4 with expert guide", "Sunrise and sunset departures", "Minutes from town"],
+    "highlights": [
+      "Guided exploration by safari vehicle",
+      "Woodland and river landscapes",
+      "Opportunities for wildlife photography"
+    ],
     "body": [
-      "On the doorstep of the Falls, Zambezi National Park runs along the river and teems with elephant, buffalo, zebra, giraffe and the predators that follow them. An open 4x4 and a sharp-eyed guide turn a morning drive into a proper safari.",
-      "Sunrise drives catch the bush at its most active; afternoon drives roll into golden hour along the riverfront."
-    ]
+      "A game drive adds time in the bush to a Victoria Falls stay. Zambezi National Park offers the chance to look for elephant, buffalo, giraffe and antelope, with a guide helping to interpret tracks and the surrounding habitat.",
+      "Morning and afternoon departures can fit around a Falls visit. A drive is a wildlife search rather than a checklist: sightings depend on conditions and animal movements. Different reserves and routes offer different experiences, so confirm where your particular drive operates."
+    ],
+    "bestFor": "Wildlife & birdwatching",
+    "planning": [
+      {
+        "label": "Departure",
+        "text": "Check collection time, drive length and which park or reserve is included."
+      },
+      {
+        "label": "Travelling with children",
+        "text": "Confirm minimum ages and whether a private vehicle would suit your group better."
+      },
+      {
+        "label": "Pack",
+        "text": "Bring binoculars, sun protection and a layer for a cool early start. Ask about park fees."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · Victoria Falls safari",
+        "url": "https://www.shearwatervictoriafalls.com/experience/victoria-falls-safari/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "wildlife",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "wildlife-preview"
   },
   {
     "slug": "bungee-bridge",
-    "title": "Bungee Jump & Bridge Swing",
+    "title": "Bungee jump & bridge swing",
     "category": "Adrenaline",
-    "summary": "Free-fall 111 metres off the historic Victoria Falls Bridge into the gorge.",
-    "image": "hero-falls.jpg",
-    "alt": "The Victoria Falls bridge spanning the gorge above the Zambezi",
-    "duration": "Half day",
-    "difficulty": "Extreme",
-    "priceFrom": "$160",
+    "summary": "Jump or swing from Victoria Falls Bridge above the Batoka Gorge.",
+    "alt": "A tandem bridge swing above the gorge",
+    "duration": "Allow a half day with transfers",
+    "difficulty": "Operator restrictions apply",
     "featured": false,
-    "highlights": ["111m bungee off the 1905 bridge", "Gorge swing and zip-line options", "Rainbows and river far below", "Bragging rights for life"],
+    "highlights": [
+      "111-metre bungee option",
+      "Bridge swing and slide alternatives",
+      "Views into the Batoka Gorge"
+    ],
     "body": [
-      "The Victoria Falls Bridge has linked Zimbabwe and Zambia since 1905 — and today it's one of the world's great adrenaline platforms. Leap into the Batoka Gorge on the 111-metre bungee, or take the heart-stopping bridge swing.",
-      "Combine it with the zip-line and flying fox for a full morning of gorge-edge thrills."
-    ]
+      "Victoria Falls Bridge is the setting for the 111-metre bungee jump, as well as a bridge swing and slide. These are different activities with different sensations; choose the one you actually want rather than treating them as interchangeable.",
+      "The bridge sits between Zimbabwe and Zambia. Registration, access and the safety briefing take longer than the jump itself, and weather or operational conditions can affect the programme."
+    ],
+    "bestFor": "Adrenaline activities",
+    "planning": [
+      {
+        "label": "Participation",
+        "text": "Confirm the selected activity’s age, weight and health requirements directly with the operator."
+      },
+      {
+        "label": "Documents",
+        "text": "Ask what passport and bridge-access documentation you need for your departure point."
+      },
+      {
+        "label": "Booking",
+        "text": "Check transfers, photography costs and the procedure if weather interrupts the activity."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · Bridge adventures",
+        "url": "https://www.shearwatervictoriafalls.com/experience/victoria-falls-bridge-adventures/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "adventure",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "bridge-preview"
   },
   {
     "slug": "chobe-day-trip",
-    "title": "Chobe Day Trip (Botswana)",
+    "title": "Chobe day trip, Botswana",
     "category": "Wildlife",
-    "summary": "Cross into Botswana for a river cruise and game drive in famous elephant country.",
-    "image": "elephants-group.jpg",
-    "alt": "A herd of elephants near water",
+    "summary": "Extend your stay with a cross-border wildlife day on the Chobe River and in the national park.",
+    "alt": "Elephants beside the water; regional wildlife imagery",
     "duration": "Full day",
-    "difficulty": "Easy",
-    "priceFrom": "$185",
+    "difficulty": "Long day; border crossing",
     "featured": false,
-    "highlights": ["Two countries in one day", "Chobe River boat safari", "Afternoon game drive", "Highest elephant density in Africa"],
+    "highlights": [
+      "Chobe River wildlife viewing",
+      "A Botswana extension from Victoria Falls",
+      "Boat and vehicle safari combinations"
+    ],
     "body": [
-      "Chobe National Park holds one of the largest elephant populations on the continent, and it's an easy day trip from Victoria Falls. Cruise the Chobe River past drinking elephants and basking crocs, then head out on an afternoon game drive.",
-      "Border transfers, lunch and park fees are handled for you — you just bring a camera."
-    ]
+      "Chobe National Park in Botswana is known for its elephant herds and river wildlife. A day trip from Victoria Falls can combine a boat safari with a game drive, giving two perspectives on the riverfront habitat.",
+      "It is a full day with road transfers and a border crossing, rather than a quick local excursion. Programmes differ: check whether your selected trip includes both activities and where lunch fits into the day. Sightings cannot be guaranteed."
+    ],
+    "bestFor": "A broader safari itinerary",
+    "planning": [
+      {
+        "label": "Travel documents",
+        "text": "Confirm entry and re-entry requirements for your nationality and itinerary before committing."
+      },
+      {
+        "label": "Programme",
+        "text": "Ask about collection time, border transfers, lunch, park fees and the expected return."
+      },
+      {
+        "label": "Pacing",
+        "text": "Keep the evening free rather than pairing this outing with another fixed departure."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wild Horizons · Chobe experiences",
+        "url": "https://wildhorizons.co.za/chobe-experiences/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "wildlife",
+    "region": "botswana",
+    "tags": [],
+    "media": "wildlife-preview"
   },
   {
     "slug": "elephant-encounter",
-    "title": "Elephant Encounter & Wildlife Walk",
+    "title": "Elephant sanctuary visit",
     "category": "Wildlife",
-    "summary": "Meet Africa's gentle giants up close on a guided, ethical sanctuary walk.",
-    "image": "elephant-encounter.jpg",
-    "alt": "A visitor gently interacting with an elephant",
-    "duration": "Half day",
-    "difficulty": "Easy",
-    "priceFrom": "$130",
+    "summary": "Learn about the care and conservation work described by the local sanctuary operator.",
+    "alt": "",
+    "duration": "Confirm the selected programme",
+    "difficulty": "Discuss access with operator",
     "featured": false,
-    "highlights": ["Close, respectful elephant interaction", "Learn about conservation", "Guided wildlife walk", "Great for families"],
+    "highlights": [
+      "Learn about the sanctuary’s history",
+      "Ask about elephant care and conservation",
+      "An alternative to a conventional game drive"
+    ],
     "body": [
-      "Spend a morning learning about elephant behaviour and conservation alongside the herd, guided by handlers who know each animal by name.",
-      "A gentle, memorable experience that puts the focus on understanding and protecting these remarkable animals."
-    ]
+      "Wild Horizons describes its Elephant Sanctuary and Orphanage as a refuge for elephants affected by injury, displacement and human–wildlife conflict. A visit is an opportunity to ask about individual animals and the care programme.",
+      "Sanctuary activities differ from observing free-ranging wildlife on safari. Before choosing a visit, ask what interaction takes place, how animal choice is respected and how the programme is managed. We do not treat an operator’s conservation description as independent welfare certification."
+    ],
+    "bestFor": "Conservation-focused visitors",
+    "planning": [
+      {
+        "label": "Programme",
+        "text": "Confirm which visit is available, its duration and whether transport is included."
+      },
+      {
+        "label": "Animal welfare",
+        "text": "Ask for the current interaction policy and what is optional for both visitors and animals."
+      },
+      {
+        "label": "Families",
+        "text": "Check age limits, walking surfaces and supervision requirements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wild Horizons · Sanctuary background",
+        "url": "https://wildhorizons.co.za/lodge-info/the-elephant-camp/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "wildlife",
+    "region": "zimbabwe",
+    "tags": []
   },
   {
     "slug": "village-tour",
-    "title": "Ko Mpisi Village Cultural Tour",
+    "title": "Village & community visit",
     "category": "Culture",
-    "summary": "A warm, community-led visit to a living Zimbabwean village.",
-    "image": "village.jpg",
-    "alt": "Visitors meeting a local resident in a village",
-    "duration": "Half day",
-    "difficulty": "Easy",
-    "priceFrom": "$75",
+    "summary": "Spend time with local hosts beyond Victoria Falls town and learn about everyday rural life.",
+    "alt": "Visitors and a local host during a village visit",
+    "duration": "Around 2½ hours",
+    "difficulty": "Some walking",
     "featured": false,
-    "highlights": ["Community-led and authentic", "Meet local families and artisans", "Supports the village directly", "Traditional food and crafts"],
+    "highlights": [
+      "Time with local community hosts",
+      "Context beyond the main visitor attractions",
+      "A shorter outing to combine with other plans"
+    ],
     "body": [
-      "Step beyond the tourist trail into Ko Mpisi, where families welcome you into daily life — the school, the homestead, the craft makers. It's honest, unscripted and led by the community itself.",
-      "A share of every visit goes straight back into the village, making this one of the most meaningful half-days you can spend here."
-    ]
+      "A hosted village visit offers a different perspective on the region from a sightseeing tour. Wild Horizons’ Meet the People programme visits a rural community outside Victoria Falls, introducing guests to homes, daily work and local customs.",
+      "The visit should follow the hosts’ lead. Daily life is not a fixed performance, so the activities and people you meet may change. Confirm the exact community and programme when booking."
+    ],
+    "bestFor": "Conversation & cultural context",
+    "planning": [
+      {
+        "label": "Respectful visiting",
+        "text": "Ask before taking photographs, and follow your host’s guidance about clothing and conduct."
+      },
+      {
+        "label": "Community benefit",
+        "text": "Ask how hosts are paid and how the visit supports the community."
+      },
+      {
+        "label": "Practicalities",
+        "text": "Confirm walking distances, transfers and whether a meal or refreshments are included."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wild Horizons · Meet the People",
+        "url": "https://wildhorizons.co.za/experiences/meet-the-people/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "culture",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "village-preview"
   },
   {
     "slug": "guided-falls-tour",
-    "title": "Guided Tour of Victoria Falls",
+    "title": "Guided Victoria Falls walk",
     "category": "Scenic",
-    "summary": "Walk the rainforest trail to 'The Smoke That Thunders' with a local guide.",
-    "image": "hero-falls.jpg",
-    "alt": "Victoria Falls with rising spray and a rainbow",
-    "duration": "3 hours",
-    "difficulty": "Easy",
-    "priceFrom": "$60",
+    "summary": "Follow the Zimbabwean rainforest paths to the waterfall viewpoints with a guide.",
+    "alt": "Victoria Falls seen from the rainforest side",
+    "duration": "Allow a morning or afternoon",
+    "difficulty": "Walking; wet surfaces",
     "featured": false,
-    "highlights": ["Guided rainforest walk", "Every viewpoint of the Falls", "History and geology along the way", "Rainbows in the spray"],
+    "highlights": [
+      "Rainforest paths and waterfall viewpoints",
+      "Guided context on the landscape",
+      "Time for photographs and observation"
+    ],
     "body": [
-      "Mosi-oa-Tunya — 'The Smoke That Thunders' — is best understood with someone who knows its story. Follow the rainforest paths from viewpoint to viewpoint as your guide unpacks the history, geology and wildlife of the Falls.",
-      "Expect to get pleasantly misted in high-water season — a raincoat is your friend."
-    ]
+      "The Zimbabwean rainforest viewpoints bring you close to the waterfall and the spray that sustains the surrounding vegetation. A guide adds context about the river, landscape and history as you move between viewpoints.",
+      "Water volume changes through the year. Heavier flow brings more spray, while lower water can reveal more of the rock face and gorge. Neither the visibility nor the amount of water is identical from visit to visit."
+    ],
+    "bestFor": "A first visit to the Falls",
+    "planning": [
+      {
+        "label": "What to wear",
+        "text": "Choose shoes with grip and bring a rain layer. Protect cameras and phones from spray."
+      },
+      {
+        "label": "Access",
+        "text": "Discuss walking distance and step-free route options if mobility is a concern."
+      },
+      {
+        "label": "Entry",
+        "text": "Confirm whether admission is included and which identification is needed for your entry category."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shearwater · Tours & hikes",
+        "url": "https://www.shearwatervictoriafalls.com/experience/tours-hikes/"
+      },
+      {
+        "title": "Zambia Tourism · Water levels and visiting",
+        "url": "https://www.zambiatourism.com/destinations/waterfalls/victoria-falls/"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "falls-river",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "falls"
   },
   {
     "slug": "the-boma-dining",
     "title": "The Boma — Dinner & Drum Show",
     "category": "Dining",
-    "summary": "A four-course African feast with live drumming, dancing and a warm welcome.",
-    "image": "veranda.jpg",
-    "alt": "An open-air African dining venue",
+    "summary": "A four-course dinner and an evening of dance, singing and participatory drumming.",
+    "alt": "",
     "duration": "Evening",
-    "difficulty": "Easy",
-    "priceFrom": "$55",
+    "difficulty": "Seated dining & participation",
     "featured": false,
-    "highlights": ["Four-course traditional feast", "Interactive drumming session", "Live dancing and storytelling", "A taste of game meats"],
+    "highlights": [
+      "Four-course dinner format",
+      "Dance, singing and drumming",
+      "Interactive evening programme"
+    ],
     "body": [
-      "End the day around the fire at The Boma, where a four-course feast of traditional dishes comes with live drumming, dancing and a face-painting, hand-drumming finale you'll be talking about for years.",
-      "Adventurous eaters can try the famous warthog and other game; everyone leaves full and grinning."
-    ]
+      "The Boma combines dinner with an organised entertainment programme on the Victoria Falls Safari Collection estate. The meal includes a starter, soup, a barbecue-style buffet and dessert, with local dishes among the choices.",
+      "Drumming is part of the evening, with guests invited to join in. Expect a sociable, lively venue rather than a quiet dinner for two. The food and performance are the main reasons to go; participation can be discussed with the venue."
+    ],
+    "bestFor": "Groups & an evening out",
+    "planning": [
+      {
+        "label": "Dietary needs",
+        "text": "Tell the venue about allergies and dietary requirements in advance; confirm what can be accommodated."
+      },
+      {
+        "label": "Getting there",
+        "text": "Check dinner arrival time and arrange the return transfer to your hotel."
+      },
+      {
+        "label": "Budget",
+        "text": "Ask which drinks, transport and optional purchases are outside the dinner price."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Safari Collection · The Boma",
+        "url": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine/the-boma-dinner-drum-show"
+      }
+    ],
+    "reviewed": "29 October 2026",
+    "group": "culture",
+    "region": "zimbabwe",
+    "tags": []
+  },
+  {
+    "slug": "gorge-swing",
+    "title": "Batoka Gorge swing",
+    "category": "Gorge adventure",
+    "group": "adventure",
+    "region": "zimbabwe",
+    "summary": "A harnessed free fall and long pendulum swing into the Batoka Gorge with Wild Horizons.",
+    "duration": "Allow time for check-in & briefing",
+    "difficulty": "Operator restrictions apply",
+    "bestFor": "A gorge-based adrenaline experience",
+    "body": [
+      "The Wild Horizons gorge swing launches from the gorge edge rather than Victoria Falls Bridge. A harnessed drop becomes a pendulum swing above the river, offering a different experience from the bridge bungee.",
+      "The high-wire site is associated with the Lookout Café area, making a meal with a view a possible addition to the outing. Keep the activity booking and restaurant reservation separate unless your selected package includes both."
+    ],
+    "highlights": [
+      "Gorge-edge launch",
+      "Harnessed free fall and swing",
+      "Different location from the bridge activities"
+    ],
+    "planning": [
+      {
+        "label": "Choose the right activity",
+        "text": "Confirm that the booking is for the Wild Horizons gorge swing, rather than the bridge swing."
+      },
+      {
+        "label": "Participation",
+        "text": "Ask about age, weight, health and tandem restrictions for your chosen departure."
+      },
+      {
+        "label": "On the day",
+        "text": "Allow for registration and the safety briefing, and confirm transport and weather arrangements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wild Horizons · Gorge swing",
+        "url": "https://wildhorizons.co.za/experiences/gorge-swing/"
+      }
+    ],
+    "tags": [],
+    "alt": "A participant starting a harnessed gorge swing",
+    "reviewed": "29 October 2026",
+    "media": "gorge-swing"
+  },
+  {
+    "slug": "gorge-zipline",
+    "title": "Gorge zipline",
+    "category": "High-wire adventure",
+    "group": "adventure",
+    "region": "zimbabwe",
+    "summary": "Travel across the Batoka Gorge on the Wild Horizons high-wire zipline.",
+    "duration": "A short outing with briefing time",
+    "difficulty": "Harnessed high-wire activity",
+    "bestFor": "Gorge views with an adrenaline element",
+    "body": [
+      "A zipline gives you a moving view of the gorge while suspended from a cable. Wild Horizons lists it alongside the gorge swing and other high-wire activities, but the zipline is a distinct product.",
+      "Check whether you want the zipline on its own or a combination of activities. A high-wire pass can have different inclusions, restrictions and time requirements from a single ride."
+    ],
+    "highlights": [
+      "A cable ride across the gorge",
+      "A separate option from the gorge swing",
+      "Can be considered alongside other high-wire activities"
+    ],
+    "planning": [
+      {
+        "label": "Your booking",
+        "text": "Confirm the product name and what a combination pass actually covers."
+      },
+      {
+        "label": "Participation",
+        "text": "Ask about the operator’s weight, age and harness requirements."
+      },
+      {
+        "label": "Timing",
+        "text": "Check briefing, transfer and weather arrangements before adding another fixed booking."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wild Horizons · Zipline",
+        "url": "https://wildhorizons.co.za/experiences/zipline/"
+      }
+    ],
+    "tags": [],
+    "alt": "A participant travelling on a zipline",
+    "reviewed": "29 October 2026",
+    "media": "zipline"
+  },
+  {
+    "slug": "livingstone-island-devils-pool",
+    "title": "Livingstone Island & Devil’s Pool",
+    "category": "Seasonal island experience",
+    "group": "adventure",
+    "region": "zambia",
+    "summary": "Visit Livingstone Island on the Zambian side, with a seasonal pool swim when conditions allow.",
+    "duration": "Depends on the selected island visit",
+    "difficulty": "Swimming is conditional",
+    "bestFor": "An island visit at the edge of the Falls",
+    "tags": [
+      "seasonal"
+    ],
+    "body": [
+      "Livingstone Island sits at the waterfall’s edge on the Zambian side. The operator offers guided island visits with different meal and departure options; a pool swim is a seasonal part of the experience, not a year-round guarantee.",
+      "Devil’s Pool and Angel’s Pool have different operating conditions. The operator can close swimming or walking without notice when river levels are unsuitable. A trip from Zimbabwe also requires planning the border crossing and the transfer to the correct meeting point."
+    ],
+    "highlights": [
+      "Guided Livingstone Island visit",
+      "Seasonal swimming subject to conditions",
+      "Meal-based departure options"
+    ],
+    "planning": [
+      {
+        "label": "Water conditions",
+        "text": "Confirm which island and swimming programme is operating on your exact dates."
+      },
+      {
+        "label": "Participation",
+        "text": "The published minimum ages differ for island visits and swimming; confirm current requirements and swimming ability with the operator."
+      },
+      {
+        "label": "Cross-border travel",
+        "text": "Check Zambia entry and Zimbabwe re-entry requirements for your nationality, and arrange sufficient transfer time."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Livingstone Island · Essential information",
+        "url": "https://livingstoneisland.com/rates-and-info"
+      }
+    ],
+    "alt": "A guided pool experience at the edge of Victoria Falls",
+    "reviewed": "29 October 2026",
+    "media": "devils-pool"
+  },
+  {
+    "slug": "vulture-culture",
+    "title": "Vulture Culture Experience",
+    "category": "Conservation & birdlife",
+    "group": "wildlife",
+    "region": "zimbabwe",
+    "summary": "A short vulture-feeding and conservation interpretation session at Victoria Falls Safari Lodge.",
+    "duration": "A short lunchtime visit",
+    "difficulty": "Confirm the viewing-platform access",
+    "bestFor": "Birdlife & conservation context",
+    "tags": [
+      "short-visit"
+    ],
+    "body": [
+      "Victoria Falls Safari Lodge hosts a Vulture Culture Experience that introduces visitors to wild vultures and their conservation challenges. The session is distinct from a game drive or a captive-bird show.",
+      "The estate publishes a lunchtime programme, but check the current time, visitor access and any charge before travelling. You can also ask about booking lunch at the lodge, rather than assuming a restaurant reservation is included."
+    ],
+    "highlights": [
+      "Wild vulture observation",
+      "Conservation interpretation",
+      "Can fit into a less crowded day"
+    ],
+    "planning": [
+      {
+        "label": "Before setting out",
+        "text": "Confirm the current session time and access for non-resident visitors."
+      },
+      {
+        "label": "Visitor arrangements",
+        "text": "Ask about any charge, group arrangements and viewing-platform access."
+      },
+      {
+        "label": "Pair with lunch",
+        "text": "Reserve MaKuwa-Kuwa or another estate venue separately if you want a meal afterwards."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Safari Collection · Vulture Culture FAQs",
+        "url": "https://victoria-falls-safari-collection.com/en-US/faqs"
+      }
+    ],
+    "alt": "",
+    "reviewed": "29 October 2026"
+  },
+  {
+    "slug": "simunye-theatre",
+    "title": "Simunye — The Spirit of Africa",
+    "category": "Live theatre",
+    "group": "culture",
+    "region": "zimbabwe",
+    "summary": "An evening production combining storytelling, puppetry, music and dance at Victoria Falls Theatre.",
+    "duration": "Evening performance",
+    "difficulty": "Seated theatre visit",
+    "bestFor": "An evening of live performance",
+    "body": [
+      "Simunye follows the journey of Bomani and his elephant companion Ndlovu, using puppetry, music and dance to tell a story about belonging and community. The production is presented by Victoria Falls Theatre Company.",
+      "The venue is the open-air Victoria Falls Theatre at Elephant’s Walk. This is a performance booking, separate from a dinner show: plan your meal and transport around the current performance schedule."
+    ],
+    "highlights": [
+      "Puppetry, music and dance",
+      "A dedicated theatre production",
+      "An evening option in town"
+    ],
+    "planning": [
+      {
+        "label": "Tickets",
+        "text": "Check performance dates, start time, seating and age guidance before booking."
+      },
+      {
+        "label": "Dinner",
+        "text": "Allow time to eat before or after the performance; do not assume dinner is included."
+      },
+      {
+        "label": "Venue",
+        "text": "Confirm access needs and the arrangements for weather at the open-air theatre."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Theatre Company · Simunye",
+        "url": "https://simunye.live/"
+      }
+    ],
+    "tags": [],
+    "alt": "Performers on stage in Simunye",
+    "reviewed": "29 October 2026",
+    "media": "simunye"
+  },
+  {
+    "slug": "art-galleries-crafts",
+    "title": "Art galleries & local crafts",
+    "category": "Self-guided town exploration",
+    "group": "culture",
+    "region": "zimbabwe",
+    "summary": "Make time for wildlife photography, sculpture and independent art and craft stops.",
+    "duration": "An hour or an open afternoon",
+    "difficulty": "Self-guided; walking varies",
+    "bestFor": "Art, photography & browsing",
+    "tags": [
+      "self-guided"
+    ],
+    "body": [
+      "A visit to a gallery can add a quieter hour to a busy itinerary. Tami Walker’s Fine Art Gallery in town focuses on wildlife photography; other art and craft stops offer different media and perspectives.",
+      "Treat this as a self-guided idea rather than a bookable tour. Check each gallery’s current location and visiting hours. AVAC Arts’ published gallery material identifies an airport location, so do not assume every art stop is part of the same walk through town."
+    ],
+    "highlights": [
+      "Wildlife photography and local art",
+      "Flexible, self-guided timing",
+      "A quieter alternative between outings"
+    ],
+    "planning": [
+      {
+        "label": "Plan the route",
+        "text": "Check current addresses and choose nearby stops rather than assuming a single art district."
+      },
+      {
+        "label": "Buying artwork",
+        "text": "Ask about the artist, provenance, packing and any shipping arrangements before purchasing."
+      },
+      {
+        "label": "Visiting",
+        "text": "Confirm opening hours directly, especially before making a dedicated trip."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tami Walker · Gallery contact information",
+        "url": "https://tamiwalkerphotography.com/contact/"
+      },
+      {
+        "title": "AVAC Arts · Gallery information",
+        "url": "https://avacarts.com/type/gallery/"
+      }
+    ],
+    "alt": "",
+    "reviewed": "29 October 2026"
   }
 ]

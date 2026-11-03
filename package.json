@@ -5,6 +5,7 @@
   "description": "Majestic Trunk Expeditions — static site (plain HTML + a tiny zero-dependency generator).",
   "scripts": {
     "build": "node build.js",
+    "test": "node --test tests/*.test.js",
     "serve": "node build.js && python3 -m http.server 8090 --directory dist"
   }
 }
