@@ -338,7 +338,7 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
 .catalogue-filter-fields select:focus-visible{outline:2px solid var(--ink-soft);outline-offset:3px}
 .catalogue-status{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;border-bottom:1px solid var(--line);padding-bottom:.4rem}
 .catalogue-status .results-count{order:0;margin:0 auto 0 0;font-size:.75rem;font-weight:400;color:var(--muted)}
-.catalogue-status [data-clear-experiences],.catalogue-status [data-clear-stays]{order:1}
+.catalogue-status [data-clear-experiences],.catalogue-status [data-clear-stays],.catalogue-status [data-clear-dining]{order:1}
 .catalogue-status button{cursor:pointer;background:none;border:0;color:var(--terra-d);font-size:.75rem;min-height:44px}
 .experience-grid{gap:1.6rem}
 .experience-card figure{aspect-ratio:16/10}
@@ -401,6 +401,37 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
 .stay-features li+li::before{content:'·';padding-inline:.65rem;color:var(--olive)}
 .stay-card .card-link{font-size:.74rem;padding-top:.25rem}
 .stay-card[id]{scroll-margin-top:6rem}
+.photo-hero.dining-hero{min-height:clamp(30rem,calc(70svh - 88px),44rem);padding:4rem 0;justify-content:flex-end}
+.dining-hero .hero-content{padding-block:0}
+.dining-hero h1{font-size:clamp(2.75rem,5vw,4.25rem);margin:.7rem 0 1rem;max-width:24ch}
+.dining-hero p{font-size:.95rem;max-width:55ch}
+.dining-catalogue{padding-bottom:clamp(2.5rem,5vw,4rem)}
+.dining-grid{gap:1.6rem}
+.dining-card figure{aspect-ratio:16/10}
+.dining-card .card-body{padding:1.3rem;gap:.75rem}
+.dining-category{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d)}
+.dining-card h2,.dining-card h3{font-size:1.4rem;line-height:1.25;text-wrap:pretty}
+.dining-card:hover h2,.dining-card:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.dining-card .card-summary{font-size:.83rem;line-height:1.7}
+.dining-location{font-size:.74rem;color:var(--muted);line-height:1.5;margin-top:-.3rem}
+.dining-features{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 0;margin-top:auto;padding-top:.5rem;font-size:.73rem;color:var(--ink-soft);line-height:1.6}
+.dining-features li+li::before{content:'·';padding-inline:.65rem;color:var(--olive)}
+.dining-card .card-link{font-size:.74rem;padding-top:.25rem}
+.dining-card[id]{scroll-margin-top:6rem}
+.dining-evening-card figure{aspect-ratio:16/10}
+.dining-evening-card .card-summary{font-size:.85rem}
+.dining-evenings{padding-block:3rem}
+.dining-planning{background:var(--cream);padding-block:3rem}
+.dining-planning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.dining-planning-grid dt{font-family:var(--font-display);font-size:1.2rem;margin-bottom:.7rem}
+.dining-planning-grid dd{font-size:.87rem;color:var(--ink-soft);line-height:1.8}
+@media(max-width:880px){.dining-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+ .photo-hero.dining-hero{min-height:28rem;padding-block:3rem}
+ .dining-hero h1{font-size:2.3rem}.dining-hero p{font-size:.88rem}
+ .dining-grid,.dining-planning-grid{grid-template-columns:1fr;gap:1.5rem}
+ .dining-card .card-body{padding:1.25rem}
+}
 .stay-comparison{padding:1.5rem;background:var(--cream);border-radius:var(--radius);margin-bottom:2rem}
 .stay-comparison h2{font-size:1.5rem;margin-bottom:1rem}
 .stay-comparison dl{display:grid;gap:1rem}

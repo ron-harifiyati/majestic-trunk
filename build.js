@@ -32,14 +32,14 @@ const groups = {
   ],
   dining: [
     ['with-a-view', 'Dining with a View', 'River, gorge and lodge settings for a meal with a sense of place.'],
-    ['casual', 'Restaurants & Eateries', 'Town restaurants, garden tables and meals to fit around your day.'],
+    ['casual', 'Restaurants & Cafés', 'Town restaurants, garden tables and meals to fit around your day.'],
     ['evenings', 'Bars & Evenings', 'A brewery-and-grill setting for a sociable evening. Check the current programme.'],
   ],
 };
 const facets = {
   experiences: [['zimbabwe','Zimbabwe'],['zambia','Zambia · cross-border'],['botswana','Botswana · cross-border'],['seasonal','Seasonal'],['self-guided','Self-guided']],
   stay: [['adults-only','Adults only'],['family-rooms','Family rooms'],['spa','Spa'],['accessible-rooms','Accessible room options'],['safari-activities','Safari activities'],['self-catering','Self-catering'],['camping','Camping options']],
-  dining: [['views','A meal with a view'],['high-tea','Afternoon tea'],['hotel-dining','Hotel dining'],['live-music','Music programme']],
+  dining: [['views','A meal with a view'],['high-tea','Afternoon tea'],['local-food','Zimbabwean cooking'],['craft-drinks','Craft beer & gin'],['hotel-dining','Hotel dining'],['live-music','Music programme']],
 };
 const ensure = (ok, message) => { if (!ok) throw new Error(message); };
 for (const [type, arr] of [['experiences', experiences], ['stay', lodges], ['dining', dining]]) {
@@ -64,6 +64,13 @@ for (const [type, arr] of [['experiences', experiences], ['stay', lodges], ['din
       ensure(Array.isArray(entry.cardFeatures) && entry.cardFeatures.length===2 && entry.cardFeatures.every(f=>typeof f==='string' && f.trim()), `${entry.slug}: two short card features are required`);
       for (const key of ['rooms','inclusions','transport']) ensure(entry.comparison && typeof entry.comparison[key]==='string' && entry.comparison[key].trim(), `${entry.slug}: missing comparison ${key}`);
     }
+    if (type==='dining') {
+      ensure(entry.media, `${entry.slug}: a venue photo is required`);
+      ensure(Array.isArray(entry.meals) && entry.meals.length && entry.meals.every(m=>['breakfast','coffee','lunch','dinner','tea','drinks'].includes(m)), `${entry.slug}: invalid meal services`);
+      ensure(Array.isArray(entry.cardFeatures) && entry.cardFeatures.length===2 && entry.cardFeatures.every(f=>typeof f==='string' && f.trim()), `${entry.slug}: two short card features are required`);
+      ensure(Array.isArray(entry.highlights) && entry.highlights.length, `${entry.slug}: missing dining highlights`);
+      if (entry.relatedStay) ensure(lodges.some(l=>l.slug===entry.relatedStay), `${entry.slug}: unknown related stay`);
+    }
     ensure(groups[type].some(g => g[0] === entry.group), `${entry.slug}: invalid group`);
     for (const s of entry.sources) ensure(/^https:\/\//.test(s.url) && s.title, `${entry.slug}: invalid source`);
     if (entry.officialUrl) ensure(/^https:\/\//.test(entry.officialUrl), `${entry.slug}: invalid official URL`);
@@ -78,7 +85,7 @@ for (const [key, m] of Object.entries(media)) {
 const base = P('base.html');
 const header = fill(P('header.html'), {activitarUrl: site.activitarUrl});
 const footer = fill(P('footer.html'), {activitarUrl: site.activitarUrl, year: site.year});
-const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : ''});
+const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : content.includes('data-dining-directory') ? '<script src="/assets/js/dining.js" defer></script>' : ''});
 const list = (arr, fn) => arr.map(fn).join('\n');
 const paras = arr => list(arr, p => `<p>${esc(p)}</p>`);
 const items = arr => list(arr, h => `<li>${esc(h)}</li>`);
@@ -116,12 +123,8 @@ const card = (e, type) => {
 };
 const expCard = e => card(e,'experiences');
 const lodgeCard = (e, heading='h3', anchor='') => `<article class="card stay-card" data-card data-stay data-setting="${esc(e.group)}" data-type="${esc(e.propertyType)}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/stay/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="stay-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="stay-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="stay-features" aria-label="Property features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">View property <span aria-hidden="true">↗</span></span></div></a></article>`;
-const diningCard = e => card(e,'dining');
-const directory = (arr, type, cardFn) => {
-  const nav = `<nav class="category-nav" aria-label="${type === 'stay' ? 'Accommodation settings' : type === 'dining' ? 'Dining categories' : 'Activity categories'}"><a href="#directory" data-group-link="all" aria-current="true">All <span>${arr.length}</span></a>${groups[type].map(([id,title]) => `<a href="#group-${id}" data-group-link="${id}">${esc(title)} <span>${arr.filter(e=>e.group===id).length}</span></a>`).join('')}</nav>`;
-  const controls = `<details class="directory-filters" hidden><summary>Filter your options</summary><div><label for="directory-facet">${type === 'experiences' ? 'Location or visit type' : type === 'stay' ? 'Guest preferences' : 'Atmosphere'}</label><select id="directory-facet" data-facet><option value="all">Any preference</option>${facets[type].map(([id,title])=>`<option value="${id}">${esc(title)}</option>`).join('')}</select><button type="button" class="text-link" data-reset>Clear filters</button></div></details>`;
-  return `<div class="directory" data-directory>${nav}${controls}<p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-results>${arr.length} ${type === 'experiences' ? 'experiences' : type === 'stay' ? 'places to stay' : 'places to eat & drink'}</p>${groups[type].map(([id,title,description])=>`<section class="directory-group" id="group-${id}" data-group="${id}"><div class="group-heading"><h2>${esc(title)}</h2><p>${esc(description)}</p></div><div class="grid ${type === 'stay' ? 'grid-2' : 'grid-3'}">${list(arr.filter(e=>e.group===id),cardFn)}</div></section>`).join('')}<div class="directory-empty" data-empty hidden><h2>No matching options</h2><p>Try another category or clear your preference.</p><button type="button" class="btn btn-ghost" data-reset>Show all options</button></div></div>`;
-};
+const renderDiningCard = (e, heading='h3', anchor='') => `<article class="card dining-card" data-card data-dining data-category="${esc(e.group)}" data-meals="${esc(e.meals.join(' '))}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/eat-drink/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="dining-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="dining-features" aria-label="Venue features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">Explore venue <span aria-hidden="true">↗</span></span></div></a></article>`;
+const diningCard = e => renderDiningCard(e);
 // Experiences have their own flat catalogue; the other directories remain grouped.
 const experienceCatalogue = () => {
   const categoryLabels = {'falls-river':'Falls & River','adventure':'Adventure','wildlife':'Wildlife','culture':'Culture & Evenings'};
@@ -146,6 +149,13 @@ const stayCatalogue = () => {
   return lodgeCard(e,'h2',anchor);
  }).join('');
  return `<div data-stay-directory><div class="experience-toolbar"><div class="wrap"><div class="catalogue-panel"><div class="catalogue-status"><p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-stay-results>${lodges.length} places to stay</p><button type="button" class="text-link" data-clear-stays hidden>Clear filters</button><button type="button" class="catalogue-toggle" data-toggle-stays aria-expanded="false" aria-controls="stay-filter-fields" hidden><span>Filters</span><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="catalogue-filters" id="stay-filter-fields" data-catalogue-filters hidden><div class="catalogue-filter-fields">${fields}</div></div></div></div></div><div class="wrap catalogue-body"><div class="grid grid-3 stay-grid">${cards}</div><div class="directory-empty" data-stay-empty hidden><h2>No matching places to stay</h2><p>Try another setting, property type or preference.</p><button type="button" class="btn btn-ghost" data-clear-stays>Show all properties</button></div></div></div>`;
+};
+const diningCatalogue = () => {
+ const select=(id,label,options)=>`<label for="dining-${id}">${label}<select id="dining-${id}" data-${id}-filter>${options.map(([value,title])=>`<option value="${value}">${esc(title)}</option>`).join('')}</select></label>`;
+ const fields=select('category','Category',[['all','All venues'],['with-a-view','With a view'],['casual','Restaurants & Cafés'],['evenings','Bars & Evenings']])+select('meal','Visit',[['all','Any visit'],['breakfast','Breakfast'],['coffee','Coffee'],['lunch','Lunch'],['dinner','Dinner'],['tea','Afternoon tea'],['drinks','Drinks']])+select('preference','Preferences',[['all','Any preference'],...facets.dining]);
+ const seen=new Set();
+ const cards=dining.map(e=>{const anchor=seen.has(e.group)?'':` id="group-${e.group}"`;seen.add(e.group);return renderDiningCard(e,'h2',anchor);}).join('');
+ return `<div data-dining-directory><div class="experience-toolbar"><div class="wrap"><div class="catalogue-panel"><div class="catalogue-status"><p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-dining-results>${dining.length} places to eat &amp; drink</p><button type="button" class="text-link" data-clear-dining hidden>Clear filters</button><button type="button" class="catalogue-toggle" data-toggle-dining aria-expanded="false" aria-controls="dining-filter-fields" hidden><span>Filters</span><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="catalogue-filters" id="dining-filter-fields" data-catalogue-filters hidden><div class="catalogue-filter-fields">${fields}</div></div></div></div></div><div class="wrap catalogue-body"><div class="grid grid-3 dining-grid">${cards}</div><div class="directory-empty" data-dining-empty hidden><h2>No matching places to eat or drink</h2><p>Try another category, visit or preference.</p><button type="button" class="btn btn-ghost" data-clear-dining>Show all venues</button></div></div></div>`;
 };
 const routes = new Set();
 const write = (rel, text) => {
@@ -182,11 +192,11 @@ for (const l of lodges) {
     title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,e=>lodgeCard(e)),featuresHtml:tagsHtml(l),comparisonHtml:`<dl>${[['rooms','Rooms & guests'],['inclusions','Meals & activities'],['transport','Getting around']].map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(l.comparison[key])}</dd></div>`).join('')}</dl>`,contextualLinks:contextualLinks(l.slug),
   })}));
 }
-write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Find a restaurant or evening out in Victoria Falls, from gorge-view tables and high tea to town eateries and a brewery.',content:fill(T('dining-index.html'),{directoryHtml:directory(dining,'dining',diningCard)})}));
+write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Explore Victoria Falls restaurants, cafés, Zimbabwean cooking, afternoon tea and bars. Find a setting and meal to suit your day.',content:fill(T('dining-index.html'),{directoryHtml:diningCatalogue(),diningHeroPhoto:photo('dining-banner','The riverside dining deck at Baines Restaurant',true,true),eveningCards:[['the-boma-dining','Dinner & drums','A Zimbabwean dinner with an interactive drumming programme.'],['simunye-theatre','Live theatre','Storytelling, puppetry, music and dance at Victoria Falls Theatre.'],['dinner-cruise','Dinner on the river','An upper Zambezi outing followed by dinner on board.']].map(([slug,label,description])=>{const e=experiences.find(e=>e.slug===slug);return `<article class="card dining-evening-card"><a class="card-main" href="/experiences/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${label}</span><h3>${esc(e.title)}</h3><p class="card-summary">${description}</p><span class="card-link">Explore experience ↗</span></div></a></article>`;}).join('')})}));
 for (const v of dining) {
   const related=dining.filter(x=>x.slug!==v.slug).sort((a,b)=>Number(b.group===v.group)-Number(a.group===v.group)).slice(0,3);
   write(`eat-drink/${v.slug}.html`,layout({title:`${v.title} — Eat & Drink — Majestic Trunk`,description:v.summary,content:fill(T('dining.html'),{
-    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,diningCard),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}.html">Explore the hotel or lodge ↗</a></p>` : '',
+    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),highlightsHtml:items(v.highlights),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,diningCard),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}.html">Explore the hotel or lodge ↗</a></p>` : '',
   })}));
 }
 for (const [file,title,description] of [

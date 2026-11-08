@@ -121,3 +121,19 @@ Miombo Mews is classified as a villa property, with a corresponding property-typ
 option in the existing filter dropdown. Island and reserve accommodation remains
 clearly identified by location and transfer requirements. Rates and availability
 continue to be confirmed on enquiry.
+
+## Eat & Drink redesign — 8 November 2026
+
+The dining catalogue now includes 18 venues. Ten new guides cover Zulu Bistro,
+Dusty Road, Victoria Falls Distilling Company, Rainforest Café, Bridge Café,
+Marula Café, Victoria Falls Coffee Company, Shoestrings Bar, The Livingstone Room
+and Jungle Junction. Each has an inspected photograph from an official source;
+the missing Stanley's Terrace image is also supplied. The hotel gallery was used
+instead of the very narrow header crops on its individual restaurant pages.
+
+The Eat & Drink hero shows Baines Restaurant's riverfront deck, separate from the
+landscape heroes elsewhere. Its provenance and that of all new venue photos is
+recorded in the media manifest, with publication permission pending. No public
+image-credit labels or credits page were added. Malonga and the Boat Club remain
+in the research backlog pending usable direct sources. The Boma, Simunye and
+dinner cruises remain experience guides, linked from the dining page.

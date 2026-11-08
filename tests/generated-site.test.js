@@ -84,3 +84,19 @@ test('stay catalogue has a photo hero, three filters and consistent linked prope
   assert.ok(!/<\d/.test(html),'Related cards must use real heading elements');
  }
 });
+test('Eat and Drink has one photographic catalogue and complete venue details',()=>{
+ const index=fs.readFileSync('dist/eat-drink/index.html','utf8');
+ const venues=JSON.parse(fs.readFileSync('src/data/dining.json','utf8'));
+ assert.match(index,/class="photo-hero dining-hero"/);
+ assert.match(index,/src="\/assets\/js\/dining.js"/);
+ assert.equal((index.match(/<select\b/g)||[]).length,3);
+ assert.equal((index.match(/class="grid grid-3 dining-grid"/g)||[]).length,1);
+ assert.ok(!index.includes('class="directory-group"'));
+ for(const venue of venues){
+  assert.ok(venue.media && venue.alt);
+  const html=fs.readFileSync(`dist/eat-drink/${venue.slug}.html`,'utf8');
+  assert.match(html,/What to expect/);assert.match(html,/Plan your visit/);
+  assert.ok(html.includes(venue.officialUrl.replace(/&/g,'&amp;')));
+ }
+ assert.match(fs.readFileSync('dist/eat-drink/cassia-restaurant.html','utf8'),/href="\/stay\/ilala-lodge.html"/);
+});

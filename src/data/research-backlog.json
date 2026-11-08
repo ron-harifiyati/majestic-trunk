@@ -2,12 +2,10 @@
   "notPublished": [
     {
       "names": [
-        "Zulu Bistro Bar",
-        "Malonga Caf\u00e9",
-        "Victoria Falls Distilling Company",
+        "Malonga Café",
         "Vic Falls Boat Club"
       ],
-      "reason": "Obtain current direct venue details and a usable official source before publishing a full guide. Malonga website certificate was expired during this review."
+      "reason": "Malonga’s official website still had an expired TLS certificate on 8 November 2026; verify a working official link and photographs. Obtain current direct Boat Club information and an official source before publishing a guide."
     },
     {
       "names": [
@@ -25,5 +23,13 @@
       ],
       "reason": "Airport services, separate from restaurant directory. Verify current terminal, eligibility and access provider before listing."
     }
-  ]
+  ],
+  "verifiedDining": {
+    "reviewed": "8 November 2026",
+    "names": [
+      "Zulu Bistro Bar",
+      "Victoria Falls Distilling Company"
+    ],
+    "note": "Added from official venue websites with menu or service information and inspected venue photography."
+  }
 }

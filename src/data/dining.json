@@ -6,39 +6,55 @@
     "category": "Gorge-view restaurant",
     "location": "Batoka Gorge",
     "atmosphere": "A meal overlooking the gorge",
-    "cuisine": "Local & international dishes",
+    "cuisine": "Contemporary café dishes, local flavours & cocktails",
     "tags": [
       "views"
     ],
-    "summary": "A gorge-side restaurant associated with the Wild Horizons high-wire activity site.",
+    "summary": "Breakfast, lunch, sunset drinks or dinner above Batoka Gorge, with views towards Victoria Falls Bridge.",
     "body": [
-      "The Lookout Café combines dining with a position above the Batoka Gorge. It is also the location associated with Wild Horizons’ high-wire activities, so lunch can be considered alongside a gorge outing.",
-      "A restaurant table and an activity booking are separate arrangements unless a package explicitly combines them. Confirm your preferred meal time and any seating requests directly with the venue."
+      "The Lookout Café sits above the Batoka Gorge, with tables looking towards the river and Victoria Falls Bridge. Breakfast and lunch suit a visit around the rainforest or high-wire activities; later bookings catch the changing light over the gorge.",
+      "The operator describes contemporary café cooking alongside local dishes, with cocktails, wine and beer. Vegetarian, vegan and gluten-free options are listed, but discuss allergies directly with the kitchen. Full-moon dinners are separate dated events, rather than the regular dinner service."
     ],
     "planning": [
       {
-        "label": "Reserve",
-        "text": "Ask about current service times and the availability of your preferred seating."
+        "label": "Book the service",
+        "text": "Specify breakfast, lunch, dinner or a full-moon event and request your preferred seating."
       },
       {
-        "label": "Combine with an activity",
-        "text": "Leave enough time for the activity briefing and any weather-related changes."
+        "label": "Kitchen hours",
+        "text": "Check last food orders as well as the restaurant closing time."
       },
       {
-        "label": "Dietary & access needs",
-        "text": "Discuss allergies and access requirements with the restaurant when reserving."
+        "label": "Activities",
+        "text": "Leave time for briefings and transfers; a restaurant table does not include a high-wire activity."
       }
     ],
-    "officialUrl": "https://www.thelookoutcafe.com/",
+    "officialUrl": "https://wildhorizons.co.za/the-lookout-cafe/",
     "sources": [
       {
         "title": "The Lookout Café · Official venue information",
-        "url": "https://www.thelookoutcafe.com/"
+        "url": "https://wildhorizons.co.za/the-lookout-cafe/"
       }
     ],
     "alt": "The Lookout Café · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "lookout-cafe"
+    "reviewed": "8 November 2026",
+    "media": "lookout-cafe",
+    "meals": [
+      "breakfast",
+      "coffee",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Gorge views",
+      "All-day dining"
+    ],
+    "highlights": [
+      "Gorge and bridge outlooks",
+      "Breakfast through to dinner",
+      "Vegetarian, vegan and gluten-free options are listed"
+    ]
   },
   {
     "slug": "baines-restaurant",
@@ -47,27 +63,27 @@
     "category": "Riverside dining",
     "location": "Zambezi Drive",
     "atmosphere": "River views & an unhurried meal",
-    "cuisine": "Restaurant dining",
+    "cuisine": "Restaurant dishes, wine & cocktails",
     "tags": [
       "views"
     ],
-    "summary": "A restaurant on the banks of the Zambezi upstream of Victoria Falls.",
+    "summary": "A riverside restaurant and deck for a longer meal, a special occasion or drinks beside the upper Zambezi.",
     "body": [
-      "Baines is positioned beside the Zambezi on Zambezi Drive. Its river setting is the main reason to consider it for a longer lunch or a meal around the end of the day.",
-      "Check the current menu and reservation arrangements before planning a special occasion. A riverside table or a particular outlook should be requested rather than assumed."
+      "Baines Restaurant occupies a riverbank setting upstream of the Falls on Zambezi Drive. The deck opens towards the water, making the setting especially relevant when choosing a longer lunch, drinks or a special-occasion meal.",
+      "Check the current menu before choosing a fixed dining time, and request a riverside table rather than assuming one is reserved. For an outdoor booking, ask what happens in rain or strong sun and arrange the return journey to your accommodation."
     ],
     "planning": [
       {
-        "label": "Seating",
-        "text": "Ask about indoor and outdoor seating and weather arrangements."
+        "label": "Your table",
+        "text": "Request the outlook and seating you prefer and check the outdoor weather arrangements."
       },
       {
-        "label": "Getting there",
-        "text": "Arrange the journey and return transfer from your accommodation."
+        "label": "Menu",
+        "text": "Confirm the current service, dietary requirements and any group menu."
       },
       {
-        "label": "Reservation",
-        "text": "Confirm the meal time, current menu and any dietary requirements."
+        "label": "Transfers",
+        "text": "Arrange pickup and return transport, especially for an evening reservation."
       }
     ],
     "officialUrl": "https://www.bainesrestaurant.com/",
@@ -78,8 +94,22 @@
       }
     ],
     "alt": "Baines Restaurant · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "baines-restaurant"
+    "reviewed": "8 November 2026",
+    "media": "baines-restaurant",
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Riverfront deck",
+      "Outdoor dining"
+    ],
+    "highlights": [
+      "Upper Zambezi riverbank setting",
+      "Deck and outdoor dining spaces",
+      "Reservations for preferred meal times"
+    ]
   },
   {
     "slug": "stanleys-terrace",
@@ -88,30 +118,30 @@
     "category": "High tea & light meals",
     "location": "The Victoria Falls Hotel",
     "atmosphere": "A hotel terrace with bridge views",
-    "cuisine": "Afternoon tea & light meals",
+    "cuisine": "Afternoon tea, light meals & drinks",
     "tags": [
       "views",
       "high-tea",
       "hotel-dining"
     ],
-    "summary": "Afternoon tea and light meals on the terrace at The Victoria Falls Hotel.",
+    "summary": "Traditional afternoon tea and light meals on the heritage hotel terrace, overlooking the bridge and Falls spray.",
     "relatedStay": "victoria-falls-hotel",
     "body": [
-      "Stanley’s Terrace offers afternoon tea and light meals with views towards Victoria Falls Bridge and the waterfall’s spray. It is a dining venue within The Victoria Falls Hotel, rather than a separate accommodation listing.",
-      "The hotel specifically asks non-resident visitors to pre-book. If afternoon tea is the reason for your visit, confirm the current serving window and table arrangements before travelling."
+      "Stanley’s Terrace is the outdoor terrace at The Victoria Falls Hotel, looking across the lawns towards the bridge and waterfall spray. Afternoon tea is its signature visit, while a separate all-day menu offers lighter meals.",
+      "The hotel publishes a dedicated afternoon-tea serving window and asks non-residents to pre-book with its food and beverage team. State that you are booking tea rather than a regular meal, and discuss dietary adaptations and access through the hotel in advance."
     ],
     "planning": [
       {
         "label": "Non-resident visits",
-        "text": "Pre-book with the hotel’s food and beverage team."
+        "text": "Pre-book with the hotel before travelling to the terrace."
       },
       {
-        "label": "High tea",
-        "text": "Confirm the current tea service, menu and any dietary adaptations."
+        "label": "Tea service",
+        "text": "Confirm the current serving window, menu and number of guests covered by your booking."
       },
       {
-        "label": "Setting",
-        "text": "Request your preferred seating and ask about access through the hotel."
+        "label": "Seating",
+        "text": "Request shade or a preferred outlook and discuss access and dietary needs."
       }
     ],
     "officialUrl": "https://www.victoriafallshotel.com/stanleys-terrace",
@@ -121,8 +151,24 @@
         "url": "https://www.victoriafallshotel.com/stanleys-terrace"
       }
     ],
-    "alt": "",
-    "reviewed": "29 October 2026"
+    "alt": "Outdoor tables and umbrellas on Stanley’s Terrace at The Victoria Falls Hotel",
+    "reviewed": "8 November 2026",
+    "meals": [
+      "lunch",
+      "tea",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Afternoon tea",
+      "Bridge views"
+    ],
+    "highlights": [
+      "Daily afternoon-tea service",
+      "Light meals on a heritage hotel terrace",
+      "Pre-booking requested for non-resident visitors"
+    ],
+    "media": "stanleys-terrace"
   },
   {
     "slug": "makuwa-kuwa",
@@ -131,29 +177,29 @@
     "category": "Lodge restaurant",
     "location": "Victoria Falls Safari Lodge",
     "atmosphere": "Lodge dining with a waterhole setting",
-    "cuisine": "Restaurant dining",
+    "cuisine": "Lodge restaurant dining",
     "tags": [
       "views",
       "hotel-dining"
     ],
-    "summary": "Dining at Victoria Falls Safari Lodge, overlooking its bush and waterhole setting.",
+    "summary": "Lodge dining above the bush and waterhole, with a different outlook from a town-centre restaurant.",
     "relatedStay": "victoria-falls-safari-lodge",
     "body": [
-      "MaKuwa-Kuwa is the main restaurant at Victoria Falls Safari Lodge. Its lodge setting offers a different atmosphere from the restaurants in the town centre.",
-      "A meal can be considered alongside a visit to the estate, but restaurant bookings, Vulture Culture access and transfers should each be checked. This is not the similarly named airport lounge."
+      "MaKuwa-Kuwa is the main restaurant at Victoria Falls Safari Lodge. Its elevated lodge setting and views over the bush and waterhole make the outlook part of the meal, with wildlife sightings dependent on the day.",
+      "Ask which meal services are open to non-residents on your date. If combining a meal with Vulture Culture or another estate visit, confirm each arrangement and leave time between them. Restaurant reservations and estate experiences are separate unless your package says otherwise."
     ],
     "planning": [
       {
-        "label": "Book a table",
-        "text": "Confirm access for non-resident diners and the current meal services."
+        "label": "Non-resident dining",
+        "text": "Confirm table availability and the service you want before visiting."
       },
       {
-        "label": "Your visit",
-        "text": "Ask about the outlook from your table if the waterhole setting matters to you."
+        "label": "Outlook",
+        "text": "Request a waterhole-facing table if that view is important to you."
       },
       {
-        "label": "Plan the journey",
-        "text": "Arrange transport and check any separate estate experience in advance."
+        "label": "Estate visits",
+        "text": "Check activity times and transport independently of the restaurant reservation."
       }
     ],
     "officialUrl": "https://victoria-falls-safari-collection.com/en-US/wine-and-dine/makuwa-kuwa-restaurant",
@@ -164,8 +210,23 @@
       }
     ],
     "alt": "MaKuwa-Kuwa Restaurant · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "makuwa-kuwa"
+    "reviewed": "8 November 2026",
+    "media": "makuwa-kuwa",
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Waterhole setting",
+      "Lodge dining"
+    ],
+    "highlights": [
+      "Restaurant at Victoria Falls Safari Lodge",
+      "Bush and waterhole outlook",
+      "A separate booking from estate activities"
+    ]
   },
   {
     "slug": "three-monkeys",
@@ -174,27 +235,27 @@
     "category": "Restaurant & bar",
     "location": "Victoria Falls town centre",
     "atmosphere": "A sociable town restaurant",
-    "cuisine": "Casual restaurant dining",
+    "cuisine": "Casual restaurant meals & bar drinks",
     "tags": [
       "town"
     ],
-    "summary": "A town-centre restaurant and bar for a meal between outings or an evening with friends.",
+    "summary": "A central restaurant and bar for lunch, dinner or drinks, close to the town’s activity and shopping hubs.",
     "body": [
-      "The Three Monkeys has operated in Victoria Falls since 2016. It offers a restaurant-and-bar setting in town, making it a practical option to consider around a day of sightseeing.",
-      "Check the current menu and make a reservation for a larger group or a fixed evening plan. Do not rely on a search-result price range as a substitute for the venue’s own menu."
+      "The Three Monkeys is a restaurant and bar at the corner of Livingstone Way and Adam Stander Drive. Its central position makes it useful for lunch between outings or dinner after time in town.",
+      "The venue publishes a late-morning opening through to late evening. Check the current menu and kitchen cut-off rather than treating bar hours as food-service hours. For a larger party or a meal before a show, reserve and tell the team your timing."
     ],
     "planning": [
       {
-        "label": "Your table",
-        "text": "Ask about group seating and whether a reservation is advisable for your chosen time."
+        "label": "Reservations",
+        "text": "Book ahead for a larger group or a fixed pre-show dinner."
       },
       {
-        "label": "Menu",
-        "text": "Check the current food, drinks and dietary options directly with the venue."
+        "label": "Kitchen",
+        "text": "Check the current menu, dietary options and last orders."
       },
       {
-        "label": "Getting back",
-        "text": "Arrange your return to your accommodation after dinner."
+        "label": "Location",
+        "text": "Use the Victoria Falls branch and arrange your return transport after dinner."
       }
     ],
     "officialUrl": "https://3monkeys.co.zw/vicfalls/",
@@ -205,8 +266,22 @@
       }
     ],
     "alt": "The Three Monkeys · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "three-monkeys"
+    "reviewed": "8 November 2026",
+    "media": "three-monkeys",
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Town-centre tables",
+      "Restaurant & bar"
+    ],
+    "highlights": [
+      "Corner of Livingstone Way and Adam Stander Drive",
+      "Lunch through to evening dining",
+      "Table reservations for larger parties"
+    ]
   },
   {
     "slug": "cassia-restaurant",
@@ -215,27 +290,27 @@
     "category": "Hotel restaurant",
     "location": "Ilala Lodge Hotel",
     "atmosphere": "Garden & terrace dining",
-    "cuisine": "Restaurant dining & wine",
+    "cuisine": "Hotel restaurant dishes & South African wines",
     "tags": [
       "hotel-dining"
     ],
-    "summary": "Indoor and outdoor dining in the gardens of Ilala Lodge Hotel.",
+    "summary": "Garden and terrace dining at Ilala Lodge, from breakfast and poolside lunch to a more leisurely dinner.",
     "body": [
-      "Cassia is the restaurant at Ilala Lodge Hotel, with indoor and outdoor dining and a wine list. The hotel describes breakfast, lunch and dinner services, with lighter options around the poolside setting.",
-      "It is worth considering when you want a hotel restaurant rather than a busy bar environment. Check the current service and menu with the restaurant, particularly for a special occasion or non-resident visit."
+      "Cassia Restaurant sits within Ilala Lodge’s gardens, with indoor dining and tables outdoors beneath the cassia trees. Breakfast combines a continental buffet with cooked choices; lunch includes lighter dishes and more substantial plates.",
+      "Evening dining is supported by a wine list focused on South African vineyards, alongside beer, gin and cocktails. The hotel also promotes a separate Zambezi River Deck dinner experience: confirm which venue you are reserving rather than assuming a Cassia booking is riverside."
     ],
     "planning": [
       {
-        "label": "Choose the service",
-        "text": "Confirm whether you are reserving breakfast, lunch or dinner."
+        "label": "Meal and venue",
+        "text": "Specify Cassia and the meal service, or enquire separately about the river-deck experience."
+      },
+      {
+        "label": "Non-residents",
+        "text": "Check table availability and access if you are not staying at Ilala Lodge."
       },
       {
         "label": "Seating",
-        "text": "Ask about terrace or indoor availability and the arrangements for rain."
-      },
-      {
-        "label": "Dietary needs",
-        "text": "Provide allergy and dietary information when you book."
+        "text": "Request indoor or terrace seating and share allergies when reserving."
       }
     ],
     "officialUrl": "https://www.ilalalodge.com/dining",
@@ -246,8 +321,25 @@
       }
     ],
     "alt": "Cassia Restaurant · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "cassia-restaurant"
+    "reviewed": "8 November 2026",
+    "media": "cassia-restaurant",
+    "meals": [
+      "breakfast",
+      "coffee",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Garden terrace",
+      "Wine list"
+    ],
+    "highlights": [
+      "Breakfast, lunch and dinner are published services",
+      "Indoor, terrace and poolside settings",
+      "Wine list focused on South African vineyards"
+    ],
+    "relatedStay": "ilala-lodge"
   },
   {
     "slug": "goat-mama-africa",
@@ -256,28 +348,29 @@
     "category": "Bar & eatery",
     "location": "Victoria Falls town centre",
     "atmosphere": "African-inspired dining & music",
-    "cuisine": "African & Western dishes",
+    "cuisine": "Oxtail, pap, hunter’s pots & Western favourites",
     "tags": [
       "town",
-      "live-music"
+      "live-music",
+      "local-food"
     ],
-    "summary": "An African-inspired town eatery at Mama Africa, with a live-music programme to check when booking.",
+    "summary": "African and Western dishes with a Zambezi river-history theme and a live township-jazz programme.",
     "body": [
-      "GOAT at Mama Africa combines African and Western dishes with a setting that celebrates the Zambezi’s rafting and kayaking history. The venue describes music as part of its evening offering.",
-      "The programme can change, so ask which nights currently include live performance. A table reservation and the current menu are more useful planning information than an old review score or a copied price range."
+      "GOAT at Mama Africa combines African dishes such as oxtail and pap and hunter’s pots with Western favourites including steaks and nachos. Its walls tell stories of the rafting and kayaking pioneers of the Zambezi.",
+      "The venue publishes live township jazz on selected evenings. Ask what is scheduled for your date and whether you want a table near the performance or somewhere quieter. Food, music and group seating should be confirmed together when planning a fixed evening."
     ],
     "planning": [
       {
         "label": "Music",
-        "text": "Confirm the performance programme for the night you want to visit."
+        "text": "Check the current performance nights and start time before booking."
       },
       {
-        "label": "Menu",
-        "text": "Ask about current dishes and any allergy or dietary requirements."
+        "label": "Food",
+        "text": "Ask which local dishes are available and discuss dietary requirements."
       },
       {
         "label": "Groups",
-        "text": "Check seating arrangements and advance reservation requirements."
+        "text": "Confirm seating, any set menu and return transport."
       }
     ],
     "officialUrl": "https://goatvicfalls.com/",
@@ -288,8 +381,22 @@
       }
     ],
     "alt": "GOAT at Mama Africa · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "goat-mama-africa"
+    "reviewed": "8 November 2026",
+    "media": "goat-mama-africa",
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "African dishes",
+      "Live jazz programme"
+    ],
+    "highlights": [
+      "African and Western menu choices",
+      "Rafting and kayaking stories in the décor",
+      "Published live-jazz evenings"
+    ]
   },
   {
     "slug": "river-smokehouse",
@@ -298,43 +405,598 @@
     "category": "Brewery & grill",
     "location": "270 Adam Stander Drive",
     "atmosphere": "Beer, grilled food & a sociable evening",
-    "cuisine": "Flame-grilled food & craft beer",
+    "cuisine": "Fire-grilled dishes, burgers & craft beer",
     "tags": [
       "town",
-      "live-music"
+      "live-music",
+      "craft-drinks"
     ],
-    "summary": "The River’s beer and The Smokehouse’s food brought together at one Victoria Falls venue.",
+    "summary": "Craft beer on tap, fire-grilled food and a changing programme of live bands and DJs at one shared venue.",
     "body": [
-      "River Brewing Co describes The Smokehouse as its dining partner, pairing its beers with flame-grilled dishes. Treat them as associated offerings at the same venue rather than two unrelated stops.",
-      "The venue also promotes a music programme, with the atmosphere changing between daytime dining and evenings. Check what is scheduled on your chosen date and reserve if you are visiting with a group."
+      "River Brewing Co and The Smokehouse bring beer and food together at 270 Adam Stander Drive. The published menu description includes flame-grilled dishes, burgers and crocodile souvlaki, with River beers on tap.",
+      "The setting changes from daytime meals to evenings with bands, DJs or other events. Check the actual programme and food-service times for your chosen date. They are associated offerings at one venue, so there is no need to plan them as two separate restaurant stops."
     ],
     "planning": [
       {
-        "label": "Where to go",
-        "text": "Use the current venue address on Adam Stander Drive and confirm your reservation contact."
+        "label": "Programme",
+        "text": "Confirm live music, DJ sets and any event arrangements for the date."
       },
       {
-        "label": "Evening programme",
-        "text": "Ask about live music or events rather than assuming a performance every night."
+        "label": "Dining",
+        "text": "Check kitchen hours and reserve for a larger party."
       },
       {
-        "label": "Your visit",
-        "text": "Check food service times and arrange transport back to your accommodation."
+        "label": "Beer",
+        "text": "Ask which beers are on tap; enquire separately about any brewery tour."
       }
     ],
-    "officialUrl": "https://smokehousezim.com/victoria-falls/",
+    "officialUrl": "https://www.riverbrewco.com/smokehouse/",
     "sources": [
       {
-        "title": "River Brewing Co · Smokehouse partnership",
+        "title": "River Brewing Co & The Smokehouse · Official venue information",
         "url": "https://www.riverbrewco.com/smokehouse/"
-      },
-      {
-        "title": "The Smokehouse · Victoria Falls venue",
-        "url": "https://smokehousezim.com/victoria-falls/"
       }
     ],
     "alt": "River Brewing Co & The Smokehouse · official venue photograph",
-    "reviewed": "29 October 2026",
-    "media": "river-smokehouse"
+    "reviewed": "8 November 2026",
+    "media": "river-smokehouse",
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Craft beer",
+      "Live music & DJs"
+    ],
+    "highlights": [
+      "River Brewing Co beers with Smokehouse food",
+      "Grilled dishes and burgers",
+      "Live bands and DJ events on selected dates"
+    ]
+  },
+  {
+    "slug": "zulu-bistro",
+    "title": "Zulu Bistro Bar",
+    "group": "casual",
+    "category": "Zimbabwean restaurant",
+    "location": "Landela Complex, Victoria Falls",
+    "atmosphere": "Local food & shared dishes",
+    "cuisine": "Zimbabwean tasting menus & à la carte",
+    "summary": "Explore Zimbabwean cooking through shared tasting dishes, an à la carte meal or a group set menu.",
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Zimbabwean cooking",
+      "Tasting menu"
+    ],
+    "highlights": [
+      "A published Zimbabwean tasting menu",
+      "À la carte and group set-menu alternatives",
+      "Central Landela Complex location"
+    ],
+    "body": [
+      "Zulu Bistro Bar focuses on Zimbabwean everyday food and local ingredients. Its published options include a multi-dish tasting menu, combining sharing-style and individually plated courses, alongside à la carte choices.",
+      "The tasting menu is a longer food experience than a quick restaurant stop. Ask about the current dishes, portion arrangements and time needed. Groups can enquire about set menus or packed lunches, while dietary restrictions should be discussed before confirming a shared menu."
+    ],
+    "planning": [
+      {
+        "label": "Menu format",
+        "text": "Choose the tasting menu, à la carte or a group set menu when booking."
+      },
+      {
+        "label": "Dietary needs",
+        "text": "Discuss allergies and substitutions before reserving shared dishes."
+      },
+      {
+        "label": "Timing",
+        "text": "Allow time for multiple courses and confirm the current programme."
+      }
+    ],
+    "officialUrl": "https://zulubistrobar.com/",
+    "sources": [
+      {
+        "title": "Zulu Bistro Bar · Official venue information",
+        "url": "https://zulubistrobar.com/"
+      }
+    ],
+    "alt": "A spread of Zimbabwean dishes at Zulu Bistro Bar",
+    "reviewed": "8 November 2026",
+    "media": "zulu-bistro",
+    "tags": [
+      "town",
+      "local-food"
+    ]
+  },
+  {
+    "slug": "dusty-road",
+    "title": "Dusty Road Township Experience",
+    "group": "casual",
+    "category": "Zimbabwean restaurant",
+    "location": "Chinotimba, Victoria Falls",
+    "atmosphere": "Colourful township dining",
+    "cuisine": "Zimbabwean food cooked over open fires",
+    "summary": "A booked lunch or dinner in Chinotimba, with Zimbabwean cooking, open fires and inventive local décor.",
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cardFeatures": [
+      "Zimbabwean cooking",
+      "Bookings essential"
+    ],
+    "highlights": [
+      "Open-fire and cast-iron cooking",
+      "Distinct lunch and dinner menus",
+      "Restaurant in the Chinotimba neighbourhood"
+    ],
+    "body": [
+      "Dusty Road is a restaurant in Chinotimba, with Zimbabwean food cooked over open fires and in cast-iron pots and ovens. Reused materials and colourful local details shape its courtyard and home-like dining spaces.",
+      "The venue publishes separate lunch and dinner services and says bookings are essential. Treat it as a planned meal, allowing time to enjoy the setting rather than squeezing it into a short transfer gap. Arrange transport to and from the restaurant through your accommodation or guide."
+    ],
+    "planning": [
+      {
+        "label": "Book first",
+        "text": "Reserve the meal service and confirm the current menu and total price."
+      },
+      {
+        "label": "Dietary needs",
+        "text": "Tell the kitchen about allergies or restrictions before arrival."
+      },
+      {
+        "label": "Transport",
+        "text": "Arrange the journey into Chinotimba and your return collection."
+      }
+    ],
+    "officialUrl": "https://dustyroad.africa/restaurant.html",
+    "sources": [
+      {
+        "title": "Dusty Road Township Experience · Official venue information",
+        "url": "https://dustyroad.africa/restaurant.html"
+      }
+    ],
+    "alt": "A colourful fire-cooked dish prepared at Dusty Road",
+    "reviewed": "8 November 2026",
+    "media": "dusty-road",
+    "tags": [
+      "local-food"
+    ]
+  },
+  {
+    "slug": "victoria-falls-distillery",
+    "title": "Victoria Falls Distilling Company",
+    "group": "evenings",
+    "category": "Distillery & cocktail bar",
+    "location": "Livingstone Way & Adam Stander Drive",
+    "atmosphere": "Botanical gin & cocktails",
+    "cuisine": "Locally distilled gin, cocktails & sharing boards",
+    "summary": "Zimbabwean botanical gin, cocktails and charcuterie or cheese boards in a central distillery bar.",
+    "meals": [
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Botanical gin",
+      "Cocktails & boards"
+    ],
+    "highlights": [
+      "Gin made with Zimbabwean botanicals",
+      "Cocktails and sharing boards",
+      "Entrance via The Three Monkeys"
+    ],
+    "body": [
+      "Victoria Falls Distilling Company presents its gin through Zimbabwean botanicals and a bar serving cocktails, charcuterie and cheese boards. It offers a drinks-led stop rather than a full restaurant meal.",
+      "The official address is at Livingstone Way and Adam Stander Drive, with entry via The Three Monkeys. Ask about tasting formats, reservations and the current food offering. A drink at the bar does not automatically include a guided distillery tour."
+    ],
+    "planning": [
+      {
+        "label": "Tastings",
+        "text": "Confirm the format, availability and charges for any guided tasting or tour."
+      },
+      {
+        "label": "Food",
+        "text": "Check sharing-board availability and dietary requirements."
+      },
+      {
+        "label": "Getting back",
+        "text": "Arrange return transport if drinking and confirm the entrance before travelling."
+      }
+    ],
+    "officialUrl": "https://vicfallsdistillery.com/about-us/",
+    "sources": [
+      {
+        "title": "Victoria Falls Distilling Company · Official venue information",
+        "url": "https://vicfallsdistillery.com/about-us/"
+      }
+    ],
+    "alt": "Guests at the bar and tables inside Victoria Falls Distilling Company",
+    "reviewed": "8 November 2026",
+    "media": "victoria-falls-distillery",
+    "tags": [
+      "town",
+      "craft-drinks"
+    ]
+  },
+  {
+    "slug": "rainforest-cafe",
+    "title": "The Rainforest Café",
+    "group": "casual",
+    "category": "Park café",
+    "location": "Victoria Falls rainforest visitor area",
+    "atmosphere": "A shaded break around a Falls visit",
+    "cuisine": "Breakfasts, sandwiches, burgers, coffee & cake",
+    "summary": "A café stop around the rainforest visit, with breakfast, light meals, cold drinks and coffee.",
+    "meals": [
+      "breakfast",
+      "coffee",
+      "lunch"
+    ],
+    "cardFeatures": [
+      "Near the Falls",
+      "Coffee & light meals"
+    ],
+    "highlights": [
+      "A café in the rainforest visitor area",
+      "Breakfast and light meal options",
+      "Coffee, cakes and cold drinks"
+    ],
+    "body": [
+      "The Rainforest Café is associated with the Victoria Falls rainforest visitor area, offering a place to pause around a walk through the viewpoints. Published menu descriptions include breakfasts, wraps, salads, toasted sandwiches, burgers and fish.",
+      "Plan it around your park visit and ask about the current access arrangements. The café’s closing time, kitchen hours and park admission are separate considerations, so do not assume a table booking provides entry to the rainforest."
+    ],
+    "planning": [
+      {
+        "label": "Access",
+        "text": "Confirm the meeting point and whether park admission is needed for your intended visit."
+      },
+      {
+        "label": "Timing",
+        "text": "Check food-service hours against your Falls tour or transfer."
+      },
+      {
+        "label": "Menu",
+        "text": "Ask about current dishes, children’s portions and dietary options."
+      }
+    ],
+    "officialUrl": "https://victoriafalls-rainforest.cafe/",
+    "sources": [
+      {
+        "title": "The Rainforest Café · Official venue information",
+        "url": "https://victoriafalls-rainforest.cafe/"
+      }
+    ],
+    "alt": "Fresh sandwiches displayed at The Rainforest Café",
+    "reviewed": "8 November 2026",
+    "media": "rainforest-cafe",
+    "tags": []
+  },
+  {
+    "slug": "bridge-cafe",
+    "title": "The Bridge Café",
+    "group": "with-a-view",
+    "category": "Bridge-view café",
+    "location": "Victoria Falls Bridge area",
+    "atmosphere": "Gorge views & bridge activity",
+    "cuisine": "Café meals & drinks",
+    "summary": "A meal or drink overlooking the bridge and gorge, close to the bridge activity platforms.",
+    "meals": [
+      "coffee",
+      "lunch",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Bridge views",
+      "Café & bar"
+    ],
+    "highlights": [
+      "Outlook towards the bridge and gorge",
+      "A café stop near bridge activities",
+      "Access arrangements to confirm before travelling"
+    ],
+    "body": [
+      "The Bridge Café occupies a viewpoint near Victoria Falls Bridge and the Batoka Gorge. It suits a pause around a bridge tour or time watching the activity platforms, with café food and drinks.",
+      "Bridge-area access is different from visiting a restaurant in town. Ask about passport requirements and the current border-area formalities for your route. A café visit, a bridge tour and a jump or slide remain separate bookings."
+    ],
+    "planning": [
+      {
+        "label": "Access",
+        "text": "Confirm passport and bridge-area access requirements before leaving your accommodation."
+      },
+      {
+        "label": "Activities",
+        "text": "Allow separate time for activity check-in and safety briefings."
+      },
+      {
+        "label": "Food service",
+        "text": "Check the current menu and kitchen hours for your planned visit."
+      }
+    ],
+    "officialUrl": "https://shearwaterbungee.com/bridge-cafe/",
+    "sources": [
+      {
+        "title": "The Bridge Café · Official venue information",
+        "url": "https://shearwaterbungee.com/bridge-cafe/"
+      }
+    ],
+    "alt": "A meal and cold drink with the bridge beyond at The Bridge Café",
+    "reviewed": "8 November 2026",
+    "media": "bridge-cafe",
+    "tags": [
+      "views"
+    ]
+  },
+  {
+    "slug": "marula-cafe",
+    "title": "Marula Café",
+    "group": "casual",
+    "category": "Town café & restaurant",
+    "location": "Victoria Falls town centre",
+    "atmosphere": "Coffee through to evening dining",
+    "cuisine": "Café breakfasts, fish, grills & casual dishes",
+    "summary": "A town-centre option for morning coffee, lunch or dinner, with local fish and casual restaurant dishes.",
+    "meals": [
+      "breakfast",
+      "coffee",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Town-centre café",
+      "Breakfast to dinner"
+    ],
+    "highlights": [
+      "Breakfast, lunch and evening menu options",
+      "Published dishes include Zambezi bream and grills",
+      "Coffee, speciality teas and sundowners"
+    ],
+    "body": [
+      "Marula Café serves the town centre with a menu that changes through the day: coffee and breakfast dishes, then salads, sandwiches, pasta, burgers and more substantial restaurant choices.",
+      "Shearwater’s dining information highlights local ingredients including Zambezi bream and Zimbabwean beef. Check the menu for your meal time and any evening entertainment. For a group heading to a show, confirm service time and tell the team when you need to leave."
+    ],
+    "planning": [
+      {
+        "label": "Meal time",
+        "text": "Check which menu is served when you plan to arrive."
+      },
+      {
+        "label": "Groups",
+        "text": "Reserve larger tables and mention any fixed theatre or activity time."
+      },
+      {
+        "label": "Dietary needs",
+        "text": "Confirm current vegetarian choices and allergy arrangements."
+      }
+    ],
+    "officialUrl": "https://marula.cafe/",
+    "sources": [
+      {
+        "title": "Marula Café · Official venue information",
+        "url": "https://marula.cafe/"
+      }
+    ],
+    "alt": "Marula Café staff presenting prepared meals",
+    "reviewed": "8 November 2026",
+    "media": "marula-cafe",
+    "tags": []
+  },
+  {
+    "slug": "victoria-falls-coffee",
+    "title": "Victoria Falls Coffee Company",
+    "group": "casual",
+    "category": "Café & local roastery",
+    "location": "Metcalfe Road, beside GOAT",
+    "atmosphere": "Coffee beneath mango trees",
+    "cuisine": "Locally roasted coffee & beans to take home",
+    "summary": "A shaded café and local roastery for a cup of Zimbabwean coffee or beans to take home.",
+    "meals": [
+      "coffee"
+    ],
+    "cardFeatures": [
+      "Local roastery",
+      "Shaded café"
+    ],
+    "highlights": [
+      "Café on Metcalfe Road beside GOAT",
+      "Coffee roasted locally in small batches",
+      "Whole beans and ground coffee to take home"
+    ],
+    "body": [
+      "Victoria Falls Coffee Company’s café sits beneath mango trees on Metcalfe Road, beside GOAT. The roastery works with Zimbabwean coffee from the Eastern Highlands alongside other origins and blends.",
+      "Ask what is being served on the day or choose beans ground for your brewing method. The published range includes single-origin Zimbabwe coffee and changing blends. Check café hours directly; this guide describes a coffee stop rather than promising a full breakfast or restaurant menu."
+    ],
+    "planning": [
+      {
+        "label": "Visit",
+        "text": "Confirm current café hours and the exact entrance on Metcalfe Road."
+      },
+      {
+        "label": "Coffee",
+        "text": "Ask which beans and brewing options are available that day."
+      },
+      {
+        "label": "Take home",
+        "text": "Request whole beans or the grind suitable for your own equipment."
+      }
+    ],
+    "officialUrl": "https://victoriafallscoffee.com/",
+    "sources": [
+      {
+        "title": "Victoria Falls Coffee Company · Official venue information",
+        "url": "https://victoriafallscoffee.com/"
+      }
+    ],
+    "alt": "The shaded café building at Victoria Falls Coffee Company",
+    "reviewed": "8 November 2026",
+    "media": "victoria-falls-coffee",
+    "tags": [
+      "town"
+    ]
+  },
+  {
+    "slug": "shoestrings-bar",
+    "title": "Shoestrings Bar",
+    "group": "evenings",
+    "category": "Backpackers’ bar & events",
+    "location": "12 West Drive, Victoria Falls",
+    "atmosphere": "Informal music & social evenings",
+    "cuisine": "Bar drinks & venue food options",
+    "summary": "An informal bar at Shoestrings, with live acts, DJs and a changing calendar of evening events.",
+    "meals": [
+      "drinks"
+    ],
+    "cardFeatures": [
+      "Live acts & DJs",
+      "Informal bar"
+    ],
+    "highlights": [
+      "Bar within Shoestrings Backpackers",
+      "Live music and DJ programmes",
+      "Event entry arrangements vary"
+    ],
+    "body": [
+      "Shoestrings Bar is part of the backpackers’ property on West Drive, with a sociable setting, live acts and DJ events. It is an option for an informal evening rather than a quiet dining-room reservation.",
+      "The venue publishes event-specific entry arrangements, including selected sessions with a redeemable entry charge. Check the current programme, entry conditions and food availability for your date. Pool and other property facilities should be confirmed separately for non-resident visitors."
+    ],
+    "planning": [
+      {
+        "label": "Events",
+        "text": "Confirm the date’s line-up, entry conditions and any advance booking."
+      },
+      {
+        "label": "Food",
+        "text": "Check whether food is being served during your chosen event."
+      },
+      {
+        "label": "Return journey",
+        "text": "Arrange collection back to your accommodation before the evening."
+      }
+    ],
+    "officialUrl": "https://www.shoestringsvicfalls.com/bar",
+    "sources": [
+      {
+        "title": "Shoestrings Bar · Official venue information",
+        "url": "https://www.shoestringsvicfalls.com/bar"
+      }
+    ],
+    "alt": "The poolside social area and bar buildings at Shoestrings",
+    "reviewed": "8 November 2026",
+    "media": "shoestrings-bar",
+    "tags": [
+      "town",
+      "live-music"
+    ]
+  },
+  {
+    "slug": "livingstone-room",
+    "title": "The Livingstone Room",
+    "group": "casual",
+    "category": "Formal hotel restaurant",
+    "location": "The Victoria Falls Hotel",
+    "atmosphere": "A heritage dining room",
+    "cuisine": "À la carte & table d’hôte dinner",
+    "summary": "A more formal dinner in the heritage hotel’s Edwardian dining room, with a dress code to check before visiting.",
+    "meals": [
+      "dinner"
+    ],
+    "cardFeatures": [
+      "Dinner service",
+      "Heritage dining room"
+    ],
+    "highlights": [
+      "Dinner-focused dining room",
+      "À la carte and table d’hôte menus",
+      "Published dress and guest policies"
+    ],
+    "body": [
+      "The Livingstone Room is the formal dining room at The Victoria Falls Hotel, with an Edwardian interior and dinner service. It offers a different evening from the hotel’s outdoor terrace or Jungle Junction buffet.",
+      "The hotel publishes dress requirements, restricted operating days and a child policy. Confirm all three when reserving, especially if coming straight from a safari outing. Ask whether the current service is à la carte or table d’hôte and allow time for a more leisurely dinner."
+    ],
+    "planning": [
+      {
+        "label": "Dress",
+        "text": "Check the current dress code; the hotel excludes safari wear, shorts and some casual footwear."
+      },
+      {
+        "label": "Guest policy",
+        "text": "Confirm child restrictions and the dining room’s operating days."
+      },
+      {
+        "label": "Reservations",
+        "text": "Non-residents should pre-book and specify the Livingstone Room."
+      }
+    ],
+    "officialUrl": "https://www.victoriafallshotel.com/the-livingstone-room",
+    "sources": [
+      {
+        "title": "The Livingstone Room · Official venue information",
+        "url": "https://www.victoriafallshotel.com/the-livingstone-room"
+      }
+    ],
+    "alt": "The formal dining room and arches at The Livingstone Room",
+    "reviewed": "8 November 2026",
+    "media": "livingstone-room",
+    "tags": [
+      "hotel-dining"
+    ],
+    "relatedStay": "victoria-falls-hotel"
+  },
+  {
+    "slug": "jungle-junction",
+    "title": "Jungle Junction",
+    "group": "with-a-view",
+    "category": "Outdoor hotel restaurant",
+    "location": "The Victoria Falls Hotel",
+    "atmosphere": "Open-air dining & hotel gardens",
+    "cuisine": "Breakfast & dinner buffets",
+    "summary": "Breakfast or a buffet dinner in the hotel’s open-air dining setting, with entertainment arrangements to confirm.",
+    "meals": [
+      "breakfast",
+      "dinner"
+    ],
+    "cardFeatures": [
+      "Outdoor hotel dining",
+      "Buffet service"
+    ],
+    "highlights": [
+      "Breakfast and dinner buffet services",
+      "Outdoor garden and gorge outlooks",
+      "Entertainment programmes vary by booking"
+    ],
+    "body": [
+      "Jungle Junction is the outdoor-style restaurant at The Victoria Falls Hotel. Its published breakfast and dinner services centre on buffets, with the gardens, gorge and Falls spray forming the outlook.",
+      "The hotel describes evening entertainment, while group and private-event arrangements have their own conditions. Ask what is scheduled for your date rather than assuming every dinner includes the same programme. Non-resident meals and larger groups should be reserved in advance."
+    ],
+    "planning": [
+      {
+        "label": "Service",
+        "text": "Confirm breakfast or dinner availability and the current buffet arrangement."
+      },
+      {
+        "label": "Programme",
+        "text": "Ask what entertainment is scheduled and whether any element is separately charged."
+      },
+      {
+        "label": "Groups",
+        "text": "Check the hotel’s group conditions, seating and non-resident booking requirements."
+      }
+    ],
+    "officialUrl": "https://www.victoriafallshotel.com/jungle-junction",
+    "sources": [
+      {
+        "title": "Jungle Junction · Official venue information",
+        "url": "https://www.victoriafallshotel.com/jungle-junction"
+      }
+    ],
+    "alt": "Outdoor dining at sunrise beside the gardens at Jungle Junction",
+    "reviewed": "8 November 2026",
+    "media": "jungle-junction",
+    "tags": [
+      "views",
+      "hotel-dining"
+    ],
+    "relatedStay": "victoria-falls-hotel"
   }
 ]

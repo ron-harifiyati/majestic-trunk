@@ -54,8 +54,11 @@ src/
     tokens.css           #   design tokens (color, type, spacing scale) — start here
     site.css             #   all component styles
   js/
-    nav.js               #   mobile nav toggle (the only layout JS)
-  assets/img/            #   images (currently PLACEHOLDERS — see docs/image-*.md)
+    nav.js               #   shared mobile navigation
+    experiences.js       #   activity catalogue filtering
+    stays.js             #   accommodation catalogue filtering
+    dining.js            #   dining catalogue filtering
+  assets/img/            #   photography and branding; provenance in src/data/media.json
 dist/                    # GENERATED output (gitignored) — never hand-edit
 docs/                    # planning docs (see below)
 design-mockups/          # throwaway design explorations (reference only)
@@ -82,10 +85,11 @@ design-mockups/          # throwaway design explorations (reference only)
 
 ## Directory expansion
 
-The current build has 77 pages: 26 experiences, 34 stays, 8 dining venues and
+The current build has 87 pages: 26 experiences, 34 stays, 18 dining venues and
 supporting pages. Category definitions and filter preferences are in `build.js`;
-dining enhancement lives in `src/js/directory.js`. The flat Experiences catalogue
-uses `src/js/experiences.js`; accommodation uses `src/js/stays.js` with setting,
+the flat dining catalogue uses `src/js/dining.js` with category, meal and preference
+filters. Every dining entry requires a photo, meal labels, highlights and two
+short card features. Experiences use `src/js/experiences.js`; accommodation uses `src/js/stays.js` with setting,
 property type and preference dropdowns. Each stay has a validated `propertyType`
 and `comparison` notes for rooms, inclusions and transport. Each experience has a validated
 `timeCategory` for broad planning filters; keep the descriptive `duration` text. Run `npm test` after changes
