@@ -116,8 +116,8 @@ are stored with each listing. Rates are quoted on enquiry rather than displaying
 unverified starting prices. The former Inkosi URL is preserved with the verified
 Nkosi Guest Lodge name.
 
-The visual system uses Libre Caslon Display + DM Sans, a restrained forest/ivory
-palette, square buttons and an editorial layout. Source and generated-page checks
+The visual system uses Fraunces + Inter, the original Sun & Savanna
+sand/terracotta/olive palette, rounded cards, pill buttons and pill navigation. Source and generated-page checks
 pass; visual browser verification remains outstanding because computer-use access
 was unavailable in the development session.
 

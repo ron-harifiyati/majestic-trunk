@@ -432,5 +432,19 @@
     "licenseUrl": "",
     "changes": "Resized and JPEG-compressed; layout may crop the image.",
     "downloaded": "Existing asset"
+  },
+  "home-hero": {
+    "file": "home-hero.webp",
+    "small": "home-hero.webp",
+    "width": 1352,
+    "height": 900,
+    "smallWidth": 1352,
+    "sourceUrl": "",
+    "sourcePage": "",
+    "credit": "Image supplied by the site owner",
+    "license": "Owner-supplied image; no third-party licence asserted",
+    "licenseUrl": "",
+    "changes": "Original WebP retained; displayed with responsive cover cropping.",
+    "downloaded": "2026-11-04"
   }
 }

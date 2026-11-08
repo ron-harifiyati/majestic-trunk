@@ -16,8 +16,9 @@ Bookings are **not** handled here — every "Book Now" hands off to the operator
 **Activitar** platform (`majestictrunkexpeditions.activitar.com`). No backend, no database,
 no payments on this site.
 
-Design direction: **editorial travel** — ivory and forest palette, Libre Caslon Display
-+ DM Sans, conventional header, square buttons and restrained borders. All design
+Design direction: **Sun & Savanna** — original sand, terracotta and olive palette,
+Fraunces + Inter fonts, rounded cards, pill buttons and pill navigation. The original
+theme was restored at the user’s request while retaining the expanded directories. All design
 values live as tokens in `src/styles/tokens.css`. Activity, property and dining data include
 practical planning notes, official source URLs and review dates. Do not restore
 unverified starting prices or unsupported business credentials.
