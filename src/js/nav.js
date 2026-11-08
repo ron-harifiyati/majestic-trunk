@@ -25,14 +25,4 @@
   document.addEventListener('click', function (event) {
     if (!bar.contains(event.target)) closeMenu();
   });
-  var enquiryField = document.getElementById('enquiry-interest');
-  var enquiryLink = document.getElementById('email-enquiry');
-  if (enquiryField && enquiryLink) {
-    var interest = new URLSearchParams(window.location.search).get('interest');
-    if (interest) {
-      enquiryField.textContent = interest.slice(0, 160);
-      enquiryField.hidden = false;
-      enquiryLink.href = 'mailto:hello@majestictrunk.com?subject=' + encodeURIComponent('Enquiry: ' + interest.slice(0, 160));
-    }
-  }
 })();

@@ -1146,5 +1146,19 @@
     "licenseUrl": "",
     "changes": "Resized and JPEG-compressed; layout may crop the image.",
     "downloaded": "2026-11-08"
+  },
+  "travel-guide-hero": {
+    "file": "online/travel-guide-hero.jpg",
+    "small": "online/travel-guide-hero-600.jpg",
+    "width": 1600,
+    "height": 900,
+    "smallWidth": 600,
+    "sourceUrl": "https://wildhorizons.co.za/wp-content/uploads/2024/04/Hero-Banner-1920-x-1080-px-16-1.png",
+    "sourcePage": "https://wildhorizons.co.za/experiences/tour-of-the-falls/",
+    "credit": "Official operator photography",
+    "license": "Rights holder permission pending; local design preview only",
+    "licenseUrl": "",
+    "changes": "Resized and JPEG-compressed; layout may crop the image.",
+    "downloaded": "2026-11-08"
   }
 }

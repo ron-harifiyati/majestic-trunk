@@ -42,3 +42,8 @@ dist/
 #  Logs
 # ─────────────────────────────────────────────
 *.log
+
+# Cloudflare local email credentials and cache
+.dev.vars
+.dev.vars.*
+.wrangler/

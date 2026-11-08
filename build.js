@@ -9,6 +9,10 @@ const json = name => JSON.parse(read(SRC, 'data', name + '.json'));
 const T = name => read(SRC, 'templates', name);
 const P = name => read(SRC, 'partials', name);
 const site = json('site');
+const basePath=(process.env.SITE_BASE_PATH||'').replace(/\/$/,'');
+if(basePath&&!/^\/[a-zA-Z0-9_/-]+$/.test(basePath))throw new Error('Invalid SITE_BASE_PATH');
+const siteOrigin=new URL(process.env.SITE_ORIGIN||'https://majestictrunk.com').origin;
+const emailOnly=process.env.ENQUIRY_MODE==='email';
 const experiences = json('experiences');
 const lodges = json('lodges');
 const dining = json('dining');
@@ -57,6 +61,14 @@ for (const [type, arr] of [['experiences', experiences], ['stay', lodges], ['din
       ensure(entry.media, `${entry.slug}: an experience photo is required`);
       ensure(['zimbabwe','zambia','botswana'].includes(entry.region), `${entry.slug}: invalid region`);
       ensure(['short','half-day','full-day','evening','confirm'].includes(entry.timeCategory), `${entry.slug}: invalid time category`);
+      ensure(typeof entry.location==='string' && entry.location.trim(), `${entry.slug}: missing experience location`);
+      ensure(Array.isArray(entry.relatedSuggestions) && entry.relatedSuggestions.length===2, `${entry.slug}: two related suggestions required`);
+      const relatedSlugs=new Set();
+      for (const suggestion of entry.relatedSuggestions) {
+        ensure(suggestion.slug!==entry.slug && experiences.some(e=>e.slug===suggestion.slug) && !relatedSlugs.has(suggestion.slug), `${entry.slug}: invalid related experience`);
+        ensure(typeof suggestion.label==='string' && suggestion.label.trim() && typeof suggestion.reason==='string' && suggestion.reason.trim(), `${entry.slug}: related suggestion needs context`);
+        relatedSlugs.add(suggestion.slug);
+      }
     }
     if (type==='stay') {
       ensure(['hotel','resort','lodge','villa'].includes(entry.propertyType), `${entry.slug}: invalid property type`);
@@ -83,15 +95,15 @@ for (const [key, m] of Object.entries(media)) {
   ensure(m.width > 0 && m.height > 0 && m.smallWidth > 0, `${key}: missing image dimensions`);
 }
 const base = P('base.html');
-const header = fill(P('header.html'), {activitarUrl: site.activitarUrl});
-const footer = fill(P('footer.html'), {activitarUrl: site.activitarUrl, year: site.year});
+const header = fill(P('header.html'), {activitarUrl: '/plan-your-trip/'});
+const footer = fill(P('footer.html'), {activitarUrl: '/plan-your-trip/', year: site.year});
 const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : content.includes('data-dining-directory') ? '<script src="/assets/js/dining.js" defer></script>' : ''});
 const list = (arr, fn) => arr.map(fn).join('\n');
 const paras = arr => list(arr, p => `<p>${esc(p)}</p>`);
 const items = arr => list(arr, h => `<li>${esc(h)}</li>`);
 const planning = arr => list(arr, p => `<div><dt>${esc(p.label)}</dt><dd>${esc(p.text)}</dd></div>`);
 const sources = arr => list(arr, s => `<li><a href="${esc(s.url)}">${esc(s.title)} ↗</a></li>`);
-const enquiry = title => `/contact.html?interest=${encodeURIComponent(title)}`;
+const enquiry = title => `/contact/?interest=${encodeURIComponent(title)}`;
 const usedMedia = new Set();
 const photo = (id, alt, priority = false, fullWidth = false) => {
   if (!id) return '';
@@ -102,13 +114,13 @@ const photo = (id, alt, priority = false, fullWidth = false) => {
 const heroMedia = e => photo(e.media || 'home-hero',e.media ? e.alt : 'Victoria Falls · destination setting',true,true);
 const contextualLinks = slug => {
   const links = {
-    'gorge-swing': [['/eat-drink/lookout-cafe.html','Consider a meal at the Lookout Café'],['/experiences/gorge-zipline.html','Compare the gorge zipline']],
-    'gorge-zipline': [['/eat-drink/lookout-cafe.html','Consider a meal at the Lookout Café'],['/experiences/gorge-swing.html','Compare the gorge swing']],
-    'vulture-culture': [['/eat-drink/makuwa-kuwa.html','Plan lunch at MaKuwa-Kuwa'],['/stay/victoria-falls-safari-lodge.html','Explore Victoria Falls Safari Lodge']],
+    'gorge-swing': [['/eat-drink/lookout-cafe/','Consider a meal at the Lookout Café'],['/experiences/gorge-zipline/','Compare the gorge zipline']],
+    'gorge-zipline': [['/eat-drink/lookout-cafe/','Consider a meal at the Lookout Café'],['/experiences/gorge-swing/','Compare the gorge swing']],
+    'vulture-culture': [['/eat-drink/makuwa-kuwa/','Plan lunch at MaKuwa-Kuwa'],['/stay/victoria-falls-safari-lodge/','Explore Victoria Falls Safari Lodge']],
     'simunye-theatre': [['/eat-drink/?group=casual','Find somewhere for dinner']],
     'art-galleries-crafts': [['/eat-drink/?group=casual','Leave time for lunch in town']],
-    'victoria-falls-hotel': [['/eat-drink/stanleys-terrace.html','Afternoon tea at Stanley’s Terrace']],
-    'victoria-falls-safari-lodge': [['/eat-drink/makuwa-kuwa.html','Dining at MaKuwa-Kuwa'],['/experiences/vulture-culture.html','The Vulture Culture Experience']],
+    'victoria-falls-hotel': [['/eat-drink/stanleys-terrace/','Afternoon tea at Stanley’s Terrace']],
+    'victoria-falls-safari-lodge': [['/eat-drink/makuwa-kuwa/','Dining at MaKuwa-Kuwa'],['/experiences/vulture-culture/','The Vulture Culture Experience']],
   }[slug];
   return links ? `<aside class="related-links"><h2>While you are nearby</h2><ul>${links.map(([url,label])=>`<li><a href="${esc(url)}">${esc(label)} ↗</a></li>`).join('')}</ul></aside>` : '';
 };
@@ -119,13 +131,13 @@ const card = (e, type) => {
   const meta = type === 'experiences' ? `${e.duration} · ${e.region === 'zambia' ? 'Zambia' : e.region === 'botswana' ? 'Botswana' : 'Zimbabwe'}` : type === 'stay' ? e.location : e.location;
   const action = type === 'experiences' ? 'Explore activity' : type === 'stay' ? 'View property' : 'Explore venue';
   const tokens = [...e.tags, e.region || ''].filter(Boolean).join(' ');
-  return `<article class="card ${type === 'stay' ? 'accommodation-card' : ''} ${!e.media ? 'card-no-photo' : ''}" data-card data-tags="${esc(tokens)}"><a class="card-main" href="/${route}/${e.slug}.html">${e.media ? `<figure>${photo(e.media,e.alt)}</figure>` : ''}<div class="card-body"><span class="pill">${esc(e.category)}</span><h3>${esc(e.title)}</h3><p class="card-summary">${esc(e.summary)}</p>${tagsHtml(e)}<p class="card-meta">${esc(meta)}</p><span class="card-link">${action} <span aria-hidden="true">↗</span></span></div></a></article>`;
+  return `<article class="card ${type === 'stay' ? 'accommodation-card' : ''} ${!e.media ? 'card-no-photo' : ''}" data-card data-tags="${esc(tokens)}"><a class="card-main" href="/${route}/${e.slug}/">${e.media ? `<figure>${photo(e.media,e.alt)}</figure>` : ''}<div class="card-body"><span class="pill">${esc(e.category)}</span><h3>${esc(e.title)}</h3><p class="card-summary">${esc(e.summary)}</p>${tagsHtml(e)}<p class="card-meta">${esc(meta)}</p><span class="card-link">${action} <span aria-hidden="true">↗</span></span></div></a></article>`;
 };
 const expCard = e => card(e,'experiences');
-const lodgeCard = (e, heading='h3', anchor='') => `<article class="card stay-card" data-card data-stay data-setting="${esc(e.group)}" data-type="${esc(e.propertyType)}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/stay/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="stay-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="stay-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="stay-features" aria-label="Property features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">View property <span aria-hidden="true">↗</span></span></div></a></article>`;
-const renderDiningCard = (e, heading='h3', anchor='') => `<article class="card dining-card" data-card data-dining data-category="${esc(e.group)}" data-meals="${esc(e.meals.join(' '))}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/eat-drink/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="dining-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="dining-features" aria-label="Venue features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">Explore venue <span aria-hidden="true">↗</span></span></div></a></article>`;
+const lodgeCard = (e, heading='h3', anchor='') => `<article class="card stay-card" data-card data-stay data-setting="${esc(e.group)}" data-type="${esc(e.propertyType)}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/stay/${e.slug}/"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="stay-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="stay-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="stay-features" aria-label="Property features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">View property <span aria-hidden="true">↗</span></span></div></a></article>`;
+const renderDiningCard = (e, heading='h3', anchor='') => `<article class="card dining-card" data-card data-dining data-category="${esc(e.group)}" data-meals="${esc(e.meals.join(' '))}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/eat-drink/${e.slug}/"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="dining-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="dining-features" aria-label="Venue features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">Explore venue <span aria-hidden="true">↗</span></span></div></a></article>`;
 const diningCard = e => renderDiningCard(e);
-// Experiences have their own flat catalogue; the other directories remain grouped.
+// Flat catalogues share the quiet disclosure and card layout.
 const experienceCatalogue = () => {
   const categoryLabels = {'falls-river':'Falls & River','adventure':'Adventure','wildlife':'Wildlife','culture':'Culture & Evenings'};
   const locations = {zimbabwe:'Zimbabwe',zambia:'Zambia',botswana:'Botswana'};
@@ -136,7 +148,7 @@ const experienceCatalogue = () => {
   const cards = ordered.map(e=>{
     const groupAnchor = seenGroups.has(e.group) ? '' : ` id="group-${e.group}"`; seenGroups.add(e.group);
     const notes = [e.region!=='zimbabwe' ? 'Cross-border' : '',e.tags.includes('seasonal') ? 'Seasonal' : '',e.tags.includes('self-guided') ? 'Self-guided' : ''].filter(Boolean);
-    return `<article class="card experience-card ${e.media?'':'experience-card-text'}" data-card data-experience data-category="${e.group}" data-location="${e.region}" data-time="${e.timeCategory}"${groupAnchor}><a class="card-main" href="/experiences/${e.slug}.html">${e.media?`<figure>${photo(e.media,e.alt)}</figure>`:''}<div class="card-body"><span class="experience-category">${esc(categoryLabels[e.group])}</span><h2>${esc(e.title)}</h2><p class="card-summary">${esc(e.summary)}</p><dl class="experience-facts"><div><dt>Time</dt><dd>${esc(e.duration)}</dd></div><div><dt>Location</dt><dd>${locations[e.region]}</dd></div></dl>${notes.length?`<ul class="experience-notes" aria-label="Planning notes">${notes.map(note=>`<li>${note}</li>`).join('')}</ul>`:''}<span class="card-link">View experience <span aria-hidden="true">↗</span></span></div></a></article>`;
+    return `<article class="card experience-card ${e.media?'':'experience-card-text'}" data-card data-experience data-category="${e.group}" data-location="${e.region}" data-time="${e.timeCategory}"${groupAnchor}><a class="card-main" href="/experiences/${e.slug}/">${e.media?`<figure>${photo(e.media,e.alt)}</figure>`:''}<div class="card-body"><span class="experience-category">${esc(categoryLabels[e.group])}</span><h2>${esc(e.title)}</h2><p class="card-summary">${esc(e.summary)}</p><dl class="experience-facts"><div><dt>Time</dt><dd>${esc(e.duration)}</dd></div><div><dt>Location</dt><dd>${locations[e.region]}</dd></div></dl>${notes.length?`<ul class="experience-notes" aria-label="Planning notes">${notes.map(note=>`<li>${note}</li>`).join('')}</ul>`:''}<span class="card-link">View experience <span aria-hidden="true">↗</span></span></div></a></article>`;
   }).join('');
   return `<div data-experience-directory><div class="experience-toolbar"><div class="wrap"><div class="catalogue-panel"><div class="catalogue-status"><button type="button" class="catalogue-toggle" data-toggle-experiences aria-expanded="false" aria-controls="experience-filter-fields" hidden><span>Filters</span><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-experience-results>${ordered.length} experiences</p><button type="button" class="text-link" data-clear-experiences hidden>Clear filters</button></div>${filters}</div></div></div><div class="wrap catalogue-body"><div class="grid grid-3 experience-grid" id="experience-list">${cards}</div><div class="directory-empty" data-experience-empty hidden><h2>No matching experiences</h2><p>Choose another category, location or duration, or clear the filters to see everything.</p><button type="button" class="btn btn-ghost" data-clear-experiences>Show all experiences</button></div></div></div>`;
 };
@@ -168,35 +180,53 @@ fs.cpSync(path.join(SRC,'styles'),path.join(DIST,'assets/css'),{recursive:true})
 fs.cpSync(path.join(SRC,'js'),path.join(DIST,'assets/js'),{recursive:true});
 write('index.html',layout({title:'Majestic Trunk Expeditions — Victoria Falls',description:'Majestic Trunk Expeditions is your Victoria Falls tour operator, booking partner and trip planner. Arrange activities, accommodation and a personal itinerary.',content:fill(T('home.html'),{
   featuredExperienceCards:list(['guided-falls-tour','gorge-swing','game-drives'].map(slug=>experiences.find(e=>e.slug===slug)),expCard),
-  experienceCount:experiences.length,stayCount:lodges.length,activitarUrl:esc(site.activitarUrl),
+  experienceCount:experiences.length,stayCount:lodges.length,activitarUrl:'/plan-your-trip/',
   heroPhoto:photo('home-hero','Golden light and mist above Victoria Falls',true,true),
   introductionPhoto:photo('helicopter-preview','A helicopter flying above Victoria Falls'),
   stayPhoto:photo('victoria-falls-river-lodge','A private deck at Victoria Falls River Lodge'),
   featuredDiningCards:list(dining.filter(e=>['lookout-cafe','three-monkeys','river-smokehouse'].includes(e.slug)),diningCard),
 })}));
+const tripEntries = [['experiences',experiences],['stay',lodges],['eat-drink',dining]].flatMap(([type,entries])=>entries.map(e=>({id:`${type}/${e.slug}`,type,title:e.title,url:`/${type}/${e.slug}/`,category:e.category,group:e.group,location:e.location,groupLabel:groups[type==='eat-drink'?'dining':type].find(g=>g[0]===e.group)[1],photo:`/assets/img/${media[e.media].small}`,alt:e.alt})));
+write('assets/js/trip-catalogue.js',`window.MajesticEmailMode=${JSON.stringify(emailOnly?"email":"api")};window.MajesticBasePath=${JSON.stringify(basePath)};window.MajesticEnquiryEmail=${JSON.stringify(site.enquiryEmail)};window.MajesticCatalogue=${JSON.stringify(tripEntries.map(e=>({...e,url:basePath+e.url,photo:basePath+e.photo}))).replace(/</g,'\\u003c')};`);
+const tripButton=(entry)=>`<button type="button" class="trip-add" data-trip-add="${esc(entry.id)}" aria-pressed="false" aria-label="Add ${esc(entry.title)} to your trip" hidden>Add to trip +</button>`;
+write('plan-your-trip/index.html',layout({title:'Plan Your Trip — Majestic Trunk Expeditions',description:'Build your Victoria Falls shortlist of experiences, accommodation and dining, then send a personal trip enquiry.',content:fill(T('plan-trip.html'),{
+ experienceCount:experiences.length,stayCount:lodges.length,diningCount:dining.length,
+ tripCards:tripEntries.map(e=>`<article class="trip-option" data-trip-option="${e.id}" data-trip-type="${e.type}" data-trip-group="${esc(e.group)}"><a class="trip-option-photo" href="${e.url}" tabindex="-1" aria-hidden="true">${photo((e.type==='experiences'?experiences:e.type==='stay'?lodges:dining).find(item=>item.slug===e.id.split('/')[1]).media,e.alt)}</a><div class="trip-option-body"><span class="label">${esc(e.category)}</span><h2><a href="${e.url}">${esc(e.title)}</a></h2><p>${esc(e.location)}</p><div class="trip-option-actions"><a class="text-link" href="${e.url}">View details ↗</a>${tripButton(e)}</div></div></article>`).join('')
+})}));
 write('experiences/index.html',layout({title:'Experiences — Majestic Trunk Expeditions',description:'Explore Victoria Falls activities by interest: the Falls and river, adventure, wildlife, culture and evenings.',content:fill(T('experiences-index.html'),{experiencesHeroPhoto:photo('experiences-banner','Aerial view of Victoria Falls and the upper Zambezi',true,true),experienceCatalogue:experienceCatalogue()})}));
 for (const e of experiences) {
-  const related = experiences.filter(x=>x.slug!==e.slug).sort((a,b)=>Number(b.group===e.group)-Number(a.group===e.group)).slice(0,3);
   const selfGuided = e.tags.includes('self-guided');
-  write(`experiences/${e.slug}.html`,layout({title:`${e.title} — Majestic Trunk Expeditions`,description:e.summary,content:fill(T('experience.html'),{
-    title:esc(e.title),summary:esc(e.summary),category:esc(e.category),heroMedia:heroMedia(e),duration:esc(e.duration),difficulty:esc(e.difficulty),bestFor:esc(e.bestFor),
-    locationNotice:e.region==='zambia' || e.region==='botswana' ? `<p class="location-notice">${e.region==='zambia' ? 'Zambia' : 'Botswana'} · Cross-border planning required when travelling from Zimbabwe.</p>` : '',
-    bodyHtml:paras(e.body),highlightsHtml:items(e.highlights),planningHtml:planning(e.planning),sourcesHtml:sources(e.sources),reviewed:esc(e.reviewed),relatedCards:list(related,expCard),contextualLinks:contextualLinks(e.slug),
-    activityActions:e.enquiryOnly ? `<span class="label">Ask about this experience</span><h2>Plan it around your stay.</h2><p>Send your dates and group size so we can check the programme, availability and arrangements with the operator.</p><a class="btn" href="${enquiry(e.title)}">Enquire about this experience ↗</a><p class="note">Availability and inclusions will be confirmed in your quotation.</p>` : selfGuided ? `<span class="label">Explore at your own pace</span><h2>Leave a little time to browse.</h2><p>This is a self-guided idea. Check each gallery’s visiting details directly.</p><a class="btn" href="${enquiry(e.title)}">Ask about your itinerary ↗</a>` : `<span class="label">Plan this activity</span><h2>Make it part of your visit.</h2><p>Ask about your dates, the current programme and a quotation for your group.</p><a class="btn" href="${enquiry(e.title)}">Enquire about this activity ↗</a><a class="text-link" href="${esc(site.activitarUrl)}">Browse online bookings ↗</a><p class="note">Activitar opens our general booking catalogue. Confirm the exact product and current requirements before reserving.</p>`,
+  const visitorIdea = selfGuided || e.slug==='vulture-culture';
+  const enquiryLabel = selfGuided ? 'Ask about your itinerary' : visitorIdea ? 'Ask about visiting' : 'Enquire about this experience';
+  const country = {zimbabwe:'Zimbabwe',zambia:'Zambia',botswana:'Botswana'}[e.region];
+  const planningLabels = [e.region!=='zimbabwe'?'Cross-border from Zimbabwe':'',e.tags.includes('seasonal')?'Seasonal · confirm dates':'',selfGuided?'Self-guided':''].filter(Boolean).map(label=>`<span class="experience-planning-label">${esc(label)}</span>`).join('');
+  const relatedCards=e.relatedSuggestions.map(suggestion=>{
+    const other=experiences.find(x=>x.slug===suggestion.slug);
+    return `<article class="card experience-related-card"><a class="card-main" href="/experiences/${other.slug}/"><figure>${photo(other.media,other.alt)}</figure><div class="card-body"><span class="experience-related-label">${esc(suggestion.label)}</span><h3>${esc(other.title)}</h3><span class="experience-related-arrow" aria-hidden="true">↗</span></div></a></article>`;
+  }).join('');
+  const activityActions=`<span class="label">${visitorIdea?'Your visit':'Plan this experience'}</span><h2>${esc(e.title)}</h2><p>${selfGuided?'A self-guided idea for time in town. Ask us how to fit it around your other plans.':visitorIdea?'Ask about current visitor access and how to fit this stop into your itinerary.':'Share your dates and number of travellers. We’ll check the programme and arrangements for your group.'}</p><a class="btn" href="${enquiry(e.title)}">${enquiryLabel} ↗</a><p class="note">${visitorIdea?'Confirm visiting details with the venue before setting out.':'Your quotation will set out the provider, inclusions and booking terms.'}</p>`;
+  write(`experiences/${e.slug}/index.html`,layout({title:`${e.title} — Majestic Trunk Expeditions`,description:e.summary,content:fill(T('experience.html'),{
+    title:esc(e.title),summary:esc(e.summary),category:esc(e.category),heroMedia:heroMedia(e),duration:esc(e.duration),difficulty:esc(e.difficulty),bestFor:esc(e.bestFor),country:esc(country),location:esc(e.location),planningLabels,
+    bodyHtml:paras(e.body),highlightsHtml:items(e.highlights),planningHtml:planning(e.planning),sourcesHtml:sources(e.sources),reviewed:esc(e.reviewed),relatedCards,contextualLinks:contextualLinks(e.slug),activityActions,enquiryUrl:enquiry(e.title),enquiryLabel,
   })}));
 }
 write('stay/index.html',layout({title:'Places to Stay — Majestic Trunk Expeditions',description:'Compare town and garden stays, riverfront hotels and safari lodges around Victoria Falls.',content:fill(T('lodges-index.html'),{directoryHtml:stayCatalogue(),stayHeroPhoto:photo('palm-river-hotel','The pool and riverside gardens at Palm River Hotel',true,true)})}));
+const detailRecommendation = (entry, route, label) => `<article class="card experience-related-card"><a class="card-main" href="/${route}/${entry.slug}/"><figure>${photo(entry.media,entry.alt)}</figure><div class="card-body"><span class="experience-related-label">${esc(label)}</span><h3>${esc(entry.title)}</h3><span class="experience-related-arrow" aria-hidden="true">↗</span></div></a></article>`;
+const similarEntries = (entries, current, extraScore) => entries.filter(entry=>entry.slug!==current.slug).sort((a,b)=>{
+  const score=entry=>Number(entry.group===current.group)*10+entry.tags.filter(tag=>current.tags.includes(tag)).length+extraScore(entry);
+  return score(b)-score(a);
+}).slice(0,2);
 for (const l of lodges) {
-  const related=lodges.filter(x=>x.slug!==l.slug).sort((a,b)=>Number(b.group===l.group)-Number(a.group===l.group)).slice(0,3);
-  write(`stay/${l.slug}.html`,layout({title:`${l.title} — Majestic Trunk Expeditions`,description:l.summary,content:fill(T('lodge.html'),{
-    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,e=>lodgeCard(e)),featuresHtml:tagsHtml(l),comparisonHtml:`<dl>${[['rooms','Rooms & guests'],['inclusions','Meals & activities'],['transport','Getting around']].map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(l.comparison[key])}</dd></div>`).join('')}</dl>`,contextualLinks:contextualLinks(l.slug),
+  const related=similarEntries(lodges,l,entry=>Number(entry.propertyType===l.propertyType)*2);
+  write(`stay/${l.slug}/index.html`,layout({title:`${l.title} — Majestic Trunk Expeditions`,description:l.summary,content:fill(T('lodge.html'),{
+    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),propertyType:esc({hotel:'Hotel',resort:'Resort',lodge:'Lodge',villa:'Villa / Apartment'}[l.propertyType]),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,e=>detailRecommendation(e,'stay',e.group===l.group?'Similar setting':'Another place to stay')),comparisonHtml:`<dl>${[['rooms','Rooms & guests'],['inclusions','Meals & activities'],['transport','Getting around']].map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(l.comparison[key])}</dd></div>`).join('')}</dl>`,contextualLinks:contextualLinks(l.slug),
   })}));
 }
-write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Explore Victoria Falls restaurants, cafés, Zimbabwean cooking, afternoon tea and bars. Find a setting and meal to suit your day.',content:fill(T('dining-index.html'),{directoryHtml:diningCatalogue(),diningHeroPhoto:photo('dining-banner','The riverside dining deck at Baines Restaurant',true,true),eveningCards:[['the-boma-dining','Dinner & drums','A Zimbabwean dinner with an interactive drumming programme.'],['simunye-theatre','Live theatre','Storytelling, puppetry, music and dance at Victoria Falls Theatre.'],['dinner-cruise','Dinner on the river','An upper Zambezi outing followed by dinner on board.']].map(([slug,label,description])=>{const e=experiences.find(e=>e.slug===slug);return `<article class="card dining-evening-card"><a class="card-main" href="/experiences/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${label}</span><h3>${esc(e.title)}</h3><p class="card-summary">${description}</p><span class="card-link">Explore experience ↗</span></div></a></article>`;}).join('')})}));
+write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Explore Victoria Falls restaurants, cafés, Zimbabwean cooking, afternoon tea and bars. Find a setting and meal to suit your day.',content:fill(T('dining-index.html'),{directoryHtml:diningCatalogue(),diningHeroPhoto:photo('dining-banner','The riverside dining deck at Baines Restaurant',true,true),eveningCards:[['the-boma-dining','Dinner & drums','A Zimbabwean dinner with an interactive drumming programme.'],['simunye-theatre','Live theatre','Storytelling, puppetry, music and dance at Victoria Falls Theatre.'],['dinner-cruise','Dinner on the river','An upper Zambezi outing followed by dinner on board.']].map(([slug,label,description])=>{const e=experiences.find(e=>e.slug===slug);return `<article class="card dining-evening-card"><a class="card-main" href="/experiences/${e.slug}/"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="dining-category">${label}</span><h3>${esc(e.title)}</h3><p class="card-summary">${description}</p><span class="card-link">Explore experience ↗</span></div></a></article>`;}).join('')})}));
 for (const v of dining) {
-  const related=dining.filter(x=>x.slug!==v.slug).sort((a,b)=>Number(b.group===v.group)-Number(a.group===v.group)).slice(0,3);
-  write(`eat-drink/${v.slug}.html`,layout({title:`${v.title} — Eat & Drink — Majestic Trunk`,description:v.summary,content:fill(T('dining.html'),{
-    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),highlightsHtml:items(v.highlights),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,diningCard),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}.html">Explore the hotel or lodge ↗</a></p>` : '',
+  const related=similarEntries(dining,v,entry=>entry.meals.filter(meal=>v.meals.includes(meal)).length);
+  write(`eat-drink/${v.slug}/index.html`,layout({title:`${v.title} — Eat & Drink — Majestic Trunk`,description:v.summary,content:fill(T('dining.html'),{
+    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),highlightsHtml:items(v.highlights),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,e=>detailRecommendation(e,'eat-drink',e.group===v.group?'A similar setting':'Another table to try')),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}/">Explore the hotel or lodge ↗</a></p>` : '',
   })}));
 }
 for (const [file,title,description] of [
@@ -204,9 +234,9 @@ for (const [file,title,description] of [
   ['contact.html','Plan Your Visit — Majestic Trunk Expeditions','Enquire about activities, accommodation and your Victoria Falls itinerary.'],
   ['privacy.html','Privacy Policy — Majestic Trunk Expeditions','How Majestic Trunk Expeditions handles your information.'],
   ['travel-guide.html','Victoria Falls Travel Guide — Majestic Trunk','Seasonal water levels, a suggested three-night itinerary, dining ideas and practical planning.'],
-]) write(file,layout({title,description,content:fill(T(file),{activitarUrl:site.activitarUrl})}));
+]) write(file.replace(/\.html$/,'/index.html'),layout({title,description,content:fill(T(file),{activitarUrl:'/plan-your-trip/',enquiryEmail:esc(site.enquiryEmail),...(file==='travel-guide.html'?{guideHeroPhoto:photo('travel-guide-hero','Victoria Falls seen through the rainforest foliage',true,true)}:{})})}));
 const galleryIds=['home-hero','gorge-swing','zipline','simunye','old-drift-lodge','palm-river-hotel','shongwe-oasis','lookout-cafe','baines-restaurant','cassia-restaurant','river-smokehouse'];
-write('gallery.html',layout({title:'Gallery — Majestic Trunk Expeditions',description:'Victoria Falls landscapes, activities, accommodation and dining settings.',content:fill(T('gallery.html'),{galleryHtml:galleryIds.map(id=>`<figure><a href="/assets/img/${media[id].file}">${photo(id,id.replace(/-/g,' '))}</a><figcaption>${esc(id.replace(/-/g,' '))}</figcaption></figure>`).join('')})}));
+write('gallery/index.html',layout({title:'Gallery — Majestic Trunk Expeditions',description:'Victoria Falls landscapes, activities, accommodation and dining settings.',content:fill(T('gallery.html'),{galleryHtml:galleryIds.map(id=>`<figure><a href="/assets/img/${media[id].file}">${photo(id,id.replace(/-/g,' '))}</a><figcaption>${esc(id.replace(/-/g,' '))}</figcaption></figure>`).join('')})}));
 // Deploy only referenced images; retain source and permission records in src/data/media.json.
 fs.cpSync(path.join(SRC,'assets/icons'),DIST,{recursive:true});
 fs.mkdirSync(path.join(DIST,'assets/img'),{recursive:true});
@@ -216,14 +246,39 @@ for (const id of usedMedia) for (const file of [media[id].file,media[id].small])
 }
 const pageFiles=[...routes].filter(f=>f.endsWith('.html'));
 for (const rel of pageFiles) {
- const section=rel.startsWith('experiences/')?'/experiences/':rel.startsWith('stay/')?'/stay/':rel.startsWith('eat-drink/')?'/eat-drink/':`/${rel}`;
+ const section=rel.startsWith('experiences/')?'/experiences/':rel.startsWith('stay/')?'/stay/':rel.startsWith('eat-drink/')?'/eat-drink/':`/${rel.replace(/index\.html$/,'')}`;
  const file=path.join(DIST,rel);let html=read(file);
- html=html.replace(`<a href="${section}">`,`<a href="${section}" aria-current="${section.endsWith('/')&&!rel.endsWith('index.html')?'location':'page'}">`);
+ html=html.replace(`<a href="${section}">`,`<a href="${section}" aria-current="${rel!==section.slice(1)+'index.html'?'location':'page'}">`);
+ // Add shortlist controls outside card links, without changing catalogue filter behaviour.
+ html=html.replace(/<article class="card[^"]*"[^>]*data-card[^>]*>[\s\S]*?<\/article>/g,cardHtml=>{
+  const link=cardHtml.match(/class="card-main" href="\/(experiences|stay|eat-drink)\/([^"]+)\/"/);
+  const entry=link&&tripEntries.find(e=>e.id===`${link[1]}/${link[2]}`);
+  return entry?cardHtml.replace('</article>',tripButton(entry)+'</article>'):cardHtml;
+ });
+ const detailEntry=tripEntries.find(e=>e.url===`/${rel.replace(/index\.html$/,'')}`);
+ if(detailEntry){
+  html=html.replace(/(<aside class="booking-aside[^"]*"[^>]*>)([\s\S]*?)(<\/aside>)/,(all,start,body,end)=>start+body.replace('</a>','</a>'+tripButton(detailEntry))+end);
+  html=html.replace(/(<div class="experience-mobile-action">[\s\S]*?<\/a>)/, '$1'+tripButton(detailEntry));
+ }
  html=html.replace('</head>',`  <link rel="canonical" href="https://majestictrunk.com/${rel.replace(/index\.html$/,'')}">\n</head>`);
  ensure(!/\{\{\w+\}\}/.test(html),`Unresolved template in ${rel}`);fs.writeFileSync(file,html);
 }
 write('robots.txt','User-agent: *\nAllow: /\nSitemap: https://majestictrunk.com/sitemap.xml\n');
 write('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pageFiles.map(f=>`<url><loc>https://majestictrunk.com/${f.replace(/index\.html$/,'')}</loc></url>`).join('')}</urlset>\n`);
+// Keep old bookmarks usable on a plain static server. Hosts supporting
+// _redirects use permanent HTTP redirects; other hosts get a small HTML fallback.
+const redirectRules=[];
+for (const rel of pageFiles) {
+ const target=`/${rel.replace(/index\.html$/,'')}`;
+ redirectRules.push(`/${rel} ${target} 301`);
+ if (rel==='index.html') continue;
+ const legacy=rel.replace(/\/index\.html$/,'.html');
+ // The three directory indexes already existed at these clean URLs.
+ if (['experiences.html','stay.html','eat-drink.html'].includes(legacy)) continue;
+ redirectRules.push(`/${legacy} ${target} 301`);
+ write(legacy,`<!DOCTYPE html><html lang="en" data-legacy-redirect><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page moved — Majestic Trunk</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://majestictrunk.com${target}"><script>window.location.replace(${JSON.stringify(target)} + window.location.search + window.location.hash);</script><noscript><meta http-equiv="refresh" content="0;url=${target}"></noscript></head><body><h1>This page has moved</h1><p><a href="${target}">Continue to the page</a>.</p></body></html>\n`);
+}
+write('_redirects',redirectRules.join('\n')+'\n');
 // Optional local comparison pages, excluded from navigation and the sitemap.
 if (process.argv.includes('--filter-previews')) {
  const original = read(path.join(DIST,'experiences/index.html'));
@@ -232,8 +287,25 @@ if (process.argv.includes('--filter-previews')) {
    .replace('<div data-experience-directory>',`<div data-experience-directory class="filter-preview filter-preview-${number}">`)
    .replace('Explore with Majestic Trunk',`Option ${number} · ${label}`)
    .replace('</head>','<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/assets/css/filter-previews.css"></head>');
-  write(`previews/filters-${number}.html`,html);
+  write(`previews/filters-${number}/index.html`,html);
  }
- console.log('Filter comparisons: /previews/filters-1.html and /previews/filters-2.html');
+ console.log('Filter comparisons: /previews/filters-1/ and /previews/filters-2/');
 }
+// A project Pages site lives beneath /repository/ rather than at the domain root.
+// Keep source routes unchanged, and adapt the generated HTML for that deployment.
+for(const rel of routes){
+ const file=path.join(DIST,rel);
+ if(rel.endsWith('.html')){
+  let html=read(file);
+  if(emailOnly&&rel==='contact/index.html')html=html.replace('data-enquiry-send disabled>Send enquiry ↗','data-enquiry-send disabled>Prepare email enquiry ↗').replace('Your selections are included automatically.', 'Your selections are included automatically. Prepare your enquiry below, then send it using your email app or copy it into your email service.');
+  if(basePath){
+   html=html.replace(/((?:href|src|action)=")\/(?!\/)/g,`$1${basePath}/`)
+    .replace(/srcset="([^"]+)"/g,(_,value)=>`srcset="${value.replace(/(^|,\s*)\//g,`$1${basePath}/`)}"`)
+    .replace(/window.location.replace\(("[^"]*")/g,(_,target)=>`window.location.replace(${JSON.stringify(basePath+JSON.parse(target))}`);
+  }
+  html=html.replaceAll('https://majestictrunk.com/',siteOrigin+basePath+'/');
+  fs.writeFileSync(file,html);
+ }else if(rel==='sitemap.xml'||rel==='robots.txt')fs.writeFileSync(file,read(file).replaceAll('https://majestictrunk.com/',siteOrigin+basePath+'/'));
+}
+write('.nojekyll','');
 console.log(`✓ built ${pageFiles.length} pages · ${experiences.length} experiences · ${lodges.length} stays · ${dining.length} dining venues · ${usedMedia.size} photos → dist/`);

@@ -137,3 +137,14 @@ recorded in the media manifest, with publication permission pending. No public
 image-credit labels or credits page were added. Malonga and the Boat Club remain
 in the research backlog pending usable direct sources. The Boma, Simunye and
 dinner cruises remain experience guides, linked from the dining page.
+
+## Travel Guide redesign — 8 November 2026
+
+The Travel Guide uses a distinct rainforest-framed Falls photograph from the
+official Wild Horizons guided-tour page. The downloaded photograph was inspected
+and resized into full and small variants. Source URL, dimensions and preview-only
+permission status are recorded under `travel-guide-hero` in the media manifest.
+The page explains its role as a planning guide, retains existing section anchors,
+and links to activity, accommodation and dining guides. The suggested itinerary
+is editorial guidance, with water-level information referenced to Zambia Tourism
+and entry-information links directed to the relevant immigration authorities.

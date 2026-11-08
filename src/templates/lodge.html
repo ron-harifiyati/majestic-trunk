@@ -1,10 +1,19 @@
-<article>
+<article class="stay-detail">
   <header class="photo-hero detail-hero"><div class="hero-backdrop">{{heroMedia}}</div><div class="wrap hero-content"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/stay/">Places to stay</a></nav><span class="label">{{category}}</span><h1>{{title}}</h1><p>{{summary}}</p></div></header>
-  <div class="wrap"><dl class="facts"><div><dt>Setting</dt><dd>{{location}}</dd></div><div><dt>A good fit for</dt><dd>{{bestFor}}</dd></div><div><dt>Rates</dt><dd>Quoted for your dates</dd></div></dl>
-    <div class="detail-body"><div><section class="stay-comparison" aria-label="Accommodation essentials"><h2>Rooms &amp; arrangements</h2>{{comparisonHtml}}</section>{{featuresHtml}}<div class="prose"><h2>The setting &amp; the stay</h2>{{bodyHtml}}<h2>Property highlights</h2><ul>{{highlightsHtml}}</ul><h2>Before you book</h2><dl class="planning-list">{{planningHtml}}</dl></div>
-      <details class="source-note"><summary>Property information &amp; sources</summary><p>Reviewed {{reviewed}} against the property’s published information. Facilities and inclusions can change; the property confirms availability and booking terms.</p><ul>{{sourcesHtml}}</ul></details>
-      {{contextualLinks}}
-    </div><aside class="booking-aside"><span class="label">Accommodation enquiry</span><h2>Find the right room.</h2><p>Share your dates, number of guests and preferred room arrangement to enquire about a stay.</p><a class="btn" href="{{enquiryUrl}}">Enquire about this property ↗</a><p class="note">Inclusion in this guide does not imply an exclusive partnership or live availability. Request a written quotation showing meals, transfers, activities and any additional charges.</p></aside></div>
+  <div class="wrap">
+    <dl class="facts experience-detail-facts"><div><dt>Location</dt><dd>{{location}}</dd></div><div><dt>Property type</dt><dd>{{propertyType}}</dd></div><div><dt>Rates</dt><dd>Quoted for your dates</dd></div></dl>
+    <div class="experience-mobile-action"><a class="btn" href="{{enquiryUrl}}">Enquire about this property ↗</a><a class="text-link" href="#stay-details">Explore the stay ↓</a></div>
+    <div class="detail-body experience-detail-body" id="stay-details">
+      <div class="experience-detail-copy">
+        <nav class="experience-section-nav" aria-label="Property information"><a href="#overview">Overview</a><a href="#rooms">Rooms &amp; arrangements</a></nav>
+        <section class="experience-copy-section prose" id="overview"><h2>The setting &amp; the stay</h2><p class="experience-fit">{{bestFor}}</p>{{bodyHtml}}</section>
+        <section class="experience-copy-section stay-essentials" id="rooms"><h2>Rooms &amp; arrangements</h2>{{comparisonHtml}}</section>
+        <section class="experience-copy-section" id="highlights"><h2>Property highlights</h2><ul class="experience-detail-highlights">{{highlightsHtml}}</ul></section>
+        <details class="source-note"><summary>Property information &amp; sources</summary><p>Reviewed {{reviewed}} against the property’s published information. Facilities and inclusions can change; the property confirms availability and booking terms.</p><ul>{{sourcesHtml}}</ul></details>
+        {{contextualLinks}}
+      </div>
+      <aside class="booking-aside experience-enquiry-panel stay-enquiry-panel" aria-label="Enquire about this stay"><span class="label">Plan your stay</span><h2>{{title}}</h2><p>Share your dates, number of guests and preferred room arrangement. We’ll help with your accommodation enquiry.</p><a class="btn" href="{{enquiryUrl}}">Enquire about this property ↗</a><p class="note">Ask for a quotation covering meals, transfers and activities, with availability and booking terms confirmed for your dates.</p></aside>
+    </div>
   </div>
 </article>
-<section class="section alt"><div class="wrap"><div class="section-heading"><div><span class="label">Compare the setting</span><h2>Other places to stay</h2></div></div><div class="grid grid-3">{{relatedCards}}</div></div></section>
+<section class="section alt experience-related-section"><div class="wrap"><div class="section-heading"><div><span class="label">Continue exploring</span><h2>Other places to stay</h2></div></div><div class="grid grid-2">{{relatedCards}}</div></div></section>

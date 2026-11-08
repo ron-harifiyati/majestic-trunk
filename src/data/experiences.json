@@ -43,7 +43,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "rafting-preview",
-    "timeCategory": "full-day"
+    "timeCategory": "full-day",
+    "location": "Batoka Gorge",
+    "relatedSuggestions": [
+      {
+        "slug": "jet-boat",
+        "label": "Another river adventure",
+        "reason": "Explore the gorge by powered boat, with a steep hike to and from the river."
+      },
+      {
+        "slug": "sunset-cruise",
+        "label": "A quieter outing",
+        "reason": "Set aside another evening for a calmer view of the upper Zambezi."
+      }
+    ]
   },
   {
     "slug": "helicopter-flight",
@@ -89,7 +102,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "helicopter-preview",
-    "timeCategory": "short"
+    "timeCategory": "short",
+    "location": "Victoria Falls & surrounding gorges",
+    "relatedSuggestions": [
+      {
+        "slug": "guided-falls-tour",
+        "label": "Another perspective",
+        "reason": "See the Falls from the rainforest paths after viewing their scale from the air."
+      },
+      {
+        "slug": "sunset-cruise",
+        "label": "Time on the river",
+        "reason": "Spend an evening on the upper Zambezi to see the landscape from water level."
+      }
+    ]
   },
   {
     "slug": "sunset-cruise",
@@ -135,7 +161,20 @@
     "region": "zimbabwe",
     "tags": [],
     "timeCategory": "short",
-    "media": "sunset-cruise"
+    "media": "sunset-cruise",
+    "location": "Upper Zambezi River",
+    "relatedSuggestions": [
+      {
+        "slug": "dinner-cruise",
+        "label": "A dining alternative",
+        "reason": "Choose a longer river evening that includes dinner on board."
+      },
+      {
+        "slug": "guided-falls-tour",
+        "label": "Explore by day",
+        "reason": "Make a rainforest walk the main event on another part of your stay."
+      }
+    ]
   },
   {
     "slug": "game-drives",
@@ -181,7 +220,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "wildlife-preview",
-    "timeCategory": "half-day"
+    "timeCategory": "half-day",
+    "location": "Zambezi National Park",
+    "relatedSuggestions": [
+      {
+        "slug": "chobe-day-trip",
+        "label": "A full-day alternative",
+        "reason": "Devote a separate day to Chobe’s river and land safari programme in Botswana."
+      },
+      {
+        "slug": "sunset-cruise",
+        "label": "A river perspective",
+        "reason": "Look for riverbank wildlife during a relaxed outing on the upper Zambezi."
+      }
+    ]
   },
   {
     "slug": "bungee-bridge",
@@ -227,7 +279,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "bridge-preview",
-    "timeCategory": "half-day"
+    "timeCategory": "half-day",
+    "location": "Victoria Falls Bridge",
+    "relatedSuggestions": [
+      {
+        "slug": "historic-bridge-tour",
+        "label": "Explore the bridge",
+        "reason": "Learn about the structure and its construction on a separate guided visit."
+      },
+      {
+        "slug": "gorge-swing",
+        "label": "Compare the setting",
+        "reason": "Consider a gorge swing away from the bridge activity platform."
+      }
+    ]
   },
   {
     "slug": "chobe-day-trip",
@@ -273,7 +338,20 @@
     "region": "botswana",
     "tags": [],
     "media": "chobe-day-trip",
-    "timeCategory": "full-day"
+    "timeCategory": "full-day",
+    "location": "Chobe National Park",
+    "relatedSuggestions": [
+      {
+        "slug": "game-drives",
+        "label": "A closer-to-town option",
+        "reason": "Choose Zambezi National Park for a safari outing without the Botswana crossing."
+      },
+      {
+        "slug": "guided-falls-tour",
+        "label": "Another day in Victoria Falls",
+        "reason": "Leave a separate morning or afternoon for the rainforest viewpoints."
+      }
+    ]
   },
   {
     "slug": "elephant-encounter",
@@ -319,7 +397,20 @@
     "region": "zimbabwe",
     "tags": [],
     "timeCategory": "confirm",
-    "media": "elephant-sanctuary"
+    "media": "elephant-sanctuary",
+    "location": "Wild Horizons Wildlife Sanctuary",
+    "relatedSuggestions": [
+      {
+        "slug": "game-drives",
+        "label": "Wildlife in the park",
+        "reason": "Look for free-ranging wildlife on a guided national-park drive."
+      },
+      {
+        "slug": "vulture-culture",
+        "label": "Another conservation visit",
+        "reason": "Learn about wild vultures during the lodge’s published visitor programme."
+      }
+    ]
   },
   {
     "slug": "village-tour",
@@ -365,7 +456,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "village-preview",
-    "timeCategory": "short"
+    "timeCategory": "short",
+    "location": "Rural communities near Victoria Falls",
+    "relatedSuggestions": [
+      {
+        "slug": "cultural-connection",
+        "label": "Include a hosted meal",
+        "reason": "Compare a combined home-hosted lunch and village-visit programme."
+      },
+      {
+        "slug": "township-tour",
+        "label": "A town perspective",
+        "reason": "Explore the streets and markets of Chinotimba with a local guide."
+      }
+    ]
   },
   {
     "slug": "guided-falls-tour",
@@ -415,7 +519,20 @@
     "region": "zimbabwe",
     "tags": [],
     "media": "home-hero",
-    "timeCategory": "half-day"
+    "timeCategory": "half-day",
+    "location": "Victoria Falls rainforest, Zimbabwe",
+    "relatedSuggestions": [
+      {
+        "slug": "helicopter-flight",
+        "label": "See the wider landscape",
+        "reason": "Compare the rainforest view with an aerial perspective of the river and gorge."
+      },
+      {
+        "slug": "lunar-rainbow",
+        "label": "Return after dark",
+        "reason": "Check whether your dates coincide with a guided full-moon viewing."
+      }
+    ]
   },
   {
     "slug": "the-boma-dining",
@@ -461,7 +578,20 @@
     "region": "zimbabwe",
     "tags": [],
     "timeCategory": "evening",
-    "media": "boma-show"
+    "media": "boma-show",
+    "location": "Victoria Falls Safari Lodge estate",
+    "relatedSuggestions": [
+      {
+        "slug": "simunye-theatre",
+        "label": "A different evening",
+        "reason": "Choose a theatre production and arrange your meal separately."
+      },
+      {
+        "slug": "dinner-cruise",
+        "label": "Dinner on the river",
+        "reason": "Consider a meal on board instead of an evening dinner-and-drum programme."
+      }
+    ]
   },
   {
     "slug": "gorge-swing",
@@ -506,7 +636,20 @@
     "alt": "A participant starting a harnessed gorge swing",
     "reviewed": "29 October 2026",
     "media": "gorge-swing",
-    "timeCategory": "short"
+    "timeCategory": "short",
+    "location": "Batoka Gorge",
+    "relatedSuggestions": [
+      {
+        "slug": "gorge-zipline",
+        "label": "Compare the ride",
+        "reason": "Cross the gorge on a zipline rather than choosing a free-fall swing."
+      },
+      {
+        "slug": "canopy-tour",
+        "label": "A longer forest outing",
+        "reason": "Follow a guided course of slides, trails and a rope bridge."
+      }
+    ]
   },
   {
     "slug": "gorge-zipline",
@@ -551,7 +694,20 @@
     "alt": "A participant travelling on a zipline",
     "reviewed": "29 October 2026",
     "media": "zipline",
-    "timeCategory": "short"
+    "timeCategory": "short",
+    "location": "Batoka Gorge",
+    "relatedSuggestions": [
+      {
+        "slug": "flying-fox",
+        "label": "A different flight position",
+        "reason": "Compare the seated zipline with the Flying Fox’s face-down harness."
+      },
+      {
+        "slug": "canopy-tour",
+        "label": "More time in the forest",
+        "reason": "Choose a multi-stage guided course through the gorge woodland."
+      }
+    ]
   },
   {
     "slug": "livingstone-island-devils-pool",
@@ -598,7 +754,20 @@
     "alt": "A guided pool experience at the edge of Victoria Falls",
     "reviewed": "29 October 2026",
     "media": "devils-pool",
-    "timeCategory": "confirm"
+    "timeCategory": "confirm",
+    "location": "Livingstone Island, Zambia",
+    "relatedSuggestions": [
+      {
+        "slug": "guided-falls-tour",
+        "label": "The Zimbabwe viewpoints",
+        "reason": "See the Falls from the rainforest paths on another part of your visit."
+      },
+      {
+        "slug": "helicopter-flight",
+        "label": "A view from above",
+        "reason": "Take in the islands, waterfall and gorge from an aerial perspective."
+      }
+    ]
   },
   {
     "slug": "vulture-culture",
@@ -645,7 +814,20 @@
     "alt": "Wild vultures gathering during the Vulture Culture feeding programme",
     "reviewed": "29 October 2026",
     "timeCategory": "short",
-    "media": "vulture-culture"
+    "media": "vulture-culture",
+    "location": "Victoria Falls Safari Lodge",
+    "relatedSuggestions": [
+      {
+        "slug": "game-drives",
+        "label": "More time with wildlife",
+        "reason": "Set aside a separate outing to explore Zambezi National Park."
+      },
+      {
+        "slug": "elephant-encounter",
+        "label": "Compare conservation programmes",
+        "reason": "Ask about the sanctuary’s current visitor programme and animal-care approach."
+      }
+    ]
   },
   {
     "slug": "simunye-theatre",
@@ -690,7 +872,20 @@
     "alt": "Performers on stage in Simunye",
     "reviewed": "29 October 2026",
     "media": "simunye",
-    "timeCategory": "evening"
+    "timeCategory": "evening",
+    "location": "Victoria Falls Theatre, Elephant’s Walk",
+    "relatedSuggestions": [
+      {
+        "slug": "the-boma-dining",
+        "label": "Dinner with a programme",
+        "reason": "Compare the theatre visit with an interactive dinner-and-drumming evening."
+      },
+      {
+        "slug": "lunar-rainbow",
+        "label": "Another evening idea",
+        "reason": "On suitable full-moon dates, consider a guided visit to the Falls after dark."
+      }
+    ]
   },
   {
     "slug": "art-galleries-crafts",
@@ -741,7 +936,20 @@
     "alt": "The interior of Tami Walker Fine Art Gallery in Victoria Falls",
     "reviewed": "29 October 2026",
     "timeCategory": "short",
-    "media": "gallery-visit"
+    "media": "gallery-visit",
+    "location": "Victoria Falls town",
+    "relatedSuggestions": [
+      {
+        "slug": "bicycle-tour",
+        "label": "Explore more of town",
+        "reason": "Connect local landmarks and surroundings on a guided cycling outing."
+      },
+      {
+        "slug": "township-tour",
+        "label": "A guided local visit",
+        "reason": "Learn about Chinotimba’s streets and markets with a local guide."
+      }
+    ]
   },
   {
     "slug": "canoe-safari",
@@ -788,7 +996,20 @@
     "tags": [],
     "media": "canoe-safari",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Upper Zambezi, Zambezi National Park",
+    "relatedSuggestions": [
+      {
+        "slug": "sunset-cruise",
+        "label": "A gentler river option",
+        "reason": "Compare active paddling with a relaxed evening boat outing."
+      },
+      {
+        "slug": "game-drives",
+        "label": "Explore on land",
+        "reason": "See another side of the national park during a guided game drive."
+      }
+    ]
   },
   {
     "slug": "dinner-cruise",
@@ -835,7 +1056,20 @@
     "tags": [],
     "media": "dinner-cruise",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Upper Zambezi River",
+    "relatedSuggestions": [
+      {
+        "slug": "sunset-cruise",
+        "label": "A shorter alternative",
+        "reason": "Choose an evening on the river and arrange dinner separately."
+      },
+      {
+        "slug": "the-boma-dining",
+        "label": "A different dinner setting",
+        "reason": "Consider a Zimbabwean dinner with an interactive drumming programme."
+      }
+    ]
   },
   {
     "slug": "lunar-rainbow",
@@ -884,7 +1118,20 @@
     ],
     "media": "lunar-rainbow",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Victoria Falls rainforest",
+    "relatedSuggestions": [
+      {
+        "slug": "guided-falls-tour",
+        "label": "See it by daylight",
+        "reason": "Visit the rainforest viewpoints during the day as another perspective."
+      },
+      {
+        "slug": "dinner-cruise",
+        "label": "Another evening on the water",
+        "reason": "Reserve a separate evening for sunset and dinner on the upper Zambezi."
+      }
+    ]
   },
   {
     "slug": "canopy-tour",
@@ -931,7 +1178,20 @@
     "tags": [],
     "media": "canopy-tour",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Batoka Gorge woodland",
+    "relatedSuggestions": [
+      {
+        "slug": "gorge-zipline",
+        "label": "A single gorge crossing",
+        "reason": "Compare the multi-stage canopy course with one long zipline ride."
+      },
+      {
+        "slug": "flying-fox",
+        "label": "A different gorge view",
+        "reason": "Try a face-down harness flight above the river."
+      }
+    ]
   },
   {
     "slug": "jet-boat",
@@ -980,7 +1240,20 @@
     ],
     "media": "jet-boat",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Batoka Gorge",
+    "relatedSuggestions": [
+      {
+        "slug": "white-water-rafting",
+        "label": "An active river alternative",
+        "reason": "Compare a powered boat ride with a full rafting day in the gorge."
+      },
+      {
+        "slug": "sunset-cruise",
+        "label": "A calmer river outing",
+        "reason": "See the wooded islands upstream on another evening of your stay."
+      }
+    ]
   },
   {
     "slug": "flying-fox",
@@ -1027,7 +1300,20 @@
     "tags": [],
     "media": "flying-fox",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Batoka Gorge",
+    "relatedSuggestions": [
+      {
+        "slug": "gorge-zipline",
+        "label": "Compare the harness position",
+        "reason": "Choose a seated zipline crossing for a different high-wire experience."
+      },
+      {
+        "slug": "canopy-tour",
+        "label": "A guided forest course",
+        "reason": "Follow several slides and walkways through the gorge woodland."
+      }
+    ]
   },
   {
     "slug": "bicycle-tour",
@@ -1074,7 +1360,20 @@
     "tags": [],
     "media": "bicycle-tour",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Victoria Falls town & surroundings",
+    "relatedSuggestions": [
+      {
+        "slug": "art-galleries-crafts",
+        "label": "Time to browse",
+        "reason": "Leave an open hour or afternoon for the town’s galleries and craft shops."
+      },
+      {
+        "slug": "historic-bridge-tour",
+        "label": "Look closer at a landmark",
+        "reason": "Explore the bridge’s construction story on a separate guided tour."
+      }
+    ]
   },
   {
     "slug": "township-tour",
@@ -1121,7 +1420,20 @@
     "tags": [],
     "media": "township-tour",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Chinotimba, Victoria Falls",
+    "relatedSuggestions": [
+      {
+        "slug": "village-tour",
+        "label": "A rural perspective",
+        "reason": "Compare the township visit with a hosted outing to a nearby rural community."
+      },
+      {
+        "slug": "cultural-connection",
+        "label": "Add a hosted meal",
+        "reason": "Consider the combined lunch and village programme for another day."
+      }
+    ]
   },
   {
     "slug": "cultural-connection",
@@ -1168,7 +1480,20 @@
     "tags": [],
     "media": "cultural-connection",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Victoria Falls & nearby rural communities",
+    "relatedSuggestions": [
+      {
+        "slug": "village-tour",
+        "label": "A shorter alternative",
+        "reason": "Choose a standalone village visit if a combined programme does not fit your time."
+      },
+      {
+        "slug": "township-tour",
+        "label": "Explore local town life",
+        "reason": "Take a guided introduction to Chinotimba’s neighbourhood streets and markets."
+      }
+    ]
   },
   {
     "slug": "historic-bridge-tour",
@@ -1215,6 +1540,19 @@
     "tags": [],
     "media": "historic-bridge-tour",
     "featured": false,
-    "enquiryOnly": true
+    "enquiryOnly": true,
+    "location": "Victoria Falls Bridge",
+    "relatedSuggestions": [
+      {
+        "slug": "guided-falls-tour",
+        "label": "The rainforest viewpoints",
+        "reason": "Compare the bridge outlook with the walking route beside the Falls."
+      },
+      {
+        "slug": "bungee-bridge",
+        "label": "Bridge adventure options",
+        "reason": "Explore the jump and swing options if you want an activity at height."
+      }
+    ]
   }
 ]

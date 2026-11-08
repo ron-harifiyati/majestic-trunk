@@ -1,7 +1,8 @@
 {
   "brand": "Majestic Trunk",
-  "tagline": "Expeditions · Victoria Falls",
+  "tagline": "Expeditions \u00b7 Victoria Falls",
   "activitarUrl": "https://majestictrunkexpeditions.activitar.com/",
   "year": "2026",
-  "location": "Victoria Falls, Zimbabwe"
+  "location": "Victoria Falls, Zimbabwe",
+  "enquiryEmail": "hello@majestictrunk.com"
 }

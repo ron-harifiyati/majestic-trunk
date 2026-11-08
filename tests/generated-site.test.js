@@ -5,16 +5,18 @@ const path=require('node:path');
 const {execFileSync}=require('node:child_process');
 execFileSync(process.execPath,['build.js']);
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
-const pages=walk('dist').filter(f=>f.endsWith('.html'));
+const htmlFiles=walk('dist').filter(f=>f.endsWith('.html'));
+const pages=htmlFiles.filter(f=>!fs.readFileSync(f,'utf8').includes('data-legacy-redirect'));
+const legacyPages=htmlFiles.filter(f=>!pages.includes(f));
 const entities=s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
 test('all records produce routes and category counts match content',()=>{
- const expected=9+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
+ const expected=10+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
  assert.equal(pages.length,expected);
  for(const [dataFile,route] of [['experiences','experiences'],['lodges','stay'],['dining','eat-drink']]){
   const entries=JSON.parse(fs.readFileSync(`src/data/${dataFile}.json`));
   const index=fs.readFileSync(`dist/${route}/index.html`,'utf8');
   assert.equal((index.match(/data-card /g)||[]).length,entries.length);
-  for(const e of entries)assert.ok(fs.existsSync(`dist/${route}/${e.slug}.html`));
+  for(const e of entries)assert.ok(fs.existsSync(`dist/${route}/${e.slug}/index.html`));
  }
 });
 test('generated local links, anchors, images and responsive image variants exist',()=>{
@@ -77,7 +79,7 @@ test('stay catalogue has a photo hero, three filters and consistent linked prope
  assert.equal((index.match(/class="grid grid-3 stay-grid"/g)||[]).length,1);
  assert.ok(!index.includes('class="directory-group"'));
  for(const lodge of lodges){
-  const html=fs.readFileSync(`dist/stay/${lodge.slug}.html`,'utf8');
+  const html=fs.readFileSync(`dist/stay/${lodge.slug}/index.html`,'utf8');
   assert.match(html,/Rooms &amp; arrangements/);
   assert.match(html,/Meals & activities/);
   assert.match(html,/Getting around/);
@@ -94,9 +96,111 @@ test('Eat and Drink has one photographic catalogue and complete venue details',(
  assert.ok(!index.includes('class="directory-group"'));
  for(const venue of venues){
   assert.ok(venue.media && venue.alt);
-  const html=fs.readFileSync(`dist/eat-drink/${venue.slug}.html`,'utf8');
+  const html=fs.readFileSync(`dist/eat-drink/${venue.slug}/index.html`,'utf8');
   assert.match(html,/What to expect/);assert.match(html,/Plan your visit/);
   assert.ok(html.includes(venue.officialUrl.replace(/&/g,'&amp;')));
  }
- assert.match(fs.readFileSync('dist/eat-drink/cassia-restaurant.html','utf8'),/href="\/stay\/ilala-lodge.html"/);
+ assert.match(fs.readFileSync('dist/eat-drink/cassia-restaurant/index.html','utf8'),/href="\/stay\/ilala-lodge\/"/);
+});
+
+test('public links, canonical URLs and sitemap entries use clean directory URLs',()=>{
+ for(const file of pages){
+  const html=fs.readFileSync(file,'utf8');
+  for(const match of html.matchAll(/href="([^"]+)"/g)){
+   const ref=entities(match[1]);if(!ref.startsWith('/'))continue;
+   assert.ok(!new URL(ref,'https://local.test').pathname.endsWith('.html'),`${file}: legacy public link ${ref}`);
+  }
+  const canonical=html.match(/rel="canonical" href="([^"]+)"/)[1];
+  assert.ok(new URL(canonical).pathname.endsWith('/'),file);
+ }
+ assert.ok(!fs.readFileSync('dist/sitemap.xml','utf8').includes('.html'));
+ const home=fs.readFileSync('dist/index.html','utf8');
+ assert.match(home,/href="\/travel-guide\/"/);
+ assert.match(fs.readFileSync('dist/travel-guide/index.html','utf8'),/href="\/travel-guide\/" aria-current="page"/);
+ assert.match(fs.readFileSync('dist/experiences/sunset-cruise/index.html','utf8'),/href="\/experiences\/" aria-current="location"/);
+});
+test('legacy HTML addresses lead to real clean pages and preserve enquiry and section state',()=>{
+ const vm=require('node:vm');
+ assert.equal(legacyPages.length,pages.length-4);
+ for(const file of legacyPages){
+  const html=fs.readFileSync(file,'utf8');assert.match(html,/name="robots" content="noindex, follow"/);assert.match(html,/<noscript><meta http-equiv="refresh"/);
+  const target=new URL(html.match(/rel="canonical" href="([^"]+)"/)[1]).pathname;
+  assert.ok(fs.existsSync(path.join('dist',target,'index.html')));
+  let destination;
+  vm.runInNewContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],{window:{location:{search:'?interest=Sunset%20cruise',hash:'#seasons',replace(next){destination=next;}}}});
+  assert.equal(destination,target+'?interest=Sunset%20cruise#seasons');
+ }
+ const rules=fs.readFileSync('dist/_redirects','utf8');
+ assert.ok(rules.includes('/travel-guide.html /travel-guide/ 301'));
+ assert.ok(rules.includes('/experiences/sunset-cruise.html /experiences/sunset-cruise/ 301'));
+});
+test('experience detail enquiries preserve the selected activity and visitor-only wording',()=>{
+ const experiences=JSON.parse(fs.readFileSync('src/data/experiences.json','utf8'));
+ for(const e of experiences){
+  const html=fs.readFileSync(`dist/experiences/${e.slug}/index.html`,'utf8');
+  const panel=html.match(/<aside class="booking-aside experience-enquiry-panel"[^>]*>([\s\S]*?)<\/aside>/)[1];
+  const mobile=html.match(/<div class="experience-mobile-action">([\s\S]*?)<\/div>/)[1];
+  for(const fragment of [panel,mobile]){
+   const url=new URL(entities(fragment.match(/class="btn" href="([^"]+)"/)[1]),'https://local.test');
+   assert.equal(url.pathname,'/contact/');assert.equal(url.searchParams.get('interest'),e.title);
+  }
+  assert.ok(!panel.includes('activitar.com'),'Do not substitute a general catalogue for the selected product');
+  assert.ok(html.indexOf('experience-mobile-action')<html.indexOf('id="experience-details"'));
+  assert.equal((html.match(/class="card experience-related-card"/g)||[]).length,2);
+  assert.equal(html.includes('Cross-border from Zimbabwe'),e.region!=='zimbabwe');
+  assert.equal(html.includes('Seasonal · confirm dates'),e.tags.includes('seasonal'));
+  if(e.tags.includes('self-guided'))assert.ok(panel.includes('Ask about your itinerary'));
+  if(e.slug==='vulture-culture')assert.ok(panel.includes('Ask about visiting'));
+ }
+});
+test('stay and dining detail actions keep the correct property or venue destination',()=>{
+ for(const [dataFile,route,panelClass] of [['lodges','stay','stay-enquiry-panel'],['dining','eat-drink','dining-visit-panel']]){
+  const entries=JSON.parse(fs.readFileSync(`src/data/${dataFile}.json`,'utf8'));
+  for(const entry of entries){
+   const html=fs.readFileSync(`dist/${route}/${entry.slug}/index.html`,'utf8');
+   const mobile=html.match(/<div class="experience-mobile-action">([\s\S]*?)<\/div>/)[1];
+   const panel=html.match(new RegExp(`<aside class="[^\"]*${panelClass}"[^>]*>([\\s\\S]*?)<\\/aside>`))[1];
+   for(const fragment of [mobile,panel]){
+    const url=new URL(entities(fragment.match(/class="btn" href="([^\"]+)"/)[1]),'https://local.test');
+    if(route==='stay'){
+     assert.equal(url.pathname,'/contact/');assert.equal(url.searchParams.get('interest'),entry.title);
+    }else{
+     assert.equal(url.href,new URL(entry.officialUrl).href);
+     const map=new URL(entities(fragment.match(/href="([^\"]+)">Find it on the map/)[1]));
+     assert.ok(map.searchParams.get('query').startsWith(entry.title));
+    }
+   }
+   const recommendations=[...html.matchAll(/<article class="card experience-related-card">([\s\S]*?)<\/article>/g)];
+   assert.equal(recommendations.length,2);
+   const destinations=recommendations.map(([,card])=>{
+    assert.ok(!card.includes('<p'),'Recommendations should remain compact');
+    const href=card.match(/href="([^\"]+)"/)[1];
+    assert.notEqual(href,`/${route}/${entry.slug}/`);
+    return href;
+   });
+   assert.equal(new Set(destinations).size,2);
+  }
+ }
+});
+test('trip planner contains every listing and public booking links stay on the site',()=>{
+ const html=fs.readFileSync('dist/plan-your-trip/index.html','utf8');
+ const all=[['experiences','experiences'],['lodges','stay'],['dining','eat-drink']];
+ let count=0;
+ for(const [file,route] of all){
+  const entries=JSON.parse(fs.readFileSync(`src/data/${file}.json`));count+=entries.length;
+  for(const entry of entries){
+   assert.ok(html.includes(`data-trip-option="${route}/${entry.slug}"`));
+   const detail=fs.readFileSync(`dist/${route}/${entry.slug}/index.html`,'utf8');
+   assert.ok(detail.includes(`data-trip-add="${route}/${entry.slug}"`));
+  }
+  const index=fs.readFileSync(`dist/${route}/index.html`,'utf8');
+  assert.equal((index.match(/data-trip-add=/g)||[]).length,entries.length);
+ }
+ assert.equal((html.match(/data-trip-option=/g)||[]).length,count);
+ for(const file of pages){
+  const page=fs.readFileSync(file,'utf8');
+  const navigation=page.match(/<header class="site-header">[\s\S]*?<\/header>/)[0]+page.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)[0];
+  assert.ok(!navigation.includes('activitar.com'),file);
+ }
+ assert.ok(!fs.readFileSync('dist/index.html','utf8').includes('activitar.com'));
 });

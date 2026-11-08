@@ -92,7 +92,11 @@ filters. Every dining entry requires a photo, meal labels, highlights and two
 short card features. Experiences use `src/js/experiences.js`; accommodation uses `src/js/stays.js` with setting,
 property type and preference dropdowns. Each stay has a validated `propertyType`
 and `comparison` notes for rooms, inclusions and transport. Each experience has a validated
-`timeCategory` for broad planning filters; keep the descriptive `duration` text. Run `npm test` after changes
-to categories, links, templates or filtering. Photo provenance and responsive sizes
+`timeCategory` for broad planning filters; keep the descriptive `duration` text.
+Experience records also require a specific `location` and two `relatedSuggestions`
+with valid activity slugs, labels and reasons. Detail-page enquiries preserve the
+activity title and distinguish self-guided visits from arranged outings.
+Run `npm test` after changes to categories, links, templates or filtering.
+Photo provenance and responsive sizes
 are recorded in `src/data/media.json`; only referenced images are copied to output.
 Official venue photographs are preview-only until publication rights are confirmed.

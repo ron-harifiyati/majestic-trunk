@@ -1,3 +1,5 @@
+> Superseded: the site now uses its own trip shortlist and enquiry form. See [enquiry setup](enquiry-setup.md). The notes below are historical; public links no longer lead to Activitar.
+
 # Booking Integration (Activitar) — PARKED for later
 
 Status: **decision deferred** (2026-06-23). Building the rest of the site first; booking
