@@ -16,7 +16,7 @@ operator's external **Activitar** platform.
 | **Stack** | Plain HTML/CSS/JS + a small Node generator (`build.js`) |
 | **Dependencies** | None — Node (build) and Python (local serving) only |
 | **Content** | JSON files in `src/data/` |
-| **Output** | 47 static pages in `dist/` |
+| **Output** | 46 static pages in `dist/` |
 | **Booking** | External — Activitar |
 | **Hosting** | Static (e.g. Cloudflare Pages) |
 
@@ -110,8 +110,8 @@ directory `dist`.
 
 ## Status
 
-Editorial redesign complete — 47 pages, including 16 activity guides,
-13 accommodation guides, 8 dining guides, a travel-planning guide and photo credits. Official sources and review dates
+Editorial redesign complete — 46 pages, including 16 activity guides,
+13 accommodation guides, 8 dining guides, a travel-planning guide. Official sources and review dates
 are stored with each listing. Rates are quoted on enquiry rather than displaying
 unverified starting prices. The former Inkosi URL is preserved with the verified
 Nkosi Guest Lodge name.

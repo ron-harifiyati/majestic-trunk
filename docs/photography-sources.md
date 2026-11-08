@@ -4,12 +4,12 @@ Updated 30 October 2026. The authoritative per-image record is
 [`src/data/media.json`](../src/data/media.json). It includes the exact downloaded
 URL, source page, credit, licence or permission status, transformations and sizes.
 
-The current preview uses 31 photographs: 26 sourced online and five compressed
-legacy preview assets. Downloads were checked visually; logo candidates were
+The current preview uses official venue photographs, five compressed legacy
+preview assets and the owner-supplied homepage photograph. Downloads were checked visually; logo candidates were
 replaced with property photographs. The site does not hotlink these images.
 Responsive JPEG variants are served locally with dimensions and `srcset`.
 
-## Openly licensed destination photography
+## Previously used destination photography (excluded from the current build)
 
 - **VictoriaFalls2018l.jpg**, Doc James, [source](https://commons.wikimedia.org/wiki/File:VictoriaFalls2018l.jpg),
   [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Centre-cropped,
@@ -20,8 +20,10 @@ Responsive JPEG variants are served locally with dimensions and `srcset`.
   [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Resized and
   JPEG-compressed. Layout may crop the photograph.
 
-The public `/photo-credits.html` page is generated from referenced images and
-provides author, source, licence and modification information.
+The public credits UI and page were removed at the owner’s request. Both Creative
+Commons photographs above are excluded from the current build. The owner-supplied
+Falls image replaces the destination photograph; the sunset-cruise card is text-led.
+The image manifest remains an internal provenance record.
 
 ## Official venue photography
 

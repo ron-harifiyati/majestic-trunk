@@ -82,7 +82,7 @@ design-mockups/          # throwaway design explorations (reference only)
 
 ## Directory expansion
 
-The current build has 47 pages: 16 experiences, 13 stays, 8 dining venues and
+The current build has 46 pages: 16 experiences, 13 stays, 8 dining venues and
 supporting pages. Category definitions and filter preferences are in `build.js`;
 progressive enhancement lives in `src/js/directory.js`. Run `npm test` after changes
 to categories, links, templates or filtering. Photo provenance and responsive sizes

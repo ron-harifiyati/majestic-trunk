@@ -8,7 +8,7 @@ const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirector
 const pages=walk('dist').filter(f=>f.endsWith('.html'));
 const entities=s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
 test('all records produce routes and category counts match content',()=>{
- const expected=10+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
+ const expected=9+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
  assert.equal(pages.length,expected);
  for(const [dataFile,route] of [['experiences','experiences'],['lodges','stay'],['dining','eat-drink']]){
   const entries=JSON.parse(fs.readFileSync(`src/data/${dataFile}.json`));
@@ -49,8 +49,9 @@ test('each page has one heading, one canonical and no unresolved template values
 test('known unsuitable source images are excluded from deployment output',()=>{
  for(const file of ['elephant.jpg','elephant-encounter.jpg','zambezi-aerial.jpg'])assert.ok(!fs.existsSync('dist/assets/img/'+file));
 });
-test('source attribution and sitemap cover the generated output',()=>{
- const credits=fs.readFileSync('dist/photo-credits.html','utf8');
- assert.ok(credits.includes('Doc James'));assert.ok(credits.includes('Peter in s'));assert.ok(credits.includes('https://creativecommons.org/licenses/by-sa/4.0/'));
+test('removed credits page and attribution-dependent images are excluded from output',()=>{
+ assert.ok(!fs.existsSync('dist/photo-credits.html'));
+ for(const file of ['falls.jpg','falls-600.jpg','cruise.jpg','cruise-600.jpg'])assert.ok(!fs.existsSync('dist/assets/img/online/'+file));
+ for(const file of pages)assert.ok(!fs.readFileSync(file,'utf8').includes('photo-credits.html'),file);
  assert.equal((fs.readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length,pages.length);
 });

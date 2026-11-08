@@ -82,8 +82,7 @@ const photo = (id, alt, priority = false, fullWidth = false) => {
   const srcset = m.smallWidth === m.width ? `/assets/img/${m.file} ${m.width}w` : `/assets/img/${m.small} ${m.smallWidth}w, /assets/img/${m.file} ${m.width}w`;
   return `<img src="/assets/img/${m.file}" srcset="${srcset}" sizes="${fullWidth ? '100vw' : '(max-width: 600px) calc(100vw - 40px), (max-width: 880px) 45vw, 600px'}" alt="${esc(alt)}" width="${m.width}" height="${m.height}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 };
-const heroMedia = e => photo(e.media || 'falls',e.media ? e.alt : 'Victoria Falls · destination setting',true,true);
-const heroCredit = e => `<p class="hero-credit wrap">${e.media ? '' : 'Victoria Falls destination image · '}<a href="/photo-credits.html#photo-${e.media || 'falls'}">Photo credit ↗</a></p>`;
+const heroMedia = e => photo(e.media || 'home-hero',e.media ? e.alt : 'Victoria Falls · destination setting',true,true);
 const contextualLinks = slug => {
   const links = {
     'gorge-swing': [['/eat-drink/lookout-cafe.html','Consider a meal at the Lookout Café'],['/experiences/gorge-zipline.html','Compare the gorge zipline']],
@@ -122,10 +121,11 @@ const write = (rel, text) => {
 fs.rmSync(DIST,{recursive:true,force:true}); fs.mkdirSync(DIST,{recursive:true});
 fs.cpSync(path.join(SRC,'styles'),path.join(DIST,'assets/css'),{recursive:true});
 fs.cpSync(path.join(SRC,'js'),path.join(DIST,'assets/js'),{recursive:true});
-write('index.html',layout({title:'Majestic Trunk Expeditions — Victoria Falls',description:'Plan a Victoria Falls visit around activities, places to stay and places to eat, with practical guides to the Zambezi region.',content:fill(T('home.html'),{
+write('index.html',layout({title:'Majestic Trunk Expeditions — Victoria Falls',description:'Majestic Trunk Expeditions is your Victoria Falls tour operator, booking partner and trip planner. Arrange activities, accommodation and a personal itinerary.',content:fill(T('home.html'),{
   featuredExperienceCards:list(['guided-falls-tour','gorge-swing','game-drives'].map(slug=>experiences.find(e=>e.slug===slug)),expCard),
-  experienceCount:experiences.length,stayCount:lodges.length,
+  experienceCount:experiences.length,stayCount:lodges.length,activitarUrl:esc(site.activitarUrl),
   heroPhoto:photo('home-hero','Golden light and mist above Victoria Falls',true,true),
+  introductionPhoto:photo('helicopter-preview','A helicopter flying above Victoria Falls'),
   stayPhoto:photo('victoria-falls-river-lodge','A private deck at Victoria Falls River Lodge'),
   featuredDiningCards:list(dining.filter(e=>['lookout-cafe','three-monkeys','river-smokehouse'].includes(e.slug)),diningCard),
 })}));
@@ -134,7 +134,7 @@ for (const e of experiences) {
   const related = experiences.filter(x=>x.slug!==e.slug).sort((a,b)=>Number(b.group===e.group)-Number(a.group===e.group)).slice(0,3);
   const selfGuided = e.tags.includes('self-guided');
   write(`experiences/${e.slug}.html`,layout({title:`${e.title} — Majestic Trunk Expeditions`,description:e.summary,content:fill(T('experience.html'),{
-    title:esc(e.title),summary:esc(e.summary),category:esc(e.category),heroMedia:heroMedia(e),heroCredit:heroCredit(e),duration:esc(e.duration),difficulty:esc(e.difficulty),bestFor:esc(e.bestFor),
+    title:esc(e.title),summary:esc(e.summary),category:esc(e.category),heroMedia:heroMedia(e),duration:esc(e.duration),difficulty:esc(e.difficulty),bestFor:esc(e.bestFor),
     locationNotice:e.region==='zambia' || e.region==='botswana' ? `<p class="location-notice">${e.region==='zambia' ? 'Zambia' : 'Botswana'} · Cross-border planning required when travelling from Zimbabwe.</p>` : '',
     bodyHtml:paras(e.body),highlightsHtml:items(e.highlights),planningHtml:planning(e.planning),sourcesHtml:sources(e.sources),reviewed:esc(e.reviewed),relatedCards:list(related,expCard),contextualLinks:contextualLinks(e.slug),
     activityActions:selfGuided ? `<span class="label">Explore at your own pace</span><h2>Leave a little time to browse.</h2><p>This is a self-guided idea. Check each gallery’s visiting details directly.</p><a class="btn" href="${enquiry(e.title)}">Ask about your itinerary ↗</a>` : `<span class="label">Plan this activity</span><h2>Make it part of your visit.</h2><p>Ask about your dates, the current programme and a quotation for your group.</p><a class="btn" href="${enquiry(e.title)}">Enquire about this activity ↗</a><a class="text-link" href="${esc(site.activitarUrl)}">Browse online bookings ↗</a><p class="note">Activitar opens our general booking catalogue. Confirm the exact product and current requirements before reserving.</p>`,
@@ -144,28 +144,25 @@ write('stay/index.html',layout({title:'Places to Stay — Majestic Trunk Expedit
 for (const l of lodges) {
   const related=lodges.filter(x=>x.slug!==l.slug).sort((a,b)=>Number(b.group===l.group)-Number(a.group===l.group)).slice(0,3);
   write(`stay/${l.slug}.html`,layout({title:`${l.title} — Majestic Trunk Expeditions`,description:l.summary,content:fill(T('lodge.html'),{
-    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),heroCredit:heroCredit(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,lodgeCard),featuresHtml:tagsHtml(l),contextualLinks:contextualLinks(l.slug),
+    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,lodgeCard),featuresHtml:tagsHtml(l),contextualLinks:contextualLinks(l.slug),
   })}));
 }
 write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Find a restaurant or evening out in Victoria Falls, from gorge-view tables and high tea to town eateries and a brewery.',content:fill(T('dining-index.html'),{directoryHtml:directory(dining,'dining',diningCard)})}));
 for (const v of dining) {
   const related=dining.filter(x=>x.slug!==v.slug).sort((a,b)=>Number(b.group===v.group)-Number(a.group===v.group)).slice(0,3);
   write(`eat-drink/${v.slug}.html`,layout({title:`${v.title} — Eat & Drink — Majestic Trunk`,description:v.summary,content:fill(T('dining.html'),{
-    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),heroCredit:heroCredit(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,diningCard),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}.html">Explore the hotel or lodge ↗</a></p>` : '',
+    title:esc(v.title),summary:esc(v.summary),category:esc(v.category),heroMedia:heroMedia(v),location:esc(v.location),atmosphere:esc(v.atmosphere),cuisine:esc(v.cuisine),bodyHtml:paras(v.body),planningHtml:planning(v.planning),sourcesHtml:sources(v.sources),reviewed:esc(v.reviewed),officialUrl:esc(v.officialUrl),mapUrl:esc('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.title+' '+v.location+' Victoria Falls Zimbabwe')),relatedCards:list(related,diningCard),relatedStay:v.relatedStay ? `<p class="related-stay"><a class="text-link" href="/stay/${v.relatedStay}.html">Explore the hotel or lodge ↗</a></p>` : '',
   })}));
 }
 for (const [file,title,description] of [
-  ['about.html','About — Majestic Trunk Expeditions','Activity guides, accommodation and trip planning for Victoria Falls and the Zambezi region.'],
+  ['about.html','About — Majestic Trunk Expeditions','Meet Majestic Trunk Expeditions: a Victoria Falls tour operator, booking partner and trip planner arranging activities, accommodation and itineraries.'],
   ['contact.html','Plan Your Visit — Majestic Trunk Expeditions','Enquire about activities, accommodation and your Victoria Falls itinerary.'],
   ['privacy.html','Privacy Policy — Majestic Trunk Expeditions','How Majestic Trunk Expeditions handles your information.'],
   ['travel-guide.html','Victoria Falls Travel Guide — Majestic Trunk','Seasonal water levels, a suggested three-night itinerary, dining ideas and practical planning.'],
 ]) write(file,layout({title,description,content:fill(T(file),{activitarUrl:site.activitarUrl})}));
-const galleryIds=['falls','cruise','gorge-swing','zipline','simunye','old-drift-lodge','palm-river-hotel','shongwe-oasis','lookout-cafe','baines-restaurant','cassia-restaurant','river-smokehouse'];
-write('gallery.html',layout({title:'Gallery — Majestic Trunk Expeditions',description:'Victoria Falls landscapes, activities, accommodation and dining settings.',content:fill(T('gallery.html'),{galleryHtml:galleryIds.map(id=>`<figure><a href="/assets/img/${media[id].file}">${photo(id,id.replace(/-/g,' '))}</a><figcaption>${esc(id.replace(/-/g,' '))} · <a href="/photo-credits.html#photo-${id}">Photo credit</a></figcaption></figure>`).join('')})}));
-// Credits and the asset copy list are generated from media actually referenced above.
-write('photo-credits.html',layout({title:'Photography Credits — Majestic Trunk',description:'Sources, authors and licence information for photographs used in this preview.',content:`<section class="page-head"><div class="wrap"><span class="label">Photography</span><h1>Image credits.</h1><p>Authors, source pages and licence information for the images shown on this site.</p></div></section><section class="section wrap narrow"><div class="prose"><p>Openly licensed photographs are credited below. Venue and existing project photographs remain subject to their rights holders’ permission for publication.</p>${[...usedMedia].sort().map(id=>{
- const m=media[id];return `<section class="credit-entry" id="photo-${id}"><h2>${esc(id.replace(/-/g,' '))}</h2><p>${esc(m.credit)}</p><p>${m.sourcePage ? `<a href="${esc(m.sourcePage)}">Source page ↗</a> · ` : ''}${m.licenseUrl ? `<a href="${esc(m.licenseUrl)}">${esc(m.license)}</a>` : esc(m.license)}</p><p class="note">${esc(m.changes)}</p></section>`;
- }).join('')}</div></section>`}));
+const galleryIds=['home-hero','gorge-swing','zipline','simunye','old-drift-lodge','palm-river-hotel','shongwe-oasis','lookout-cafe','baines-restaurant','cassia-restaurant','river-smokehouse'];
+write('gallery.html',layout({title:'Gallery — Majestic Trunk Expeditions',description:'Victoria Falls landscapes, activities, accommodation and dining settings.',content:fill(T('gallery.html'),{galleryHtml:galleryIds.map(id=>`<figure><a href="/assets/img/${media[id].file}">${photo(id,id.replace(/-/g,' '))}</a><figcaption>${esc(id.replace(/-/g,' '))}</figcaption></figure>`).join('')})}));
+// Deploy only referenced images; retain source and permission records in src/data/media.json.
 fs.cpSync(path.join(SRC,'assets/icons'),DIST,{recursive:true});
 fs.mkdirSync(path.join(DIST,'assets/img'),{recursive:true});
 fs.copyFileSync(path.join(SRC,'assets/img/logo.svg'),path.join(DIST,'assets/img/logo.svg'));

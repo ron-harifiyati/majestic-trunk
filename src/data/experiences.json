@@ -94,7 +94,7 @@
     "title": "Zambezi sunset cruise",
     "category": "Scenic",
     "summary": "An unhurried evening on the upper river, with island views, birdlife and the sunset.",
-    "alt": "Sunset beside the upper Zambezi",
+    "alt": "",
     "duration": "About 2 hours on the river",
     "difficulty": "Low physical effort",
     "featured": true,
@@ -131,8 +131,7 @@
     "reviewed": "29 October 2026",
     "group": "falls-river",
     "region": "zimbabwe",
-    "tags": [],
-    "media": "cruise"
+    "tags": []
   },
   {
     "slug": "game-drives",
@@ -363,7 +362,7 @@
     "title": "Guided Victoria Falls walk",
     "category": "Scenic",
     "summary": "Follow the Zimbabwean rainforest paths to the waterfall viewpoints with a guide.",
-    "alt": "Victoria Falls seen from the rainforest side",
+    "alt": "Golden light and mist above Victoria Falls",
     "duration": "Allow a morning or afternoon",
     "difficulty": "Walking; wet surfaces",
     "featured": false,
@@ -405,7 +404,7 @@
     "group": "falls-river",
     "region": "zimbabwe",
     "tags": [],
-    "media": "falls"
+    "media": "home-hero"
   },
   {
     "slug": "the-boma-dining",
