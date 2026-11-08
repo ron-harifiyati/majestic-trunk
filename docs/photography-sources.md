@@ -81,3 +81,43 @@ inclusions and operator arrangements; they do not imply that a matching product
 exists in Majestic Trunk's general online booking catalogue. Canoeing day trips,
 raft alternatives and camping options share one guide rather than inflating the
 catalogue with programme variants.
+
+## Accommodation image correction — 8 November 2026
+
+Kasambabezi's saved preview contained its logo despite the manifest referencing a
+property image. It has been replaced with the actual garden and outdoor seating
+photograph downloaded from the official homepage. Both responsive variants were
+visually checked; dimensions and alternative text now describe the photograph.
+
+## Accommodation expansion — 8 November 2026
+
+The accommodation catalogue now has 21 properties. Eight additions have distinct
+photographs downloaded from their official property sites or the image CDNs
+linked by those sites: Ilala Lodge Hotel, Shongwe Lookout, Mbano Manor Hotel,
+Elephant Hills Resort, Shearwater Explorers Village, Pamarah Lodge, N1 Hotel &
+Campsite Victoria Falls, and Lokuthula Lodges. Each photograph was visually
+inspected before use; no logos, promotion graphics or unrelated destination
+photos were used as property images. Exact image and source-page URLs, sizes
+and preview-only permission status are recorded in the media manifest.
+
+The corresponding property guides reference official accommodation information
+and describe room layouts, meals and transport separately. Self-catering and
+camping are additional guest preferences within the existing three-dropdown
+filter layout. Prices and review scores were not copied from booking sites.
+
+## Remaining named properties — 8 November 2026
+
+Thirteen more property guides bring the catalogue to 34: Nguni, PheZulu,
+Cresta Sprayview, Victoria Falls Rainbow Hotel, Miombo Mews, Tsowa Safari Island,
+Anantara Stanley & Livingstone, Mpala Jena, The Elephant Camp, The Wallow Lodge,
+Bayete Guest Lodge, Victoria Falls Safari Club and Victoria Falls Safari Suites.
+Every new guide has a distinct photograph from its official property website,
+operator or representative's image CDN. The images were visually inspected;
+exact URLs and publication-permission status remain in the media manifest.
+
+Stanley & Livingstone uses its current Anantara name and current hotel source.
+Mpala Jena's main camp and private villas are distinguished in its guide.
+Miombo Mews is classified as a villa property, with a corresponding property-type
+option in the existing filter dropdown. Island and reserve accommodation remains
+clearly identified by location and transfer requirements. Rates and availability
+continue to be confirmed on enquiry.

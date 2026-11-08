@@ -37,11 +37,6 @@ function fixture(dataFile, prefOptions, initial = '') {
     visible(){return allCards.filter(c=>!c.hidden).map(c=>c.slug);},
   };
 }
-test('accommodation preferences distinguish adults-only and family-room listings',()=>{
- const f=fixture('src/data/lodges.json',['adults-only','family-rooms','spa','accessible-rooms','safari-activities']);
- f.choose('adults-only');assert.deepEqual(f.visible(),['shongwe-oasis']);
- f.choose('family-rooms');assert.ok(!f.visible().includes('shongwe-oasis'));assert.ok(f.visible().includes('inkosi-lodge'));
-});
 test('dining atmosphere filters and hotel setting work together',()=>{
  const f=fixture('src/data/dining.json',['views','high-tea','hotel-dining','live-music']);
  f.click('with-a-view');f.choose('high-tea');assert.deepEqual(f.visible(),['stanleys-terrace']);

@@ -16,7 +16,7 @@ operator's external **Activitar** platform.
 | **Stack** | Plain HTML/CSS/JS + a small Node generator (`build.js`) |
 | **Dependencies** | None — Node (build) and Python (local serving) only |
 | **Content** | JSON files in `src/data/` |
-| **Output** | 56 static pages in `dist/` |
+| **Output** | 77 static pages in `dist/` |
 | **Booking** | External — Activitar |
 | **Hosting** | Static (e.g. Cloudflare Pages) |
 
@@ -81,7 +81,8 @@ majestic-trunk/
 │  │  └─ site.css           #   component styles
 │  ├─ js/
 │  │  ├─ nav.js             #   navigation and enquiry context
-│  │  ├─ directory.js       #   stay and dining filters
+│  │  ├─ directory.js       #   grouped dining filters
+│  │  ├─ stays.js           #   flat accommodation catalogue filters
 │  │  └─ experiences.js     #   flat experience catalogue filters
 │  └─ assets/img/           #   images (placeholders, pending rights clearance)
 ├─ dist/                    # generated output (gitignored) — this is what deploys
@@ -111,8 +112,8 @@ directory `dist`.
 
 ## Status
 
-Editorial redesign complete — 56 pages, including 26 activity guides,
-13 accommodation guides, 8 dining guides, a travel-planning guide. Official sources and review dates
+Editorial redesign complete — 77 pages, including 26 activity guides,
+34 accommodation guides, 8 dining guides, a travel-planning guide. Official sources and review dates
 are stored with each listing. Rates are quoted on enquiry rather than displaying
 unverified starting prices. The former Inkosi URL is preserved with the verified
 Nkosi Guest Lodge name.
@@ -128,12 +129,16 @@ links, production privacy content, image optimization and deployment checks.
 
 ## Directories and photography
 
-The primary sections are `/experiences/`, `/stay/` and `/eat-drink/`. Stays and dining
-use grouped static listings enhanced by `directory.js`. Experiences use one
-continuous grid and `experiences.js`, with category, country and time-available
-filters, presented as three dropdowns. Without JavaScript all experience cards
-remain visible; stay and dining category links remain section anchors. Both controllers
-support shareable query parameters, result counts, reset and browser back/forward.
+The primary sections are `/experiences/`, `/stay/` and `/eat-drink/`. Dining uses
+grouped static listings enhanced by `directory.js`. Experiences and stays use
+continuous grids and dedicated `experiences.js` and `stays.js` controllers, with
+three dropdowns hidden behind a quiet filter disclosure. Experience filters cover
+category, country and time; accommodation filters cover setting, property type
+and guest preferences. Without JavaScript all cards remain visible. Legacy group
+anchors and query links remain supported. All controllers support shareable query
+parameters, result counts, reset and browser back/forward. Accommodation detail
+pages include consistent rooms, inclusions and transport summaries derived from
+the existing property research.
 Experience `timeCategory` values are broad planning labels, not promised durations;
 variable programmes use an explicit confirmation category.
 

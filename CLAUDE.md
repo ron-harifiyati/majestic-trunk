@@ -82,10 +82,12 @@ design-mockups/          # throwaway design explorations (reference only)
 
 ## Directory expansion
 
-The current build has 56 pages: 26 experiences, 13 stays, 8 dining venues and
+The current build has 77 pages: 26 experiences, 34 stays, 8 dining venues and
 supporting pages. Category definitions and filter preferences are in `build.js`;
-stay/dining enhancement lives in `src/js/directory.js` and the flat Experiences
-catalogue uses `src/js/experiences.js`. Each experience has a validated
+dining enhancement lives in `src/js/directory.js`. The flat Experiences catalogue
+uses `src/js/experiences.js`; accommodation uses `src/js/stays.js` with setting,
+property type and preference dropdowns. Each stay has a validated `propertyType`
+and `comparison` notes for rooms, inclusions and transport. Each experience has a validated
 `timeCategory` for broad planning filters; keep the descriptive `duration` text. Run `npm test` after changes
 to categories, links, templates or filtering. Photo provenance and responsive sizes
 are recorded in `src/data/media.json`; only referenced images are copied to output.

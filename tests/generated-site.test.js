@@ -68,3 +68,19 @@ test('Experiences uses a distinct hero, three dropdowns and a photo for every li
  assert.equal(cards.length,JSON.parse(fs.readFileSync('src/data/experiences.json','utf8')).length);
  for(const match of cards)assert.match(match[0],/<figure><img /);
 });
+test('stay catalogue has a photo hero, three filters and consistent linked property cards',()=>{
+ const index=fs.readFileSync('dist/stay/index.html','utf8');
+ const lodges=JSON.parse(fs.readFileSync('src/data/lodges.json','utf8'));
+ assert.match(index,/class="photo-hero stays-hero"/);
+ assert.match(index,/src="\/assets\/js\/stays.js"/);
+ assert.equal((index.match(/<select\b/g)||[]).length,3);
+ assert.equal((index.match(/class="grid grid-3 stay-grid"/g)||[]).length,1);
+ assert.ok(!index.includes('class="directory-group"'));
+ for(const lodge of lodges){
+  const html=fs.readFileSync(`dist/stay/${lodge.slug}.html`,'utf8');
+  assert.match(html,/Rooms &amp; arrangements/);
+  assert.match(html,/Meals & activities/);
+  assert.match(html,/Getting around/);
+  assert.ok(!/<\d/.test(html),'Related cards must use real heading elements');
+ }
+});

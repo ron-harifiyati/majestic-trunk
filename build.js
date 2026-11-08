@@ -38,7 +38,7 @@ const groups = {
 };
 const facets = {
   experiences: [['zimbabwe','Zimbabwe'],['zambia','Zambia · cross-border'],['botswana','Botswana · cross-border'],['seasonal','Seasonal'],['self-guided','Self-guided']],
-  stay: [['adults-only','Adults only'],['family-rooms','Family rooms'],['spa','Spa'],['accessible-rooms','Accessible room options'],['safari-activities','Safari activities']],
+  stay: [['adults-only','Adults only'],['family-rooms','Family rooms'],['spa','Spa'],['accessible-rooms','Accessible room options'],['safari-activities','Safari activities'],['self-catering','Self-catering'],['camping','Camping options']],
   dining: [['views','A meal with a view'],['high-tea','Afternoon tea'],['hotel-dining','Hotel dining'],['live-music','Music programme']],
 };
 const ensure = (ok, message) => { if (!ok) throw new Error(message); };
@@ -58,6 +58,12 @@ for (const [type, arr] of [['experiences', experiences], ['stay', lodges], ['din
       ensure(['zimbabwe','zambia','botswana'].includes(entry.region), `${entry.slug}: invalid region`);
       ensure(['short','half-day','full-day','evening','confirm'].includes(entry.timeCategory), `${entry.slug}: invalid time category`);
     }
+    if (type==='stay') {
+      ensure(['hotel','resort','lodge','villa'].includes(entry.propertyType), `${entry.slug}: invalid property type`);
+      ensure(entry.media, `${entry.slug}: a property photo is required`);
+      ensure(Array.isArray(entry.cardFeatures) && entry.cardFeatures.length===2 && entry.cardFeatures.every(f=>typeof f==='string' && f.trim()), `${entry.slug}: two short card features are required`);
+      for (const key of ['rooms','inclusions','transport']) ensure(entry.comparison && typeof entry.comparison[key]==='string' && entry.comparison[key].trim(), `${entry.slug}: missing comparison ${key}`);
+    }
     ensure(groups[type].some(g => g[0] === entry.group), `${entry.slug}: invalid group`);
     for (const s of entry.sources) ensure(/^https:\/\//.test(s.url) && s.title, `${entry.slug}: invalid source`);
     if (entry.officialUrl) ensure(/^https:\/\//.test(entry.officialUrl), `${entry.slug}: invalid official URL`);
@@ -72,7 +78,7 @@ for (const [key, m] of Object.entries(media)) {
 const base = P('base.html');
 const header = fill(P('header.html'), {activitarUrl: site.activitarUrl});
 const footer = fill(P('footer.html'), {activitarUrl: site.activitarUrl, year: site.year});
-const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : ''});
+const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : ''});
 const list = (arr, fn) => arr.map(fn).join('\n');
 const paras = arr => list(arr, p => `<p>${esc(p)}</p>`);
 const items = arr => list(arr, h => `<li>${esc(h)}</li>`);
@@ -109,7 +115,7 @@ const card = (e, type) => {
   return `<article class="card ${type === 'stay' ? 'accommodation-card' : ''} ${!e.media ? 'card-no-photo' : ''}" data-card data-tags="${esc(tokens)}"><a class="card-main" href="/${route}/${e.slug}.html">${e.media ? `<figure>${photo(e.media,e.alt)}</figure>` : ''}<div class="card-body"><span class="pill">${esc(e.category)}</span><h3>${esc(e.title)}</h3><p class="card-summary">${esc(e.summary)}</p>${tagsHtml(e)}<p class="card-meta">${esc(meta)}</p><span class="card-link">${action} <span aria-hidden="true">↗</span></span></div></a></article>`;
 };
 const expCard = e => card(e,'experiences');
-const lodgeCard = e => card(e,'stay');
+const lodgeCard = (e, heading='h3', anchor='') => `<article class="card stay-card" data-card data-stay data-setting="${esc(e.group)}" data-type="${esc(e.propertyType)}" data-tags="${esc(e.tags.join(' '))}"${anchor}><a class="card-main" href="/stay/${e.slug}.html"><figure>${photo(e.media,e.alt)}</figure><div class="card-body"><span class="stay-category">${esc(e.category)}</span><${heading}>${esc(e.title)}</${heading}><p class="stay-location">${esc(e.location)}</p><p class="card-summary">${esc(e.summary)}</p><ul class="stay-features" aria-label="Property features">${e.cardFeatures.map(h=>`<li>${esc(h)}</li>`).join('')}</ul><span class="card-link">View property <span aria-hidden="true">↗</span></span></div></a></article>`;
 const diningCard = e => card(e,'dining');
 const directory = (arr, type, cardFn) => {
   const nav = `<nav class="category-nav" aria-label="${type === 'stay' ? 'Accommodation settings' : type === 'dining' ? 'Dining categories' : 'Activity categories'}"><a href="#directory" data-group-link="all" aria-current="true">All <span>${arr.length}</span></a>${groups[type].map(([id,title]) => `<a href="#group-${id}" data-group-link="${id}">${esc(title)} <span>${arr.filter(e=>e.group===id).length}</span></a>`).join('')}</nav>`;
@@ -130,6 +136,16 @@ const experienceCatalogue = () => {
     return `<article class="card experience-card ${e.media?'':'experience-card-text'}" data-card data-experience data-category="${e.group}" data-location="${e.region}" data-time="${e.timeCategory}"${groupAnchor}><a class="card-main" href="/experiences/${e.slug}.html">${e.media?`<figure>${photo(e.media,e.alt)}</figure>`:''}<div class="card-body"><span class="experience-category">${esc(categoryLabels[e.group])}</span><h2>${esc(e.title)}</h2><p class="card-summary">${esc(e.summary)}</p><dl class="experience-facts"><div><dt>Time</dt><dd>${esc(e.duration)}</dd></div><div><dt>Location</dt><dd>${locations[e.region]}</dd></div></dl>${notes.length?`<ul class="experience-notes" aria-label="Planning notes">${notes.map(note=>`<li>${note}</li>`).join('')}</ul>`:''}<span class="card-link">View experience <span aria-hidden="true">↗</span></span></div></a></article>`;
   }).join('');
   return `<div data-experience-directory><div class="experience-toolbar"><div class="wrap"><div class="catalogue-panel"><div class="catalogue-status"><button type="button" class="catalogue-toggle" data-toggle-experiences aria-expanded="false" aria-controls="experience-filter-fields" hidden><span>Filters</span><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-experience-results>${ordered.length} experiences</p><button type="button" class="text-link" data-clear-experiences hidden>Clear filters</button></div>${filters}</div></div></div><div class="wrap catalogue-body"><div class="grid grid-3 experience-grid" id="experience-list">${cards}</div><div class="directory-empty" data-experience-empty hidden><h2>No matching experiences</h2><p>Choose another category, location or duration, or clear the filters to see everything.</p><button type="button" class="btn btn-ghost" data-clear-experiences>Show all experiences</button></div></div></div>`;
+};
+const stayCatalogue = () => {
+ const select = (id,label,options) => `<label for="stay-${id}">${label}<select id="stay-${id}" data-${id}-filter>${options.map(([value,title])=>`<option value="${value}">${esc(title)}</option>`).join('')}</select></label>`;
+ const fields = select('setting','Setting',[['all','All settings'],['town-gardens','Town & Gardens'],['riverfront','Riverfront'],['safari','Safari']]) + select('type','Property type',[['all','All property types'],['hotel','Hotel'],['resort','Resort'],['lodge','Lodge'],['villa','Villa / Apartment']]) + select('preference','Preferences',[['all','Any preference'],...facets.stay]);
+ const seen = new Set();
+ const cards = lodges.map(e=>{
+  const anchor = seen.has(e.group) ? '' : ` id="group-${e.group}"`; seen.add(e.group);
+  return lodgeCard(e,'h2',anchor);
+ }).join('');
+ return `<div data-stay-directory><div class="experience-toolbar"><div class="wrap"><div class="catalogue-panel"><div class="catalogue-status"><p class="results-count" role="status" aria-live="polite" aria-atomic="true" data-stay-results>${lodges.length} places to stay</p><button type="button" class="text-link" data-clear-stays hidden>Clear filters</button><button type="button" class="catalogue-toggle" data-toggle-stays aria-expanded="false" aria-controls="stay-filter-fields" hidden><span>Filters</span><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="catalogue-filters" id="stay-filter-fields" data-catalogue-filters hidden><div class="catalogue-filter-fields">${fields}</div></div></div></div></div><div class="wrap catalogue-body"><div class="grid grid-3 stay-grid">${cards}</div><div class="directory-empty" data-stay-empty hidden><h2>No matching places to stay</h2><p>Try another setting, property type or preference.</p><button type="button" class="btn btn-ghost" data-clear-stays>Show all properties</button></div></div></div>`;
 };
 const routes = new Set();
 const write = (rel, text) => {
@@ -159,11 +175,11 @@ for (const e of experiences) {
     activityActions:e.enquiryOnly ? `<span class="label">Ask about this experience</span><h2>Plan it around your stay.</h2><p>Send your dates and group size so we can check the programme, availability and arrangements with the operator.</p><a class="btn" href="${enquiry(e.title)}">Enquire about this experience ↗</a><p class="note">Availability and inclusions will be confirmed in your quotation.</p>` : selfGuided ? `<span class="label">Explore at your own pace</span><h2>Leave a little time to browse.</h2><p>This is a self-guided idea. Check each gallery’s visiting details directly.</p><a class="btn" href="${enquiry(e.title)}">Ask about your itinerary ↗</a>` : `<span class="label">Plan this activity</span><h2>Make it part of your visit.</h2><p>Ask about your dates, the current programme and a quotation for your group.</p><a class="btn" href="${enquiry(e.title)}">Enquire about this activity ↗</a><a class="text-link" href="${esc(site.activitarUrl)}">Browse online bookings ↗</a><p class="note">Activitar opens our general booking catalogue. Confirm the exact product and current requirements before reserving.</p>`,
   })}));
 }
-write('stay/index.html',layout({title:'Places to Stay — Majestic Trunk Expeditions',description:'Compare town and garden stays, riverfront hotels and safari lodges around Victoria Falls.',content:fill(T('lodges-index.html'),{directoryHtml:directory(lodges,'stay',lodgeCard),stayCount:lodges.length})}));
+write('stay/index.html',layout({title:'Places to Stay — Majestic Trunk Expeditions',description:'Compare town and garden stays, riverfront hotels and safari lodges around Victoria Falls.',content:fill(T('lodges-index.html'),{directoryHtml:stayCatalogue(),stayHeroPhoto:photo('palm-river-hotel','The pool and riverside gardens at Palm River Hotel',true,true)})}));
 for (const l of lodges) {
   const related=lodges.filter(x=>x.slug!==l.slug).sort((a,b)=>Number(b.group===l.group)-Number(a.group===l.group)).slice(0,3);
   write(`stay/${l.slug}.html`,layout({title:`${l.title} — Majestic Trunk Expeditions`,description:l.summary,content:fill(T('lodge.html'),{
-    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,lodgeCard),featuresHtml:tagsHtml(l),contextualLinks:contextualLinks(l.slug),
+    title:esc(l.title),summary:esc(l.summary),category:esc(l.category),heroMedia:heroMedia(l),location:esc(l.location),bestFor:esc(l.bestFor),enquiryUrl:enquiry(l.title),bodyHtml:paras(l.body),highlightsHtml:items(l.highlights),planningHtml:planning(l.planning),sourcesHtml:sources(l.sources),reviewed:esc(l.reviewed),relatedCards:list(related,e=>lodgeCard(e)),featuresHtml:tagsHtml(l),comparisonHtml:`<dl>${[['rooms','Rooms & guests'],['inclusions','Meals & activities'],['transport','Getting around']].map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(l.comparison[key])}</dd></div>`).join('')}</dl>`,contextualLinks:contextualLinks(l.slug),
   })}));
 }
 write('eat-drink/index.html',layout({title:'Eat & Drink — Majestic Trunk Expeditions',description:'Find a restaurant or evening out in Victoria Falls, from gorge-view tables and high tea to town eateries and a brewery.',content:fill(T('dining-index.html'),{directoryHtml:directory(dining,'dining',diningCard)})}));

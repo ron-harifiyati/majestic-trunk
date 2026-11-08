@@ -321,10 +321,10 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
  .planning-panel{grid-template-columns:1fr;gap:1.5rem}
  .planning-heading h2{margin-bottom:.7rem}.planning-questions>a{font-size:1rem;padding-block:1rem}
 }
-/* Experiences: a short photographic introduction and a continuous catalogue. */
-.photo-hero.experiences-hero{min-height:clamp(19rem,30vw,23rem);padding:2.5rem 0;justify-content:center}
+/* Experiences: a photographic introduction and a continuous catalogue. */
+.photo-hero.experiences-hero{min-height:clamp(30rem,calc(70svh - 88px),44rem);padding:4rem 0;justify-content:flex-end}
 .experiences-hero .hero-content{padding-block:0}
-.experiences-hero h1{font-size:clamp(2.3rem,4.5vw,3.5rem);margin:.7rem 0 1rem;max-width:24ch}
+.experiences-hero h1{font-size:clamp(2.75rem,5vw,4.25rem);margin:.7rem 0 1rem;max-width:24ch}
 .experiences-hero p{font-size:.95rem;max-width:55ch}
 .experience-catalogue{padding-bottom:clamp(2.5rem,5vw,4rem)}
 .experience-toolbar{position:sticky;top:var(--catalogue-header-height,88px);z-index:30;margin-top:0;background:var(--sand)}
@@ -338,7 +338,7 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
 .catalogue-filter-fields select:focus-visible{outline:2px solid var(--ink-soft);outline-offset:3px}
 .catalogue-status{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;border-bottom:1px solid var(--line);padding-bottom:.4rem}
 .catalogue-status .results-count{order:0;margin:0 auto 0 0;font-size:.75rem;font-weight:400;color:var(--muted)}
-.catalogue-status [data-clear-experiences]{order:1}
+.catalogue-status [data-clear-experiences],.catalogue-status [data-clear-stays]{order:1}
 .catalogue-status button{cursor:pointer;background:none;border:0;color:var(--terra-d);font-size:.75rem;min-height:44px}
 .experience-grid{gap:1.6rem}
 .experience-card figure{aspect-ratio:16/10}
@@ -365,7 +365,7 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
  .experience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:600px){
- .photo-hero.experiences-hero{min-height:19rem;padding-block:2rem}
+ .photo-hero.experiences-hero{min-height:28rem;padding-block:3rem}
  .experiences-hero h1{font-size:2.3rem}.experiences-hero p{font-size:.88rem}
  .experience-toolbar{position:relative;top:auto;margin-top:0}
  .catalogue-filters{padding:.65rem 1rem 1rem}
@@ -382,3 +382,37 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
 .catalogue-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(max-width:600px){.catalogue-status .catalogue-toggle{font-size:.78rem;gap:.55rem}}
 @media(forced-colors:active){.catalogue-filter-fields select{appearance:auto;-webkit-appearance:auto;background-image:none}}
+
+/* Places to stay shares the quiet catalogue controls with Experiences. */
+.photo-hero.stays-hero{min-height:clamp(30rem,calc(70svh - 88px),44rem);padding:4rem 0;justify-content:flex-end}
+.stays-hero .hero-content{padding-block:0}
+.stays-hero h1{font-size:clamp(2.75rem,5vw,4.25rem);margin:.7rem 0 1rem;max-width:24ch}
+.stays-hero p{font-size:.95rem;max-width:55ch}
+.stay-catalogue{padding-bottom:clamp(2.5rem,5vw,4rem)}
+.stay-grid{gap:1.6rem}
+.stay-card figure{aspect-ratio:16/10}
+.stay-card .card-body{padding:1.3rem;gap:.75rem}
+.stay-category{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d)}
+.stay-card h2,.stay-card h3{font-size:1.4rem;line-height:1.25;text-wrap:pretty}
+.stay-card:hover h2,.stay-card:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.stay-card .card-summary{font-size:.83rem;line-height:1.7}
+.stay-location{font-size:.74rem;color:var(--muted);line-height:1.5;margin-top:-.3rem}
+.stay-features{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 0;margin-top:auto;padding-top:.5rem;font-size:.73rem;color:var(--ink-soft);line-height:1.6}
+.stay-features li+li::before{content:'·';padding-inline:.65rem;color:var(--olive)}
+.stay-card .card-link{font-size:.74rem;padding-top:.25rem}
+.stay-card[id]{scroll-margin-top:6rem}
+.stay-comparison{padding:1.5rem;background:var(--cream);border-radius:var(--radius);margin-bottom:2rem}
+.stay-comparison h2{font-size:1.5rem;margin-bottom:1rem}
+.stay-comparison dl{display:grid;gap:1rem}
+.stay-comparison dl>div{display:grid;grid-template-columns:8rem 1fr;gap:1rem}
+.stay-comparison dt{font-size:.75rem;font-weight:600;color:var(--ink-soft)}
+.stay-comparison dd{font-size:.85rem;line-height:1.65}
+@media(max-width:880px){.stay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+ .photo-hero.stays-hero{min-height:28rem;padding-block:3rem}
+ .stays-hero h1{font-size:2.3rem}.stays-hero p{font-size:.88rem}
+ .stay-grid{grid-template-columns:1fr;gap:1.5rem}
+ .stay-card .card-body{padding:1.25rem}
+ .stay-comparison{padding:1.25rem}
+ .stay-comparison dl>div{grid-template-columns:1fr;gap:.25rem}
+}

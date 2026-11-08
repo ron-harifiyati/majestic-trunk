@@ -42,7 +42,17 @@
       "safari-activities"
     ],
     "media": "old-drift-lodge",
-    "alt": "Old Drift Lodge · official property photograph"
+    "alt": "Old Drift Lodge · official property photograph",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Standard, family and star suites.",
+      "inclusions": "Safari activities are listed in the lodge package; confirm meals, drinks and excluded charges.",
+      "transport": "Confirm airport transfers and arrangements within the national park."
+    },
+    "cardFeatures": [
+      "Family suites",
+      "Safari activities"
+    ]
   },
   {
     "slug": "victoria-falls-safari-lodge",
@@ -86,7 +96,17 @@
     "tags": [
       "spa"
     ],
-    "media": "victoria-falls-safari-lodge"
+    "media": "victoria-falls-safari-lodge",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Standard rooms, waterhole-facing rooms and suites.",
+      "inclusions": "Restaurants on site; confirm your meal plan and any estate experiences separately.",
+      "transport": "Scheduled town and rainforest shuttle; confirm stops and times."
+    },
+    "cardFeatures": [
+      "Waterhole views",
+      "Town shuttle"
+    ]
   },
   {
     "slug": "palm-river-hotel",
@@ -135,7 +155,17 @@
       "family-rooms",
       "spa"
     ],
-    "media": "palm-river-hotel"
+    "media": "palm-river-hotel",
+    "propertyType": "hotel",
+    "comparison": {
+      "rooms": "Deluxe rooms and suites, with interconnecting options.",
+      "inclusions": "Confirm your meal plan. Ra-Ikane cruises require a separate booking unless included.",
+      "transport": "Scheduled shuttle service; confirm airport collection separately."
+    },
+    "cardFeatures": [
+      "Interconnecting rooms",
+      "Spa & pool"
+    ]
   },
   {
     "slug": "inkosi-lodge",
@@ -180,7 +210,17 @@
       "accessible-rooms"
     ],
     "media": "inkosi-lodge",
-    "alt": "Nkosi Guest Lodge · official property photograph"
+    "alt": "Nkosi Guest Lodge · official property photograph",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Superior and family accommodation; two accessible rooms are listed.",
+      "inclusions": "Breakfast-inclusive rates are published; confirm the basis of your quotation.",
+      "transport": "Arrange airport and activity transfers for this residential-area lodge."
+    },
+    "cardFeatures": [
+      "Family rooms",
+      "Accessible room options"
+    ]
   },
   {
     "slug": "pioneers-lodge",
@@ -225,7 +265,17 @@
       "spa"
     ],
     "media": "pioneers-lodge",
-    "alt": "Pioneers Lodge · official property photograph"
+    "alt": "Pioneers Lodge · official property photograph",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Garden-facing rooms, including family options.",
+      "inclusions": "Restaurant and bar on site; confirm included meals and spa treatment charges.",
+      "transport": "Confirm transport to town, the rainforest and your activities."
+    },
+    "cardFeatures": [
+      "Two pools",
+      "Day spa"
+    ]
   },
   {
     "slug": "victoria-falls-hotel",
@@ -269,7 +319,17 @@
       "heritage"
     ],
     "media": "victoria-falls-hotel",
-    "alt": "The Victoria Falls Hotel · official property photograph"
+    "alt": "The Victoria Falls Hotel · official property photograph",
+    "propertyType": "hotel",
+    "comparison": {
+      "rooms": "Classic room categories, suites and the Stables Signature Wing.",
+      "inclusions": "Confirm breakfast and other services for your exact room category.",
+      "transport": "Discuss access needs and transfer arrangements when enquiring."
+    },
+    "cardFeatures": [
+      "Heritage setting",
+      "Rooms & suites"
+    ]
   },
   {
     "slug": "victoria-falls-river-lodge",
@@ -314,7 +374,17 @@
       "safari-activities"
     ],
     "media": "victoria-falls-river-lodge",
-    "alt": "Victoria Falls River Lodge · official property photograph"
+    "alt": "Victoria Falls River Lodge · official property photograph",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Luxury and family tents; island suites and villas are separate products.",
+      "inclusions": "The tented-suite package lists meals, local drinks and scheduled activities; confirm levies and extras.",
+      "transport": "Confirm airport transfers and collection arrangements in your quotation."
+    },
+    "cardFeatures": [
+      "Private plunge pools",
+      "Family tents"
+    ]
   },
   {
     "slug": "a-zambezi-river-lodge",
@@ -356,7 +426,17 @@
     "group": "riverfront",
     "tags": [],
     "media": "a-zambezi-river-lodge",
-    "alt": "a’Zambezi River Lodge · official property photograph"
+    "alt": "a’Zambezi River Lodge · official property photograph",
+    "propertyType": "resort",
+    "comparison": {
+      "rooms": "Confirm your preferred room category and river or garden outlook.",
+      "inclusions": "Amulonga restaurant on site; confirm your meal plan and boat trips separately.",
+      "transport": "Courtesy town and rainforest shuttle; airport collection arranged separately."
+    },
+    "cardFeatures": [
+      "Riverfront pool",
+      "Town shuttle"
+    ]
   },
   {
     "slug": "shongwe-oasis",
@@ -401,7 +481,17 @@
     "group": "town-gardens",
     "alt": "Shongwe Oasis · official property photograph",
     "reviewed": "29 October 2026",
-    "media": "shongwe-oasis"
+    "media": "shongwe-oasis",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Adults-only rooms; confirm the age policy and room layout.",
+      "inclusions": "Restaurant and bar on site; meals and spa treatments depend on your booking.",
+      "transport": "Confirm airport and activity transfers separately."
+    },
+    "cardFeatures": [
+      "Adults only",
+      "Spa & infinity pool"
+    ]
   },
   {
     "slug": "waterfalls-lodge",
@@ -445,7 +535,17 @@
     "group": "town-gardens",
     "alt": "Waterfalls Lodge · official property photograph",
     "reviewed": "29 October 2026",
-    "media": "waterfalls-lodge"
+    "media": "waterfalls-lodge",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Confirm bed configurations and family occupancy for your group.",
+      "inclusions": "Dining on site; optional packages combine accommodation with selected activities.",
+      "transport": "Check which airport and activity transfers your exact package includes."
+    },
+    "cardFeatures": [
+      "Dining on site",
+      "Activity packages"
+    ]
   },
   {
     "slug": "kasambabezi-lodge",
@@ -485,9 +585,19 @@
       }
     ],
     "group": "town-gardens",
-    "alt": "Kasambabezi Lodge · official property photograph",
+    "alt": "Garden and outdoor seating at Kasambabezi Lodge",
     "reviewed": "29 October 2026",
-    "media": "kasambabezi-lodge"
+    "media": "kasambabezi-lodge",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "King or twin deluxe rooms and suites with private gardens.",
+      "inclusions": "Restaurant and bar on site; confirm breakfast and other meal inclusions.",
+      "transport": "Request current airport and activity transfer arrangements."
+    },
+    "cardFeatures": [
+      "King or twin rooms",
+      "Pool & gardens"
+    ]
   },
   {
     "slug": "bhejane-lodge",
@@ -529,7 +639,17 @@
     "group": "town-gardens",
     "alt": "Bhejane Lodge · official property photograph",
     "reviewed": "29 October 2026",
-    "media": "bhejane-lodge"
+    "media": "bhejane-lodge",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Confirm the room category, bed arrangement and occupancy.",
+      "inclusions": "Breakfast is published as part of the accommodation offering; confirm early departures.",
+      "transport": "Airport transfers are offered at an extra charge; confirm activity transport."
+    },
+    "cardFeatures": [
+      "Breakfast",
+      "Garden pool"
+    ]
   },
   {
     "slug": "batonka-guest-lodge",
@@ -571,6 +691,1166 @@
     "group": "town-gardens",
     "alt": "Batonka Guest Lodge · official property photograph",
     "reviewed": "29 October 2026",
-    "media": "batonka-guest-lodge"
+    "media": "batonka-guest-lodge",
+    "propertyType": "lodge",
+    "comparison": {
+      "rooms": "Pool-view and garden-view rooms with private patios.",
+      "inclusions": "Indoor and outdoor dining; confirm the meal plan quoted for your stay.",
+      "transport": "Confirm collection points and transfers for your outings."
+    },
+    "cardFeatures": [
+      "Private patios",
+      "Pool & garden views"
+    ]
+  },
+  {
+    "slug": "ilala-lodge",
+    "title": "Ilala Lodge Hotel",
+    "category": "Town hotel",
+    "propertyType": "hotel",
+    "location": "Victoria Falls town",
+    "summary": "A garden hotel close to the Falls entrance, with rooms and suites opening onto patios or balconies.",
+    "bestFor": "A central base for the Falls and town",
+    "cardFeatures": [
+      "Garden views",
+      "Rooms & suites"
+    ],
+    "highlights": [
+      "Town location close to the Falls entrance",
+      "Classic and deluxe rooms alongside larger suites",
+      "Garden-facing patios or balconies"
+    ],
+    "body": [
+      "Ilala Lodge Hotel is a family-run hotel set in gardens near the Victoria Falls entrance. Its central location suits a stay built around walking to the rainforest, spending time in town and returning to a hotel between excursions.",
+      "Accommodation ranges from classic and deluxe rooms to several suite categories. Compare the actual room layout and outdoor space: a larger suite and a standard room offer different ways to stay. Published rates include breakfast, but confirm the full quotation for your dates."
+    ],
+    "comparison": {
+      "rooms": "Classic and deluxe rooms, plus classic, executive and Strathearn suites.",
+      "inclusions": "Published hotel rates include breakfast; confirm other meals and any additional charges.",
+      "transport": "The hotel is near the Falls entrance; airport and other transfers should be arranged separately."
+    },
+    "planning": [
+      {
+        "label": "Room choice",
+        "text": "Request the exact category, bed arrangement and patio or balcony configuration."
+      },
+      {
+        "label": "Getting around",
+        "text": "Confirm walking routes and book airport collection before arrival."
+      },
+      {
+        "label": "Rate basis",
+        "text": "Compare the total for your dates and occupancy, including breakfast and mandatory charges."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Ilala Lodge · Hotel and accommodation",
+        "url": "https://www.ilalalodge.com/home"
+      },
+      {
+        "title": "Ilala Lodge · Rates and inclusions",
+        "url": "https://www.ilalalodge.com/rates"
+      },
+      {
+        "title": "Ilala Lodge · Location and transfers",
+        "url": "https://www.ilalalodge.com/location"
+      }
+    ],
+    "alt": "The garden-facing terraces and lawn at Ilala Lodge Hotel",
+    "group": "town-gardens",
+    "tags": [],
+    "media": "ilala-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "shongwe-lookout",
+    "title": "Shongwe Lookout",
+    "category": "Garden lodge",
+    "propertyType": "lodge",
+    "location": "Victoria Falls town area",
+    "summary": "A small garden lodge with an infinity pool, locally crafted interiors and a choice of studio, deluxe and executive rooms.",
+    "bestFor": "A smaller lodge with space to unwind",
+    "cardFeatures": [
+      "Infinity pool",
+      "Garden setting"
+    ],
+    "highlights": [
+      "Studio, deluxe and executive room categories",
+      "Infinity pool among gardens and teak trees",
+      "Locally crafted room interiors"
+    ],
+    "body": [
+      "Shongwe Lookout has 19 rooms arranged around gardens and an infinity pool. Its interiors feature local craftsmanship, giving the lodge a more individual feel than a large resort.",
+      "Studio rooms have twin beds and a shower; deluxe and executive categories offer king beds, baths and showers, with veranda space described for the executive rooms. Shongwe Lookout is a separate property from neighbouring Shongwe Oasis: do not assume the Oasis adults-only policy applies to this booking."
+    ],
+    "comparison": {
+      "rooms": "Twin studio rooms and king-bed deluxe or executive categories.",
+      "inclusions": "Confirm breakfast, other meals and use of any neighbouring facilities in your quotation.",
+      "transport": "Ask about airport collection and transfers to town, the Falls and your activities."
+    },
+    "planning": [
+      {
+        "label": "Room category",
+        "text": "Confirm bath, shower and veranda arrangements for the category you select."
+      },
+      {
+        "label": "Guest policy",
+        "text": "Check child occupancy and extra-bed arrangements directly for your party."
+      },
+      {
+        "label": "Your quotation",
+        "text": "Confirm meals and transport rather than assuming they match Shongwe Oasis."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Shongwe Lookout · Rooms",
+        "url": "https://shongwelookout.com/stay/"
+      }
+    ],
+    "alt": "A guest bedroom with mosquito netting and carved headboard at Shongwe Lookout",
+    "group": "town-gardens",
+    "tags": [],
+    "media": "shongwe-lookout",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "mbano-manor-hotel",
+    "title": "Mbano Manor Hotel",
+    "category": "Boutique hotel",
+    "propertyType": "hotel",
+    "location": "Victoria Falls teak forest setting",
+    "summary": "A boutique hotel among teak trees, with spacious private suites and a separate forest villa.",
+    "bestFor": "Privacy and a quieter hotel setting",
+    "cardFeatures": [
+      "Private terraces",
+      "Suites & villa"
+    ],
+    "highlights": [
+      "Suites set within a teak-tree forest",
+      "Separate lounge and bedroom areas",
+      "Mutota Forest Villa as a distinct accommodation option"
+    ],
+    "body": [
+      "Mbano Manor Hotel is a family-owned boutique hotel set within a teak forest away from the town centre. The accommodation comprises private suites and the separate Mutota Forest Villa, offering a different setting from a riverbank lodge or central town hotel.",
+      "The suites have a lounge, bedroom, bathroom and outdoor terrace space. Some can be configured with twin beds. Compare the suite and villa products separately, and leave time to enjoy the quieter surroundings between visits to the Falls."
+    ],
+    "comparison": {
+      "rooms": "Luxury suites with king or selected twin configurations; the forest villa is booked separately.",
+      "inclusions": "Confirm the meal plan, spa treatments and any package activities for your exact booking.",
+      "transport": "Plan transport into town and to the Falls; ask which airport or activity transfers are included."
+    },
+    "planning": [
+      {
+        "label": "Accommodation",
+        "text": "Specify whether you want a suite or the Mutota Forest Villa and confirm occupancy."
+      },
+      {
+        "label": "Bed arrangement",
+        "text": "Twin configurations are available in selected suites; request one before confirming."
+      },
+      {
+        "label": "Package",
+        "text": "Ask for a written breakdown of meals, transfers, activities and treatments."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mbano Manor · Hotel setting",
+        "url": "https://www.mbanomanorhotel.com/"
+      },
+      {
+        "title": "Mbano Manor · Luxury suites",
+        "url": "https://www.mbanomanorhotel.com/luxury-suites/"
+      }
+    ],
+    "alt": "The lounge and bedroom of a luxury suite at Mbano Manor Hotel",
+    "group": "town-gardens",
+    "tags": [],
+    "media": "mbano-manor-hotel",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "elephant-hills-resort",
+    "title": "Elephant Hills Resort",
+    "category": "Resort hotel",
+    "propertyType": "resort",
+    "location": "Upper Zambezi outskirts",
+    "summary": "A larger resort overlooking the upper Zambezi, with an 18-hole golf course, sports facilities and dining on site.",
+    "bestFor": "Golf, resort facilities and group stays",
+    "cardFeatures": [
+      "18-hole golf course",
+      "Pool & sports"
+    ],
+    "highlights": [
+      "Elevated outlook over the upper Zambezi",
+      "Standard rooms and executive suites",
+      "Golf course, pool, gym and conference facilities"
+    ],
+    "body": [
+      "Elephant Hills Resort sits on a bluff overlooking the upper Zambezi, upstream from the Falls. This is a larger resort with leisure and conference facilities, suited to guests who want more on-site options between excursions.",
+      "African Sun lists standard rooms and executive suites, alongside an 18-hole golf course, pool, gym and other sports facilities. Dining options include restaurants, terraces and bars. An elevated river outlook is different from direct riverbank accommodation; confirm the outlook of your quoted room."
+    ],
+    "comparison": {
+      "rooms": "Standard rooms and executive suites; confirm bed configuration and outlook.",
+      "inclusions": "Dining and sports facilities are on site; confirm meals, golf fees and other extras separately.",
+      "transport": "The Falls and town require a transfer; confirm collection arrangements and current shuttle options."
+    },
+    "planning": [
+      {
+        "label": "Golf",
+        "text": "Ask about tee times, equipment hire and green fees before reserving."
+      },
+      {
+        "label": "Room outlook",
+        "text": "Confirm the category and whether your room faces the river or golf course."
+      },
+      {
+        "label": "Groups",
+        "text": "Request a combined room, meal and transport quotation for groups or events."
+      }
+    ],
+    "sources": [
+      {
+        "title": "African Sun · Elephant Hills Resort",
+        "url": "https://africansun.com/hotels/elephant-hills-resort/"
+      }
+    ],
+    "alt": "Guests seated beside the swimming pool at Elephant Hills Resort",
+    "group": "town-gardens",
+    "tags": [],
+    "media": "elephant-hills-resort",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "shearwater-explorers-village",
+    "title": "Shearwater Explorers Village",
+    "category": "Town lodge & camping",
+    "propertyType": "lodge",
+    "location": "Victoria Falls town",
+    "summary": "A central lodge with standard and deluxe rooms, a garden pool and serviced tent or camping alternatives.",
+    "bestFor": "Town access with different accommodation budgets",
+    "cardFeatures": [
+      "Pool & gardens",
+      "Camping options"
+    ],
+    "highlights": [
+      "Standard and deluxe en-suite rooms",
+      "Serviced tents and own-camping options",
+      "Pool, restaurant and bar"
+    ],
+    "body": [
+      "Shearwater Explorers Village brings rooms and camping options together close to the town’s restaurants and activity hubs. Gardens, a pool, restaurant and bar provide shared space between outings.",
+      "Standard and deluxe rooms have en-suite bathrooms, air-conditioning and patios. Serviced tents use shared ablutions and kitchen facilities, so they are a different product from the rooms. Published room rates include breakfast while tent rates exclude it; compare the exact accommodation and inclusions you are offered."
+    ],
+    "comparison": {
+      "rooms": "Standard and deluxe rooms, serviced dome tents and own-camping options.",
+      "inclusions": "Published room rates include breakfast; camping and tent bookings have different inclusions.",
+      "transport": "A central town base; airport collection is available at an additional charge."
+    },
+    "planning": [
+      {
+        "label": "Choose the product",
+        "text": "Specify a room, serviced tent or camping pitch so the quotation matches your expectations."
+      },
+      {
+        "label": "Facilities",
+        "text": "Check whether your booking has an en-suite bathroom or shared ablutions."
+      },
+      {
+        "label": "Arrivals",
+        "text": "Confirm airport collection and early breakfast arrangements for excursions."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Explorers Village · Accommodation",
+        "url": "https://explorersvillage.com/"
+      },
+      {
+        "title": "Explorers Village · Rate basis",
+        "url": "https://explorersvillage.com/rates/"
+      }
+    ],
+    "alt": "The swimming pool, lawn and thatched buildings at Shearwater Explorers Village",
+    "group": "town-gardens",
+    "tags": [
+      "camping"
+    ],
+    "media": "shearwater-explorers-village",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "pamarah-lodge",
+    "title": "Pamarah Lodge",
+    "category": "Boutique garden lodge",
+    "propertyType": "lodge",
+    "location": "Victoria Falls residential area",
+    "summary": "A family-run lodge with a garden pool, on-site dining and room choices for solo travellers, couples and families.",
+    "bestFor": "Smaller-scale hospitality and flexible room choices",
+    "cardFeatures": [
+      "Family rooms",
+      "Pool & dining"
+    ],
+    "highlights": [
+      "Solo, king, twin, triple and family room options",
+      "Outdoor swimming pool",
+      "The Prop & Rotor restaurant"
+    ],
+    "body": [
+      "Pamarah is a family-run lodge in a residential part of Victoria Falls. Its pool and garden spaces offer somewhere to pause between excursions, while The Prop & Rotor restaurant provides dining on site.",
+      "Room choices include solo, king and twin configurations, triples, family rooms and honeymoon accommodation. This range makes the exact category important when planning for a mixed group. The lodge describes breakfast as complimentary; confirm your meal plan and transport arrangements alongside the room."
+    ],
+    "comparison": {
+      "rooms": "Solo, king or twin, triple and family options, with additional patio and honeymoon categories.",
+      "inclusions": "Breakfast is described as complimentary; confirm other meals and dietary requirements.",
+      "transport": "Ask for airport and town transfer arrangements for this residential-area property."
+    },
+    "planning": [
+      {
+        "label": "Occupancy",
+        "text": "Confirm beds and maximum occupancy for the exact family or triple room quoted."
+      },
+      {
+        "label": "Meals",
+        "text": "Check breakfast timing and whether dinner needs to be booked in advance."
+      },
+      {
+        "label": "Transfers",
+        "text": "Arrange collection for arrival and activities rather than assuming a central walking location."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Pamarah Lodge · Rooms, facilities and dining",
+        "url": "https://www.pamarah.com/"
+      }
+    ],
+    "alt": "The garden swimming pool and shaded seating at Pamarah Lodge",
+    "group": "town-gardens",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "pamarah-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "n1-hotel",
+    "title": "N1 Hotel & Campsite Victoria Falls",
+    "category": "Town hotel & campsite",
+    "propertyType": "hotel",
+    "location": "Adam Stander Drive, Victoria Falls",
+    "summary": "A straightforward town base with private rooms, family accommodation, dormitory beds and camping options.",
+    "bestFor": "A simpler stay with town access",
+    "cardFeatures": [
+      "Family rooms",
+      "Dorms & camping"
+    ],
+    "highlights": [
+      "Double, twin, deluxe and superior room categories",
+      "Family rooms and dormitory options",
+      "Campsite with shared facilities"
+    ],
+    "body": [
+      "N1 Hotel & Campsite is on Adam Stander Drive in Victoria Falls town. It offers a simpler accommodation choice alongside the larger resorts and safari lodges, with private rooms, dormitory beds and camping in one property.",
+      "Private room categories list air-conditioning, en-suite bathrooms and Wi-Fi. Dormitories and the campsite use shared ablutions. Choose the accommodation type first, then compare the total for your group: a bed-only dormitory booking and a private family room are different stays."
+    ],
+    "comparison": {
+      "rooms": "Double, twin, deluxe, superior and family rooms, plus dormitory and campsite options.",
+      "inclusions": "Confirm the meal basis for your booking; do not assume breakfast is included.",
+      "transport": "A town location on Adam Stander Drive; confirm airport and activity pickup arrangements."
+    },
+    "planning": [
+      {
+        "label": "Room or pitch",
+        "text": "Specify private accommodation, a dormitory bed or a camping pitch when enquiring."
+      },
+      {
+        "label": "Facilities",
+        "text": "Confirm whether the booked category has an en-suite bathroom or shared ablutions."
+      },
+      {
+        "label": "Total cost",
+        "text": "Request the full rate for your dates, occupancy, meals and transfers."
+      }
+    ],
+    "sources": [
+      {
+        "title": "N1 Hotel · Victoria Falls accommodation",
+        "url": "https://www.n1hotel.co.zw/victoriafalls/"
+      }
+    ],
+    "alt": "A private double bedroom at N1 Hotel Victoria Falls",
+    "group": "town-gardens",
+    "tags": [
+      "family-rooms",
+      "camping"
+    ],
+    "media": "n1-hotel",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "lokuthula-lodges",
+    "title": "Lokuthula Lodges",
+    "category": "Self-catering lodges",
+    "propertyType": "lodge",
+    "location": "Victoria Falls Safari Collection estate",
+    "summary": "Multi-bedroom lodges with lounges and terraces, available on self-catering or bed-and-breakfast arrangements.",
+    "bestFor": "Families and friends wanting more shared space",
+    "cardFeatures": [
+      "Self-catering",
+      "Multi-bedroom lodges"
+    ],
+    "highlights": [
+      "Two- and three-bedroom lodge options",
+      "Kitchens for self-catering bookings",
+      "Pool, playground and estate dining options"
+    ],
+    "body": [
+      "Lokuthula Lodges sit within the Victoria Falls Safari Collection estate, with space for families and friends to stay together. Lodges have living areas and terraces, while shared facilities include a pool and children’s playground.",
+      "Self-catering bookings include equipped kitchens; bed-and-breakfast arrangements are another option. Confirm the layout and rate basis carefully, including whether the quoted cost is per lodge or per person. Estate restaurants and activities are available to book, but are not automatically part of every stay."
+    ],
+    "comparison": {
+      "rooms": "Two- and three-bedroom lodges; confirm the layout and any use of lounge sofa beds.",
+      "inclusions": "Choose self-catering or bed-and-breakfast. Breakfast for B&B guests is served at The Boma Café.",
+      "transport": "The estate lists a complimentary town and Falls shuttle; confirm current times and airport transfers."
+    },
+    "planning": [
+      {
+        "label": "Layout",
+        "text": "Check bedroom and bathroom arrangements, stairs and any loft bedroom before confirming."
+      },
+      {
+        "label": "Rate basis",
+        "text": "Request the total lodge price for your occupancy and chosen meal arrangement."
+      },
+      {
+        "label": "Estate facilities",
+        "text": "Confirm which pools and facilities are available to Lokuthula guests; access differs across the estate."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Safari Collection · Lokuthula Lodges",
+        "url": "https://victoria-falls-safari-collection.com/en-US/accommodation/lokuthula-lodges"
+      },
+      {
+        "title": "Lokuthula · Experience and arrangements",
+        "url": "https://victoria-falls-safari-collection.com/en-US/accommodation/lokuthula-lodges/experience"
+      }
+    ],
+    "alt": "A thatched lodge terrace with dining table and bush views at Lokuthula Lodges",
+    "group": "safari",
+    "tags": [
+      "family-rooms",
+      "self-catering"
+    ],
+    "media": "lokuthula-lodges",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "nguni-lodge",
+    "title": "Nguni Lodge",
+    "category": "Boutique garden lodge",
+    "propertyType": "lodge",
+    "group": "town-gardens",
+    "location": "Victoria Falls residential area",
+    "summary": "A small thatched lodge with pool-view and garden rooms, a family option and a guest-only restaurant.",
+    "bestFor": "A smaller lodge with individual interiors",
+    "cardFeatures": [
+      "Family room",
+      "Restaurant & bar"
+    ],
+    "highlights": [
+      "Deluxe pool-view and standard garden-view categories",
+      "Family room with a king bed and bunks",
+      "The Kraal guest-only restaurant"
+    ],
+    "body": [
+      "Nguni Lodge has 14 individually decorated rooms in a residential part of Victoria Falls. Its guest-only Kraal restaurant serves breakfast, lunch and dinner, with a bar for time between excursions.",
+      "Deluxe rooms open towards the pool and list air-conditioning. Standard garden rooms list overhead fans. The family room has a king bed and bunk beds, so confirm the category and children’s ages rather than assuming every room has the same facilities."
+    ],
+    "comparison": {
+      "rooms": "Pool-view deluxe, garden-view standard and one family room.",
+      "inclusions": "Restaurant and bar on site; confirm your meal plan and dinner arrangements.",
+      "transport": "The lodge can help arrange transfers; confirm pickup times and charges."
+    },
+    "planning": [
+      {
+        "label": "Room choice",
+        "text": "Check air-conditioning or fan provision for the category quoted."
+      },
+      {
+        "label": "Families",
+        "text": "Confirm the family room’s child age and occupancy requirements."
+      },
+      {
+        "label": "Meals",
+        "text": "Ask about breakfast inclusions and the set dinner menu."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Nguni Lodge · Official accommodation information",
+        "url": "https://www.ngunilodge.com/"
+      }
+    ],
+    "alt": "A thatched guest bedroom with mosquito netting at Nguni Lodge",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "nguni-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "phezulu-guest-lodge",
+    "title": "PheZulu Guest Lodge",
+    "category": "Garden guest lodge",
+    "propertyType": "lodge",
+    "group": "town-gardens",
+    "location": "Victoria Falls residential area",
+    "summary": "Garden rooms with private verandas, a pool and bar, with breakfast included in the published room rate.",
+    "bestFor": "A relaxed residential base",
+    "cardFeatures": [
+      "Family room options",
+      "Pool & bar"
+    ],
+    "highlights": [
+      "Twin, double and triple room choices",
+      "Private verandas and garden surroundings",
+      "Breakfast served on site"
+    ],
+    "body": [
+      "PheZulu is part of the Bayete Collection, set in a quiet residential suburb of Victoria Falls. Rooms face the gardens, with a pool and bar at the centre of shared spaces.",
+      "The lodge lists twin, double and triple options, with selected interleading arrangements. Published rates include breakfast; lunches and dinners are available on request. Check bathroom details and connecting-room availability for the exact booking."
+    ],
+    "comparison": {
+      "rooms": "Twin or double and triple rooms; selected interleading options.",
+      "inclusions": "Breakfast is included in published rates. Other meals are available on request.",
+      "transport": "Airport and activity transfers can be arranged; confirm costs and collection points."
+    },
+    "planning": [
+      {
+        "label": "Room layout",
+        "text": "Request connecting rooms or a bathtub specifically if either is essential."
+      },
+      {
+        "label": "Dining",
+        "text": "Arrange lunch or dinner with the lodge in advance."
+      },
+      {
+        "label": "Outings",
+        "text": "Plan transport to town and the Falls from this residential location."
+      }
+    ],
+    "sources": [
+      {
+        "title": "PheZulu Guest Lodge · Official accommodation information",
+        "url": "https://www.thebayetecollection.com/phezulu/"
+      }
+    ],
+    "alt": "A guest bedroom with twin beds at PheZulu Guest Lodge",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "phezulu-guest-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "cresta-sprayview",
+    "title": "Cresta Sprayview",
+    "category": "Garden hotel",
+    "propertyType": "hotel",
+    "group": "town-gardens",
+    "location": "Victoria Falls town approach",
+    "summary": "A hotel in spacious landscaped grounds, with a large pool, outdoor dining and rooms or suites.",
+    "bestFor": "Hotel facilities with room to unwind",
+    "cardFeatures": [
+      "Large pool",
+      "Garden dining"
+    ],
+    "highlights": [
+      "Standard double and twin rooms plus suites",
+      "Landscaped grounds and a large swimming pool",
+      "Alfresco dining"
+    ],
+    "body": [
+      "Cresta Sprayview sits in landscaped grounds on the approach to Victoria Falls town. Its pool, lawns and outdoor dining spaces provide a relaxed base for days spent exploring.",
+      "Accommodation includes standard double and twin rooms and suites. The hotel publishes its distance to the rainforest gate as approximately 1.4 kilometres; choose walking or transfers around your group’s needs and the time of day."
+    ],
+    "comparison": {
+      "rooms": "Standard double and twin rooms, with suite options.",
+      "inclusions": "Dining is available on site; confirm breakfast and other meal inclusions.",
+      "transport": "Ask about current hotel transfers to the Falls and airport collection."
+    },
+    "planning": [
+      {
+        "label": "Category",
+        "text": "Confirm bed configuration, room outlook and occupancy."
+      },
+      {
+        "label": "Meal plan",
+        "text": "Check which meals form part of your quoted rate."
+      },
+      {
+        "label": "Transport",
+        "text": "Confirm shuttle times rather than assuming every transfer is included."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Cresta Sprayview · Official accommodation information",
+        "url": "https://www.crestahotels.com/hotels/zimbabwe/victoria-falls/cresta-sprayview"
+      }
+    ],
+    "alt": "The contemporary lounge and bar at Cresta Sprayview",
+    "tags": [],
+    "media": "cresta-sprayview",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "victoria-falls-rainbow-hotel",
+    "title": "Victoria Falls Rainbow Hotel",
+    "category": "Town hotel",
+    "propertyType": "hotel",
+    "group": "town-gardens",
+    "location": "Parkway Drive, Victoria Falls",
+    "summary": "A town-area hotel with a swimming pool, rooftop viewing deck and family room arrangements.",
+    "bestFor": "Town access and shared hotel facilities",
+    "cardFeatures": [
+      "Family rooms",
+      "Pool & rooftop deck"
+    ],
+    "highlights": [
+      "Panorama Deck on the rooftop",
+      "Family and interleading room options",
+      "Swimming pool and Simujinga Restaurant"
+    ],
+    "body": [
+      "Victoria Falls Rainbow Hotel combines a town-area location with a pool, restaurant and rooftop Panorama Deck. The deck offers an elevated outlook over the surrounding area, with visibility dependent on conditions.",
+      "The hotel lists double and twin rooms, suites, family rooms and interleading arrangements. Ask for the precise bed layout when travelling with children, and compare the meal plan and transfer costs alongside the room rate."
+    ],
+    "comparison": {
+      "rooms": "Double and twin rooms, suites and selected family or interleading configurations.",
+      "inclusions": "Restaurant and bars on site; confirm the meal plan and special dining bookings.",
+      "transport": "The hotel is near town; arrange airport and activity transport as needed."
+    },
+    "planning": [
+      {
+        "label": "Families",
+        "text": "Confirm bunk beds, connecting rooms and child occupancy for the quoted category."
+      },
+      {
+        "label": "Dining",
+        "text": "Check restaurant hours and your meal inclusions."
+      },
+      {
+        "label": "Outlook",
+        "text": "Request your preferred room location and check rooftop access arrangements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Rainbow Hotel · Official accommodation information",
+        "url": "https://rtgafrica.com/victoria-falls-rainbow-hotel/"
+      }
+    ],
+    "alt": "The pool and illuminated buildings at Victoria Falls Rainbow Hotel",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "victoria-falls-rainbow-hotel",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "miombo-mews",
+    "title": "Miombo Mews Holiday Villas",
+    "category": "Self-catering villas",
+    "propertyType": "villa",
+    "group": "town-gardens",
+    "location": "Chinotimba, Victoria Falls",
+    "summary": "Two-bedroom holiday villas with kitchens, living space and private patios, plus a shared pool.",
+    "bestFor": "Families and friends wanting their own space",
+    "cardFeatures": [
+      "Self-catering",
+      "Two bedrooms"
+    ],
+    "highlights": [
+      "Two bedrooms and two bathrooms per villa",
+      "Kitchen, lounge and dining space",
+      "Private patios and a shared swimming pool"
+    ],
+    "body": [
+      "Miombo Mews offers self-catering holiday villas in Chinotimba. Each has two bedrooms, two bathrooms, a kitchen and shared living space, with a private patio facing the gardens.",
+      "A communal pool and on-site reception support longer stays and family groups. Bed-and-breakfast packages are also published, with breakfast at partner restaurants and scheduled shuttles; confirm the chosen basis rather than assuming meals are served at the villa."
+    ],
+    "comparison": {
+      "rooms": "Two-bedroom, two-bathroom villas with a lounge, kitchen and patio.",
+      "inclusions": "Self-catering or selected breakfast packages; confirm restaurant and shuttle arrangements.",
+      "transport": "Parking is available; request airport transfers and transport to town or activities."
+    },
+    "planning": [
+      {
+        "label": "Rate basis",
+        "text": "Check whether the quote is for the whole villa and how many guests it covers."
+      },
+      {
+        "label": "Kitchen",
+        "text": "Confirm cooking equipment and any supplies provided."
+      },
+      {
+        "label": "Breakfast",
+        "text": "For breakfast packages, check the restaurant choices and current shuttle times."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Miombo Mews Holiday Villas · Official accommodation information",
+        "url": "https://miombomews.com/"
+      }
+    ],
+    "alt": "The exterior of the holiday villas at Miombo Mews",
+    "tags": [
+      "family-rooms",
+      "self-catering"
+    ],
+    "media": "miombo-mews",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "tsowa-safari-island",
+    "title": "Tsowa Safari Island",
+    "category": "Island safari camp",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Zambezi National Park, upstream of Victoria Falls",
+    "summary": "A tented island retreat on the Zambezi, reached by arranged road, park and boat transfers.",
+    "bestFor": "A quieter island safari stay",
+    "cardFeatures": [
+      "Island setting",
+      "Tented accommodation"
+    ],
+    "highlights": [
+      "River-view and river-deck safari tents",
+      "Forest and river surroundings",
+      "Pre-booked transfers including a boat crossing"
+    ],
+    "body": [
+      "Tsowa Safari Island occupies a river island within Zambezi National Park, upstream of Victoria Falls. Tented accommodation, shaded decks and forest paths make the island itself part of the stay.",
+      "Access is by pre-booked transfers, including an open vehicle through the park and a short boat crossing. The lodge offers river and land activities; check the current programme, child policy and river conditions when choosing your dates."
+    ],
+    "comparison": {
+      "rooms": "River-view and river-deck safari tents; confirm configuration and guest ages.",
+      "inclusions": "Request the full package breakdown for meals, drinks, guided activities and park charges.",
+      "transport": "Access requires arranged road, park vehicle and boat transfers; coordinate arrival times."
+    },
+    "planning": [
+      {
+        "label": "Access",
+        "text": "Book the complete transfer sequence before arrival; this is not a walk-in town property."
+      },
+      {
+        "label": "Children",
+        "text": "Confirm the current minimum age and participation requirements."
+      },
+      {
+        "label": "Programme",
+        "text": "Check which activities are included and which depend on river conditions."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tsowa Safari Island · Official accommodation information",
+        "url": "https://www.tsowasafariisland.co.za/"
+      }
+    ],
+    "alt": "The riverside deck and lantern-lit seating at Tsowa Safari Island",
+    "tags": [
+      "safari-activities"
+    ],
+    "media": "tsowa-safari-island",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "stanley-and-livingstone",
+    "title": "Anantara Stanley & Livingstone Victoria Falls Hotel",
+    "category": "Safari boutique hotel",
+    "propertyType": "hotel",
+    "group": "safari",
+    "location": "Victoria Falls Private Game Reserve",
+    "summary": "A boutique hotel in a private game reserve, with suites, reserve experiences and dining at 1871 Restaurant.",
+    "bestFor": "Hotel comforts in a private reserve",
+    "cardFeatures": [
+      "Interconnecting suites",
+      "Spa & reserve setting"
+    ],
+    "highlights": [
+      "Suites with private verandas",
+      "Selected suites with private heated pools",
+      "1871 Restaurant and Anantara Spa"
+    ],
+    "body": [
+      "Stanley & Livingstone now operates under the Anantara name. It sits within a private game reserve outside Victoria Falls, pairing a boutique hotel stay with access to reserve experiences.",
+      "Accommodation includes interconnecting suites and selected private heated pool suites. Confirm the exact category and whether drives, meals or spa treatments form part of your package. Airport transfers are offered for a fee with advance booking."
+    ],
+    "comparison": {
+      "rooms": "Suites with verandas; interconnecting and private heated pool options are available.",
+      "inclusions": "Restaurant, spa and reserve experiences are available; confirm package inclusions separately.",
+      "transport": "Arrange airport and town transfers in advance; airport transfers carry a fee."
+    },
+    "planning": [
+      {
+        "label": "Suite selection",
+        "text": "Specify interconnecting accommodation or a private pool if required."
+      },
+      {
+        "label": "Access needs",
+        "text": "Discuss the accessible room options and routes around the hotel before confirming."
+      },
+      {
+        "label": "Reserve outings",
+        "text": "Confirm activity charges, departure times and child requirements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Anantara Stanley & Livingstone Victoria Falls Hotel · Official accommodation information",
+        "url": "https://www.anantara.com/en/stanley-and-livingstone-victoria-falls"
+      }
+    ],
+    "alt": "The lodge buildings and surrounding woodland at Anantara Stanley and Livingstone",
+    "tags": [
+      "family-rooms",
+      "accessible-rooms",
+      "spa",
+      "safari-activities"
+    ],
+    "media": "stanley-and-livingstone",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "mpala-jena",
+    "title": "Mpala Jena",
+    "category": "River safari camp",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Zambezi National Park",
+    "summary": "A small riverside safari camp with shaded suites, a river-facing pool and land or water activities.",
+    "bestFor": "A stay centred on the upper Zambezi",
+    "cardFeatures": [
+      "Family suites",
+      "River safaris"
+    ],
+    "highlights": [
+      "River-facing suites beneath canvas",
+      "Two-bedroom family suite options",
+      "Game drives, guided walks and boating programmes"
+    ],
+    "body": [
+      "Mpala Jena sits on the banks of the Zambezi within the national park, upstream of Victoria Falls. Suites, thatched shared areas and a river-facing pool keep the water at the centre of the stay.",
+      "The camp lists double or twin suites and two-bedroom family suites. The separate Mpala Jena Private Villas are farther upstream and are a different booking. Published camp packages include meals and guided activities; confirm levies, transfers and any stay-length conditions."
+    ],
+    "comparison": {
+      "rooms": "Double or twin suites and two-bedroom family suites; private villas are a separate product.",
+      "inclusions": "Published packages include meals, local drinks and scheduled safari activities; confirm exclusions.",
+      "transport": "Confirm the road or boat transfer route and airport connections in your quotation."
+    },
+    "planning": [
+      {
+        "label": "Accommodation",
+        "text": "Check whether your quote is for the main camp or a private villa."
+      },
+      {
+        "label": "Inclusions",
+        "text": "Confirm mandatory park charges and requirements for any included Falls visit."
+      },
+      {
+        "label": "River activities",
+        "text": "Boating depends on conditions; allow flexibility in the programme."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mpala Jena · Official accommodation information",
+        "url": "https://greatplainsconservation.com/mpala-jena-victoria-falls-luxury-accommodation/"
+      }
+    ],
+    "alt": "The thatched shared areas and pool deck at Mpala Jena",
+    "tags": [
+      "family-rooms",
+      "safari-activities"
+    ],
+    "media": "mpala-jena",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "the-elephant-camp",
+    "title": "The Elephant Camp",
+    "category": "Tented safari lodge",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Wild Horizons Wildlife Sanctuary",
+    "summary": "Tented suites on a sanctuary ridge, with private plunge pools and views towards Batoka Gorge and the Falls spray.",
+    "bestFor": "Private suites and a lodge activity programme",
+    "cardFeatures": [
+      "Private plunge pools",
+      "Family suites"
+    ],
+    "highlights": [
+      "Standard luxury and family suite categories",
+      "Private decks and plunge pools",
+      "Sanctuary, gorge and Falls spray outlooks"
+    ],
+    "body": [
+      "The Elephant Camp sits on a ridge within the Wild Horizons Wildlife Sanctuary. Tented suites have private decks, outdoor showers and plunge pools, with views towards the gorge and distant waterfall spray.",
+      "Main Camp and Camp West have different accommodation arrangements, including family suites. Published packages include meals, local drinks and guided outings. Ask for the exact activity list and excluded park charges rather than assuming every nearby experience is included."
+    ],
+    "comparison": {
+      "rooms": "Standard luxury and family suites across Main Camp and Camp West.",
+      "inclusions": "Meals, local drinks and selected guided activities are published inclusions; confirm park fees and extras.",
+      "transport": "Confirm airport transfers, town visits and collection for your included activities."
+    },
+    "planning": [
+      {
+        "label": "Camp and suite",
+        "text": "Specify the camp, bed configuration and family occupancy you need."
+      },
+      {
+        "label": "Programme",
+        "text": "Leave time for the lodge’s included outings when planning external activities."
+      },
+      {
+        "label": "Fees",
+        "text": "Request a written list of park charges, transfers and optional experiences."
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Elephant Camp · Official accommodation information",
+        "url": "https://wildhorizons.co.za/the-elephant-camp/"
+      }
+    ],
+    "alt": "A private deck with views towards the Falls spray at The Elephant Camp",
+    "tags": [
+      "family-rooms",
+      "safari-activities"
+    ],
+    "media": "the-elephant-camp",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "the-wallow-lodge",
+    "title": "The Wallow Lodge",
+    "category": "Tented bush lodge",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Wild Horizons Wildlife Sanctuary, Masuwe River",
+    "summary": "Raised tented suites under riverine trees, with private viewing decks and a sanctuary safari programme.",
+    "bestFor": "A bush stay with time on the deck",
+    "cardFeatures": [
+      "Tented suites",
+      "Sanctuary game drives"
+    ],
+    "highlights": [
+      "Raised canvas suites with private balconies",
+      "Masuwe River and woodland outlooks",
+      "Lodge-led sanctuary and conservation outings"
+    ],
+    "body": [
+      "The Wallow Lodge is set within the Wild Horizons Wildlife Sanctuary along the Masuwe River. Raised tented suites have sitting space, viewing decks and outdoor showers beneath the riverine trees.",
+      "The lodge combines a bush setting with organised visits to the Falls and sanctuary activities. Compare the complete package, including meals, drinks, transfers and entry charges, so you can plan outside excursions around the lodge programme."
+    ],
+    "comparison": {
+      "rooms": "Raised tented suites with en-suite bedrooms, sitting areas and viewing decks.",
+      "inclusions": "Request the current inclusive meal, drink and guided activity programme and any excluded fees.",
+      "transport": "Arrange airport and town transfers through the lodge; confirm the schedule for excursions."
+    },
+    "planning": [
+      {
+        "label": "Suites",
+        "text": "Check bed configuration, steps and access to the raised accommodation."
+      },
+      {
+        "label": "Programme",
+        "text": "Confirm sanctuary drives, conservation visits and Falls tour arrangements."
+      },
+      {
+        "label": "Quoting",
+        "text": "Ask which entry charges and optional activities remain payable separately."
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Wallow Lodge · Official accommodation information",
+        "url": "https://wildhorizons.co.za/the-wallow-lodge/"
+      }
+    ],
+    "alt": "The pool deck and river outlook at The Wallow Lodge",
+    "tags": [
+      "safari-activities"
+    ],
+    "media": "the-wallow-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "bayete-guest-lodge",
+    "title": "Bayete Guest Lodge",
+    "category": "Garden guest lodge",
+    "propertyType": "lodge",
+    "group": "town-gardens",
+    "location": "Victoria Falls residential area",
+    "summary": "A family-run garden lodge with a central pool, dining boma and rooms ranging from twins to a family cottage.",
+    "bestFor": "A smaller lodge for couples or family groups",
+    "cardFeatures": [
+      "Family cottage",
+      "Pool & dining boma"
+    ],
+    "highlights": [
+      "Classic and executive categories",
+      "Triple rooms and a family cottage",
+      "Breakfast served in the dining boma"
+    ],
+    "body": [
+      "Bayete Guest Lodge is the founding property of the Bayete Collection. Its rooms are set in tropical gardens around a teardrop-shaped pool, with a dining boma and bar for shared time.",
+      "Choices include classic and executive rooms, triples and a two-room family cottage. Published rates include a full English breakfast; lunch and dinner are available on request. Confirm the layout carefully, as the family cottage shares a bathroom and has no living room."
+    ],
+    "comparison": {
+      "rooms": "Double or twin, triple, honeymoon and family cottage arrangements.",
+      "inclusions": "Breakfast is included in published room rates; other meals should be requested in advance.",
+      "transport": "Ask the lodge to arrange airport and activity transfers, with costs confirmed separately."
+    },
+    "planning": [
+      {
+        "label": "Families",
+        "text": "Check bed layout and the shared bathroom in the family cottage."
+      },
+      {
+        "label": "Bathroom",
+        "text": "Request a bathtub specifically if it is a priority."
+      },
+      {
+        "label": "Dining",
+        "text": "Pre-order lunch or dinner and check early breakfast arrangements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bayete Guest Lodge · Official accommodation information",
+        "url": "https://www.thebayetecollection.com/bayete-guest-lodge/"
+      }
+    ],
+    "alt": "A guest bedroom with mosquito netting and garden light at Bayete Guest Lodge",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "bayete-guest-lodge",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "victoria-falls-safari-club",
+    "title": "Victoria Falls Safari Club",
+    "category": "Safari club lodge",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Victoria Falls Safari Collection estate",
+    "summary": "A smaller estate stay with its own dining room, game-viewing deck and pool, overlooking the bush.",
+    "bestFor": "A quieter estate setting with dedicated facilities",
+    "cardFeatures": [
+      "Game-viewing deck",
+      "Dedicated pool"
+    ],
+    "highlights": [
+      "Dedicated dining room and game-viewing deck",
+      "Two-tiered swimming pool",
+      "Twin-to-king bed configurations"
+    ],
+    "body": [
+      "Victoria Falls Safari Club is a distinct accommodation option on the Victoria Falls Safari Collection estate. It has its own dining room, viewing deck and pool, with an outlook over the surrounding bush.",
+      "Rooms list convertible twin-to-king beds and a minibar with specified local drinks. Check the current guest age policy, meal inclusions and Club benefits directly. Facilities and inclusions differ from the neighbouring Safari Lodge and Safari Suites."
+    ],
+    "comparison": {
+      "rooms": "Rooms with convertible twin-to-king beds; confirm category and outlook.",
+      "inclusions": "Confirm breakfast, minibar contents and other Club benefits for your exact rate.",
+      "transport": "The estate offers a scheduled town and Falls shuttle; airport collection should be confirmed separately."
+    },
+    "planning": [
+      {
+        "label": "Guest policy",
+        "text": "Check the minimum guest age before including children in the booking."
+      },
+      {
+        "label": "Club benefits",
+        "text": "Request a written list of included meals, drinks and services."
+      },
+      {
+        "label": "Transport",
+        "text": "Confirm the current estate shuttle timetable for your planned outings."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Safari Club · Official accommodation information",
+        "url": "https://victoria-falls-safari-collection.com/en-US/accommodation/victoria-falls-safari-club"
+      }
+    ],
+    "alt": "The bush-facing dining and viewing deck at Victoria Falls Safari Club",
+    "tags": [],
+    "media": "victoria-falls-safari-club",
+    "reviewed": "8 November 2026"
+  },
+  {
+    "slug": "victoria-falls-safari-suites",
+    "title": "Victoria Falls Safari Suites",
+    "category": "Multi-bedroom safari suites",
+    "propertyType": "lodge",
+    "group": "safari",
+    "location": "Victoria Falls Safari Collection estate",
+    "summary": "Multi-bedroom suites with shared living space, suited to families or friends staying together on the safari estate.",
+    "bestFor": "Family groups wanting separate bedrooms",
+    "cardFeatures": [
+      "Multi-bedroom suites",
+      "Shared living space"
+    ],
+    "highlights": [
+      "Two- and three-bedroom suite arrangements",
+      "Lounge and separate adjoining study",
+      "Breakfast at MaKuwa-Kuwa Restaurant"
+    ],
+    "body": [
+      "Victoria Falls Safari Suites provide a multi-bedroom option on the Safari Collection estate. Separate sleeping areas, a lounge and study give families or friends more shared space than individual hotel rooms.",
+      "Bedrooms have convertible twin-to-king beds, while selected sofa-bed arrangements are intended for children. Breakfast is served at MaKuwa-Kuwa Restaurant. These suites are not advertised as self-catering lodges; choose Lokuthula if a full kitchen is central to your plans."
+    ],
+    "comparison": {
+      "rooms": "Two- and three-bedroom suites; confirm bedroom levels and any child sofa-bed use.",
+      "inclusions": "Breakfast is served at MaKuwa-Kuwa; confirm the meal basis and estate activity charges.",
+      "transport": "Scheduled estate shuttles serve town and the rainforest; confirm airport collection separately."
+    },
+    "planning": [
+      {
+        "label": "Layout",
+        "text": "Check stairs, bedroom levels and bathroom arrangements for your group."
+      },
+      {
+        "label": "Occupancy",
+        "text": "Confirm the maximum occupancy and any sofa bed before booking."
+      },
+      {
+        "label": "Facilities",
+        "text": "Ask which estate pools, restaurants and services your booking includes."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Victoria Falls Safari Suites · Official accommodation information",
+        "url": "https://victoria-falls-safari-collection.com/en-US/accommodation/victoria-falls-safari-suites"
+      }
+    ],
+    "alt": "The bedroom and balcony of a Victoria Falls Safari Suite",
+    "tags": [
+      "family-rooms"
+    ],
+    "media": "victoria-falls-safari-suites",
+    "reviewed": "8 November 2026"
   }
 ]
