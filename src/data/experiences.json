@@ -42,7 +42,8 @@
     "group": "adventure",
     "region": "zimbabwe",
     "tags": [],
-    "media": "rafting-preview"
+    "media": "rafting-preview",
+    "timeCategory": "full-day"
   },
   {
     "slug": "helicopter-flight",
@@ -87,14 +88,15 @@
     "group": "falls-river",
     "region": "zimbabwe",
     "tags": [],
-    "media": "helicopter-preview"
+    "media": "helicopter-preview",
+    "timeCategory": "short"
   },
   {
     "slug": "sunset-cruise",
     "title": "Zambezi sunset cruise",
     "category": "Scenic",
     "summary": "An unhurried evening on the upper river, with island views, birdlife and the sunset.",
-    "alt": "",
+    "alt": "A Shearwater cruise boat on the upper Zambezi at sunset",
     "duration": "About 2 hours on the river",
     "difficulty": "Low physical effort",
     "featured": true,
@@ -131,7 +133,9 @@
     "reviewed": "29 October 2026",
     "group": "falls-river",
     "region": "zimbabwe",
-    "tags": []
+    "tags": [],
+    "timeCategory": "short",
+    "media": "sunset-cruise"
   },
   {
     "slug": "game-drives",
@@ -176,7 +180,8 @@
     "group": "wildlife",
     "region": "zimbabwe",
     "tags": [],
-    "media": "wildlife-preview"
+    "media": "wildlife-preview",
+    "timeCategory": "half-day"
   },
   {
     "slug": "bungee-bridge",
@@ -221,14 +226,15 @@
     "group": "adventure",
     "region": "zimbabwe",
     "tags": [],
-    "media": "bridge-preview"
+    "media": "bridge-preview",
+    "timeCategory": "half-day"
   },
   {
     "slug": "chobe-day-trip",
     "title": "Chobe day trip, Botswana",
     "category": "Wildlife",
     "summary": "Extend your stay with a cross-border wildlife day on the Chobe River and in the national park.",
-    "alt": "Elephants beside the water; regional wildlife imagery",
+    "alt": "An elephant beside an open safari vehicle in Chobe National Park",
     "duration": "Full day",
     "difficulty": "Long day; border crossing",
     "featured": false,
@@ -266,14 +272,15 @@
     "group": "wildlife",
     "region": "botswana",
     "tags": [],
-    "media": "wildlife-preview"
+    "media": "chobe-day-trip",
+    "timeCategory": "full-day"
   },
   {
     "slug": "elephant-encounter",
     "title": "Elephant sanctuary visit",
     "category": "Wildlife",
     "summary": "Learn about the care and conservation work described by the local sanctuary operator.",
-    "alt": "",
+    "alt": "Visitors and a guide observing the elephants at the Wild Horizons sanctuary",
     "duration": "Confirm the selected programme",
     "difficulty": "Discuss access with operator",
     "featured": false,
@@ -310,7 +317,9 @@
     "reviewed": "29 October 2026",
     "group": "wildlife",
     "region": "zimbabwe",
-    "tags": []
+    "tags": [],
+    "timeCategory": "confirm",
+    "media": "elephant-sanctuary"
   },
   {
     "slug": "village-tour",
@@ -355,7 +364,8 @@
     "group": "culture",
     "region": "zimbabwe",
     "tags": [],
-    "media": "village-preview"
+    "media": "village-preview",
+    "timeCategory": "short"
   },
   {
     "slug": "guided-falls-tour",
@@ -404,14 +414,15 @@
     "group": "falls-river",
     "region": "zimbabwe",
     "tags": [],
-    "media": "home-hero"
+    "media": "home-hero",
+    "timeCategory": "half-day"
   },
   {
     "slug": "the-boma-dining",
     "title": "The Boma — Dinner & Drum Show",
     "category": "Dining",
     "summary": "A four-course dinner and an evening of dance, singing and participatory drumming.",
-    "alt": "",
+    "alt": "A chef presenting dinner at The Boma in Victoria Falls",
     "duration": "Evening",
     "difficulty": "Seated dining & participation",
     "featured": false,
@@ -448,7 +459,9 @@
     "reviewed": "29 October 2026",
     "group": "culture",
     "region": "zimbabwe",
-    "tags": []
+    "tags": [],
+    "timeCategory": "evening",
+    "media": "boma-show"
   },
   {
     "slug": "gorge-swing",
@@ -492,7 +505,8 @@
     "tags": [],
     "alt": "A participant starting a harnessed gorge swing",
     "reviewed": "29 October 2026",
-    "media": "gorge-swing"
+    "media": "gorge-swing",
+    "timeCategory": "short"
   },
   {
     "slug": "gorge-zipline",
@@ -536,7 +550,8 @@
     "tags": [],
     "alt": "A participant travelling on a zipline",
     "reviewed": "29 October 2026",
-    "media": "zipline"
+    "media": "zipline",
+    "timeCategory": "short"
   },
   {
     "slug": "livingstone-island-devils-pool",
@@ -582,7 +597,8 @@
     ],
     "alt": "A guided pool experience at the edge of Victoria Falls",
     "reviewed": "29 October 2026",
-    "media": "devils-pool"
+    "media": "devils-pool",
+    "timeCategory": "confirm"
   },
   {
     "slug": "vulture-culture",
@@ -626,8 +642,10 @@
         "url": "https://victoria-falls-safari-collection.com/en-US/faqs"
       }
     ],
-    "alt": "",
-    "reviewed": "29 October 2026"
+    "alt": "Wild vultures gathering during the Vulture Culture feeding programme",
+    "reviewed": "29 October 2026",
+    "timeCategory": "short",
+    "media": "vulture-culture"
   },
   {
     "slug": "simunye-theatre",
@@ -671,7 +689,8 @@
     "tags": [],
     "alt": "Performers on stage in Simunye",
     "reviewed": "29 October 2026",
-    "media": "simunye"
+    "media": "simunye",
+    "timeCategory": "evening"
   },
   {
     "slug": "art-galleries-crafts",
@@ -719,7 +738,483 @@
         "url": "https://avacarts.com/type/gallery/"
       }
     ],
-    "alt": "",
-    "reviewed": "29 October 2026"
+    "alt": "The interior of Tami Walker Fine Art Gallery in Victoria Falls",
+    "reviewed": "29 October 2026",
+    "timeCategory": "short",
+    "media": "gallery-visit"
+  },
+  {
+    "slug": "canoe-safari",
+    "title": "Upper Zambezi canoe safari",
+    "group": "falls-river",
+    "category": "River safari",
+    "summary": "Paddle the channels and small rapids above the Falls, with riverbank wildlife and time away from town.",
+    "alt": "Canoes on the Upper Zambezi at sunset",
+    "duration": "Allow a full day",
+    "difficulty": "Active paddling",
+    "bestFor": "River scenery & birdlife",
+    "timeCategory": "full-day",
+    "highlights": [
+      "Guided paddling above the Falls",
+      "Channels, islands and small rapids",
+      "Longer trips with riverside camping"
+    ],
+    "body": [
+      "A canoe safari follows the upper Zambezi through the national park, well upstream of the waterfall. Guides lead the route through channels and small rapids, with opportunities to watch birds and look for animals along the banks. Sightings are never guaranteed.",
+      "Victoria Falls Canoeing Company offers a day trip with transfers, a drive to the launch site, a briefing and paddling instruction, breakfast and lunch. Raft floats and overnight camping programmes are alternatives; confirm the programme that suits your group."
+    ],
+    "planning": [
+      {
+        "label": "Programme",
+        "text": "Allow a full day for the canoe outing. Ask separately about raft floats and trips with one or more nights at camp."
+      },
+      {
+        "label": "Participation",
+        "text": "The operator lists a minimum age of nine and reasonable fitness. Discuss swimming ability and any concerns before booking."
+      },
+      {
+        "label": "Inclusions",
+        "text": "Confirm park fees, meals, transfers and river conditions for your date."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Upper Zambezi canoe safari",
+        "url": "https://vicfallscanoeing.com/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "canoe-safari",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "dinner-cruise",
+    "title": "Zambezi dinner cruise",
+    "group": "falls-river",
+    "category": "River dining",
+    "summary": "Stay on the river after sunset for dinner on board, with open-water views and an unhurried evening.",
+    "alt": "Guests dining on a Zambezi riverboat at sunset",
+    "duration": "Around 3½ hours",
+    "difficulty": "Low physical effort",
+    "bestFor": "Couples & evening dining",
+    "timeCategory": "evening",
+    "highlights": [
+      "Sunset followed by dinner on board",
+      "Upper Zambezi scenery",
+      "An evening alternative to a sunset-only cruise"
+    ],
+    "body": [
+      "A dinner cruise combines an upper Zambezi outing with a meal on board. Arrive for the changing light, watch the banks as the boat travels upstream and settle in for dinner as the evening develops.",
+      "Wild Horizons describes its Malachite dinner cruise as a roughly three-and-a-half-hour experience. Boats and meal arrangements differ between operators, so compare the actual vessel, menu and inclusions rather than choosing on the cruise name alone. Wildlife sightings depend on the day."
+    ],
+    "planning": [
+      {
+        "label": "Dining",
+        "text": "Share dietary requirements when enquiring and confirm the menu and drinks included."
+      },
+      {
+        "label": "Timing",
+        "text": "Check pickup and return times before combining this with another evening activity."
+      },
+      {
+        "label": "Access",
+        "text": "Ask about boarding steps, seating and any mobility needs. Confirm river fees and hotel transfers."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Zambezi dinner cruise",
+        "url": "https://wildhorizons.co.za/experiences/zambezi-dinner-cruise/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "dinner-cruise",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "lunar-rainbow",
+    "title": "Lunar rainbow tour",
+    "group": "falls-river",
+    "category": "After dark",
+    "summary": "Visit the Falls around the full moon for the chance to see a rainbow formed by moonlight in the spray.",
+    "alt": "A moonlit rainbow in the mist above Victoria Falls",
+    "duration": "Evening · selected moon phases",
+    "difficulty": "Walking after dark",
+    "bestFor": "Night views & photography",
+    "timeCategory": "evening",
+    "highlights": [
+      "Guided nighttime visit to the Falls",
+      "Selected dates around the full moon",
+      "A different perspective on the rainforest viewpoints"
+    ],
+    "body": [
+      "Moonlight meeting the waterfall spray can produce a lunar rainbow, or moonbow. A guided evening visit offers a chance to see this quieter nighttime view of Victoria Falls.",
+      "This outing runs on selected dates around the full moon. Visibility depends on the moon, mist and weather, so a moonbow cannot be promised. Check the viewing dates before setting your itinerary and ask about the current evening access arrangements."
+    ],
+    "planning": [
+      {
+        "label": "Dates",
+        "text": "Confirm the operator’s viewing calendar and whether a tour is running during your stay."
+      },
+      {
+        "label": "Conditions",
+        "text": "Expect potentially wet paths and limited light. Wear shoes with grip and follow your guide."
+      },
+      {
+        "label": "Photography",
+        "text": "Ask about camera equipment and the time available at viewpoints; confirm transfers and entry fees."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Lunar rainbow tour",
+        "url": "https://wildhorizons.co.za/experiences/lunar-rainbow/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [
+      "seasonal"
+    ],
+    "media": "lunar-rainbow",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "canopy-tour",
+    "title": "Victoria Falls canopy tour",
+    "group": "adventure",
+    "category": "Forest adventure",
+    "summary": "Follow a guided course of cable slides, trails and a rope bridge through the forest above the gorge.",
+    "alt": "A harnessed visitor travelling along the Victoria Falls canopy course",
+    "duration": "Around 2–2½ hours",
+    "difficulty": "Comfort with heights & walking",
+    "bestFor": "Forest views & shared adventure",
+    "timeCategory": "half-day",
+    "highlights": [
+      "A sequence of nine cable slides",
+      "Rope bridge and forest trails",
+      "Guides and safety equipment"
+    ],
+    "body": [
+      "The canopy tour links a series of slides with forest trails and a rope bridge in the Zambezi gorge woodland. It is a guided course with several stages, rather than the single long crossing of the gorge zipline.",
+      "Wild Horizons describes nine slides and a cable bridge, with a safety briefing before the course begins. Allow around two to two-and-a-half hours for the activity, plus collection and return. There is walking between sections, and participants need to be comfortable moving at height."
+    ],
+    "planning": [
+      {
+        "label": "Suitability",
+        "text": "Confirm current harness, age and participation requirements for everyone in your group."
+      },
+      {
+        "label": "Wear",
+        "text": "Choose secure walking shoes and comfortable clothes; tie back long hair."
+      },
+      {
+        "label": "Inclusions",
+        "text": "Check transfers from your hotel and whether photographs, video or additional fees are separate."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Victoria Falls canopy tour",
+        "url": "https://wildhorizons.co.za/experiences/canopy-tour/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "canopy-tour",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "jet-boat",
+    "title": "Batoka Gorge jet boat adventure",
+    "group": "adventure",
+    "category": "White-water adventure",
+    "summary": "Head into the gorge for a guided jet boat ride through the river below the Falls, with a steep hike each way.",
+    "alt": "Passengers wearing helmets and life jackets on a jet boat in Batoka Gorge",
+    "duration": "Allow around 3 hours",
+    "difficulty": "Steep gorge hike",
+    "bestFor": "Active adventure travellers",
+    "timeCategory": "half-day",
+    "highlights": [
+      "Jet boating below the Falls",
+      "Close-up views of Batoka Gorge",
+      "Guided descent and climb out"
+    ],
+    "body": [
+      "The jet boat trip takes you down into Batoka Gorge for a powered ride on the Zambezi below Victoria Falls. Shearwater’s programme includes a steep descent to the river and a climb back out, making this a physically demanding outing as well as a boat ride.",
+      "The time on the water is around 35–45 minutes, within a longer outing that includes access and transfers. Departures depend on water levels, with closures possible at both high and very low water. Confirm the route and operating status for your date."
+    ],
+    "planning": [
+      {
+        "label": "Fitness",
+        "text": "Discuss the steep gorge hike and the operator’s health and mobility restrictions before reserving."
+      },
+      {
+        "label": "Participation",
+        "text": "Shearwater lists a minimum age of ten, with a suitable life-jacket fit required. Confirm requirements for your group."
+      },
+      {
+        "label": "Pack",
+        "text": "Wear secure footwear and clothes that can get wet; check park fees and transfer inclusions."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Batoka Gorge jet boat adventure",
+        "url": "https://www.shearwatervictoriafalls.com/experience/jetboat-experience/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [
+      "seasonal"
+    ],
+    "media": "jet-boat",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "flying-fox",
+    "title": "Flying Fox gorge flight",
+    "group": "adventure",
+    "category": "High-wire adventure",
+    "summary": "Glide above Batoka Gorge in a face-down harness, taking in the river and cliffs from the air.",
+    "alt": "A visitor suspended face down in a Flying Fox harness above the gorge",
+    "duration": "Confirm the outing time",
+    "difficulty": "Comfort with heights",
+    "bestFor": "A short high-wire experience",
+    "timeCategory": "confirm",
+    "highlights": [
+      "Face-down flight position",
+      "Views across Batoka Gorge",
+      "A different ride from the zipline or swing"
+    ],
+    "body": [
+      "The Flying Fox carries you across the gorge in a horizontal, face-down harness. Unlike the free fall of a gorge swing or the seated position of a zipline, the position gives a feeling of gliding over the river.",
+      "Wild Horizons describes a gentler-paced high-wire ride with views of the basalt cliffs and rapids below. The flight is one part of the outing: allow time for transfers, harness fitting and the briefing, and confirm how long the full visit will take."
+    ],
+    "planning": [
+      {
+        "label": "Participation",
+        "text": "Confirm harness fit, current weight limits and requirements for children before booking."
+      },
+      {
+        "label": "Wear",
+        "text": "Choose secure shoes, tie back long hair and leave loose valuables at your hotel."
+      },
+      {
+        "label": "Inclusions",
+        "text": "Check collection times, park fees, and whether photographs or video are extra."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Flying Fox gorge flight",
+        "url": "https://wildhorizons.activitar.com/services/9652"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "flying-fox",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "bicycle-tour",
+    "title": "Guided Victoria Falls bicycle tour",
+    "group": "culture",
+    "category": "Explore by bicycle",
+    "summary": "Explore town and its surroundings with a guide, with routes that can take in the river, viewpoints and local landmarks.",
+    "alt": "A group with bicycles beneath trees in Victoria Falls",
+    "duration": "Around 2 hours",
+    "difficulty": "Basic cycling ability",
+    "bestFor": "Active sightseeing",
+    "timeCategory": "short",
+    "highlights": [
+      "Guided cycling around Victoria Falls",
+      "Town and riverside route options",
+      "Bicycle and helmet provided"
+    ],
+    "body": [
+      "A guided bicycle outing connects Victoria Falls town with nearby landmarks at a slower pace than a vehicle tour. Wild Horizons describes route possibilities including the upper river, Big Tree, gorge views and the bridge.",
+      "Routes and stops should be confirmed for your departure. The operator recommends basic cycling experience and lists an outing of approximately two hours. Ask about distance, terrain and the pace before choosing this for children or riders with different levels of confidence."
+    ],
+    "planning": [
+      {
+        "label": "Route",
+        "text": "Confirm the planned stops and whether bridge access is included; ask whether you need your passport."
+      },
+      {
+        "label": "Equipment",
+        "text": "Check bicycle sizes and the current minimum age. The operator lists bicycles and helmets among the inclusions."
+      },
+      {
+        "label": "Timing",
+        "text": "An early departure may suit warmer days. Confirm water and pickup arrangements."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Guided Victoria Falls bicycle tour",
+        "url": "https://wildhorizons.activitar.com/services/9672"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "bicycle-tour",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "township-tour",
+    "title": "Chinotimba township tour",
+    "group": "culture",
+    "category": "Local life",
+    "summary": "Explore Chinotimba with a local guide, visiting neighbourhood streets and markets beyond the town’s visitor centre.",
+    "alt": "Market stalls and residents in Chinotimba township",
+    "duration": "Around 2 hours",
+    "difficulty": "Light walking",
+    "bestFor": "Local history & everyday life",
+    "timeCategory": "short",
+    "highlights": [
+      "Guided introduction to Chinotimba",
+      "Local markets and neighbourhood streets",
+      "Time to learn about the town beyond the Falls"
+    ],
+    "body": [
+      "Chinotimba is a residential part of Victoria Falls, with its own markets, businesses and community spaces. A guided visit offers context for everyday life in the town and time to learn from someone who knows the neighbourhood.",
+      "Wild Horizons lists an approximately two-hour outing with local transfers. Stops vary with the day and the host arrangements. Treat it as a visit to a living neighbourhood: ask before taking photographs and follow your guide’s advice about entering homes or community spaces."
+    ],
+    "planning": [
+      {
+        "label": "Programme",
+        "text": "Confirm which stops are planned and the amount of walking involved."
+      },
+      {
+        "label": "Visits",
+        "text": "Community spaces are visited only by arrangement; access to schools or other institutions is not guaranteed."
+      },
+      {
+        "label": "Practicalities",
+        "text": "Wear comfortable walking shoes and bring sun protection. Confirm hotel pickup and return times."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Chinotimba township tour",
+        "url": "https://wildhorizons.activitar.com/services/9628"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "township-tour",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "cultural-connection",
+    "title": "Hosted lunch & village visit",
+    "group": "culture",
+    "category": "Cultural connection",
+    "summary": "Share a home-cooked lunch with a local host, then continue with a guided visit to a rural community.",
+    "alt": "A visitor and local host during a village visit near Victoria Falls",
+    "duration": "Confirm the full programme",
+    "difficulty": "Light walking",
+    "bestFor": "Food & conversation",
+    "timeCategory": "confirm",
+    "highlights": [
+      "A meal hosted in a local home",
+      "Guided rural community visit",
+      "A combined cultural outing"
+    ],
+    "body": [
+      "Wild Horizons’ Cultural Connection programme pairs a home-hosted lunch with a Meet the People village visit. It brings a meal and conversation together with a guided introduction to rural life around Victoria Falls.",
+      "This is the combined option for visitors who would like more time than the standalone village visit. Confirm the host arrangements, the day’s schedule and group requirements before booking. Menus reflect the host’s cooking; share dietary needs in advance rather than assuming every request can be accommodated."
+    ],
+    "planning": [
+      {
+        "label": "Schedule",
+        "text": "Ask for the actual pickup, meal and return times; allow space in your itinerary for the combined programme."
+      },
+      {
+        "label": "Group size",
+        "text": "The operator lists a minimum of four guests. Ask whether your party can join a scheduled departure."
+      },
+      {
+        "label": "Hosting",
+        "text": "Confirm dietary needs, transfers and what is included. Ask your host before taking photographs."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Hosted lunch & village visit",
+        "url": "https://wildhorizons.activitar.com/services/9637"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "cultural-connection",
+    "featured": false,
+    "enquiryOnly": true
+  },
+  {
+    "slug": "historic-bridge-tour",
+    "title": "Historic Victoria Falls Bridge tour",
+    "group": "culture",
+    "category": "History & engineering",
+    "summary": "Discover the bridge’s construction story and join a guided walk on the catwalks beneath its deck.",
+    "alt": "A guide leading visitors along a catwalk beneath Victoria Falls Bridge",
+    "duration": "Allow around 2 hours",
+    "difficulty": "Walking at height",
+    "bestFor": "History & engineering",
+    "timeCategory": "short",
+    "highlights": [
+      "Presentation on the bridge’s history",
+      "Guided access beneath the deck",
+      "Views of the gorge and bridge structure"
+    ],
+    "body": [
+      "The historic bridge tour explores how the Victoria Falls Bridge was designed and built, with a presentation followed by guided access to catwalks beneath the deck. It offers a closer look at the steel structure and the gorge below.",
+      "This is a history tour with a walk at height, separate from the bungee, swing and bridge slide. Carry your passport for bridge-area access and confirm the current formalities. Ask whether the catwalk section suits everyone in your party before booking."
+    ],
+    "planning": [
+      {
+        "label": "Access",
+        "text": "Bring your passport and confirm bridge access requirements for your circumstances."
+      },
+      {
+        "label": "Suitability",
+        "text": "The catwalk section involves heights. Confirm age restrictions, harness requirements and mobility considerations."
+      },
+      {
+        "label": "Timing",
+        "text": "Allow for the presentation, walk and transfers. Check whether hotel collection is included in your quotation."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Official operator · Historic Victoria Falls Bridge tour",
+        "url": "https://shearwaterbungee.com/bridge-tour/"
+      }
+    ],
+    "reviewed": "8 November 2026",
+    "region": "zimbabwe",
+    "tags": [],
+    "media": "historic-bridge-tour",
+    "featured": false,
+    "enquiryOnly": true
   }
 ]

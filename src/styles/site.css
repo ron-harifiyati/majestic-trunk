@@ -321,3 +321,64 @@ figcaption a{text-decoration:underline;text-underline-offset:3px}
  .planning-panel{grid-template-columns:1fr;gap:1.5rem}
  .planning-heading h2{margin-bottom:.7rem}.planning-questions>a{font-size:1rem;padding-block:1rem}
 }
+/* Experiences: a short photographic introduction and a continuous catalogue. */
+.photo-hero.experiences-hero{min-height:clamp(19rem,30vw,23rem);padding:2.5rem 0;justify-content:center}
+.experiences-hero .hero-content{padding-block:0}
+.experiences-hero h1{font-size:clamp(2.3rem,4.5vw,3.5rem);margin:.7rem 0 1rem;max-width:24ch}
+.experiences-hero p{font-size:.95rem;max-width:55ch}
+.experience-catalogue{padding-bottom:clamp(2.5rem,5vw,4rem)}
+.experience-toolbar{position:sticky;top:var(--catalogue-header-height,88px);z-index:30;margin-top:0;background:var(--sand)}
+.catalogue-panel{background:transparent;border:0;border-radius:0;box-shadow:none;padding:.65rem 0}
+.catalogue-body{padding-top:.8rem}
+.catalogue-filters{padding:1rem 1.25rem;border-top:0;margin-top:.75rem;background:var(--paper);border-radius:.75rem}
+.catalogue-filter-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr);gap:1.25rem}
+.catalogue-filter-fields label{display:grid;gap:.55rem;font-size:.72rem;font-weight:500;letter-spacing:.02em;color:var(--muted);min-width:0}
+.catalogue-filter-fields select{width:100%;min-width:0;min-height:52px;max-width:100%;border:1px solid var(--line);border-radius:.75rem;background:var(--paper);color:var(--ink);padding:.8rem 2.75rem .8rem 1rem;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='m5 7 5 5 5-5' stroke='%235E5343' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:16px;font:inherit;font-size:.9rem;font-weight:500;letter-spacing:0;cursor:pointer}
+.catalogue-filter-fields select:hover{border-color:var(--muted)}
+.catalogue-filter-fields select:focus-visible{outline:2px solid var(--ink-soft);outline-offset:3px}
+.catalogue-status{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:44px;border-bottom:1px solid var(--line);padding-bottom:.4rem}
+.catalogue-status .results-count{order:0;margin:0 auto 0 0;font-size:.75rem;font-weight:400;color:var(--muted)}
+.catalogue-status [data-clear-experiences]{order:1}
+.catalogue-status button{cursor:pointer;background:none;border:0;color:var(--terra-d);font-size:.75rem;min-height:44px}
+.experience-grid{gap:1.6rem}
+.experience-card figure{aspect-ratio:16/10}
+.experience-card .card-body{padding:1.3rem;gap:.75rem}
+.experience-category{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d)}
+.experience-card h2{font-size:1.4rem;line-height:1.25;text-wrap:pretty}
+.experience-card:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.experience-card .card-summary{font-size:.83rem;line-height:1.7}
+.experience-facts{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1rem;width:100%;border-top:1px solid var(--line);padding-top:.85rem;margin-top:auto}
+.experience-facts dt{font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;font-weight:600}
+.experience-facts dd{font-size:.73rem;line-height:1.6;color:var(--ink)}
+.experience-notes{display:flex;flex-wrap:wrap;gap:.4rem .75rem;list-style:none;font-size:.62rem;font-weight:500;color:var(--terra-d)}
+.experience-notes li{border-bottom:1px solid var(--line);padding-bottom:.15rem}
+.experience-card .card-link{font-size:.74rem;padding-top:.25rem}
+.experience-card[id]{scroll-margin-top:5rem}
+.experience-card-text{border-top:3px solid var(--olive)}
+.experience-card-text .card-body{padding-top:1.8rem}
+.experience-enquiry h2{font-size:clamp(1.8rem,3.5vw,2.75rem)}
+.experience-enquiry{padding-block:3rem}
+@media(max-width:1080px){.experience-toolbar{top:var(--catalogue-header-height,84px)}}
+@media(max-width:880px){
+ .experience-toolbar{top:var(--catalogue-header-height,76px)}
+ .catalogue-filter-fields{gap:1rem}
+ .experience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ .photo-hero.experiences-hero{min-height:19rem;padding-block:2rem}
+ .experiences-hero h1{font-size:2.3rem}.experiences-hero p{font-size:.88rem}
+ .experience-toolbar{position:relative;top:auto;margin-top:0}
+ .catalogue-filters{padding:.65rem 1rem 1rem}
+ .catalogue-filter-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+ .catalogue-filter-fields label:last-child{grid-column:1/-1}
+ .catalogue-filter-fields select{font-size:.85rem;padding-left:.7rem;min-height:50px}
+ .catalogue-status{gap:.6rem;flex-wrap:nowrap}.catalogue-status button{font-size:.7rem}.catalogue-status .results-count{font-size:.7rem}
+ .experience-grid{grid-template-columns:1fr;gap:1.5rem}
+ .experience-card h2{font-size:1.5rem}.experience-card .card-body{padding:1.25rem}
+ .experience-enquiry{padding-block:2.5rem}
+}
+
+.catalogue-status .catalogue-toggle{order:2;display:inline-flex;align-items:center;gap:.55rem;background:none;border:0;color:var(--ink);font-size:.78rem;font-weight:500;padding:.5rem 0}
+.catalogue-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media(max-width:600px){.catalogue-status .catalogue-toggle{font-size:.78rem;gap:.55rem}}
+@media(forced-colors:active){.catalogue-filter-fields select{appearance:auto;-webkit-appearance:auto;background-image:none}}

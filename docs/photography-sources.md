@@ -22,7 +22,8 @@ Responsive JPEG variants are served locally with dimensions and `srcset`.
 
 The public credits UI and page were removed at the owner’s request. Both Creative
 Commons photographs above are excluded from the current build. The owner-supplied
-Falls image replaces the destination photograph; the sunset-cruise card is text-led.
+Falls image replaces the older destination photograph. The sunset-cruise card now
+uses Shearwater’s Riversong boat photography.
 The image manifest remains an internal provenance record.
 
 ## Official venue photography
@@ -47,3 +48,36 @@ permission uncertainty recorded. The build does **not** copy the old watermarked
 The logo remains a separate existing brand asset.
 
 Follow-up: [photography issue](https://github.com/ron-harifiyati/majestic-trunk/issues/1).
+
+## Experiences catalogue update — 8 November 2026
+
+A new Wild Horizons aerial photograph is used for the Experiences banner, separate
+from the owner-supplied homepage hero. Specific photographs now cover all 16
+experience listings. The five completed photo records are: sunset cruise
+(Shearwater), elephant sanctuary (Wild Horizons), The Boma (Victoria Falls Safari
+Collection), Vulture Culture (We Are Victoria Falls), and the interior of Tami
+Walker Fine Art Gallery (the gallery’s official website). Exact URLs, dimensions
+and permission status are in the media manifest. No public credit labels or credits
+page were added.
+
+## Expanded experiences catalogue — 8 November 2026
+
+Ten additional activities now have their own responsive operator photographs:
+Upper Zambezi canoe safari, Zambezi dinner cruise, lunar rainbow tour, canopy
+tour, jet boat adventure, Flying Fox, bicycle tour, Chinotimba township tour,
+hosted lunch and village visit, and the historic bridge tour. The catalogue now
+contains 26 experiences. Each image was visually checked against the activity;
+the Chinotimba image shows the local market rather than the operator's initial
+portrait image. The manifest records each exact image URL and source page.
+
+Sources are Victoria Falls Canoeing Company, Wild Horizons and its official
+Activitar catalogue, Shearwater Adventures and Shearwater Bungee. These remain
+local preview photographs with publication permission pending, as recorded in
+the manifest. No public image-credit labels or credits page were introduced.
+
+The accompanying activity information was checked against those operator pages.
+New pages use enquiry actions pending confirmation of dates, programme,
+inclusions and operator arrangements; they do not imply that a matching product
+exists in Majestic Trunk's general online booking catalogue. Canoeing day trips,
+raft alternatives and camping options share one guide rather than inflating the
+catalogue with programme variants.

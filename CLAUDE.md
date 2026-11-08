@@ -40,7 +40,7 @@ package.json
 src/
   data/                  # CONTENT lives here — edit these, then rebuild
     site.json            #   brand, Activitar URL, year
-    experiences.json     #   the ~10 experiences (one object each)
+    experiences.json     #   the 26 experiences (one object each)
     lodges.json          #   the ~5 lodges
   partials/
     base.html            #   the page shell (<head>, header/footer slots)
@@ -82,9 +82,11 @@ design-mockups/          # throwaway design explorations (reference only)
 
 ## Directory expansion
 
-The current build has 46 pages: 16 experiences, 13 stays, 8 dining venues and
+The current build has 56 pages: 26 experiences, 13 stays, 8 dining venues and
 supporting pages. Category definitions and filter preferences are in `build.js`;
-progressive enhancement lives in `src/js/directory.js`. Run `npm test` after changes
+stay/dining enhancement lives in `src/js/directory.js` and the flat Experiences
+catalogue uses `src/js/experiences.js`. Each experience has a validated
+`timeCategory` for broad planning filters; keep the descriptive `duration` text. Run `npm test` after changes
 to categories, links, templates or filtering. Photo provenance and responsive sizes
 are recorded in `src/data/media.json`; only referenced images are copied to output.
 Official venue photographs are preview-only until publication rights are confirmed.

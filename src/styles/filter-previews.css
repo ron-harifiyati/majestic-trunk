@@ -1,0 +1,66 @@
+/* Local comparison styles; loaded only by the optional preview pages. */
+.filter-preview .experience-toolbar {
+  margin-top: 0;
+  top: var(--catalogue-header-height, 88px);
+  background: var(--sand);
+}
+.filter-preview .catalogue-panel {
+  padding: .65rem 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.filter-preview .catalogue-status .catalogue-toggle {
+  gap: .55rem;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.filter-preview .catalogue-status .results-count {
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.filter-preview .catalogue-body { padding-top: .8rem; }
+.filter-preview-1 .catalogue-status { border-bottom: 0; padding-bottom: 0; }
+.filter-preview-1 .catalogue-status .catalogue-toggle { order: 0; }
+.filter-preview-1 .catalogue-status .results-count { order: 1; margin: 0 0 0 auto; }
+.filter-preview-1 .catalogue-status [data-clear-experiences] { order: 2; }
+.filter-preview-1 .catalogue-filters {
+  padding: .9rem 0 .5rem;
+  border-top: 1px solid var(--line);
+  margin-top: .5rem;
+  border-radius: 0;
+}
+.filter-preview-1 .catalogue-panel:has([aria-expanded="true"]) {
+  margin-top: .75rem;
+  padding: .65rem 1.25rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.filter-preview-2 .catalogue-status {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: .4rem;
+}
+.filter-preview-2 .catalogue-status .results-count {
+  order: 0;
+  margin: 0 auto 0 0;
+}
+.filter-preview-2 .catalogue-status [data-clear-experiences] { order: 1; }
+.filter-preview-2 .catalogue-status .catalogue-toggle { order: 2; }
+.filter-preview-2 .catalogue-filters {
+  border-top: 0;
+  margin-top: .75rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper);
+  border-radius: .75rem;
+}
+@media (max-width: 600px) {
+  .filter-preview .experience-toolbar { top: auto; }
+  .filter-preview .catalogue-status { flex-wrap: nowrap; gap: .6rem; }
+  .filter-preview .catalogue-status button { font-size: .7rem; }
+  .filter-preview-1 .catalogue-panel:has([aria-expanded="true"]),
+  .filter-preview-2 .catalogue-filters { padding: .65rem 1rem 1rem; }
+}

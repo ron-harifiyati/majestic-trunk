@@ -16,7 +16,7 @@ operator's external **Activitar** platform.
 | **Stack** | Plain HTML/CSS/JS + a small Node generator (`build.js`) |
 | **Dependencies** | None — Node (build) and Python (local serving) only |
 | **Content** | JSON files in `src/data/` |
-| **Output** | 46 static pages in `dist/` |
+| **Output** | 56 static pages in `dist/` |
 | **Booking** | External — Activitar |
 | **Hosting** | Static (e.g. Cloudflare Pages) |
 
@@ -63,7 +63,7 @@ majestic-trunk/
 ├─ src/                     # ← everything you edit lives here
 │  ├─ data/
 │  │  ├─ site.json          #   brand, Activitar URL, year
-│  │  ├─ experiences.json   #   the 16 experiences (one object each)
+│  │  ├─ experiences.json   #   the 26 experiences (one object each)
 │  │  ├─ lodges.json        #   the 13 hotels and lodges
 │  │  ├─ dining.json        #   8 source-checked restaurants and bars
 │  │  └─ media.json         #   photo sources, credits and permission status
@@ -81,7 +81,8 @@ majestic-trunk/
 │  │  └─ site.css           #   component styles
 │  ├─ js/
 │  │  ├─ nav.js             #   navigation and enquiry context
-│  │  └─ directory.js       #   category and preference filters
+│  │  ├─ directory.js       #   stay and dining filters
+│  │  └─ experiences.js     #   flat experience catalogue filters
 │  └─ assets/img/           #   images (placeholders, pending rights clearance)
 ├─ dist/                    # generated output (gitignored) — this is what deploys
 ├─ docs/                    # plan, image audit, booking notes
@@ -110,7 +111,7 @@ directory `dist`.
 
 ## Status
 
-Editorial redesign complete — 46 pages, including 16 activity guides,
+Editorial redesign complete — 56 pages, including 26 activity guides,
 13 accommodation guides, 8 dining guides, a travel-planning guide. Official sources and review dates
 are stored with each listing. Rates are quoted on enquiry rather than displaying
 unverified starting prices. The former Inkosi URL is preserved with the verified
@@ -127,10 +128,14 @@ links, production privacy content, image optimization and deployment checks.
 
 ## Directories and photography
 
-The primary sections are `/experiences/`, `/stay/` and `/eat-drink/`. Listings are
-grouped in static HTML. Category links work as section anchors without JavaScript;
-`directory.js` enhances them with category and preference filters, shareable query
-parameters, result counts, reset and browser back/forward support.
+The primary sections are `/experiences/`, `/stay/` and `/eat-drink/`. Stays and dining
+use grouped static listings enhanced by `directory.js`. Experiences use one
+continuous grid and `experiences.js`, with category, country and time-available
+filters, presented as three dropdowns. Without JavaScript all experience cards
+remain visible; stay and dining category links remain section anchors. Both controllers
+support shareable query parameters, result counts, reset and browser back/forward.
+Experience `timeCategory` values are broad planning labels, not promised durations;
+variable programmes use an explicit confirmation category.
 
 `src/data/research-backlog.json` records suggested venues that still need direct
 verification and are deliberately excluded from public listings. The Boma remains

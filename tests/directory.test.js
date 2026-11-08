@@ -37,35 +37,6 @@ function fixture(dataFile, prefOptions, initial = '') {
     visible(){return allCards.filter(c=>!c.hidden).map(c=>c.slug);},
   };
 }
-const exp=()=>fixture('src/data/experiences.json',['zimbabwe','zambia','botswana','seasonal','self-guided']);
-test('all generated experience groups are visible initially',()=>{
- const f=exp();assert.equal(f.visible().length,f.data.length);assert.equal(f.empty.hidden,true);assert.equal(f.filters.hidden,false);
-});
-test('category selection filters records and saves a shareable URL',()=>{
- const f=exp();f.click('adventure');
- assert.deepEqual(f.visible(),f.data.filter(e=>e.group==='adventure').map(e=>e.slug));
- assert.equal(f.window.location.search,'?group=adventure');
- assert.equal(f.links.find(l=>l.attrs['data-group-link']==='adventure').attrs['aria-current'],'true');
-});
-test('category and location combine; empty results can be reset with focus restored',()=>{
- const f=exp();f.click('adventure');f.choose('botswana');assert.equal(f.visible().length,0);assert.equal(f.empty.hidden,false);
- assert.match(f.results.textContent,/Showing 0 of/);f.emptyReset.fire('click');
- assert.equal(f.visible().length,f.data.length);assert.equal(f.window.location.search,'');assert.equal(f.links[0].focused,true);
-});
-test('cross-border and seasonal choices return the matching records',()=>{
- const f=exp();f.choose('zambia');assert.deepEqual(f.visible(),['livingstone-island-devils-pool']);
- f.choose('seasonal');assert.deepEqual(f.visible(),['livingstone-island-devils-pool']);
-});
-test('URL state and back navigation restore both controls',()=>{
- const f=fixture('src/data/experiences.json',['zimbabwe','zambia','botswana','seasonal','self-guided'],'?group=adventure&preference=zambia');
- assert.deepEqual(f.visible(),['livingstone-island-devils-pool']);
- f.restore('/experiences/?group=wildlife&preference=botswana');assert.deepEqual(f.visible(),['chobe-day-trip']);
- f.restore('/experiences/?group=unknown&preference=unknown');assert.equal(f.visible().length,f.data.length);
-});
-test('non-script category anchors are recognised on enhancement',()=>{
- const f=fixture('src/data/experiences.json',['zimbabwe'],'#group-culture');
- assert.deepEqual(f.visible(),f.data.filter(e=>e.group==='culture').map(e=>e.slug));
-});
 test('accommodation preferences distinguish adults-only and family-room listings',()=>{
  const f=fixture('src/data/lodges.json',['adults-only','family-rooms','spa','accessible-rooms','safari-activities']);
  f.choose('adults-only');assert.deepEqual(f.visible(),['shongwe-oasis']);

@@ -55,3 +55,16 @@ test('removed credits page and attribution-dependent images are excluded from ou
  for(const file of pages)assert.ok(!fs.readFileSync(file,'utf8').includes('photo-credits.html'),file);
  assert.equal((fs.readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length,pages.length);
 });
+test('Experiences uses a distinct hero, three dropdowns and a photo for every listing',()=>{
+ const index=fs.readFileSync('dist/experiences/index.html','utf8');
+ const home=fs.readFileSync('dist/index.html','utf8');
+ const hero=html=>html.match(/class="hero-backdrop">\s*<img src="([^"]+)"/)[1];
+ assert.notEqual(hero(index),hero(home));
+ assert.equal((index.match(/<select\b/g)||[]).length,3);
+ assert.ok(index.indexOf('id="experience-location"')<index.indexOf('id="experience-time"'));
+ assert.ok(index.indexOf('id="experience-time"')<index.indexOf('id="experience-category"'));
+ assert.ok(!index.includes('aria-label="Experience categories"'));
+ const cards=[...index.matchAll(/<article\b[^>]*data-experience\s[^>]*>[\s\S]*?<\/article>/g)];
+ assert.equal(cards.length,JSON.parse(fs.readFileSync('src/data/experiences.json','utf8')).length);
+ for(const match of cards)assert.match(match[0],/<figure><img /);
+});
