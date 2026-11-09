@@ -97,7 +97,7 @@ for (const [key, m] of Object.entries(media)) {
 const base = P('base.html');
 const header = fill(P('header.html'), {activitarUrl: '/plan-your-trip/'});
 const footer = fill(P('footer.html'), {activitarUrl: '/plan-your-trip/', year: site.year});
-const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : content.includes('data-dining-directory') ? '<script src="/assets/js/dining.js" defer></script>' : ''});
+const layout = ({title, description, content}) => fill(base, {title:esc(title), description:esc(description), header, footer, content, bodyClass:content.includes('class="photo-hero ') ? 'has-photo-hero' : '', pageScripts:content.includes('data-experience-carousel') ? '<script src="/assets/js/home-carousel.js" defer></script>' : content.includes('data-experience-directory') ? '<script src="/assets/js/experiences.js" defer></script>' : content.includes('data-stay-directory') ? '<script src="/assets/js/stays.js" defer></script>' : content.includes('data-dining-directory') ? '<script src="/assets/js/dining.js" defer></script>' : ''});
 const list = (arr, fn) => arr.map(fn).join('\n');
 const paras = arr => list(arr, p => `<p>${esc(p)}</p>`);
 const items = arr => list(arr, h => `<li>${esc(h)}</li>`);
@@ -179,6 +179,7 @@ fs.rmSync(DIST,{recursive:true,force:true}); fs.mkdirSync(DIST,{recursive:true})
 fs.cpSync(path.join(SRC,'styles'),path.join(DIST,'assets/css'),{recursive:true});
 fs.cpSync(path.join(SRC,'js'),path.join(DIST,'assets/js'),{recursive:true});
 write('index.html',layout({title:'Majestic Trunk Expeditions — Victoria Falls',description:'Majestic Trunk Expeditions is your Victoria Falls tour operator, booking partner and trip planner. Arrange activities, accommodation and a personal itinerary.',content:fill(T('home.html'),{
+  curatedExperienceSlides:list(['guided-falls-tour','sunset-cruise','gorge-swing','game-drives','helicopter-flight','white-water-rafting','simunye-theatre'].map(slug=>experiences.find(e=>e.slug===slug)),e=>`<article class="experience-carousel-slide" data-carousel-slide data-carousel-title="${esc(e.title)}" role="group" aria-roledescription="slide"><figure>${photo(e.media,e.alt)}</figure><div class="experience-carousel-copy"><span class="experience-carousel-category">${esc(e.category)}</span><h3><a href="/experiences/${e.slug}/">${esc(e.title)}</a></h3><p class="experience-carousel-summary">${esc(e.summary)}</p><p class="experience-carousel-duration">${esc(e.duration)}</p><div class="experience-carousel-actions"><a class="experience-carousel-details" href="/experiences/${e.slug}/">Explore activity ↗</a><button type="button" class="trip-add" data-trip-add="experiences/${e.slug}" aria-pressed="false" aria-label="Add ${esc(e.title)} to your trip" hidden>Add to trip +</button></div></div></article>`),
   featuredExperienceCards:list(['guided-falls-tour','gorge-swing','game-drives'].map(slug=>experiences.find(e=>e.slug===slug)),expCard),
   experienceCount:experiences.length,stayCount:lodges.length,activitarUrl:'/plan-your-trip/',
   heroPhoto:photo('home-hero','Golden light and mist above Victoria Falls',true,true),
@@ -253,7 +254,10 @@ for (const rel of pageFiles) {
  html=html.replace(/<article class="card[^"]*"[^>]*data-card[^>]*>[\s\S]*?<\/article>/g,cardHtml=>{
   const link=cardHtml.match(/class="card-main" href="\/(experiences|stay|eat-drink)\/([^"]+)\/"/);
   const entry=link&&tripEntries.find(e=>e.id===`${link[1]}/${link[2]}`);
-  return entry?cardHtml.replace('</article>',tripButton(entry)+'</article>'):cardHtml;
+  if(!entry)return cardHtml;
+  const action=entry.type==='experiences'?'Explore activity':entry.type==='stay'?'View property':'Explore venue';
+  const body=cardHtml.replace(/<span class="card-link">[\s\S]*?<\/span><\/span>/,'');
+  return body.replace('</article>',`<div class="card-actions"><a class="card-link" href="${entry.url}">${action} <span aria-hidden="true">↗</span></a>${tripButton(entry)}</div></article>`);
  });
  const detailEntry=tripEntries.find(e=>e.url===`/${rel.replace(/index\.html$/,'')}`);
  if(detailEntry){
