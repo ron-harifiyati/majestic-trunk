@@ -1,7 +1,7 @@
 Priority: P1 — complete before the final business launch
 
 ## Current position
-The Privacy Policy at `src/templates/privacy.html` is still explicitly marked as a placeholder. This issue now contains the working policy template and the business-information checklist needed to finish it.
+The Privacy Policy at `src/templates/privacy.html` is populated as a clearly labelled review draft. It describes confirmed website behaviour and identifies the business details still to be finalised. This document retains the working template and remaining business-information checklist.
 
 The site has changed since this issue was first opened:
 - The published GitHub Pages build uses `ENQUIRY_MODE=email`. It prepares a complete enquiry for the visitor to send through their own email service; filling in the form does not itself deliver an email.
@@ -9,6 +9,45 @@ The site has changed since this issue was first opened:
 - A Cloudflare Pages Function and Resend integration exist in source, but direct website email sending is not connected on GitHub Pages. Do not describe Resend as a live processor unless it is actually deployed.
 - Google Fonts is loaded externally. Hosting and the eventual mailbox provider also need to be accounted for.
 - Activitar is no longer the public booking journey. Its old handoff language must not appear in the final policy.
+
+## Business answers received — 11 November 2026
+- Business name supplied by the owner: **Majestic Trunk Expeditions**. Registration status, any separate legal entity and the public business address have not been confirmed.
+- Planned public enquiry/privacy address: **similo@majestictrunk.com**. The owner confirms it is not operational yet and intends to activate it for launch. Do not describe it as currently monitored.
+- Mailbox provider: not chosen or confirmed. This is the company operating the inbox, separate from the domain registrar, website host and any future form-sending service.
+- Initial enquiry access: the owner confirms they will be the only person reading and replying to enquiries at launch.
+- Marketing: the owner confirms customer details are used only to reply about the requested trip/services; no promotional messages or newsletters.
+- Internal access and security: this is a one-person business, with only the owner accessing enquiry accounts/devices. The owner confirms two-factor authentication. Because the planned mailbox is not active yet, the public draft describes mailbox 2FA as a launch arrangement.
+- Provider sharing and retention: not yet decided. These remain decisions to agree, not established practices to assert in a published policy.
+- Still needed: the approved public business address, mailbox provider, and decisions on provider sharing and retention.
+
+## Verified website behaviour — 11 November 2026
+
+These are implementation facts, separate from the business practices that still need confirmation below.
+
+| Area | Verified behaviour | Policy wording to use |
+| --- | --- | --- |
+| Enquiry delivery | The production Pages workflow builds with `ENQUIRY_MODE=email`. The visitor explicitly opens their own email application or copies the prepared enquiry. GitHub Pages does not run the included email API function. | Completing or preparing the form does not send it to Majestic Trunk. The visitor sends the message using their chosen email service. |
+| Form fields | Name, email and adult/child counts are required. Phone, dates and message are optional. Selections can be empty. | Describe these fields and purposes; do not claim the site requests passports or payment details. |
+| Saved shortlist | `majestic-trip-v1` in local storage contains catalogue IDs, survives visits until removed/cleared, and synchronises across tabs. | Explain how visitors remove selections or clear site storage. The application does not save contact-form values in local/session storage. |
+| Hosting | The production workflow deploys to GitHub Pages. GitHub documents IP-address logging for security. | Identify GitHub Pages and link its privacy statement; do not promise that browsing is anonymous or that no technical data is collected. |
+| Fonts | `src/partials/base.html` connects to Google Fonts and Google font-file servers. Google's official Fonts explanation confirms its servers receive IP addresses when delivering fonts. | Identify the external font service while it remains in use. Self-hosting is a separate implementation choice, not an assumed change. |
+| Analytics and advertising | No analytics, advertising trackers or application cookie-setting code were found in `src/`. This is a source-code review, not a browser/network audit of every third-party service. | Keep any claim limited to the site's own implementation. Avoid an absolute statement that no cookies or data processing can occur. |
+| Images | Generated pages serve the site's image files locally. | Do not list image-source websites as services contacted automatically when a visitor views a locally served photo. |
+| Payments and accounts | No website checkout, customer login or payment form is implemented. | Do not describe payment processing, account management or guaranteed reservations as website features. |
+| Future direct sending | Cloudflare/Resend code exists but is not deployed by GitHub Pages. | Do not name these as current enquiry processors. Revise the notice if direct sending is enabled. |
+
+### Verified service references
+- [GitHub Pages: data collection](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection).
+- [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+- [Google Fonts: privacy explanation](https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html).
+- [POTRAZ-published Cyber and Data Protection Act [Chapter 12:07]](https://www.potraz.gov.zw/wp-content/uploads/2025/02/Cyber-and-Data-Protection-Act-Chapter-1207.pdf), including sections 7, 14–15 and 28–29. The draft still needs the actual controller identity, business practices and applicable-law review; these cannot be established from code.
+
+### Business answers requested
+1. Public business address and confirmation of whether the supplied business name is also the registered legal entity.
+2. Mailbox provider and activation of the planned `similo@majestictrunk.com` inbox. The owner confirms it is not operational yet.
+3. When information is shared with travel providers and record-retention practices. Sole-owner access, two-factor authentication and reply-only use are confirmed.
+
+The public page template is populated for local review while these facts remain outstanding. It explicitly labels its draft status and inactive planned mailbox. No final policy or compliance sign-off is asserted.
 
 ## Information to obtain from the business
 Record approved public business facts in this issue; keep customer information, account credentials and internal security details outside public issues.
@@ -28,7 +67,7 @@ Record approved public business facts in this issue; keep customer information, 
 - [ ] Identify the purposes and appropriate legal grounds for each use, with legal review rather than assumed blanket consent.
 - [ ] Identify staff/contractor roles with access and relevant accommodation/activity/dining/transfer recipients.
 - [ ] Confirm when customer information is shared with providers, what is shared, and how the customer is informed.
-- [ ] Confirm whether information is used for marketing, and the actual subscription/opt-out process if so.
+- [x] Marketing confirmed: reply only about the requested trip/services; no newsletters or promotional messages.
 
 ### Providers, storage and retention
 - [ ] Confirm production hosting, mailbox provider, enquiry delivery provider, CRM/backups and any analytics or embedded services.
@@ -37,7 +76,7 @@ Record approved public business facts in this issue; keep customer information, 
 - [ ] Decide whether to retain externally served Google Fonts or host the fonts locally.
 - [ ] Agree justified retention periods for unsuccessful enquiries, completed-trip records, financial records and backups; confirm applicable legal obligations.
 - [ ] Confirm deletion, access/correction request and privacy complaint handling.
-- [ ] Confirm practical security/access controls without publishing sensitive implementation details.
+- [x] Initial access/security confirmed: sole-owner access and two-factor authentication. Verify the new mailbox is configured accordingly before launch.
 - [ ] Review applicable Zimbabwe data-protection duties and any registration/notification requirements with an appropriate adviser. A policy page alone does not establish compliance.
 
 ## Working Privacy Policy template
@@ -67,7 +106,7 @@ A name and valid email are required by the enquiry form so we can respond. Dates
 We use enquiry information to understand your interests, reply to questions, prepare suggested arrangements and quotations, and [OTHER CONFIRMED PURPOSES].
 
 [STATE THE APPROPRIATE GROUNDS FOR THESE USES, REVIEWED FOR THE APPLICABLE LAW.]  
-[STATE THE ACTUAL MARKETING PRACTICE AND OPT-OUT PROCESS, OR OMIT MARKETING IF IT IS NOT USED.]
+Enquiry contact details are used to reply about the requested trip or services, not for newsletters or unrelated promotional messages.
 
 ### 4. Sending your enquiry
 **Current GitHub Pages version:** The form prepares an email containing your details and selected items. You send it using your chosen email service, or copy it into an email. Preparing or completing the form alone does not send us your enquiry. Your email provider handles the message when you send it.
@@ -114,14 +153,14 @@ We will update this policy when our services or information-handling practices c
 - [ ] Resolve all placeholders using confirmed business practices.
 - [ ] Review the draft with a Zimbabwe-qualified legal/data-protection adviser; do not present the template as approved legal advice or a compliance certification.
 - [ ] Separate booking/cancellation terms from privacy.
-- [ ] Publish a readable light-background page with a brief introduction, last-updated date and numbered sections.
+- [x] Prepare a readable light-background review page with a brief introduction, draft-updated date and numbered sections. Final publication remains pending.
 - [ ] Preserve the footer link on every page and the enquiry-form privacy link.
 - [ ] Match the form's required/optional labels, storage behaviour and email flow to the final wording.
 - [ ] Recheck after domain, hosting, email or analytics changes.
 
 ## References and related work
 - [Owner-supplied Wild Horizons Agent Portal reference](privacy-policy-reference-wild-horizons.md), including the supplied text and adaptation notes.
-- POTRAZ-published Data Protection Act, particularly sections 14–15: https://www.potraz.gov.zw/wp-content/uploads/2022/02/Data-Protection-Act-5-of-2021.pdf
+- POTRAZ-published Cyber and Data Protection Act [Chapter 12:07], particularly sections 14–15: https://www.potraz.gov.zw/wp-content/uploads/2025/02/Cyber-and-Data-Protection-Act-Chapter-1207.pdf
 - Business identity/contact verification: #3.
 - Current enquiry implementation and deployment instructions: `docs/enquiry-setup.md`.
 

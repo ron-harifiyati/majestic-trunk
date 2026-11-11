@@ -53,3 +53,30 @@ If you have any questions about this Privacy Policy, please contact us at info@w
 | Contact and date | Use a monitored Majestic Trunk address and the actual effective/update date. Keep the reference's third-party contact and December 2024 date within this reference file. |
 
 Complete the owner checklist and legal review already tracked in the main draft before publishing the final policy.
+
+
+## Additional full privacy-notice reference supplied 11 November 2026
+
+The owner supplied a much longer Wild Horizons privacy notice, effective May 2026/version 1.0, covering controller identity, purposes, lawful bases, marketing, children, recipients, transfers, security, cookies, photography/CCTV, retention, rights, complaints and EU/UK guests. The supplied text is a reference; its company-specific claims and legal interpretations have not been independently authenticated.
+
+### Applied to the Majestic Trunk draft
+- A direct introduction explaining the relationship between a trip enquiry and personal information.
+- Clear sections for collection, purposes, storage, service providers/sharing, marketing, retention, security, requests, complaints and contact.
+- A short explanation of children's information and enquiring for other travellers.
+- More compact hosting/service wording, while preserving the actual GitHub Pages and Google Fonts disclosures.
+- The existing document-sheet layout and numbered sections, without reintroducing the contents menu the owner removed.
+
+### Do not carry over without verification
+- Halam Enterprises, Wild Horizons' address, registration number, staff, DPO or licence claims.
+- Passport, weight, health, payment, indemnity, CCTV, call-recording or agent-portal collection as Majestic Trunk practices.
+- Microsoft 365, DigitalOcean, specific booking/payment systems, processor agreements, security measures or business registrations.
+- Marketing opt-ins or opt-outs that are not implemented or agreed.
+- Specific retention periods or assertions that those periods are statutory requirements.
+- Full GDPR/UK GDPR coverage or a promise to apply a stronger standard without establishing scope and operations.
+- Breach-response deadlines or detailed section-by-section legal claims without reviewing the applicable legislation and current regulations.
+
+### Updated official legislative references
+- POTRAZ-published Cyber and Data Protection Act [Chapter 12:07]: https://www.potraz.gov.zw/wp-content/uploads/2025/02/Cyber-and-Data-Protection-Act-Chapter-1207.pdf
+- POTRAZ-published S.I. 155 of 2024: https://www.potraz.gov.zw/wp-content/uploads/2025/02/sI-155-of-2024-Cyber-and-Data-Protection-Normal_240913_1250178.pdf
+
+These official references supersede the older chapter-labelled PDF cited earlier in the working notes. No claim is made that the business's licensing, DPO or other regulatory obligations have been fulfilled.
