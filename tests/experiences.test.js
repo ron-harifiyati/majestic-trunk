@@ -13,15 +13,17 @@ function fixture(initial='',wide=true){
  const location=el('SELECT'),time=el('SELECT');
  location.options=['all','zimbabwe','zambia','botswana'].map(value=>({value}));location.value='all';
  time.options=['all','short','half-day','full-day','evening','confirm'].map(value=>({value}));time.value='all';
+ const quickCategories=el('DIV');
+ const categoryButtons=categoryControl.options.map(o=>el('BUTTON',{'data-experience-category':o.value}));
  const results=el('P'),empty=el('DIV'),filters=el('DIV'),toggle=el('BUTTON'),reset=el('BUTTON'),emptyReset=el('BUTTON');
  empty.contains=button=>button===emptyReset;
- const catalogue={querySelectorAll(selector){return {'[data-experience]':cards,'[data-clear-experiences]':[reset,emptyReset]}[selector];},querySelector(selector){return {'[data-category-filter]':categoryControl,'[data-location-filter]':location,'[data-time-filter]':time,'[data-experience-results]':results,'[data-experience-empty]':empty,'[data-catalogue-filters]':filters,'[data-toggle-experiences]':toggle}[selector];}};
+ const catalogue={querySelectorAll(selector){return {'[data-experience]':cards,'[data-experience-category]':categoryButtons,'[data-clear-experiences]':[reset,emptyReset]}[selector];},querySelector(selector){return {'[data-experience-quick-categories]':quickCategories,'[data-category-filter]':categoryControl,'[data-location-filter]':location,'[data-time-filter]':time,'[data-experience-results]':results,'[data-experience-empty]':empty,'[data-catalogue-filters]':filters,'[data-toggle-experiences]':toggle}[selector];}};
  let url=new URL('https://example.test/experiences/'+initial);const handlers={};
  const media={matches:wide,addEventListener(k,f){this.listener=f;}};
  const window={get location(){return url;},history:{pushState(_a,_b,next){url=new URL(next,url);}},addEventListener(k,f){handlers[k]=f;},matchMedia(){return media;}};
  const document={querySelector(selector){return selector==='[data-experience-directory]'?catalogue:null;}};
  vm.runInNewContext(source,{window,document,URL,URLSearchParams});
- return {data,cards,categoryControl,location,time,results,empty,filters,toggle,reset,emptyReset,window,media,
+ return {data,cards,categoryButtons,quickCategories,categoryControl,location,time,results,empty,filters,toggle,reset,emptyReset,window,media,
   category(id){if(filters.hidden)toggle.fire('click');categoryControl.value=id;categoryControl.fire('change');},
   chooseLocation(value){if(filters.hidden)toggle.fire('click');location.value=value;location.fire('change');},
   chooseTime(value){if(filters.hidden)toggle.fire('click');time.value=value;time.fire('change');},
@@ -80,4 +82,30 @@ test('filter disclosure opens and closes without resetting selections',()=>{
 });
 test('clearing filters while collapsed returns focus to the visible disclosure button',()=>{
  const f=fixture('?location=zambia');f.reset.fire('click');assert.equal(f.visible().length,f.data.length);assert.equal(f.filters.hidden,true);assert.equal(f.toggle.focused,true);
+});
+
+test('clearing expanded mobile filters focuses location because category uses chips',()=>{
+ const f=fixture('',false);
+ f.category('adventure');
+ f.reset.fire('click');
+ assert.equal(f.location.focused,true);
+ assert.equal(f.categoryButtons[0].attrs['aria-pressed'],'true');
+});
+
+test('quick category buttons combine with filters, stay collapsed and sync on navigation and reset',()=>{
+ const f=fixture('?location=zimbabwe&time=evening');
+ const culture=f.categoryButtons.find(b=>b.attrs['data-experience-category']==='culture');
+ culture.fire('click');
+ assert.equal(f.filters.hidden,true);
+ assert.equal(f.quickCategories.hidden,false);
+ assert.equal(culture.attrs['aria-pressed'],'true');
+ assert.equal(f.categoryControl.value,'culture');
+ assert.deepEqual(f.visible(),['the-boma-dining','simunye-theatre']);
+ assert.equal(f.window.location.search,'?location=zimbabwe&time=evening&group=culture');
+ f.restore('/experiences/?group=adventure');
+ assert.equal(culture.attrs['aria-pressed'],'false');
+ assert.equal(f.categoryButtons.find(b=>b.attrs['data-experience-category']==='adventure').attrs['aria-pressed'],'true');
+ f.reset.fire('click');
+ assert.equal(f.categoryButtons[0].attrs['aria-pressed'],'true');
+ assert.equal(f.visible().length,f.data.length);
 });

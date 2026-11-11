@@ -4,11 +4,16 @@
  if(!core||!Array.isArray(catalogue))return;
  let storage;try{storage=window.localStorage;}catch{storage=null;}
  let selected=core.read(storage,catalogue);
- const recipient=window.MajesticEnquiryEmail||'hello@majestictrunk.com';
+ const recipient=window.MajesticEnquiryEmail||'similo@majestictrunk.com';
  const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const live=document.createElement('p');live.className='sr-only';live.setAttribute('role','status');live.setAttribute('aria-live','polite');document.body.append(live);
  const storageNote=document.createElement('p');storageNote.className='trip-storage-note';storageNote.hidden=true;document.querySelector('main').append(storageNote);
  function persist(){if(!core.write(storage,selected)){storageNote.textContent='Your browser cannot save this shortlist between pages. Keep this page open, or allow site storage to continue your enquiry.';storageNote.hidden=false;}}
+ const groupOpen={};
+ document.addEventListener('toggle',event=>{
+  const group=event.target.dataset && event.target.dataset.tripSelectionGroup;
+  if(group)groupOpen[group]=event.target.open;
+ },true);
  function render(){
   document.querySelectorAll('[data-trip-count]').forEach(el=>{el.textContent=selected.length;});
   document.querySelectorAll('[data-trip-add]').forEach(button=>{
@@ -19,7 +24,7 @@
    container.tabIndex=-1;
    container.innerHTML=selected.length?Object.entries(core.labels).map(([type,label])=>{
     const entries=catalogue.filter(e=>e.type===type&&selected.includes(e.id));
-    return entries.length?`<section class="trip-selection-group"><h3>${esc(label)} <span>${entries.length}</span></h3><ul>${entries.map(e=>`<li><img src="${esc(e.photo)}" alt="" width="56" height="48" loading="lazy"><a href="${esc(e.url)}">${esc(e.title)}</a><button type="button" data-trip-remove="${esc(e.id)}" aria-label="Remove ${esc(e.title)} from your trip">×</button></li>`).join('')}</ul></section>`:'';
+    return entries.length?`<details class="trip-selection-group" data-trip-selection-group="${type}"${groupOpen[type]===false?'':' open'}><summary><span>${esc(label)}</span> <span>${entries.length}</span></summary><ul>${entries.map(e=>`<li><img src="${esc(e.photo)}" alt="" width="56" height="48" loading="lazy"><a href="${esc(e.url)}">${esc(e.title)}</a><button type="button" data-trip-remove="${esc(e.id)}" aria-label="Remove ${esc(e.title)} from your trip">×</button></li>`).join('')}</ul></details>`:'';
    }).join(''):'<p class="trip-selection-empty">Your shortlist is open. Add some ideas, or send us a message and we’ll help you choose.</p>';
   });
  }
@@ -43,7 +48,7 @@
   if(container)container.focus();
   if(form&&!document.querySelector('[data-enquiry-fallback]').hidden)prepareFallback();
  });
- window.addEventListener('storage',event=>{if(event.key===core.key||event.key===null){selected=core.read(storage,catalogue);render();}});
+ window.addEventListener('storage',event=>{if(event.key===core.key||event.key===null){selected=core.read(storage,catalogue);render();if(form&&!document.querySelector('[data-enquiry-fallback]').hidden)prepareFallback();}});
  render();
  const planner=document.querySelector('[data-trip-planner]');
  if(planner){
@@ -91,7 +96,7 @@
   checkDates();
   arrival.addEventListener('input',checkDates);departure.addEventListener('input',checkDates);
   form.addEventListener('input',()=>{if(!fallback.hidden)prepareFallback();});
-  const submitLabel=window.MajesticEmailMode==='email'?'Prepare email enquiry ↗':'Send enquiry ↗';
+  const submitLabel=window.MajesticEmailMode==='email'?'Prepare email enquiry':'Send enquiry';
   send.textContent=submitLabel;
   let submitting=false;
   form.addEventListener('submit',async event=>{
@@ -114,7 +119,7 @@
   document.querySelector('[data-enquiry-copy]').addEventListener('click',async()=>{
    const text=prepareFallback();
    try{await navigator.clipboard.writeText(text);status.textContent='Enquiry copied. Paste it into an email to '+recipient+'.';status.classList.remove('is-error');}
-   catch{const preview=document.getElementById('enquiry-preview');preview.focus();preview.select();status.textContent='Select and copy the enquiry below.';}
+   catch{const preview=document.getElementById('enquiry-preview');const disclosure=preview.closest('details');if(disclosure)disclosure.open=true;preview.focus();preview.select();status.textContent='Select and copy the enquiry below.';}
   });
  }
 })();

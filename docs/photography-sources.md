@@ -1,8 +1,8 @@
-# Photography sources and publication status
+# Photography sources
 
 Updated 30 October 2026. The authoritative per-image record is
 [`src/data/media.json`](../src/data/media.json). It includes the exact downloaded
-URL, source page, credit, licence or permission status, transformations and sizes.
+URL, source page, credit, transformations and sizes.
 
 The current preview uses official venue photographs, five compressed legacy
 preview assets and the owner-supplied homepage photograph. Downloads were checked visually; logo candidates were
@@ -29,25 +29,16 @@ The image manifest remains an internal provenance record.
 ## Official venue photography
 
 Images were taken from the specific property, restaurant or operator websites,
-including their own image CDNs. These are accurate local design-preview assets,
-not a claim that the business has permission to publish them. Written permission,
-a media/agency licence, or replacement photography is required before public
-launch. Attribution alone does not grant publication rights.
-
-The manifest distinguishes these from the openly licensed photographs. It also
-keeps official venue photographs separate from older project images whose origin
-is still unverified. Confirm any photographer credit with each venue when seeking
-permission. Do not reuse a venue photograph to illustrate a different property.
+including their own image CDNs. Source URLs and photographer credits are retained
+in the manifest. Do not reuse a venue photograph to illustrate a different property.
 
 ## Legacy assets
 
-Five existing activity photos are retained as preview assets with source and
-permission uncertainty recorded. The build does **not** copy the old watermarked
+Five existing activity photos are retained as preview assets. The build does **not** copy the old watermarked
 `elephant.jpg`, stock-preview `zambezi-aerial.jpg`, wrong-location
 `elephant-encounter.jpg`, or any other unreferenced image to deployment output.
 The logo remains a separate existing brand asset.
 
-Follow-up: [photography issue](https://github.com/ron-harifiyati/majestic-trunk/issues/1).
 
 ## Experiences catalogue update — 8 November 2026
 
@@ -57,7 +48,7 @@ experience listings. The five completed photo records are: sunset cruise
 (Shearwater), elephant sanctuary (Wild Horizons), The Boma (Victoria Falls Safari
 Collection), Vulture Culture (We Are Victoria Falls), and the interior of Tami
 Walker Fine Art Gallery (the gallery’s official website). Exact URLs, dimensions
-and permission status are in the media manifest. No public credit labels or credits
+are in the media manifest. No public credit labels or credits
 page were added.
 
 ## Expanded experiences catalogue — 8 November 2026
@@ -71,8 +62,7 @@ the Chinotimba image shows the local market rather than the operator's initial
 portrait image. The manifest records each exact image URL and source page.
 
 Sources are Victoria Falls Canoeing Company, Wild Horizons and its official
-Activitar catalogue, Shearwater Adventures and Shearwater Bungee. These remain
-local preview photographs with publication permission pending, as recorded in
+Activitar catalogue, Shearwater Adventures and Shearwater Bungee. Exact source URLs are recorded in
 the manifest. No public image-credit labels or credits page were introduced.
 
 The accompanying activity information was checked against those operator pages.
@@ -97,8 +87,8 @@ linked by those sites: Ilala Lodge Hotel, Shongwe Lookout, Mbano Manor Hotel,
 Elephant Hills Resort, Shearwater Explorers Village, Pamarah Lodge, N1 Hotel &
 Campsite Victoria Falls, and Lokuthula Lodges. Each photograph was visually
 inspected before use; no logos, promotion graphics or unrelated destination
-photos were used as property images. Exact image and source-page URLs, sizes
-and preview-only permission status are recorded in the media manifest.
+photos were used as property images. Exact image and source-page URLs and sizes
+are recorded in the media manifest.
 
 The corresponding property guides reference official accommodation information
 and describe room layouts, meals and transport separately. Self-catering and
@@ -113,7 +103,7 @@ Anantara Stanley & Livingstone, Mpala Jena, The Elephant Camp, The Wallow Lodge,
 Bayete Guest Lodge, Victoria Falls Safari Club and Victoria Falls Safari Suites.
 Every new guide has a distinct photograph from its official property website,
 operator or representative's image CDN. The images were visually inspected;
-exact URLs and publication-permission status remain in the media manifest.
+exact URLs remain in the media manifest.
 
 Stanley & Livingstone uses its current Anantara name and current hotel source.
 Mpala Jena's main camp and private villas are distinguished in its guide.
@@ -133,7 +123,7 @@ instead of the very narrow header crops on its individual restaurant pages.
 
 The Eat & Drink hero shows Baines Restaurant's riverfront deck, separate from the
 landscape heroes elsewhere. Its provenance and that of all new venue photos is
-recorded in the media manifest, with publication permission pending. No public
+recorded in the media manifest. No public
 image-credit labels or credits page were added. Malonga and the Boat Club remain
 in the research backlog pending usable direct sources. The Boma, Simunye and
 dinner cruises remain experience guides, linked from the dining page.
@@ -142,8 +132,8 @@ dinner cruises remain experience guides, linked from the dining page.
 
 The Travel Guide uses a distinct rainforest-framed Falls photograph from the
 official Wild Horizons guided-tour page. The downloaded photograph was inspected
-and resized into full and small variants. Source URL, dimensions and preview-only
-permission status are recorded under `travel-guide-hero` in the media manifest.
+and resized into full and small variants. Source URL and dimensions
+are recorded under `travel-guide-hero` in the media manifest.
 The page explains its role as a planning guide, retains existing section anchors,
 and links to activity, accommodation and dining guides. The suggested itinerary
 is editorial guidance, with water-level information referenced to Zambia Tourism

@@ -5,7 +5,7 @@
  if(!carousel)return;
  const viewport=carousel.querySelector('[data-carousel-viewport]');
  const track=carousel.querySelector('[data-carousel-track]');
- const grid=document.querySelector('[data-home-experience-grid]');
+ const grid=document.querySelector('[data-home-experience-grid]') || document.querySelector('[data-dining-evening-grid]');
  const status=carousel.querySelector('[data-carousel-status]');
  const media=window.matchMedia('(max-width:1180px), (max-width:1366px) and (pointer:coarse)');
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -45,7 +45,7 @@
   const index=nearest();paint(index);
   if(index<count||index>=count*2){
    const focused=slides[index].contains(document.activeElement)?document.activeElement:null;
-   const selector=focused?.matches('[data-trip-add]')?'[data-trip-add]':'.experience-carousel-details';
+   const selector='.experience-carousel-link';
    jump(count+logical);
    if(focused)slides[count+logical].querySelector(selector).focus({preventScroll:true});
   }
@@ -55,7 +55,7 @@
  }
  function go(index){
   if(!enabled)return;
-  if(viewport.contains(document.activeElement))focusAfterMove=document.activeElement.matches('[data-trip-add]')?'[data-trip-add]':'.experience-carousel-details';
+  if(viewport.contains(document.activeElement))focusAfterMove='.experience-carousel-link';
   const target=Math.max(0,Math.min(slides.length-1,index));
   viewport.scrollTo({left:centre(target),behavior:reduced.matches?'instant':'smooth'});
   clearTimeout(timer);timer=setTimeout(settle,reduced.matches?0:180);

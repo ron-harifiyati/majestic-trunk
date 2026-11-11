@@ -30,7 +30,7 @@ Requires Node 18+ (generator) and Python 3 (local server).
 ```bash
 node build.js                                   # generate dist/ from src/
 npm test                                        # filters + generated routes/links/assets
-python3 -m http.server 8090 --directory dist    # serve it → http://localhost:8090
+npm run serve                                  # preview, including custom 404 → http://localhost:8090
 ```
 
 ---
@@ -67,7 +67,7 @@ majestic-trunk/
 │  │  ├─ experiences.json   #   the 26 experiences (one object each)
 │  │  ├─ lodges.json        #   the 13 hotels and lodges
 │  │  ├─ dining.json        #   18 source-checked dining and drinks venues
-│  │  └─ media.json         #   photo sources, credits and permission status
+│  │  └─ media.json         #   photo sources, credits and dimensions
 │  ├─ partials/
 │  │  ├─ base.html          #   page shell (<head> + header/footer slots)
 │  │  ├─ header.html        #   the one shared header
@@ -85,7 +85,7 @@ majestic-trunk/
 │  │  ├─ dining.js          #   flat dining catalogue filters
 │  │  ├─ stays.js           #   flat accommodation catalogue filters
 │  │  └─ experiences.js     #   flat experience catalogue filters
-│  └─ assets/img/           #   images (placeholders, pending rights clearance)
+│  └─ assets/img/           #   local image assets
 ├─ dist/                    # generated output (gitignored) — this is what deploys
 ├─ docs/                    # plan, image audit, booking notes
 └─ design-mockups/          # throwaway visual explorations (reference only)
@@ -125,7 +125,7 @@ pass; visual browser verification remains outstanding because computer-use acces
 was unavailable in the development session.
 
 Outstanding launch work is tracked in [GitHub issues](https://github.com/ron-harifiyati/majestic-trunk/issues),
-including rights-cleared photography, verified contacts, product-specific Activitar
+including verified contacts, product-specific Activitar
 links, production privacy content, image optimization and deployment checks.
 
 ## Directories and photography
@@ -155,10 +155,8 @@ verification and are deliberately excluded from public listings. The Boma remain
 a single experience entry linked from Eat & Drink. Airport services belong in the
 travel guide, separate from town restaurants.
 
-The image manifest is `src/data/media.json`. New destination photographs have
-Creative Commons attribution; official venue photographs are local design-preview
-assets pending publication permission. Do not treat source attribution as a licence.
-See `docs/photography-sources.md`. The generator copies only referenced media and
+The image manifest is `src/data/media.json`. It records image files, dimensions,
+source URLs and credits. The generator copies only referenced media and
 excludes the older watermarked, stock-preview and wrong-location images.
 
 ## Clean URLs
@@ -189,3 +187,5 @@ Pages has no server functions. Its build uses `ENQUIRY_MODE=email`: the form pre
 the complete enquiry and offers an email-app link and copy action. It does not claim
 to have sent an email. Direct website sending needs the function-capable hosting
 described in [enquiry setup](docs/enquiry-setup.md).
+
+The local preview server in `scripts/serve.py` serves `dist/404.html` with HTTP 404 for unknown paths, including nested paths. Run `npm run serve` rather than the generic Python server to test that behaviour.

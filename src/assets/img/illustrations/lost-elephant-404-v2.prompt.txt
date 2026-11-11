@@ -1,0 +1,6 @@
+Tool: built-in image editing
+Reference: lost-elephant-404.png
+Source: lost-elephant-404-v2.png
+Website asset: lost-elephant-404-v2.webp (format conversion only; transparency retained)
+
+Edit the referenced transparent illustration. Change ONLY the position of the existing golden sun and its short rays: move that complete sun element a little to the right (approximately 5% of the canvas width) and slightly upward (approximately 2% of canvas height). Keep its size, colour and hand-drawn style unchanged and keep all rays inside the canvas. Preserve the elephant exactly: same pose, head tilt, expression, trunk, ears, tusks, body, outlines, olive shading, position, scale and ground line. The sun must stay behind the elephant, with the elephant naturally occluding it. Preserve the original square framing and genuine transparent background. Do not add text, objects or decoration. No other changes.

@@ -4,12 +4,12 @@ function fixture(mobile=true){
  function node(){return {hidden:false,attrs:{},style:{},listeners:{},dataset:{},classes:new Set(),setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,fn){this.listeners[k]=fn;},focus(){document.activeElement=this;},matches(selector){return selector==='[data-trip-add]'&&this.isTrip;}};}
  const track={children:[],append(slide){this.children.push(slide);},prepend(slide){this.children.unshift(slide);}};
  function slide(index){
-  const item=node(),link=node(),button=node();button.isTrip=true;button.textContent='Added ✓';
+  const item=node(),link=node();
   item.dataset={carouselIndex:index,carouselTitle:'Experience '+index};item.offsetWidth=200;
   Object.defineProperty(item,'offsetLeft',{get(){return 50+track.children.indexOf(item)*216;}});
   item.classList={toggle(name,state){if(state)item.classes.add(name);else item.classes.delete(name);}};
-  item.controls=[link,button];item.cloneNode=()=>slide(index);
-  item.querySelectorAll=()=>item.controls;item.querySelector=selector=>selector==='[data-trip-add]'?button:link;
+  item.controls=[link];item.cloneNode=()=>slide(index);
+  item.querySelectorAll=()=>item.controls;item.querySelector=()=>link;
   item.contains=target=>item.controls.includes(target);
   return item;
  }
@@ -26,7 +26,7 @@ test('tablet carousel starts centred with one detailed, keyboard-accessible slid
  const f=fixture();assert.equal(f.carousel.hidden,false);assert.equal(f.grid.hidden,true);assert.equal(f.track.children.length,21);assert.equal(f.active().dataset.carouselIndex,0);assert.equal(f.status.textContent,'1 / 7');
  assert.equal(f.track.children.filter(s=>s.attrs['aria-hidden']==='false').length,1);
  for(const s of f.track.children)for(const control of s.controls)assert.equal(control.tabIndex,s===f.active()?0:-1);
- assert.equal(f.active().controls[1].textContent,'Added ✓');
+ assert.equal(f.active().controls.length,1);
 });
 test('carousel loops in both directions without a blank or duplicate focused slide',()=>{
  const f=fixture();f.click(f.previous);assert.equal(f.active().dataset.carouselIndex,6);assert.equal(f.track.children.indexOf(f.active()),13);

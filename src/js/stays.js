@@ -12,6 +12,15 @@
   var results = catalogue.querySelector('[data-stay-results]');
   var empty = catalogue.querySelector('[data-stay-empty]');
   var resets = Array.from(catalogue.querySelectorAll('[data-clear-stays]'));
+  var quickSettings = catalogue.querySelector('[data-stay-quick-settings]');
+  var settingButtons = Array.from(catalogue.querySelectorAll('[data-stay-setting]'));
+  quickSettings.hidden = false;
+  settingButtons.forEach(function (button) {
+    button.addEventListener('click',function () {
+      controls[0].element.value = button.getAttribute('data-stay-setting');
+      render(); save();
+    });
+  });
   function close() {
     filters.hidden = true;
     toggle.setAttribute('aria-expanded','false');
@@ -37,6 +46,9 @@
     });
     results.textContent = count === cards.length ? count + ' places to stay' : count + ' of ' + cards.length + ' places to stay';
     empty.hidden = count !== 0;
+    settingButtons.forEach(function (button) {
+      button.setAttribute('aria-pressed',button.getAttribute('data-stay-setting') === controls[0].element.value ? 'true' : 'false');
+    });
     var active = controls.some(function (control) { return control.element.value !== 'all'; });
     resets.forEach(function (button) { button.hidden = !active; });
   }
@@ -67,7 +79,8 @@
     button.addEventListener('click',function () {
       controls.forEach(function (control) { control.element.value = 'all'; });
       render(); save();
-      if (filters.hidden) toggle.focus(); else controls[0].element.focus();
+      if (filters.hidden) toggle.focus();
+      else controls[window.matchMedia('(min-width: 601px)').matches ? 0 : 1].element.focus();
     });
   });
   window.addEventListener('popstate',restore); restore();

@@ -47,3 +47,7 @@ dist/
 .dev.vars
 .dev.vars.*
 .wrangler/
+
+# Python local preview/test cache
+__pycache__/
+*.py[cod]

@@ -6,18 +6,20 @@ const source=fs.readFileSync('src/js/stays.js','utf8');
 function node(attrs={}) {
  return {attrs,hidden:false,listeners:{},getAttribute(k){return this.attrs[k]??null;},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,f){this.listeners[k]=f;},focus(){this.focused=true;},fire(k){this.listeners[k]({});}};
 }
-function fixture(initial='') {
+function fixture(initial='',wide=true) {
  const data=JSON.parse(fs.readFileSync('src/data/lodges.json','utf8'));
  const cards=data.map(e=>Object.assign(node({'data-setting':e.group,'data-type':e.propertyType,'data-tags':e.tags.join(' ')}),{slug:e.slug}));
  const controls=Object.fromEntries(Object.entries({setting:['town-gardens','riverfront','safari'],type:['hotel','resort','lodge','villa'],preference:['adults-only','family-rooms','spa','accessible-rooms','safari-activities','self-catering','camping']}).map(([key,values])=>[key,Object.assign(node(),{value:'all',options:['all',...values].map(value=>({value}))})]));
+ const quickSettings=node();
+ const settingButtons=controls.setting.options.map(o=>node({'data-stay-setting':o.value}));
  const filters=node(),toggle=node(),results=node(),empty=node(),reset=node(),emptyReset=node();
- const selectors={'[data-catalogue-filters]':filters,'[data-toggle-stays]':toggle,'[data-stay-results]':results,'[data-stay-empty]':empty};
+ const selectors={'[data-stay-quick-settings]':quickSettings,'[data-catalogue-filters]':filters,'[data-toggle-stays]':toggle,'[data-stay-results]':results,'[data-stay-empty]':empty};
  for(const [key,control] of Object.entries(controls))selectors[`[data-${key}-filter]`]=control;
- const catalogue={querySelector(s){return selectors[s];},querySelectorAll(s){return s==='[data-stay]'?cards:[reset,emptyReset];}};
+ const catalogue={querySelector(s){return selectors[s];},querySelectorAll(s){return s==='[data-stay]'?cards:s==='[data-stay-setting]'?settingButtons:[reset,emptyReset];}};
  let url=new URL('https://example.test/stay/'+initial);const handlers={};
- const window={get location(){return url;},history:{pushState(_a,_b,next){url=new URL(next,url);}},addEventListener(k,f){handlers[k]=f;}};
+ const window={matchMedia(){return {matches:wide};},get location(){return url;},history:{pushState(_a,_b,next){url=new URL(next,url);}},addEventListener(k,f){handlers[k]=f;}};
  vm.runInNewContext(source,{document:{querySelector(s){return s==='[data-stay-directory]'?catalogue:null;}},window,URL,URLSearchParams});
- return {data,cards,controls,filters,toggle,results,empty,reset,emptyReset,window,
+ return {data,cards,settingButtons,quickSettings,controls,filters,toggle,results,empty,reset,emptyReset,window,
   choose(key,value){controls[key].value=value;controls[key].fire('change');},
   visible(){return cards.filter(c=>!c.hidden).map(c=>c.slug);},
   restore(next){url=new URL(next,url);handlers.popstate();}
@@ -56,4 +58,23 @@ test('expanded stays include distinct self-catering and camping choices',()=>{
  f.choose('type','lodge');f.choose('setting','safari');assert.deepEqual(f.visible(),['lokuthula-lodges']);
  f.reset.fire('click');f.choose('preference','camping');assert.deepEqual(f.visible(),['shearwater-explorers-village','n1-hotel']);
  f.choose('type','hotel');assert.deepEqual(f.visible(),['n1-hotel']);
+});
+
+test('mobile setting chips combine with preferences and sync with navigation and reset',()=>{
+ const f=fixture('?preference=family-rooms',false);
+ f.choose('type','hotel');
+ const river=f.settingButtons.find(b=>b.attrs['data-stay-setting']==='riverfront');
+ river.fire('click');
+ assert.equal(f.filters.hidden,true);
+ assert.equal(f.quickSettings.hidden,false);
+ assert.deepEqual(f.visible(),['palm-river-hotel']);
+ assert.equal(river.attrs['aria-pressed'],'true');
+ assert.equal(f.controls.setting.value,'riverfront');
+ f.restore('/stay/?group=safari');
+ assert.equal(river.attrs['aria-pressed'],'false');
+ assert.equal(f.settingButtons.find(b=>b.attrs['data-stay-setting']==='safari').attrs['aria-pressed'],'true');
+ f.toggle.fire('click'); f.reset.fire('click');
+ assert.equal(f.controls.type.focused,true);
+ assert.equal(f.settingButtons[0].attrs['aria-pressed'],'true');
+ assert.equal(f.visible().length,f.data.length);
 });

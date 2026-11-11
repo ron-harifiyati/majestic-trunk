@@ -49,7 +49,7 @@ test('email endpoint uses verified sender, visitor Reply-To, authoritative catal
 });
 
 function node(extra={}){return Object.assign({hidden:false,dataset:{},value:'',listeners:{},attrs:{},textContent:'',innerHTML:'',classList:{add(){},remove(){}},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,fn){this.listeners[k]=fn;},focus(){this.focused=true;},closest(){return null;},append(){},setCustomValidity(value){this.validityMessage=value;}},extra);}
-function fixture({stored='[]',search='',withForm=false,withPlanner=false,emailMode='api',fetch=async()=>Response.json({error:'Online sending isn’t connected yet.'},{status:503})}={}){
+function fixture({stored='[]',search='',withForm=false,withPlanner=false,emailMode='api',clipboardFails=false,fetch=async()=>Response.json({error:'Online sending isn’t connected yet.'},{status:503})}={}){
  const entries=catalogue.map(e=>({...e,photo:'/photo.jpg',alt:'Photo',category:e.type,group:e.type,groupLabel:e.type,location:'Victoria Falls'}));
  let saved=stored;const storage={getItem(){return saved;},setItem(_key,value){saved=value;}};
  const buttons=entries.map(e=>node({dataset:{tripAdd:e.id}})),counter=node(),selection=node(),main=node(),handlers={};
@@ -61,8 +61,8 @@ function fixture({stored='[]',search='',withForm=false,withPlanner=false,emailMo
  const planner=withPlanner?{querySelectorAll(s){return s==='[data-trip-option]'?cards:tabs;},querySelector(s){return {'[data-trip-results]':results,'[data-trip-empty]':empty,'[data-trip-reset]':reset}[s];}}:null;
  const document={body:node(),createElement(){return node();},addEventListener(k,f){handlers[k]=f;},querySelectorAll(s){return {'[data-trip-add]':buttons,'[data-trip-count]':[counter],'[data-trip-selection]':[selection]}[s]||[];},querySelector(s){return {main,'[data-trip-planner]':planner,'[data-enquiry-fallback]':fallback,'[data-enquiry-status]':status,'[data-enquiry-send]':send,'[data-enquiry-mail]':mail,'[data-enquiry-copy]':copy}[s];},getElementById(id){return {'trip-enquiry':form,'enquiry-interest':interest,'enquiry-preview':preview,'trip-search':searchNode,'trip-category':category}[id];}};
  const window={MajesticEmailMode:emailMode,MajesticTripCore:core,MajesticCatalogue:entries,localStorage:storage,location:new URL('https://majestictrunk.com/contact/'+search),addEventListener(k,fn){handlers[k]=fn;}};
- vm.runInNewContext(fs.readFileSync('src/js/trip.js','utf8'),{window,document,URLSearchParams,FormData:class{constructor(){return Object.entries(values);}},fetch,AbortSignal,navigator:{clipboard:{writeText:async()=>{}}}});
- return {buttons,counter,selection,fallback,status,preview,form,values,fields,send,cards,tabs,searchNode,category,results,empty,reset,interest,get saved(){return saved;},click(button){handlers.click({target:{closest(){return button;}}});},async submit(){await form.listeners.submit({preventDefault(){}});}};
+ vm.runInNewContext(fs.readFileSync('src/js/trip.js','utf8'),{window,document,URLSearchParams,FormData:class{constructor(){return Object.entries(values);}},fetch,AbortSignal,navigator:{clipboard:{writeText:async()=>{if(clipboardFails)throw new Error('Clipboard unavailable');}}}});
+ return {buttons,counter,selection,copy,fallback,status,preview,form,values,fields,send,cards,tabs,searchNode,category,results,empty,reset,interest,get saved(){return saved;},storageChange(ids){saved=JSON.stringify(ids);handlers.storage({key:core.key});},toggleGroup(type,open){handlers.toggle({target:{dataset:{tripSelectionGroup:type},open}});},click(button){handlers.click({target:{closest(){return button;}}});},async submit(){await form.listeners.submit({preventDefault(){}});}};
 }
 test('visitor can add, remove and restore choices, and contact interest merges without duplication',()=>{
  const f=fixture();f.click(f.buttons[0]);assert.equal(f.counter.textContent,1);assert.equal(f.buttons[0].attrs['aria-pressed'],'true');assert.match(f.selection.innerHTML,/Experiences/);
@@ -110,7 +110,41 @@ test('date picker excludes today and prevents manual past or current arrival sub
 
 test('GitHub Pages prepares a complete email enquiry without calling a server endpoint',async()=>{
  let calls=0;const f=fixture({withForm:true,emailMode:'email',stored:JSON.stringify(valid().selections),fetch:async()=>{calls++;throw new Error('No backend');}});
- assert.equal(f.send.textContent,'Prepare email enquiry ↗');await f.submit();
+ assert.equal(f.send.textContent,'Prepare email enquiry');await f.submit();
  assert.equal(calls,0);assert.equal(f.fallback.hidden,false);
  assert.match(f.status.textContent,/enquiry is ready/);assert.match(f.preview.value,/Palm River Hotel/);
+});
+
+test('large shortlists retain every choice and preserve collapsed groups while adding items',()=>{
+ const f=fixture({stored:JSON.stringify(catalogue.map(e=>e.id))});
+ assert.equal(f.counter.textContent,catalogue.length);
+ assert.equal((f.selection.innerHTML.match(/data-trip-remove=/g)||[]).length,catalogue.length);
+ assert.equal((f.selection.innerHTML.match(/<details /g)||[]).length,3);
+ f.toggleGroup('stay',false);
+ f.click(f.buttons[0]);
+ assert.match(f.selection.innerHTML,/<details class="trip-selection-group" data-trip-selection-group="stay">/);
+ assert.equal(f.counter.textContent,catalogue.length-1);
+ assert.equal((f.selection.innerHTML.match(/data-trip-remove=/g)||[]).length,catalogue.length-1);
+});
+
+test('prepared enquiry stays in sync when selections change in another tab',async()=>{
+ const f=fixture({withForm:true,emailMode:'email',stored:JSON.stringify(valid().selections)});
+ await f.submit();
+ assert.match(f.preview.value,/Palm River Hotel/);
+ f.storageChange([]);
+ assert.equal(f.counter.textContent,0);
+ assert.ok(!f.preview.value.includes('Palm River Hotel'));
+ assert.match(f.preview.value,/Sarah/);
+});
+
+test('clipboard failure expands the complete enquiry before focusing it',async()=>{
+ const f=fixture({withForm:true,emailMode:'email',clipboardFails:true});
+ const disclosure={open:false};let selected=false;
+ f.preview.closest=()=>disclosure;
+ f.preview.select=()=>{selected=true;};
+ await f.submit();await f.copy.listeners.click();
+ assert.equal(disclosure.open,true);
+ assert.equal(f.preview.focused,true);
+ assert.equal(selected,true);
+ assert.match(f.status.textContent,/Select and copy/);
 });

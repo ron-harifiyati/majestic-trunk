@@ -13,12 +13,21 @@
   var filters = catalogue.querySelector('[data-catalogue-filters]');
   var toggle = catalogue.querySelector('[data-toggle-experiences]');
   var resetButtons = Array.from(catalogue.querySelectorAll('[data-clear-experiences]'));
+  var quickCategories = catalogue.querySelector('[data-experience-quick-categories]');
+  var categoryButtons = Array.from(catalogue.querySelectorAll('[data-experience-category]'));
   var validCategories = Array.from(category.options).map(function (o) { return o.value; });
   var validLocations = Array.from(location.options).map(function (o) { return o.value; });
   var validTimes = Array.from(time.options).map(function (o) { return o.value; });
   filters.hidden = true;
   toggle.hidden = false;
   toggle.setAttribute('aria-expanded', 'false');
+  quickCategories.hidden = false;
+  categoryButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      category.value = button.getAttribute('data-experience-category');
+      render(); save();
+    });
+  });
   toggle.addEventListener('click',function () {
     filters.hidden = !filters.hidden;
     toggle.setAttribute('aria-expanded', filters.hidden ? 'false' : 'true');
@@ -40,6 +49,9 @@
     });
     results.textContent = count === cards.length ? count + ' experiences' : count + ' of ' + cards.length + ' experiences';
     empty.hidden = count !== 0;
+    categoryButtons.forEach(function (button) {
+      button.setAttribute('aria-pressed', button.getAttribute('data-experience-category') === category.value ? 'true' : 'false');
+    });
     var active = false;
     [location,time,category].forEach(function (control) {
       var selected = control.value !== 'all';
@@ -76,7 +88,8 @@
       category.value = 'all'; location.value = 'all'; time.value = 'all'; render(); save();
       // Clearing also hides the reset button; keep focus on a visible control.
       if (filters.hidden) toggle.focus();
-      else category.focus();
+      else if (window.matchMedia('(min-width: 601px)').matches) category.focus();
+      else location.focus();
     });
   });
   window.addEventListener('popstate',restore);

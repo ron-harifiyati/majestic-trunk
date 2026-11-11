@@ -1,43 +1,39 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-cols">
-      <div>
-        <div class="footer-brand">Majestic Trunk</div>
-        <p>Victoria Falls tours, activity bookings, accommodation arrangements and personal trip planning.</p>
+      <div class="footer-identity">
+        <a class="footer-brand" href="/" aria-label="Majestic Trunk Expeditions — home"><span>Majestic Trunk</span><span class="footer-brand-subtitle">Expeditions</span></a>
+        <p>Activities, stays and personal trip planning in Victoria Falls.</p>
       </div>
-      <div>
-        <h4>Experiences</h4>
+      <nav aria-labelledby="footer-explore-heading">
+        <h2 class="footer-heading" id="footer-explore-heading">Explore</h2>
         <ul>
-          <li><a href="/experiences/sunset-cruise/">Sunset Cruise</a></li>
-          <li><a href="/experiences/game-drives/">Game Drives</a></li>
-          <li><a href="/experiences/white-water-rafting/">Rafting</a></li>
-          <li><a href="/experiences/">All experiences</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Where to Stay</h4>
-        <ul>
-          <li><a href="/stay/old-drift-lodge/">Old Drift Lodge</a></li>
-          <li><a href="/stay/palm-river-hotel/">Palm River Hotel</a></li>
-          <li><a href="/stay/">All lodges</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>Victoria Falls, Zimbabwe</li>
-          <li><a href="/contact/">Request a trip quote</a></li>
-          <li><a href="{{activitarUrl}}">Plan your trip ↗</a></li>
-          <li><a href="/travel-guide/">Travel guide</a></li>
-          <li><a href="/gallery/">Photo gallery</a></li>
+          <li><a href="/experiences/">Experiences</a></li>
+          <li><a href="/stay/">Places to stay</a></li>
           <li><a href="/eat-drink/">Eat &amp; Drink</a></li>
-          <li><a href="/about/">About Majestic Trunk</a></li>
+          <li><a href="/gallery/">Photo gallery</a></li>
         </ul>
+      </nav>
+      <nav aria-labelledby="footer-plan-heading">
+        <h2 class="footer-heading" id="footer-plan-heading">Plan your visit</h2>
+        <ul>
+          <li><a href="/travel-guide/">Travel guide</a></li>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h2 class="footer-heading">Get in touch</h2>
+        <address>
+          <span class="footer-contact-row"><svg class="footer-contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>{{location}}</span></span>
+          <a class="footer-email footer-contact-row" href="mailto:{{enquiryEmail}}"><svg class="footer-contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>{{enquiryEmail}}</span></a>
+          <a class="footer-phone footer-contact-row" href="tel:{{phone}}"><svg class="footer-contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3h3l2 5-2.5 1.5a15 15 0 0 0 6 6L16 13l5 2v3c0 1.7-1.3 3-3 3C9.7 21 3 14.3 3 6c0-1.7 1.3-3 3-3Z"/></svg><span>{{phoneDisplay}}</span></a>
+        </address>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>Majestic Trunk Expeditions &copy; {{year}}</span>
-      <span><a href="/privacy/">Privacy</a> · Victoria Falls, Zimbabwe</span>
+      <span>&copy; {{year}} Majestic Trunk Expeditions</span>
+      <a href="/privacy/">Privacy</a>
     </div>
   </div>
 </footer>

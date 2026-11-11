@@ -16,6 +16,9 @@
   --olive:#6B7350;
   --olive-d:#566044;
   --gold:#C8860A;
+  --link:#9D533F;
+  --link-hover:#83432F;
+  --link-on-dark:#F4D3AA;
 
   /* ---- typography ---- */
   --font-display:'Fraunces',Georgia,serif;

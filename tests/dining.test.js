@@ -6,18 +6,20 @@ const source=fs.readFileSync('src/js/dining.js','utf8');
 function node(attrs={}) {
  return {attrs,hidden:false,listeners:{},getAttribute(k){return this.attrs[k]??null;},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,f){this.listeners[k]=f;},focus(){this.focused=true;},fire(k){this.listeners[k]({});}};
 }
-function fixture(initial='') {
+function fixture(initial='',wide=true) {
  const data=JSON.parse(fs.readFileSync('src/data/dining.json','utf8'));
  const cards=data.map(e=>Object.assign(node({'data-category':e.group,'data-meals':e.meals.join(' '),'data-tags':e.tags.join(' ')}),{slug:e.slug}));
  const controls=Object.fromEntries(Object.entries({category:['with-a-view','casual','evenings'],meal:['breakfast','coffee','lunch','dinner','tea','drinks'],preference:['views','high-tea','local-food','craft-drinks','hotel-dining','live-music']}).map(([key,values])=>[key,Object.assign(node(),{value:'all',options:['all',...values].map(value=>({value}))})]));
+ const quickCategories=node();
+ const categoryButtons=controls.category.options.map(o=>node({'data-dining-category':o.value}));
  const filters=node(),toggle=node(),results=node(),empty=node(),reset=node(),emptyReset=node();
- const selectors={'[data-catalogue-filters]':filters,'[data-toggle-dining]':toggle,'[data-dining-results]':results,'[data-dining-empty]':empty};
+ const selectors={'[data-dining-quick-categories]':quickCategories,'[data-catalogue-filters]':filters,'[data-toggle-dining]':toggle,'[data-dining-results]':results,'[data-dining-empty]':empty};
  for(const [key,control] of Object.entries(controls))selectors[`[data-${key}-filter]`]=control;
- const catalogue={querySelector(s){return selectors[s];},querySelectorAll(s){return s==='[data-dining]'?cards:[reset,emptyReset];}};
+ const catalogue={querySelector(s){return selectors[s];},querySelectorAll(s){return s==='[data-dining]'?cards:s==='[data-dining-category]'?categoryButtons:[reset,emptyReset];}};
  let url=new URL('https://example.test/eat-drink/'+initial);const handlers={};
- const window={get location(){return url;},history:{pushState(_a,_b,next){url=new URL(next,url);}},addEventListener(k,f){handlers[k]=f;}};
+ const window={matchMedia(){return {matches:wide};},get location(){return url;},history:{pushState(_a,_b,next){url=new URL(next,url);}},addEventListener(k,f){handlers[k]=f;}};
  vm.runInNewContext(source,{document:{querySelector(s){return s==='[data-dining-directory]'?catalogue:null;}},window,URL,URLSearchParams});
- return {data,cards,controls,filters,toggle,results,empty,reset,emptyReset,window,
+ return {data,cards,categoryButtons,quickCategories,controls,filters,toggle,results,empty,reset,emptyReset,window,
   choose(key,value){controls[key].value=value;controls[key].fire('change');},
   visible(){return cards.filter(c=>!c.hidden).map(c=>c.slug);},
   restore(next){url=new URL(next,url);handlers.popstate();}
@@ -46,4 +48,22 @@ test('legacy category and preference links, anchors and browser navigation work'
 });
 test('Escape preserves dining selections and a collapsed reset leaves focus visible',()=>{
  const f=fixture('?preference=high-tea');f.toggle.fire('click');f.filters.listeners.keydown({key:'Escape'});assert.equal(f.filters.hidden,true);assert.equal(f.toggle.attrs['aria-expanded'],'false');assert.deepEqual(f.visible(),['stanleys-terrace']);f.reset.fire('click');assert.equal(f.visible().length,f.data.length);assert.equal(f.toggle.focused,true);assert.equal(f.reset.hidden,true);
+});
+
+test('mobile dining chips combine with visit filters and sync with navigation and reset',()=>{
+ const f=fixture('?meal=drinks&preference=craft-drinks',false);
+ const evenings=f.categoryButtons.find(b=>b.attrs['data-dining-category']==='evenings');
+ evenings.fire('click');
+ assert.equal(f.filters.hidden,true);
+ assert.equal(f.quickCategories.hidden,false);
+ assert.deepEqual(f.visible(),['river-smokehouse','victoria-falls-distillery']);
+ assert.equal(evenings.attrs['aria-pressed'],'true');
+ assert.equal(f.controls.category.value,'evenings');
+ f.restore('/eat-drink/?group=casual');
+ assert.equal(evenings.attrs['aria-pressed'],'false');
+ assert.equal(f.categoryButtons.find(b=>b.attrs['data-dining-category']==='casual').attrs['aria-pressed'],'true');
+ f.toggle.fire('click'); f.reset.fire('click');
+ assert.equal(f.controls.meal.focused,true);
+ assert.equal(f.categoryButtons[0].attrs['aria-pressed'],'true');
+ assert.equal(f.visible().length,f.data.length);
 });

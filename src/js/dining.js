@@ -12,6 +12,15 @@
   var results = catalogue.querySelector('[data-dining-results]');
   var empty = catalogue.querySelector('[data-dining-empty]');
   var resets = Array.from(catalogue.querySelectorAll('[data-clear-dining]'));
+  var quickCategories = catalogue.querySelector('[data-dining-quick-categories]');
+  var categoryButtons = Array.from(catalogue.querySelectorAll('[data-dining-category]'));
+  quickCategories.hidden = false;
+  categoryButtons.forEach(function (button) {
+    button.addEventListener('click',function () {
+      controls[0].element.value = button.getAttribute('data-dining-category');
+      render(); save();
+    });
+  });
   function close() {
     filters.hidden = true;
     toggle.setAttribute('aria-expanded','false');
@@ -38,6 +47,9 @@
     });
     results.textContent = count === cards.length ? count + ' places to eat & drink' : count + ' of ' + cards.length + ' places to eat & drink';
     empty.hidden = count !== 0;
+    categoryButtons.forEach(function (button) {
+      button.setAttribute('aria-pressed',button.getAttribute('data-dining-category') === controls[0].element.value ? 'true' : 'false');
+    });
     var active = controls.some(function (control) { return control.element.value !== 'all'; });
     resets.forEach(function (button) { button.hidden = !active; });
   }
@@ -68,7 +80,8 @@
     button.addEventListener('click',function () {
       controls.forEach(function (control) { control.element.value = 'all'; });
       render(); save();
-      if (filters.hidden) toggle.focus(); else controls[0].element.focus();
+      if (filters.hidden) toggle.focus();
+      else controls[window.matchMedia('(min-width: 601px)').matches ? 0 : 1].element.focus();
     });
   });
   window.addEventListener('popstate',restore); restore();

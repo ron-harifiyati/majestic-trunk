@@ -6,8 +6,8 @@ const {execFileSync}=require('node:child_process');
 execFileSync(process.execPath,['build.js']);
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 const htmlFiles=walk('dist').filter(f=>f.endsWith('.html'));
-const pages=htmlFiles.filter(f=>!fs.readFileSync(f,'utf8').includes('data-legacy-redirect'));
-const legacyPages=htmlFiles.filter(f=>!pages.includes(f));
+const pages=htmlFiles.filter(f=>path.basename(f)!=='404.html'&&!fs.readFileSync(f,'utf8').includes('data-legacy-redirect'));
+const legacyPages=htmlFiles.filter(f=>fs.readFileSync(f,'utf8').includes('data-legacy-redirect'));
 const entities=s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
 test('all records produce routes and category counts match content',()=>{
  const expected=10+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
@@ -65,7 +65,8 @@ test('Experiences uses a distinct hero, three dropdowns and a photo for every li
  assert.equal((index.match(/<select\b/g)||[]).length,3);
  assert.ok(index.indexOf('id="experience-location"')<index.indexOf('id="experience-time"'));
  assert.ok(index.indexOf('id="experience-time"')<index.indexOf('id="experience-category"'));
- assert.ok(!index.includes('aria-label="Experience categories"'));
+ assert.ok(index.includes('aria-label="Experience categories"'));
+ assert.equal((index.match(/data-experience-category="/g)||[]).length,5);
  const cards=[...index.matchAll(/<article\b[^>]*data-experience\s[^>]*>[\s\S]*?<\/article>/g)];
  assert.equal(cards.length,JSON.parse(fs.readFileSync('src/data/experiences.json','utf8')).length);
  for(const match of cards)assert.match(match[0],/<figure><img /);
@@ -173,7 +174,7 @@ test('stay and dining detail actions keep the correct property or venue destinat
    const recommendations=[...html.matchAll(/<article class="card experience-related-card">([\s\S]*?)<\/article>/g)];
    assert.equal(recommendations.length,2);
    const destinations=recommendations.map(([,card])=>{
-    assert.ok(!card.includes('<p'),'Recommendations should remain compact');
+    assert.ok(!/<p(?:\s|>)/.test(card),'Recommendations should remain compact');
     const href=card.match(/href="([^\"]+)"/)[1];
     assert.notEqual(href,`/${route}/${entry.slug}/`);
     return href;
@@ -194,7 +195,8 @@ test('trip planner contains every listing and public booking links stay on the s
    assert.ok(detail.includes(`data-trip-add="${route}/${entry.slug}"`));
   }
   const index=fs.readFileSync(`dist/${route}/index.html`,'utf8');
-  assert.equal((index.match(/data-trip-add=/g)||[]).length,entries.length);
+  assert.equal((index.match(/data-trip-add=/g)||[]).length,0);
+  assert.ok(!index.includes('class="card-actions"'));
  }
  assert.equal((html.match(/data-trip-option=/g)||[]).length,count);
  for(const file of pages){
@@ -203,4 +205,28 @@ test('trip planner contains every listing and public booking links stay on the s
   assert.ok(!navigation.includes('activitar.com'),file);
  }
  assert.ok(!fs.readFileSync('dist/index.html','utf8').includes('activitar.com'));
+});
+
+test('404 provides working recovery links without indexing or redirecting an unknown URL',()=>{
+ const html=fs.readFileSync('dist/404.html','utf8');
+ assert.match(html,/name="robots" content="noindex, follow"/);
+ assert.ok(html.includes('class="site-header"'));
+ assert.ok(!html.includes('<footer'));
+ assert.ok(html.includes('nav-toggle'));
+ assert.ok(html.includes('src="/assets/js/nav.js"'));
+ const content=html.match(/<section class="not-found"[\s\S]*?<\/section>/)[0];
+ assert.equal((content.match(/class="btn /g)||[]).length,1);
+ assert.ok(!content.includes('not-found-links'));
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);
+ assert.ok(!html.includes('rel="canonical"'));
+ assert.ok(!html.includes('window.location.replace'));
+ assert.ok(!html.includes('{{'));
+ assert.ok(!fs.readFileSync('dist/sitemap.xml','utf8').includes('404'));
+ assert.ok(!fs.readFileSync('dist/_redirects','utf8').includes('404.html'));
+ for(const href of ['/','/experiences/','/plan-your-trip/'])assert.ok(html.includes(`href="${href}"`));
+ for(const match of html.matchAll(/\b(?:href|src)="(\/[^"]*)"/g)){
+  const url=new URL(match[1],'https://local.test/missing/nested/path/');
+  const target=path.join('dist',decodeURIComponent(url.pathname));
+  assert.ok(fs.existsSync(target),`Missing recovery link or asset: ${match[1]}`);
+ }
 });
