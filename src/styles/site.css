@@ -1259,7 +1259,8 @@ a:hover>.link-icon-arrow,a:focus-visible>.link-icon-arrow{transform:translate(1p
 .developer-secret{width:min(460px,calc(100% - 2rem));max-height:calc(100svh - 2rem);overflow-y:auto;margin:auto;padding:2.25rem;border:1px solid var(--line);border-radius:16px;background:var(--cream);color:var(--ink);box-shadow:0 24px 80px rgba(35,30,24,.2);text-align:left}
 .developer-secret[open]{animation:signature-arrive .22s ease-out}
 .developer-secret::backdrop{background:rgba(35,30,24,.38);backdrop-filter:blur(4px)}
-.developer-secret-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.developer-secret-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-right:1.5rem}
+.developer-secret-dismiss{position:absolute;right:.5rem;top:.5rem;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--muted);cursor:pointer}
 .developer-secret .label{font-size:.6rem;letter-spacing:.14em;color:var(--muted)}
 .developer-secret-sun{stroke:var(--gold);stroke-width:1.3;stroke-linecap:round;flex-shrink:0}
 .developer-secret h2{font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.15;letter-spacing:-.025em;margin:0 0 1rem}
