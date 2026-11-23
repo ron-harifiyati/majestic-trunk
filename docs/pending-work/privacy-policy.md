@@ -6,7 +6,7 @@ At the owner's request, the public notice now describes website delivery and ema
 
 The owner requested removing draft status and approved the following business details:
 - **Business name:** Majestic Trunk Expeditions; the owner confirms this is the business name. No separate business address was provided.
-- **Email:** similo@majestictrunk.com is the approved enquiry and privacy contact. The owner does not want the receiving mailbox provider named. Actual mailbox operation has not been independently tested.
+- **Email:** info@majestictrunk.com is the approved enquiry and privacy contact. The owner does not want the receiving mailbox provider named. Actual mailbox operation has not been independently tested.
 - **Provider sharing:** names, booking dates and traveller numbers. “Numbers” is interpreted as party size, not telephone numbers. This wording describes the owner's approved intended practice; it does not add automatic sharing to the website.
 - **Retention:** one month for routine correspondence. The page applies this after closing an enquiry, or after trip completion for bookings, with exceptions for required legal/accounting records and disputes. This avoids deleting live booking correspondence before a future trip.
 - **Additional information:** no passport, exact-age, allergy or health information is requested. The contact-form prompt requesting children's ages has been removed. The general message field remains, with instructions to leave sensitive information out.
@@ -39,7 +39,7 @@ The site has changed since this issue was first opened:
 
 ## Business answers received — 11 November 2026
 - Business name supplied by the owner: **Majestic Trunk Expeditions**. Registration status, any separate legal entity and the public business address have not been confirmed.
-- Planned public enquiry/privacy address: **similo@majestictrunk.com**. The owner confirms it is not operational yet and intends to activate it for launch. Do not describe it as currently monitored.
+- Planned public enquiry/privacy address: **info@majestictrunk.com**. The owner confirms it is not operational yet and intends to activate it for launch. Do not describe it as currently monitored.
 - Mailbox provider: not chosen or confirmed. This is the company operating the inbox, separate from the domain registrar, website host and any future form-sending service.
 - Initial enquiry access: the owner confirms they will be the only person reading and replying to enquiries at launch.
 - Marketing: the owner confirms customer details are used only to reply about the requested trip/services; no promotional messages or newsletters.
@@ -71,7 +71,7 @@ These are implementation facts, separate from the business practices that still 
 
 ### Business answers requested
 1. Public business address and confirmation of whether the supplied business name is also the registered legal entity.
-2. Mailbox provider and activation of the planned `similo@majestictrunk.com` inbox. The owner confirms it is not operational yet.
+2. Mailbox provider and activation of the planned `info@majestictrunk.com` inbox. The owner confirms it is not operational yet.
 3. When information is shared with travel providers and record-retention practices. Sole-owner access, two-factor authentication and reply-only use are confirmed.
 
 The public page template is populated for local review while these facts remain outstanding. It explicitly labels its draft status and inactive planned mailbox. No final policy or compliance sign-off is asserted.
@@ -83,7 +83,7 @@ Record approved public business facts in this issue; keep customer information, 
 - [ ] Confirm the legal entity name and its relationship to the trading name “Majestic Trunk Expeditions”.
 - [ ] Obtain the approved business/contact address and country of establishment.
 - [ ] Confirm the person or business role responsible for privacy enquiries.
-- [ ] Choose and test a monitored public privacy/contact email. The current address is `similo@majestictrunk.com`; the intended future domain may be `majestic-trunk.com`. Do not assume they are interchangeable.
+- [ ] Choose and test a monitored public privacy/contact email. The current address is `info@majestictrunk.com`; the intended future domain may be `majestic-trunk.com`. Do not assume they are interchangeable.
 - [ ] Confirm the final public website address and effective date.
 
 ### Real information-handling practices

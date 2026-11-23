@@ -4,7 +4,7 @@
  if(!core||!Array.isArray(catalogue))return;
  let storage;try{storage=window.localStorage;}catch{storage=null;}
  let selected=core.read(storage,catalogue);
- const recipient=window.MajesticEnquiryEmail||'similo@majestictrunk.com';
+ const recipient=window.MajesticEnquiryEmail||'info@majestictrunk.com';
  const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const live=document.createElement('p');live.className='sr-only';live.setAttribute('role','status');live.setAttribute('aria-live','polite');document.body.append(live);
  const storageNote=document.createElement('p');storageNote.className='trip-storage-note';storageNote.hidden=true;document.querySelector('main').append(storageNote);

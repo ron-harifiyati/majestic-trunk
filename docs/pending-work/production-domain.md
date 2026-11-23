@@ -1,6 +1,6 @@
 ## Problem
 The live preview is https://ron-harifiyati.github.io/majestic-trunk/.
-The generator defaults to `https://majestictrunk.com`, while the proposed purchased domain is `majestic-trunk.com`. The public enquiry email currently uses `similo@majestictrunk.com`. These are separate domains and must not be silently substituted.
+The generator defaults to `https://majestictrunk.com`, while the proposed purchased domain is `majestic-trunk.com`. The public enquiry email currently uses `info@majestictrunk.com`. These are separate domains and must not be silently substituted.
 
 ## Business decisions
 - [ ] Confirm the exact domain to buy/use, the preferred www/non-www form, account owner and production host.

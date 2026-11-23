@@ -18,7 +18,7 @@ interests and alternative stays do not reserve anything.
 ## Connect email
 
 1. Buy the intended domain and create a mailbox (for example
-   `similo@majestic-trunk.com`) with your chosen mailbox provider. The mailbox
+   `info@majestictrunk.com`) with your chosen mailbox provider. The mailbox
    receives enquiries and lets the team reply; the sending API is separate.
 2. Verify the sending domain in Resend using the DNS records it supplies. Keep
    the mailbox provider’s MX records. Follow the providers’ guidance for combining
@@ -31,7 +31,7 @@ interests and alternative stays do not reserve anything.
    - `RESEND_API_KEY`: a sending key from Resend.
    - `ENQUIRY_FROM`: a sender on the verified domain, e.g.
      `Majestic Trunk Expeditions <enquiries@majestic-trunk.com>`.
-   - `ENQUIRY_TO`: your receiving mailbox, e.g. `similo@majestic-trunk.com`.
+   - `ENQUIRY_TO`: your receiving mailbox, e.g. `info@majestictrunk.com`.
 5. Change `enquiryEmail` in `src/data/site.json` to the same public mailbox and rebuild.
    It controls the visible contact address, email-app fallback and copy instructions.
 6. Send a real test enquiry after deployment. Confirm inbox delivery, selected-item
