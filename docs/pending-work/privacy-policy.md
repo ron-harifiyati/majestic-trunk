@@ -1,3 +1,7 @@
+## Public wording refinement — 23 November 2026
+
+At the owner's request, the public notice now describes website delivery and email services by category rather than naming the hosting and font brands. It retains the description of technical information/IP addresses and potential processing outside Zimbabwe. The underlying service inventory below remains an internal record; these wording changes do not change the services actually used.
+
 ## Owner-approved policy update — 23 November 2026
 
 The owner requested removing draft status and approved the following business details:
