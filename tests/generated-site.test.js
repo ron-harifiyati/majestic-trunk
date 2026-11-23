@@ -10,7 +10,7 @@ const pages=htmlFiles.filter(f=>path.basename(f)!=='404.html'&&!fs.readFileSync(
 const legacyPages=htmlFiles.filter(f=>fs.readFileSync(f,'utf8').includes('data-legacy-redirect'));
 const entities=s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
 test('all records produce routes and category counts match content',()=>{
- const expected=10+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
+ const expected=9+['experiences','lodges','dining'].reduce((sum,name)=>sum+JSON.parse(fs.readFileSync(`src/data/${name}.json`)).length,0);
  assert.equal(pages.length,expected);
  for(const [dataFile,route] of [['experiences','experiences'],['lodges','stay'],['dining','eat-drink']]){
   const entries=JSON.parse(fs.readFileSync(`src/data/${dataFile}.json`));

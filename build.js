@@ -257,8 +257,6 @@ for (const [file,title,description] of [
   ['privacy.html','Privacy Policy — Majestic Trunk Expeditions','How Majestic Trunk Expeditions handles your information.'],
   ['travel-guide.html','Victoria Falls Travel Guide — Majestic Trunk','Seasonal water levels, a suggested three-night itinerary, dining ideas and practical planning.'],
 ]) write(file.replace(/\.html$/,'/index.html'),layout({title,description,content:fill(T(file),{activitarUrl:'/plan-your-trip/',enquiryEmail:esc(site.enquiryEmail),phone:esc(site.phone),phoneDisplay:esc(site.phoneDisplay),...(file==='travel-guide.html'?{guideHeroPhoto:photo('travel-guide-hero','Victoria Falls seen through the rainforest foliage',true,true)}:{})})}));
-const galleryIds=['home-hero','gorge-swing','zipline','simunye','old-drift-lodge','palm-river-hotel','shongwe-oasis','lookout-cafe','baines-restaurant','cassia-restaurant','river-smokehouse'];
-write('gallery/index.html',layout({title:'Gallery — Majestic Trunk Expeditions',description:'Victoria Falls landscapes, activities, accommodation and dining settings.',content:fill(T('gallery.html'),{galleryHtml:galleryIds.map(id=>`<figure><a href="/assets/img/${media[id].file}">${photo(id,id.replace(/-/g,' '))}</a><figcaption>${esc(id.replace(/-/g,' '))}</figcaption></figure>`).join('')})}));
 const notFoundContent=fill(T('404.html'),{developerName:esc(site.developerName),lostElephant:photo('lost-elephant-404','A puzzled elephant in front of a golden sun',true)});
 // Deploy only referenced images; retain source records in src/data/media.json.
 fs.cpSync(path.join(SRC,'assets/icons'),DIST,{recursive:true});

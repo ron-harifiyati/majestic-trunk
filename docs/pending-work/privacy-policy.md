@@ -1,3 +1,26 @@
+## Owner-approved policy update — 23 November 2026
+
+The owner requested removing draft status and approved the following business details:
+- **Business name:** Majestic Trunk Expeditions; the owner confirms this is the business name. No separate business address was provided.
+- **Email:** similo@majestictrunk.com is the approved enquiry and privacy contact. The owner does not want the receiving mailbox provider named. Actual mailbox operation has not been independently tested.
+- **Provider sharing:** names, booking dates and traveller numbers. “Numbers” is interpreted as party size, not telephone numbers. This wording describes the owner's approved intended practice; it does not add automatic sharing to the website.
+- **Retention:** one month for routine correspondence. The page applies this after closing an enquiry, or after trip completion for bookings, with exceptions for required legal/accounting records and disputes. This avoids deleting live booking correspondence before a future trip.
+- **Additional information:** no passport, exact-age, allergy or health information is requested. The contact-form prompt requesting children's ages has been removed. The general message field remains, with instructions to leave sensitive information out.
+- **Privacy requests:** through the approved email address.
+- **Access and marketing:** owner-only access, two-factor authentication and reply-only use, as previously confirmed.
+- **Public notice:** effective 23 November 2026; no draft badge or setup-checklist language. The receiving email provider is not named. Existing website/font services and potential overseas processing remain factually described.
+
+### Follow-up outside the page
+- Section 15(1)(a) of the Cyber and Data Protection Act requires controller name/address disclosure. The absence of a separate office does not establish an exception; obtain an appropriate correspondence-address arrangement or confirm the approach with POTRAZ. No address has been invented.
+- Verify that the approved mailbox receives messages and 2FA is configured; removing draft status is not proof of delivery or regulatory approval.
+- Apply the retention/deletion practice operationally, including email and relevant backups. The website does not automatically delete the owner's mailbox records.
+- Records subject to legal/accounting retention are not covered by the blanket one-month deletion period. ZIMRA's official record-keeping guidance describes a six-year minimum for applicable business transaction/accounting records: https://www.zimra.co.zw/domestic-taxes/corporate/record-keeping-explained
+- Confirm any licensing/DPO requirements separately; no appointed DPO or completed registration is asserted.
+
+The material below is historical working/reference material and must not be read as the current public policy.
+
+---
+
 Priority: P1 — complete before the final business launch
 
 ## Current position

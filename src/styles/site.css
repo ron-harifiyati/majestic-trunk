@@ -150,10 +150,10 @@ figcaption{color:var(--muted);font-size:.7rem;line-height:1.5;padding-top:.7rem}
 .contact-email{margin-top:1.5rem;overflow-wrap:anywhere}
 .note{font-size:.78rem!important;color:var(--muted)}
 .enquiry-interest{border-left:3px solid var(--gold);padding:.8rem 1rem;background:var(--cream);overflow-wrap:anywhere}
-.gallery-grid{columns:3;column-gap:1.5rem}
-.gallery-grid figure{break-inside:avoid;margin-bottom:2rem}
-.gallery-grid img{width:100%;border-radius:var(--radius)}
-.gallery-grid a{display:block}
+
+
+
+
 /* Footer */
 .site-footer{background:var(--ink);color:#d8cdba;padding-block:3.5rem 1.25rem}
 .footer-cols{display:grid;grid-template-columns:1.5fr .9fr 1fr 1.4fr;gap:2.5rem;margin-bottom:2.5rem}
@@ -184,7 +184,7 @@ figcaption{color:var(--muted);font-size:.7rem;line-height:1.5;padding-top:.7rem}
   .feature .split{gap:2.5rem}.feature .imgwrap img{height:460px}.feature h2{font-size:var(--fs-h2)}
   .detail-body{grid-template-columns:minmax(0,1fr)}.booking-aside{position:static;max-width:600px}
   .footer-cols{grid-template-columns:1fr 1fr}.guide-layout{grid-template-columns:1fr;gap:2.5rem}.guide-nav{position:static;padding-bottom:2rem;border-bottom:1px solid var(--line)}
-  .contact-layout{gap:2.5rem;grid-template-columns:1.3fr 1fr}.gallery-grid{columns:2}
+  .contact-layout{gap:2.5rem;grid-template-columns:1.3fr 1fr}
 }
 @media(max-width:600px){
   .header-note .wrap{font-size:.64rem}.header-note span{display:none}
@@ -205,7 +205,7 @@ figcaption{color:var(--muted);font-size:.7rem;line-height:1.5;padding-top:.7rem}
   .booking-aside{padding:1.5rem}.prose h2{font-size:2.25rem}.prose p{font-size:.92rem}
   .guide-layout{gap:2rem}.guide-layout .prose section+section{margin-top:3rem}.contact-aside{padding:1.5rem}
   .footer-cols{grid-template-columns:1fr 1fr;gap:2rem 1.3rem}.footer-cols>div:first-child{grid-column:1/-1}.footer-bottom{flex-direction:column}
-  .gallery-grid{columns:1}
+
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 /* Categorised directories: the same structure works with or without scripting. */
@@ -1287,9 +1287,6 @@ a:hover>.link-icon-arrow,a:focus-visible>.link-icon-arrow{transform:translate(1p
 .privacy-updated time{font-weight:500;color:var(--ink-soft)}
 .privacy-head>p{max-width:50ch;font-size:.95rem;line-height:1.75;color:var(--ink-soft)}
 .privacy-reading{min-width:0}
-.privacy-draft{padding:0 0 1.25rem;margin-bottom:1.25rem}
-.privacy-draft strong{font-size:.68rem;font-weight:600;letter-spacing:.04em;color:var(--muted)}
-.privacy-draft p{font-size:.78rem;line-height:1.75;color:var(--muted);margin-top:.35rem;max-width:58ch}
 .privacy-prose{max-width:none}
 .privacy-prose>section{scroll-margin-top:7rem}
 .privacy-prose>section+section{margin-top:2.75rem}
@@ -1313,7 +1310,6 @@ a:hover>.link-icon-arrow,a:focus-visible>.link-icon-arrow{transform:translate(1p
  .privacy-updated br{display:none}
  .privacy-updated time{margin-left:.4rem}
  .privacy-head>p{font-size:.88rem}
- .privacy-draft{padding-bottom:.75rem}
  .privacy-prose h2{font-size:1.35rem;gap:.6rem}
  .privacy-prose>section+section{margin-top:2.25rem}
  .privacy-prose p,.privacy-prose ul{font-size:.88rem;line-height:1.8}

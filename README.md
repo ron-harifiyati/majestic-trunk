@@ -76,7 +76,7 @@ majestic-trunk/
 │  │  ├─ home.html
 │  │  ├─ experiences-index.html   experience.html
 │  │  ├─ lodges-index.html        lodge.html
-│  │  └─ about.html  contact.html  gallery.html  privacy.html
+│  │  └─ about.html  contact.html  privacy.html
 │  ├─ styles/
 │  │  ├─ tokens.css         #   design tokens — colors, type, spacing scale
 │  │  └─ site.css           #   component styles
